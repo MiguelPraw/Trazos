@@ -1,0 +1,100 @@
+#contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#botones {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.imagen {
+    width: 300px;
+    height: 200px;
+}
+
+.imagenFull {
+    width: 100%;
+    height: 100%;
+}
+
+.grid__img {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    background-color: #00000088;
+    color: white;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.overlay p {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.grid__img:hover .overlay{
+    pointer-events: initial;
+    opacity: 1;
+    height: 100%;
+}
+
+.desactivar {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #00000088;
+
+}
+
+.imagenModal {
+    max-width: 70%;
+}
+
+
+.divModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activo {
+    display: flex;
+}

@@ -1,0 +1,50 @@
+#sorteo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#datos {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#datos button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 20%;
+    transition: all 0.5s ease;
+}
+
+#datos button:hover {
+    background-color: goldenrod;
+    color: white;
+    cursor: pointer;
+}
+
+#personas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.persona {
+    border: 1px solid gainsboro;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.ganador {
+    color: white;
+    background-color: goldenrod;
+}

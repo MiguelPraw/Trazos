@@ -1,0 +1,27 @@
+#contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    font-family: monospace;
+}
+
+#texto::after {
+    content: "|";
+    font-size: 1.2em;
+    
+    animation: animado 0.3s infinite forwards;
+    
+}
+
+@keyframes animado {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

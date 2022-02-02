@@ -1,0 +1,67 @@
+#cronometro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#cronometro__numero, #tiempos {
+    font-family: monospace;
+}
+
+.numero {
+    font-size: 2.5em;
+}
+
+#botones button {
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10%;
+    margin: 10px;
+}
+
+.inactivo {
+    background-color: rgb(92, 55, 55);
+    opacity: 0.5;
+}
+
+#tiempos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tiempo {
+    width: 250px;
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tiempo span, .tiempo button {
+    padding: 15px;
+}
+
+.cerrar {
+    border: none;
+    background-color: white;
+    color: white;
+}
+
+.tiempo:hover .cerrar {
+    background-color: brown;
+}
+
+.tiempo:hover {
+    background-color: beige;
+    cursor: pointer;
+}
+
+.cerrar:hover {
+    cursor: pointer;
+}

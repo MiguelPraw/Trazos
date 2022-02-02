@@ -1,0 +1,25 @@
+#contenedor {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contenedor input, #contenedor textarea {
+    width: 100%;
+}
+
+#contenedor .info {
+    font-weight: bold;
+}
+
+#contenedor p {
+    margin: 0;
+}

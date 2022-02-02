@@ -1,0 +1,55 @@
+#juego {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: cornflowerblue;
+    font-family: sans-serif;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.casilla {
+    background-color: cornflowerblue;
+    width: 125px;
+    height: 125px;
+    transition: all 1s ease;
+}
+
+.casilla:hover {
+    opacity: 0.8;
+}
+
+.activo1 {
+    background-color: brown;
+}
+
+.activo2 {
+    background-color: darkgreen;
+}
+
+.resultados {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 2px solid cornflowerblue;
+}
+
+.estadisticas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin-top: 20px;
+    color: cornflowerblue;
+}
+
+.estadisticas h3 {
+    margin: 0;
+}
+
+
