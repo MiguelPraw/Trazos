@@ -1,0 +1,85 @@
+
+#gridCenterCenterShrink, #gridCenterCenterGrow, #gridSpaceWrap {
+    background-color: lightblue;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+}
+
+#gridCenterCenterShrink {
+    height: 300px;
+
+}
+
+#gridCenterCenterGrow {
+    height: 300px;
+}
+
+#gridSpaceWrap {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#gridColumn {
+    background-color: lightblue;
+    
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.cuadrado4:nth-child(even) {
+    align-self: flex-end;
+    margin-right: 1em;
+}
+
+.cuadrado4:nth-child(odd) {
+    align-self: flex-start;
+    margin-left: 1em;
+}
+
+.cuadrado, .cuadrado2, .cuadrado3, .cuadrado4 {
+    height: 100px;
+    width: 100px;
+    background-color: coral;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cuadrado {
+    
+    flex-shrink: 1;
+}
+
+.cuadrado2 {
+
+    flex-shrink: 0;
+}
+
+.ampliable {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 400px;
+}
+
+.cuadrado3 {
+    flex-shrink: 0;
+}
+
+.cuadrado4 {
+    width: 90%;
+    max-width: 800px;
+    flex-grow: 1;
+}
