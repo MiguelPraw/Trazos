@@ -1,0 +1,25 @@
+h1{
+    text-align: center;
+}
+
+#container, #grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#resultado {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+}
+
+.columna {
+    width: 500px;
+    display: flex;
+    background-color: coral;
+    justify-content: space-around;
+}
