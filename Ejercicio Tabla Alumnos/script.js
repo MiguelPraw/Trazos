@@ -105,14 +105,13 @@ function computaTablaActual () {
     });
 }
 
-nodoInputBusqueda.addEventListener ('keyup', () => {
+function filtraPorNombre () {
     borraTabla();
     let nombreBuscado = nodoInputBusqueda.value;
     if (nombreBuscado === "") {
         listaAlumnosActual = alumnos;
-        pintaAlumnos(listaAlumnosActual);
     } else {
-        let pattern = new RegExp("("+nombreBuscado+"){1,}", 'gi');
+        let pattern = new RegExp("(" + nombreBuscado + "){1,}", 'gi');
         let listaAux = [];
         listaAlumnosActual.forEach( alumno => {
             if (pattern.test(alumno.nombre)) {
@@ -120,19 +119,23 @@ nodoInputBusqueda.addEventListener ('keyup', () => {
             }
         });
         listaAlumnosActual = listaAux;
-        pintaAlumnos(listaAlumnosActual);
     }
+    pintaAlumnos(listaAlumnosActual);
+}
+
+nodoInputBusqueda.addEventListener ('keyup', () => {
+    filtraPorNombre();
 });
 
 nodoInputSelect.addEventListener ('input', () => {
     borraTabla();
-    let curso = nodoInputSelect.value;
-    if (curso === "Todos") { 
+    cursoActual = nodoInputSelect.value;
+    if (cursoActual === "Todos") { 
         listaAlumnosActual = alumnos;
     } else {
         let listaAux = [];
         listaAlumnosActual.forEach( alumno => {
-            if (alumno.curso === curso) {
+            if (alumno.curso === cursoActual) {
                 listaAux.push(alumno);
             }
         });
