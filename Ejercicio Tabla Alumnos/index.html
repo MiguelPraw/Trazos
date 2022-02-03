@@ -13,7 +13,7 @@
         <h1>Tabla Alumnos</h1>
         <div id="botones">
             <input type="search" id="busqueda">
-            <select name="select" id="">
+            <select name="select" id="select">
                 <option value="HTML">HTML</option>
                 <option value="JS">JS</option>
                 <option value="Todos" selected>Todos</option>
@@ -21,15 +21,27 @@
         </div>
         <table id="tabla">
             <thead>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Fecha</th>
-                <th>Nota</th>
-                <th>Curso</th>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha</th>
+                    <th id="nota">Nota</th>
+                    <th>Curso</th>
+                </tr>
             </thead>
             <tbody id="cuerpo">
 
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Número de alumnos visibles</td>
+                    <td>Nota media de los alumnos</td>
+                </tr>
+                <tr>
+                    <td colspan="4" id="nAlumnos"></td>
+                    <td id="notaMedia"></td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </body>

@@ -57,17 +57,24 @@ const alumnos = [
     }
 ];
 
+let listaAlumnosActual = alumnos;
+let cursoActual = "Todos";
+let estadoNotas = "ascendente";
+
 let nodoTabla = document.querySelector('#tabla');
 
 let nodoInputBusqueda = document.querySelector('#busqueda');
+let nodoInputSelect = document.querySelector('#select');
+let nodoNota = document.querySelector('#nota');
 
 function pintaAlumnos (listaAlumnos) {
     let nodoTBody = nodoTabla.querySelector('#cuerpo');
-    let nodoTr;
     listaAlumnos.forEach( alumno => {
-        nodoTr = pintaAlumno(alumno);
+        let nodoTr = pintaAlumno(alumno);
         nodoTBody.appendChild(nodoTr);
     });
+    imprimeNumeroAlumnos();
+    imprimeNotaMedia();
 }
 
 function pintaAlumno (alumno) {
@@ -81,31 +88,113 @@ function pintaAlumno (alumno) {
     return nodoTr;
 }
 
-function buscaEnCadena (cadena, buscado) {
-    if (cadena.includes(buscado)){
-        return true;
-    }
-    return false;
-}
-
-nodoInputBusqueda.addEventListener ('keyup', () => {
+function borraTabla () {
     let nodoTBody = nodoTabla.querySelector('tbody');
     let nodoTr = nodoTBody.querySelectorAll('tr');
     nodoTr.forEach(nodo => {
         nodoTBody.removeChild(nodo);
     });
-    let nombreBuscado = nodoInputBusqueda.value;
-    let alumnosNuevo = [];
-    alumnos.forEach( alumno => {
-        if (alumno.nombre.includes(nombreBuscado)) {
-            alumnosNuevo.push(alumno);
-        }
-    });
-    pintaAlumnos(alumnosNuevo);
-});
-
-function pintaAlumnos2 (nodoTr){
-
 }
 
-pintaAlumnos(alumnos);
+function computaTablaActual () {
+    let nodoTr = nodoTabla.querySelector('tbody').querySelectorAll('tr');
+    console.log(nodoTr);
+    console.log(listaAlumnosActual);
+    nodoTr.forEach(nodo => {
+        console.log(nodo);
+    });
+}
+
+nodoInputBusqueda.addEventListener ('keyup', () => {
+    borraTabla();
+    let nombreBuscado = nodoInputBusqueda.value;
+    if (nombreBuscado === "") {
+        listaAlumnosActual = alumnos;
+        pintaAlumnos(listaAlumnosActual);
+    } else {
+        let pattern = new RegExp("("+nombreBuscado+"){1,}", 'gi');
+        let listaAux = [];
+        listaAlumnosActual.forEach( alumno => {
+            if (pattern.test(alumno.nombre)) {
+                listaAux.push(alumno);
+            }
+        });
+        listaAlumnosActual = listaAux;
+        pintaAlumnos(listaAlumnosActual);
+    }
+});
+
+nodoInputSelect.addEventListener ('input', () => {
+    borraTabla();
+    let curso = nodoInputSelect.value;
+    if (curso === "Todos") { 
+        listaAlumnosActual = alumnos;
+    } else {
+        let listaAux = [];
+        listaAlumnosActual.forEach( alumno => {
+            if (alumno.curso === curso) {
+                listaAux.push(alumno);
+            }
+        });
+        listaAlumnosActual = listaAux;
+    }
+    pintaAlumnos(listaAlumnosActual);
+});
+
+function ordenaNotasMayorAMenor (array) {
+    return array.sort( (a, b) => {
+        if (a.nota > b.nota) {
+            return -1;
+        } else if (a.nota === b.nota) {
+            return 0;
+        } {
+            return 1;
+        }
+    });
+}
+
+function ordenaNotasMenorAMayor (array) {
+    return array.sort( (a, b) => {
+        if (a.nota < b.nota) {
+            return -1;
+        } else if (a.nota === b.nota) {
+            return 0;
+        } {
+            return 1;
+        }
+    });
+}
+
+nodoNota.addEventListener ('click', () => {
+    if (estadoNotas === "ascendente") {
+        listaAlumnosActual = ordenaNotasMayorAMenor(listaAlumnosActual);
+        estadoNotas = "descendente";
+    } else {
+        listaAlumnosActual = ordenaNotasMenorAMayor(listaAlumnosActual);
+        estadoNotas = "ascendente";
+    }
+    borraTabla();
+    pintaAlumnos(listaAlumnosActual);
+    computaTablaActual();
+})
+
+function imprimeNumeroAlumnos () {
+    let nodoNAlumnos = document.querySelector('#nAlumnos');
+    nodoNAlumnos.innerHTML = listaAlumnosActual.length;
+}
+
+function calculaNotaMedia () {
+    let suma = 0;
+    listaAlumnosActual.forEach(alumno => {
+        suma = suma + alumno.nota;
+    });
+    media = suma / listaAlumnosActual.length;
+    return media.toFixed(2);
+}
+
+function imprimeNotaMedia () {
+    let nodoNotaMedia = document.querySelector('#notaMedia');
+    nodoNotaMedia.innerHTML = calculaNotaMedia();
+}
+
+pintaAlumnos(listaAlumnosActual);
