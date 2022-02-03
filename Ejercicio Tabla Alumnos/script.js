@@ -105,7 +105,7 @@ nodoInputBusqueda.addEventListener ('keyup', () => {
 });
 
 function pintaAlumnos2 (nodoTr){
-    
+
 }
 
 pintaAlumnos(alumnos);
