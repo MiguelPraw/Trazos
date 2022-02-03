@@ -3,8 +3,6 @@
 let nodoContenedor = document.querySelector("#contenedor");
 let nodoEntrada = document.querySelector("#entrada");
 
-let string = "";
-
 function pintarTabla() {
 
     let cajaTabla = "<div class='caja'>";
@@ -20,9 +18,7 @@ function pintarTabla() {
     }
 
     nodoContenedor.innerHTML = cajaTabla;
-
 }
-
 
 function calculaTabla (numero) {
     let cadenaTabla = "";
