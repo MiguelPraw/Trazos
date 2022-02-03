@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script async defer src="script.js"></script>
+</head>
+<body>
+    
+    <h1>Calculadora</h1>    
+    <div id="calculadora">
+        <div class="casilla" id="resultado"> 0 </div>
+        <div onclick="numero(7)" class="casilla">7</div>
+        <div onclick="numero(8)" class="casilla">8</div>
+        <div onclick="numero(9)" class="casilla">9</div>
+        <div onclick="divide()" class="casilla simbolo">/</div>
+        <div onclick="numero(4)" class="casilla">4</div>
+        <div onclick="numero(5)" class="casilla">5</div>
+        <div onclick="numero(6)" class="casilla">6</div>
+        <div onclick="multiplica()" class="casilla simbolo">x</div>
+        <div onclick="numero(1)" class="casilla">1</div>
+        <div onclick="numero(2)" class="casilla">2</div>
+        <div onclick="numero(3)" class="casilla">3</div>
+        <div onclick="resta()" class="casilla simbolo">-</div>
+        <div onclick="numero(0)" class="casilla ancho">0</div>
+        <div onclick="igual()" class="casilla simbolo">=</div>
+        <div onclick="suma()" class="casilla simbolo">+</div>
+        <div onclick="reset()" class="casilla simbolo" id="reset">Reset</div>
+    </div>
+    
+</body>
+</html>

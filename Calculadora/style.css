@@ -1,0 +1,43 @@
+
+h1 {
+    text-align: center;
+}
+
+#calculadora {
+    display: grid;
+    grid-template-columns: 75px 75px 75px 75px;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultado {
+    background-color: whitesmoke;
+    color: black;
+    justify-content: right;
+    padding-right: 20px;
+}
+
+#resultado, #reset {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.casilla {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(63, 60, 60);
+    height: 75px;
+    font-size: 1.5em;
+    color: white;
+    border: 1px solid grey;
+}
+
+.simbolo {
+    background-color: rgb(238, 169, 22);
+}
+
+.ancho {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
