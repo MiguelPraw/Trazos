@@ -1,0 +1,67 @@
+
+h1 {
+    text-align: center;
+
+    font-family: sans-serif;
+}
+
+#datos {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+#calendario {
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 20px;
+}
+
+.mes {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(202, 197, 197);
+    width: 300px;
+    height: auto;
+    text-align: center;
+    padding-bottom: 20px;
+
+    color: white;
+}
+
+
+
+h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(68, 68, 175);
+    font-family: monospace;
+}
+
+.letra {
+    background-color: rgb(112 112 190);
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.dias {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    color: black;
+    font-family: sans-serif;
+}
+
+.dias span {
+    padding: 5px;
+}
+
