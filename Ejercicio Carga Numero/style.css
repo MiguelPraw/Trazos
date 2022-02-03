@@ -1,0 +1,23 @@
+#banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: brown;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(199, 191, 191);
+}
+
+span {
+    font-size: 4em;
+}
