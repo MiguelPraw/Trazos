@@ -1,6 +1,12 @@
 'use strict'
 
+let nodoEmpezar = document.querySelector("#empezar");
 let nodoJuego = document.querySelector("#juego");
+
+const WIN_CONDITION = 3;
+const TAMAÑO_TABLERO_DEFECTO = 4;
+const VARIABLE_JUGADOR1 = 1;
+const VARIABLE_JUGADOR2 = 2;
 
 class Juego {
     tablero;
@@ -71,22 +77,41 @@ class Jugador {
         let nodoH1 = document.createElement('h1');
         nodoH1.classList.add('jugador');
         nodoH1.innerHTML = "Turno de " + this.nombre;
+        nodoH1.classList.add('jugador1');
         return nodoH1;
     }
 }
 
+/**
+ * Le paso la posicion del array de casillas en la que he clickado
+ * y me devuelve la fila del array bidimensional
+ * @param {*} juego 
+ * @param {*} posicion 
+ * @returns 
+ */
 function calculoFila(juego, posicion){
     let dimension = juego.tablero.dimension;
     let fila = posicion / dimension;
     return Math.trunc(fila);
 }
 
+/**
+ * Le paso la posicion del array de casillas en la que he clickado
+ * y me devuelve la columna del array bidimensional
+ * @param {*} juego 
+ * @param {*} posicion 
+ * @returns 
+ */
 function calculoColumna (juego, posicion) {
     let dimension = juego.tablero.dimension;
     let columna = posicion % dimension;
     return columna;
 }
 
+/**
+ * Construye el nodo de la consola y lo devuelve
+ * @returns 
+ */
 function añadeConsola () {
     let nodoConsola = document.createElement('div');
     nodoConsola.classList.add('consola');
@@ -96,6 +121,10 @@ function añadeConsola () {
     return nodoConsola;
 }
 
+/**
+ * Actualiza las estadisticas de los jugadores y sus partidas ganadas
+ * @param {*} juego 
+ */
 function actualizaEstadisticas (juego) {
     let nodoEstadisticas = document.querySelectorAll('.estadisticas');
     nodoEstadisticas[0].querySelector('.estadisticas__jugador').innerHTML = juego.jugador1.nombre;
@@ -104,64 +133,132 @@ function actualizaEstadisticas (juego) {
     nodoEstadisticas[1].querySelector('.ganadas').innerHTML = juego.jugador2.ganadas;
 }
 
+/**
+ * Centraliza la comprobacion de filas y columnas,
+ * devuelve true si encuentra una combinacion ganadora de alguna de las dos
+ * @param {*} juego 
+ * @param {*} fila 
+ * @param {*} columna 
+ * @param {*} variableAComparar 
+ * @returns 
+ */
 function compruebaTresEnRaya (juego, fila, columna, variableAComparar) {
-    return compruebaFilas(juego, fila, variableAComparar) || compruebaColumnas(juego, columna, variableAComparar);
+    return compruebaFilas(juego, fila, variableAComparar) ||
+            compruebaColumnas(juego, columna, variableAComparar) ||
+            compruebaDiagonal(juego, variableAComparar);
 }
 
-function compruebaDiagonal (juego) {
+function compruebaDiagonal (juego, variableAComparar) {
     let encontrado = false;
     let i = 0;
     let j = 0;
-    let nCasillas = 0;
-    let variableAComparar;
-    if (juego.jugadorActivo === juego.jugador1) {
-        variableAComparar = 1;
-    } else {
-        variableAComparar = 2;
+    while (!encontrado && i < juego.tablero.dimension) {
+        while (!encontrado && j < juego.tablero.dimension) {
+            if (juego.tablero.tablero[i][j] === variableAComparar) {
+                encontrado = compruebaDiagonalDerecha(juego, variableAComparar, i, j) ||
+                            compruebaDiagonalIzquierda(juego, variableAComparar, i, j);
+            }
+            j++;
+        }
+        j = 0;
+        i++;
     }
-    while (!encontrado && i < juego.tablero.dimension && j < juego.tablero.dimension) {
-        
-    }
+    return encontrado;
 }
 
+function compruebaDiagonalIzquierda (juego, variableAComparar, fila, columna) {
+    let encontrado = false;
+    let nCasillas = 0;
+    while (!encontrado && fila < juego.tablero.dimension && columna >= 0) {
+        if (juego.tablero.tablero[fila][columna] === variableAComparar) {
+            nCasillas++;
+        } else {
+            nCasillas = 0;
+        } 
+        if (nCasillas === WIN_CONDITION) {
+            encontrado = true;
+        } else {
+            fila++;
+            columna--;
+        }
+    }
+    return encontrado;
+}
+
+function compruebaDiagonalDerecha (juego, variableAComparar, fila, columna) {
+    let encontrado = false;
+    let nCasillas = 0;
+    while (!encontrado && fila < juego.tablero.dimension && columna < juego.tablero.dimension) {
+        if (juego.tablero.tablero[fila][columna] === variableAComparar) {
+            nCasillas++;
+        } else {
+            nCasillas = 0;
+        } 
+        if (nCasillas === WIN_CONDITION) {
+            encontrado = true;
+        } else {
+            fila++;
+            columna++;
+        }
+    }
+    return encontrado;
+}
+
+/**
+ * Comprueba si existe una combinacion ganadora en la fila en la que he hecho click
+ * @param {*} juego 
+ * @param {*} fila 
+ * @param {*} variableAComparar 
+ * @returns 
+ */
 function compruebaFilas (juego, fila, variableAComparar) {
     let encontrado = false;
-    let i = 0;
+    let columna = 0;
     let nCasillas = 0;
-    while (!encontrado && i < juego.tablero.dimension) {
-        if (juego.tablero.tablero[fila][i] === variableAComparar) {
+    while (!encontrado && columna < juego.tablero.dimension) {
+        if (juego.tablero.tablero[fila][columna] === variableAComparar) {
             nCasillas++;
         } else {
             nCasillas = 0;
         }
-        if (nCasillas === 3) {
+        if (nCasillas === WIN_CONDITION) {
             encontrado = true;
         } else {
-            i++;
+            columna++;
         }
     }
     return encontrado;
 }
 
+/**
+ * Comprueba si existe una combinacion ganadora en la columna en la que he hecho click
+ * @param {*} juego 
+ * @param {*} columna 
+ * @param {*} variableAComparar 
+ * @returns 
+ */
 function compruebaColumnas (juego, columna, variableAComparar) {
     let encontrado = false;
-    let i = 0;
+    let fila = 0;
     let nCasillas = 0;
-    while (!encontrado && i < juego.tablero.dimension) {
-        if (juego.tablero.tablero[i][columna] === variableAComparar) {
+    while (!encontrado && fila < juego.tablero.dimension) {
+        if (juego.tablero.tablero[fila][columna] === variableAComparar) {
             nCasillas++;
         } else {
             nCasillas = 0;
         }
-        if (nCasillas === 3) {
+        if (nCasillas === WIN_CONDITION) {
             encontrado = true;
         } else {
-            i++;
+            fila++;
         }
     }
     return encontrado;
 }
 
+/**
+ * Reinicio las clases del CSS que se han puesto durante el juego
+ */
 function reiniciaClases() {
     let nodoCasillas = nodoJuego.querySelectorAll('.casilla');
     for(let i = 0; i < nodoCasillas.length; i++) {
@@ -170,9 +267,12 @@ function reiniciaClases() {
     }
 }
 
+/**
+ * Reinicia el array del tablero, el jugador, las clases CSS y actualiza las estadisticas
+ * @param {*} juego 
+ */
 function reiniciaJuego (juego) {
-    juego.reiniciaTablero(4);
-    juego.jugadorActivo = juego.jugador1;
+    juego.reiniciaTablero(TAMAÑO_TABLERO_DEFECTO);
     reiniciaClases();
     actualizaEstadisticas(juego);
 }
@@ -188,45 +288,79 @@ function inicializaJuego (juego) {
     nodoJuego.append(nodoConsola);
 }
 
-function logicaJuego(juego, i, variableAComparar, nodoH2){
-    juego.tablero.tablero[calculoFila(juego, i)][calculoColumna(juego, i)] = variableAComparar;
-    if (compruebaTresEnRaya(juego, calculoFila(juego, i), calculoColumna(juego, i), variableAComparar)) {
-        nodoH2.innerHTML = "Ganaste " + juego.jugadorActivo.nombre;
+function actualizaGanadorJuego (juego) {
+    if (juego.jugadorActivo === juego.jugador1) {
         juego.jugador1.ganaPartida();
+    } else {
+        juego.jugador2.ganaPartida();
+    }
+}
+
+function gestionaColores (nodoJugador, juego) {
+    nodoJugador.innerHTML = "Turno de " + juego.jugadorActivo.nombre;
+    if (juego.jugadorActivo === juego.jugador1) {
+        nodoJugador.classList.remove('jugador2');
+        nodoJugador.classList.add('jugador1');
+    } else {
+        nodoJugador.classList.remove('jugador1');
+        nodoJugador.classList.add('jugador2');
+    }
+}
+
+function logicaJuego(juego,  fila, columna, variableAComparar, nodoH2){
+    juego.tablero.tablero[fila][columna] = variableAComparar;
+    if (compruebaTresEnRaya(juego, fila, columna, variableAComparar)) {
+        nodoH2.innerHTML = "Ganaste " + juego.jugadorActivo.nombre;
+        actualizaGanadorJuego(juego);
         reiniciaJuego(juego);
     } else {
         nodoH2.innerHTML = "Tres en raya";
+        juego.cambiaJugadorActivo();
     }
-    juego.cambiaJugadorActivo();
 }
 
-function juego () {
+function empiezaJuego (juego) {
 
-    let juego = new Juego (4, "Jugador 1", "Jugador 2");
     inicializaJuego(juego);
 
-    let nodoConsola = nodoJuego.querySelector('.consola');
     let nodoJugador = nodoJuego.querySelector('.jugador');
+    let nodoConsola = nodoJuego.querySelector('.consola');
     let nodoH2 = nodoConsola.querySelector('h2');
-    
+
     let nodoCasillas = nodoJuego.querySelectorAll('.casilla');
-    for(let i = 0; i < nodoCasillas.length; i++) {
+    for (let i = 0; i < nodoCasillas.length; i++) {
     
         nodoCasillas[i].addEventListener('click', function (){
-            if (juego.tablero.tablero[calculoFila(juego, i)][calculoColumna(juego, i)] !== 0) {
+            let fila = calculoFila(juego, i);
+            let columna = calculoColumna(juego, i);
+            if (juego.tablero.tablero[fila][columna] !== 0) {
                 nodoH2.innerHTML = "Ya está seleccionada";
             } else {
                 if (juego.jugadorActivo === juego.jugador1) {
                     nodoCasillas[i].classList.add('activo1');
-                    logicaJuego(juego, i, 1, nodoH2);
+                    logicaJuego(juego, fila, columna, VARIABLE_JUGADOR1, nodoH2);
                 } else {
                     nodoCasillas[i].classList.add('activo2');
-                    logicaJuego(juego, i, 2, nodoH2);
+                    logicaJuego(juego, fila, columna, VARIABLE_JUGADOR2, nodoH2);
                 }
             }
-            nodoJugador.innerHTML = "Turno de " + juego.jugadorActivo.nombre;
+            gestionaColores (nodoJugador, juego);
         });
     }
 }
 
-juego();
+nodoEmpezar.addEventListener ('click', () => {
+    let nodoModal = document.querySelector("#modal");
+    let nodoJugador1 = nodoModal.querySelector("#jugador1");
+    let nodoJugador2 = nodoModal.querySelector("#jugador2");
+    let nodoDimension = nodoModal.querySelector("#dimension");
+
+    if (nodoJugador1.value === "" || nodoJugador2.value === "" || nodoDimension.value === "") {
+        let nodoConsola = nodoModal.querySelector("#consola");
+        nodoConsola.innerHTML = "Introduce todos los campos";
+    } else {
+        nodoModal.classList.add("empezado");
+        let juego = new Juego (nodoDimension.value, nodoJugador1.value, nodoJugador2.value);
+        empiezaJuego(juego);
+    }
+});
