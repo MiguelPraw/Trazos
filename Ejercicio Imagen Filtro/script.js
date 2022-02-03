@@ -13,11 +13,14 @@ document.querySelector('body').addEventListener('mousemove', function (evento) {
 
 });
 
-nodoBanner2.addEventListener('mousemove', function (evento) {
+document.querySelector('body').addEventListener('mousemove', function (evento) {
 
-    let x = evento.offsetX;
-    let y = evento.offsetY;
-    
+    let x = evento.clientX;
+    let y = evento.clientY;
+    y = y - nodoBanner2.offsetTop;
+    if (y < 0) {
+        y = 0;
+    }
     nodoEfecto.style.width = x + "px";
     nodoEfecto.style.height = y + "px";
 
