@@ -97,57 +97,58 @@ function borraTabla () {
     });
 }
 
-function computaTablaActual () {
-    let nodoTr = nodoTabla.querySelector('tbody').querySelectorAll('tr');
-    console.log(nodoTr);
-    console.log(listaAlumnosActual);
-    nodoTr.forEach(nodo => {
-        console.log(nodo);
-    });
-}
-
-function filtraPorNombre () {
-    borraTabla();
+function devuelveListaPorNombre (listaActual) {
     let nombreBuscado = nodoInputBusqueda.value;
+    let listaAux = [];
     if (nombreBuscado === "") {
-        listaAlumnosActual = alumnos;
+        listaAux = listaActual;
     } else {
-        let pattern = new RegExp("(" + nombreBuscado + "){1,}", 'gi');
-        let listaAux = [];
-        listaAlumnosActual.forEach( alumno => {
+        let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
+        listaActual.forEach( alumno => {
             if (alumno.nombre.match(pattern)) {
                 listaAux.push(alumno);
             }
         });
-        listaAlumnosActual = listaAux;
+        console.log("listaAuxInput", listaAux);
     }
+    return listaAux;
+}
+
+function devuelveListaPorCurso (listaActual) {
+    cursoActual = nodoInputSelect.value;
+    let listaAux = [];
+    if (cursoActual === "Todos") {
+        listaAux = listaActual;
+    } else {
+        listaActual.forEach( alumno => {
+            if (alumno.curso === cursoActual) {
+                listaAux.push(alumno);
+            }
+        });
+    }
+    return listaAux;
+}
+
+//TENGO QUE HACER UNA FUNCION UNICA QUE COMPARE LAS DOS COSAS Y YA ESTA
+
+function filtra () {
+    borraTabla();
+    listaAlumnosActual = devuelveListaPorCurso(listaAlumnosActual);
+    listaAlumnosActual = devuelveListaPorNombre(listaAlumnosActual);
     pintaAlumnos(listaAlumnosActual);
 }
 
-nodoInputBusqueda.addEventListener ('keyup', () => {
-    filtraPorNombre();
+nodoInputBusqueda.addEventListener ('keyup', (evento) => {
+    filtra();
+});
+
+nodoInputSelect.addEventListener ('input', () => {
+    filtra();
 });
 
 nodoInputFecha.addEventListener ('input', () => {
     console.log(nodoInputFecha.value);
 })
-
-nodoInputSelect.addEventListener ('input', () => {
-    borraTabla();
-    cursoActual = nodoInputSelect.value;
-    if (cursoActual === "Todos") { 
-        listaAlumnosActual = alumnos;
-    } else {
-        let listaAux = [];
-        listaAlumnosActual.forEach( alumno => {
-            if (alumno.curso === cursoActual) {
-                listaAux.push(alumno);
-            }
-        });
-        listaAlumnosActual = listaAux;
-    }
-    pintaAlumnos(listaAlumnosActual);
-});
 
 function ordenaNotasMayorAMenor (array) {
     return array.sort( (a, b) => {
@@ -183,12 +184,15 @@ nodoNota.addEventListener ('click', () => {
     }
     borraTabla();
     pintaAlumnos(listaAlumnosActual);
-    computaTablaActual();
 })
 
 function imprimeNumeroAlumnos () {
     let nodoNAlumnos = document.querySelector('#nAlumnos');
-    nodoNAlumnos.innerHTML = listaAlumnosActual.length;
+    if (listaAlumnosActual.lenght === "NaN") {
+        nodoNAlumnos.innerHTML = 0;
+    } else {
+        nodoNAlumnos.innerHTML = listaAlumnosActual.length;
+    }
 }
 
 function calculaNotaMedia () {
@@ -202,7 +206,12 @@ function calculaNotaMedia () {
 
 function imprimeNotaMedia () {
     let nodoNotaMedia = document.querySelector('#notaMedia');
-    nodoNotaMedia.innerHTML = calculaNotaMedia();
+    let media = calculaNotaMedia();
+    if (media === "NaN") {
+        nodoNotaMedia.innerHTML = 0;
+    } else {
+        nodoNotaMedia.innerHTML = media;
+    }
 }
 
 pintaAlumnos(listaAlumnosActual);
