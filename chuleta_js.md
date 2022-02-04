@@ -100,3 +100,36 @@ nodoBody.addEventListener ('mousemove', function () {
 
 
 ```
+
+### PROMESAS JS
+
+```js
+
+function readFilePromise ( file ) {
+    // resolve -> callback -> Se ejecuta el codigo que hay en el then
+    // reject -> callback -> Se ejecuta el codigo que hay en el catch
+    return new Promise ( ( resolve , reject ) => {
+        let texto = "Lorem ipsum";
+
+        let time = Math.random() * 3000 + 500;
+        let err = Math.random() > 0.8;
+
+        setTimeout( () => {
+            if (err) {
+                reject ('Error en el archivo');
+            } else {
+                resolve(texto);
+            }
+        }, time);
+    });
+}
+
+let promesa_contenido = redFilePromise ( 'miTexto.txt' );
+console.log ( promesa_contenido );
+promesa_contenido.then( ( respuesta ) => {
+    console.log (respuesta); // texto
+} ).catch (error => {
+    console.log(error); // Error en el archivo
+});
+
+```
