@@ -115,7 +115,7 @@ function filtraPorNombre () {
         console.log(pattern);
         let listaAux = [];
         listaAlumnosActual.forEach( alumno => {
-            if (pattern.test(alumno.nombre)) {
+            if (alumno.nombre.match(pattern)) {
                 listaAux.push(alumno);
             }
         });
