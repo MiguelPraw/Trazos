@@ -103,6 +103,8 @@ nodoBody.addEventListener ('mousemove', function () {
 
 ### PROMESAS JS
 
+## Creación y resolucion de promesas
+
 ```js
 
 function readFilePromise ( file ) {
@@ -131,5 +133,33 @@ promesa_contenido.then( ( respuesta ) => {
 } ).catch (error => {
     console.log(error); // Error en el archivo
 });
+
+```
+
+## AWAIT
+
+```js
+    // Hay que poner async si usamos await
+    async function getContenido () {
+
+        /*
+            Este contenido, cuando se usa await -> Desenvuelve la promesa DIRECTAMENTE dentro de la variable.
+            Resolve ( datos ) -> contenido = datos;
+            Reject ( texto ) -> error = texto;
+         */
+        try {
+            let contenido = await readFilePromise ( 'File' );
+            console.log ( contenido );
+            let archivoSecurizado = await securizaArchivo ();
+            console.log (archivoSecurizado);
+        } catch (error) {
+            console.log(error);
+        }
+
+        // Centraliza los errores de los reject en el catch
+        // Si a contenido le llega un reject, se salta la ejecucion del codigo y redirige el flujo al catch
+    }
+
+    getContenido();
 
 ```

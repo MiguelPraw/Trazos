@@ -64,6 +64,7 @@ let estadoNotas = "ascendente";
 let nodoTabla = document.querySelector('#tabla');
 
 let nodoInputBusqueda = document.querySelector('#busqueda');
+let nodoInputFecha = document.querySelector('#fecha');
 let nodoInputSelect = document.querySelector('#select');
 let nodoNota = document.querySelector('#nota');
 
@@ -112,7 +113,6 @@ function filtraPorNombre () {
         listaAlumnosActual = alumnos;
     } else {
         let pattern = new RegExp("(" + nombreBuscado + "){1,}", 'gi');
-        console.log(pattern);
         let listaAux = [];
         listaAlumnosActual.forEach( alumno => {
             if (alumno.nombre.match(pattern)) {
@@ -127,6 +127,10 @@ function filtraPorNombre () {
 nodoInputBusqueda.addEventListener ('keyup', () => {
     filtraPorNombre();
 });
+
+nodoInputFecha.addEventListener ('input', () => {
+    console.log(nodoInputFecha.value);
+})
 
 nodoInputSelect.addEventListener ('input', () => {
     borraTabla();
