@@ -112,6 +112,7 @@ function filtraPorNombre () {
         listaAlumnosActual = alumnos;
     } else {
         let pattern = new RegExp("(" + nombreBuscado + "){1,}", 'gi');
+        console.log(pattern);
         let listaAux = [];
         listaAlumnosActual.forEach( alumno => {
             if (pattern.test(alumno.nombre)) {
