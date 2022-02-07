@@ -104,23 +104,22 @@ function devuelveListaPorNombre (listaActual) {
         listaAux = listaActual;
     } else {
         let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
-        listaActual.forEach( alumno => {
+        alumnos.forEach( alumno => {
             if (alumno.nombre.match(pattern)) {
                 listaAux.push(alumno);
             }
         });
-        console.log("listaAuxInput", listaAux);
     }
     return listaAux;
 }
 
 function devuelveListaPorCurso (listaActual) {
-    cursoActual = nodoInputSelect.value;
+    let curso = nodoInputSelect.value;
     let listaAux = [];
-    if (cursoActual === "Todos") {
-        listaAux = listaActual;
+    if (curso === "Todos") {
+        listaAux = alumnos;
     } else {
-        listaActual.forEach( alumno => {
+        alumnos.forEach( alumno => {
             if (alumno.curso === cursoActual) {
                 listaAux.push(alumno);
             }
@@ -129,16 +128,32 @@ function devuelveListaPorCurso (listaActual) {
     return listaAux;
 }
 
-//TENGO QUE HACER UNA FUNCION UNICA QUE COMPARE LAS DOS COSAS Y YA ESTA
+function devuelveListaFiltrada (listaActual) {
+    let curso = nodoInputSelect.value;
+    let nombreBuscado = nodoInputBusqueda.value;
+    let listaAux = [];
+    if (nombreBuscado === "") {
+        listaAux = devuelveListaPorCurso(listaActual);
+    } else if (curso === "Todos") {
+        listaAux = devuelveListaPorNombre(listaActual);
+    } else if (nombreBuscado !== "") {
+        let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
+        alumnos.forEach( alumno => {
+            if (alumno.nombre.match(pattern) && alumno.curso === curso) {
+                listaAux.push(alumno);
+            }
+        });
+    }
+    return listaAux;
+}
 
 function filtra () {
     borraTabla();
-    listaAlumnosActual = devuelveListaPorCurso(listaAlumnosActual);
-    listaAlumnosActual = devuelveListaPorNombre(listaAlumnosActual);
+    listaAlumnosActual = devuelveListaFiltrada(listaAlumnosActual);
     pintaAlumnos(listaAlumnosActual);
 }
 
-nodoInputBusqueda.addEventListener ('keyup', (evento) => {
+nodoInputBusqueda.addEventListener ('keyup', () => {
     filtra();
 });
 
