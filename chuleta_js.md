@@ -128,7 +128,7 @@ function readFilePromise ( file ) {
 
 let promesa_contenido = redFilePromise ( 'miTexto.txt' );
 console.log ( promesa_contenido );
-promesa_contenido.then( ( respuesta ) => {
+promesa_contenido.then( respuesta => {
     console.log (respuesta); // texto
 } ).catch (error => {
     console.log(error); // Error en el archivo
@@ -161,5 +161,26 @@ promesa_contenido.then( ( respuesta ) => {
     }
 
     getContenido();
+
+```
+
+### JQuery
+
+```js
+
+$('.cuadrado).on( {
+
+    click: function () {
+        console.log('click en cada elemento');
+        this.classList.toggle('selected');
+
+        //Todo elemento NATIVO puede convertirse a jQuery
+        // $( nodoNativo ) => elemento_jQuery
+
+        $( this ).toggleClass('selected');
+
+    }
+
+});
 
 ```
