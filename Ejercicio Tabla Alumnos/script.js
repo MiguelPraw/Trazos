@@ -113,7 +113,7 @@ function devuelveListaPorNombre (listaActual) {
     return listaAux;
 }
 
-function devuelveListaPorCurso (listaActual) {
+function devuelveListaPorCurso () {
     let curso = nodoInputSelect.value;
     let listaAux = [];
     if (curso === "Todos") {
@@ -128,12 +128,16 @@ function devuelveListaPorCurso (listaActual) {
     return listaAux;
 }
 
+function filtraListaPorFecha () {
+
+}
+
 function devuelveListaFiltrada (listaActual) {
     let curso = nodoInputSelect.value;
     let nombreBuscado = nodoInputBusqueda.value;
     let listaAux = [];
     if (nombreBuscado === "") {
-        listaAux = devuelveListaPorCurso(listaActual);
+        listaAux = devuelveListaPorCurso();
     } else if (curso === "Todos") {
         listaAux = devuelveListaPorNombre(listaActual);
     } else if (nombreBuscado !== "") {
@@ -163,6 +167,13 @@ nodoInputSelect.addEventListener ('input', () => {
 
 nodoInputFecha.addEventListener ('input', () => {
     console.log(nodoInputFecha.value);
+    let cadena = nodoInputFecha.value.split('-');
+    alumnos.forEach( alumno => {
+        if (cadena[1] === alumno.fecha.split('/')[2]) {
+            console.log(alumno);
+        }
+    })
+    console.log(cadena);
 })
 
 function ordenaNotasMayorAMenor (array) {
