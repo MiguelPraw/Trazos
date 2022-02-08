@@ -86,6 +86,10 @@ function pintaAlumno (alumno) {
         nodoTd.innerHTML = cadaElemento;
         nodoTr.appendChild(nodoTd);
     });
+    nodoCerrar = document.createElement('td');
+    nodoCerrar.classList.add('cerrar');
+    nodoCerrar.innerHTML = '✖';
+    nodoTr.appendChild(nodoCerrar);
     return nodoTr;
 }
 
@@ -128,7 +132,7 @@ function devuelveListaPorCurso (listaActual) {
     return listaAux;
 }
 
-function devuelveListaPorFecha (listaActual) {
+function devuelveListaPorFecha () {
     let cadena = nodoInputFecha.value.split('-');
     let listaAux = [];
     if (cadena[0].match(/^[1-9]/gi)) {
@@ -146,39 +150,20 @@ function devuelveListaPorFecha (listaActual) {
 function devuelveListaFiltrada (listaActual) {
     let curso = nodoInputSelect.value;
     let nombreBuscado = nodoInputBusqueda.value;
-    let fecha = nodoInputFecha.value.split('-');
     let listaAux = [];
-    debugger;
-    if (cambio === "nombre") {
-        listaAux = devuelveListaPorNombre(listaActual);
-    } else if (cambio === "fecha") {
-        listaAux = devuelveListaPorFecha(listaActual);
-    } else if (cambio === "curso") {
-        listaAux = devuelveListaPorCurso(listaActual);
-    } else {
-        console.log("lol");
-    }
 
-    // if (fecha !== [] && nombreBuscado === "" && curso === "Todos") {
-    //     listaAux = devuelveListaPorFecha(listaActual);
-    // } else if (fecha !== [] && nombreBuscado !== "" && curso === "Todos"){
-    //     listaAux;
-    // }
-    //     if (nombreBuscado === "") {
-    //         listaAux = devuelveListaPorCurso(listaActual);
-    //     } else if (curso === "Todos") {
-    //         listaAux = devuelveListaPorNombre(listaActual);
-    //     } else if (nombreBuscado !== "") {
-    //         let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
-    //         alumnos.forEach( alumno => {
-    //             if (alumno.nombre.match(pattern) && alumno.curso === curso &&
-    //                 cadena[0].includes(alumno.fecha.split('/')[2]) && 
-    //                 cadena[1].includes(alumno.fecha.split('/')[1])) {
-    //                 listaAux.push(alumno);
-    //             }
-    //         });
-    //     }
-    
+    if (nombreBuscado === "") {
+        listaAux = devuelveListaPorCurso(listaActual);
+    } else if (curso === "Todos") {
+        listaAux = devuelveListaPorNombre(listaActual);
+    } else if (nombreBuscado !== "") {
+        let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
+        alumnos.forEach( alumno => {
+            if (alumno.nombre.match(pattern) && alumno.curso === curso) {
+                listaAux.push(alumno);
+            }
+        });
+    }
     return listaAux;
 }
 
@@ -251,7 +236,6 @@ function imprimeNotaMedia () {
         nodoNotaMedia.innerHTML = media;
     }
 }
-
 
 nodoInputBusqueda.addEventListener ('keyup', () => {
     cambio = "nombre";

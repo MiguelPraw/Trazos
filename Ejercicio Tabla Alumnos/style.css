@@ -16,7 +16,7 @@ th {
     background-color: tomato;
 }
 
-th:hover {
+#nota:hover {
     background-color: rgb(248, 75, 44);
     cursor: pointer;
 }
@@ -28,6 +28,15 @@ th, td {
 
 tbody tr:nth-child(odd) {
     background-color: lavender;
+}
+
+.cerrar {
+    background-color: rgb(238, 122, 102);
+}
+
+.cerrar:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 tfoot {
