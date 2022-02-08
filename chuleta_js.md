@@ -168,7 +168,7 @@ promesa_contenido.then( respuesta => {
 
 ```js
 
-$('.cuadrado).on( {
+$('.cuadrado').on( {
 
     click: function () {
         console.log('click en cada elemento');
@@ -222,9 +222,38 @@ $('btn').on( {
                 'width':'150px'
             });
         }
-
-        // Despues de animate puedes hacer una function de callback, o volver a poner un .animate porque el .animate devuelve el mismo objeto jQuery
-
     })
+
+    // Despues de animate puedes hacer una function de callback, o volver a poner un .animate porque el .animate devuelve el mismo objeto jQuery
+
+```
+
+## Cambiar Imagen
+
+```html
+
+<button id="btnChange"> Cambia Imagen </button>
+<img src="https://picsum.photos/id/237/200/300" alt="">
+
+
+```
+
+```js
+
+$('#btnChange').on({
+    click: function () {
+        let oldSrc = $('img').attr('src');
+        let randomImg = Math.trunc(Math.random() * 100 + 200);
+        let nuevoValor = `https://picsum.photos/id/${randomImg}/200/300`;
+        $('img').attr('src', nuevoValor);
+    }
+});
+
+$('img').on({
+    error: function () {
+        console.log("ERROR");
+        $(this).attr('src', 'https://picsum.photos/id/237/200/300');
+    }
+});
 
 ```
