@@ -59,7 +59,6 @@ const alumnos = [
 
 let listaAlumnosActual = alumnos;
 let estadoNotas = "ascendente";
-let cambio;
 
 let nodoTabla = document.querySelector('#tabla');
 
@@ -90,6 +89,12 @@ function pintaAlumno (alumno) {
     nodoCerrar.classList.add('cerrar');
     nodoCerrar.innerHTML = '✖';
     nodoTr.appendChild(nodoCerrar);
+
+    nodoCerrar.addEventListener('click', () => {
+        let nodoTBody = nodoTabla.querySelector('tbody');
+        nodoTBody.removeChild(nodoTr);
+    });
+
     return nodoTr;
 }
 
@@ -197,18 +202,6 @@ function ordenaNotasMenorAMayor (array) {
     });
 }
 
-nodoNota.addEventListener ('click', () => {
-    if (estadoNotas === "ascendente") {
-        listaAlumnosActual = ordenaNotasMayorAMenor(listaAlumnosActual);
-        estadoNotas = "descendente";
-    } else {
-        listaAlumnosActual = ordenaNotasMenorAMayor(listaAlumnosActual);
-        estadoNotas = "ascendente";
-    }
-    borraTabla();
-    pintaAlumnos(listaAlumnosActual);
-})
-
 function imprimeNumeroAlumnos () {
     let nodoNAlumnos = document.querySelector('#nAlumnos');
     if (listaAlumnosActual.lenght === "NaN") {
@@ -237,6 +230,18 @@ function imprimeNotaMedia () {
     }
 }
 
+nodoNota.addEventListener ('click', () => {
+    if (estadoNotas === "ascendente") {
+        listaAlumnosActual = ordenaNotasMayorAMenor(listaAlumnosActual);
+        estadoNotas = "descendente";
+    } else {
+        listaAlumnosActual = ordenaNotasMenorAMayor(listaAlumnosActual);
+        estadoNotas = "ascendente";
+    }
+    borraTabla();
+    pintaAlumnos(listaAlumnosActual);
+});
+
 nodoInputBusqueda.addEventListener ('keyup', () => {
     cambio = "nombre";
     filtra();
@@ -253,6 +258,6 @@ nodoInputFecha.addEventListener ('input', () => {
         cambio = "fecha";
         filtra();
     }
-})
+});
 
 pintaAlumnos(listaAlumnosActual);
