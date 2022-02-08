@@ -31,12 +31,3 @@ function ejecutaDNI () {
 function devuelveLetraDNI (dni) {
     return arrayLetras[dni%INDICE];
 }
-
-function sema () {
-        let letraDNI = devuelveLetraDNI(Number(nodoNumero.value));
-        if (letraDNI === nodoLetra.value) {
-            nodoResultado.innerHTML = "El número y la letra introducidos son correctos.";
-        } else {
-            nodoResultado.innerHTML = "La letra introducida no se corresponde con el número."
-        }
-}
