@@ -157,25 +157,6 @@ function filtra () {
     pintaAlumnos(listaAlumnosActual);
 }
 
-nodoInputBusqueda.addEventListener ('keyup', () => {
-    filtra();
-});
-
-nodoInputSelect.addEventListener ('input', () => {
-    filtra();
-});
-
-nodoInputFecha.addEventListener ('input', () => {
-    console.log(nodoInputFecha.value);
-    let cadena = nodoInputFecha.value.split('-');
-    alumnos.forEach( alumno => {
-        if (cadena[1] === alumno.fecha.split('/')[2]) {
-            console.log(alumno);
-        }
-    })
-    console.log(cadena);
-})
-
 function ordenaNotasMayorAMenor (array) {
     return array.sort( (a, b) => {
         if (a.nota > b.nota) {
@@ -239,5 +220,25 @@ function imprimeNotaMedia () {
         nodoNotaMedia.innerHTML = media;
     }
 }
+
+
+nodoInputBusqueda.addEventListener ('keyup', () => {
+    filtra();
+});
+
+nodoInputSelect.addEventListener ('input', () => {
+    filtra();
+});
+
+nodoInputFecha.addEventListener ('input', () => {
+    console.log(nodoInputFecha.value);
+    let cadena = nodoInputFecha.value.split('-');
+    alumnos.forEach( alumno => {
+        if (cadena[1] === alumno.fecha.split('/')[2]) {
+            console.log(alumno);
+        }
+    })
+    console.log(cadena);
+})
 
 pintaAlumnos(listaAlumnosActual);

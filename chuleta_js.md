@@ -184,3 +184,47 @@ $('.cuadrado).on( {
 });
 
 ```
+
+## Hide, Show, Toggle, Slide
+
+```js
+
+$('btn').on( {
+   
+   click: function () {
+       /*
+       $('h1').hide(3000, () => {
+           $('h1').show(1000);
+       });
+       */
+
+        $('h1').hide ({
+            duration: 3000,
+            easing: 'linear'
+        });
+   }
+});
+
+```
+
+## Animate
+
+```js
+
+    $('#cuadrado').on({
+        
+        click: function () {
+            $(this).animate({
+                'width':'200px',
+                'height':'200px',
+                'left':'100px'
+            }, 1000).animate({
+                'width':'150px'
+            });
+        }
+
+        // Despues de animate puedes hacer una function de callback, o volver a poner un .animate porque el .animate devuelve el mismo objeto jQuery
+
+    })
+
+```
