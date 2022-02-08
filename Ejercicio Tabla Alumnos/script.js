@@ -58,8 +58,8 @@ const alumnos = [
 ];
 
 let listaAlumnosActual = alumnos;
-let cursoActual = "Todos";
 let estadoNotas = "ascendente";
+let cambio;
 
 let nodoTabla = document.querySelector('#tabla');
 
@@ -101,7 +101,7 @@ function devuelveListaPorNombre (listaActual) {
     let nombreBuscado = nodoInputBusqueda.value;
     let listaAux = [];
     if (nombreBuscado === "") {
-        listaAux = listaActual;
+        listaAux = alumnos;
     } else {
         let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
         alumnos.forEach( alumno => {
@@ -113,14 +113,14 @@ function devuelveListaPorNombre (listaActual) {
     return listaAux;
 }
 
-function devuelveListaPorCurso () {
+function devuelveListaPorCurso (listaActual) {
     let curso = nodoInputSelect.value;
     let listaAux = [];
     if (curso === "Todos") {
         listaAux = alumnos;
     } else {
-        alumnos.forEach( alumno => {
-            if (alumno.curso === cursoActual) {
+        listaActual.forEach( alumno => {
+            if (alumno.curso === curso) {
                 listaAux.push(alumno);
             }
         });
@@ -128,26 +128,57 @@ function devuelveListaPorCurso () {
     return listaAux;
 }
 
-function filtraListaPorFecha () {
-
+function devuelveListaPorFecha (listaActual) {
+    let cadena = nodoInputFecha.value.split('-');
+    let listaAux = [];
+    if (cadena[0].match(/^[1-9]/gi)) {
+        alumnos.forEach( alumno => {
+            if (cadena[0].includes(alumno.fecha.split('/')[2]) && cadena[1].includes(alumno.fecha.split('/')[1])) {
+                listaAux.push(alumno);
+            }
+        });
+    } else {
+        listaAux = alumnos;
+    }
+    return listaAux;
 }
 
 function devuelveListaFiltrada (listaActual) {
     let curso = nodoInputSelect.value;
     let nombreBuscado = nodoInputBusqueda.value;
+    let fecha = nodoInputFecha.value.split('-');
     let listaAux = [];
-    if (nombreBuscado === "") {
-        listaAux = devuelveListaPorCurso();
-    } else if (curso === "Todos") {
+    debugger;
+    if (cambio === "nombre") {
         listaAux = devuelveListaPorNombre(listaActual);
-    } else if (nombreBuscado !== "") {
-        let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
-        alumnos.forEach( alumno => {
-            if (alumno.nombre.match(pattern) && alumno.curso === curso) {
-                listaAux.push(alumno);
-            }
-        });
+    } else if (cambio === "fecha") {
+        listaAux = devuelveListaPorFecha(listaActual);
+    } else if (cambio === "curso") {
+        listaAux = devuelveListaPorCurso(listaActual);
+    } else {
+        console.log("lol");
     }
+
+    // if (fecha !== [] && nombreBuscado === "" && curso === "Todos") {
+    //     listaAux = devuelveListaPorFecha(listaActual);
+    // } else if (fecha !== [] && nombreBuscado !== "" && curso === "Todos"){
+    //     listaAux;
+    // }
+    //     if (nombreBuscado === "") {
+    //         listaAux = devuelveListaPorCurso(listaActual);
+    //     } else if (curso === "Todos") {
+    //         listaAux = devuelveListaPorNombre(listaActual);
+    //     } else if (nombreBuscado !== "") {
+    //         let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
+    //         alumnos.forEach( alumno => {
+    //             if (alumno.nombre.match(pattern) && alumno.curso === curso &&
+    //                 cadena[0].includes(alumno.fecha.split('/')[2]) && 
+    //                 cadena[1].includes(alumno.fecha.split('/')[1])) {
+    //                 listaAux.push(alumno);
+    //             }
+    //         });
+    //     }
+    
     return listaAux;
 }
 
@@ -223,22 +254,21 @@ function imprimeNotaMedia () {
 
 
 nodoInputBusqueda.addEventListener ('keyup', () => {
+    cambio = "nombre";
     filtra();
 });
 
 nodoInputSelect.addEventListener ('input', () => {
+    cambio = "curso";
     filtra();
 });
 
 nodoInputFecha.addEventListener ('input', () => {
-    console.log(nodoInputFecha.value);
     let cadena = nodoInputFecha.value.split('-');
-    alumnos.forEach( alumno => {
-        if (cadena[1] === alumno.fecha.split('/')[2]) {
-            console.log(alumno);
-        }
-    })
-    console.log(cadena);
+    if (cadena[0].match(/^[1-9]/gi)) {
+        cambio = "fecha";
+        filtra();
+    }
 })
 
 pintaAlumnos(listaAlumnosActual);
