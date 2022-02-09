@@ -1,0 +1,20 @@
+#texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
+#barra {
+    position: fixed;
+    background-color: rgb(196, 40, 40);
+    height: 8px;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}

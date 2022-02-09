@@ -1,6 +1,4 @@
 
-
-
 ### Selector identificador
 
 ```html
@@ -255,5 +253,115 @@ $('img').on({
         $(this).attr('src', 'https://picsum.photos/id/237/200/300');
     }
 });
+
+```
+
+### Estilos computados
+
+```js
+
+let body = document.querySelector('body');
+
+let style = getComputedStyle(body);
+let background = style.getPropertyValue('background-color');
+console.log(background);
+
+// jQuery
+
+console.log($('body').css('background-color'));
+
+```
+
+### Posición elementos navegador
+
+```html
+
+<div id="primario">
+    <h2>Secundario</h2>
+</div>
+
+<div id="secundario">
+    <h2>Secundario</h2>
+</div>
+
+```
+
+```js
+
+let nodoSecundario = document.querySelector('#secundario')
+let dom_rect_bound = nodoSecundario.getBoundingClientRect();
+console.log(dom_rect_bound);
+
+// jQuery
+
+// Posicion con respecto a document
+let offset = $('#secundario h2').offset();
+console.log(offset);
+
+let posicion = $('#secundario h2').position();
+console.log(posicion);
+
+// El posicion te calcula la posicion en funcion al contenedor padre
+// El padre tiene que tener posicion relative para hacer de referencia
+
+```
+
+### Evento Wheel y Scroll
+
+```js
+
+// WHEEL
+
+let saturacion = 100;
+let luminosidad = 74;
+
+$('primario').on({
+    wheel: function (evento) {
+        console.log("Wheel");
+        console.log(evento);
+        console.log(evento.originalEvent.deltaY);
+        evento.preventDefault();
+
+        if(evento.originalEvent.deltaY > 0 && saturacion < 100) {
+            saturacion++;
+        } else if (evento.originalEvent.deltaY < 0 && saturacion > 0){
+            saturacion--;
+        }
+
+        if(evento.originalEvent.deltaX > 0 && luminosidad < 100) {
+            luminosidad++;
+        } else if (evento.originalEvent.deltaX < 0 && luminosidad > 0){
+            luminosidad--;
+        }
+
+        let style = getComputedStyle(this);
+        console.log(style.getPropertyValue('background-color'));
+        $(this).css({
+            'background-color' : `hsl(17, ${saturacion}%, ${luminosidad}%)`
+        })
+    }
+});
+
+// SCROLL -> lo genera el objeto que ha sido desbordado
+
+$(window).on({
+    scroll: function (evento) {
+
+        //Cantidad de pixeles que han sido desbordados por arriba
+        let top_scroll = $(window).scrollTop();
+        console.log(top_scroll);
+        
+        console.log($('body').height());
+
+        let posicion_secundario = $('#secundario').offset();
+        let tam_window = $(window).height();
+
+        if (tam_window + top_scroll >= posicion_secundario.top) {
+            console.log("Entrando");
+        }
+    }
+});
+
+
 
 ```
