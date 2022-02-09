@@ -58,7 +58,6 @@ const alumnos = [
 ];
 
 let listaAlumnosActual = alumnos;
-let cursoActual = "Todos";
 let estadoNotas = "ascendente";
 
 let nodoTabla = document.querySelector('#tabla');
@@ -86,6 +85,16 @@ function pintaAlumno (alumno) {
         nodoTd.innerHTML = cadaElemento;
         nodoTr.appendChild(nodoTd);
     });
+    nodoCerrar = document.createElement('td');
+    nodoCerrar.classList.add('cerrar');
+    nodoCerrar.innerHTML = '✖';
+    nodoTr.appendChild(nodoCerrar);
+
+    nodoCerrar.addEventListener('click', () => {
+        let nodoTBody = nodoTabla.querySelector('tbody');
+        nodoTBody.removeChild(nodoTr);
+    });
+
     return nodoTr;
 }
 
@@ -101,7 +110,7 @@ function devuelveListaPorNombre (listaActual) {
     let nombreBuscado = nodoInputBusqueda.value;
     let listaAux = [];
     if (nombreBuscado === "") {
-        listaAux = listaActual;
+        listaAux = alumnos;
     } else {
         let pattern = new RegExp("(^" + nombreBuscado + "){1,}", 'gi');
         alumnos.forEach( alumno => {
@@ -113,14 +122,14 @@ function devuelveListaPorNombre (listaActual) {
     return listaAux;
 }
 
-function devuelveListaPorCurso () {
+function devuelveListaPorCurso (listaActual) {
     let curso = nodoInputSelect.value;
     let listaAux = [];
     if (curso === "Todos") {
         listaAux = alumnos;
     } else {
-        alumnos.forEach( alumno => {
-            if (alumno.curso === cursoActual) {
+        listaActual.forEach( alumno => {
+            if (alumno.curso === curso) {
                 listaAux.push(alumno);
             }
         });
@@ -128,16 +137,28 @@ function devuelveListaPorCurso () {
     return listaAux;
 }
 
-function filtraListaPorFecha () {
-
+function devuelveListaPorFecha () {
+    let cadena = nodoInputFecha.value.split('-');
+    let listaAux = [];
+    if (cadena[0].match(/^[1-9]/gi)) {
+        alumnos.forEach( alumno => {
+            if (cadena[0].includes(alumno.fecha.split('/')[2]) && cadena[1].includes(alumno.fecha.split('/')[1])) {
+                listaAux.push(alumno);
+            }
+        });
+    } else {
+        listaAux = alumnos;
+    }
+    return listaAux;
 }
 
 function devuelveListaFiltrada (listaActual) {
     let curso = nodoInputSelect.value;
     let nombreBuscado = nodoInputBusqueda.value;
     let listaAux = [];
+
     if (nombreBuscado === "") {
-        listaAux = devuelveListaPorCurso();
+        listaAux = devuelveListaPorCurso(listaActual);
     } else if (curso === "Todos") {
         listaAux = devuelveListaPorNombre(listaActual);
     } else if (nombreBuscado !== "") {
@@ -181,18 +202,6 @@ function ordenaNotasMenorAMayor (array) {
     });
 }
 
-nodoNota.addEventListener ('click', () => {
-    if (estadoNotas === "ascendente") {
-        listaAlumnosActual = ordenaNotasMayorAMenor(listaAlumnosActual);
-        estadoNotas = "descendente";
-    } else {
-        listaAlumnosActual = ordenaNotasMenorAMayor(listaAlumnosActual);
-        estadoNotas = "ascendente";
-    }
-    borraTabla();
-    pintaAlumnos(listaAlumnosActual);
-})
-
 function imprimeNumeroAlumnos () {
     let nodoNAlumnos = document.querySelector('#nAlumnos');
     if (listaAlumnosActual.lenght === "NaN") {
@@ -221,24 +230,34 @@ function imprimeNotaMedia () {
     }
 }
 
+nodoNota.addEventListener ('click', () => {
+    if (estadoNotas === "ascendente") {
+        listaAlumnosActual = ordenaNotasMayorAMenor(listaAlumnosActual);
+        estadoNotas = "descendente";
+    } else {
+        listaAlumnosActual = ordenaNotasMenorAMayor(listaAlumnosActual);
+        estadoNotas = "ascendente";
+    }
+    borraTabla();
+    pintaAlumnos(listaAlumnosActual);
+});
 
 nodoInputBusqueda.addEventListener ('keyup', () => {
+    cambio = "nombre";
     filtra();
 });
 
 nodoInputSelect.addEventListener ('input', () => {
+    cambio = "curso";
     filtra();
 });
 
 nodoInputFecha.addEventListener ('input', () => {
-    console.log(nodoInputFecha.value);
     let cadena = nodoInputFecha.value.split('-');
-    alumnos.forEach( alumno => {
-        if (cadena[1] === alumno.fecha.split('/')[2]) {
-            console.log(alumno);
-        }
-    })
-    console.log(cadena);
-})
+    if (cadena[0].match(/^[1-9]/gi)) {
+        cambio = "fecha";
+        filtra();
+    }
+});
 
 pintaAlumnos(listaAlumnosActual);
