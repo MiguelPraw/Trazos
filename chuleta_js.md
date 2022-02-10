@@ -362,6 +362,68 @@ $(window).on({
     }
 });
 
+```
 
+### APIS
+
+## API de Speech
+
+```html
+
+<button id="start">Reconocer Voz</button>
+<button id="stop">Parar</button>
+<span id="confianza"></span>
+<div id="texto">
+
+</div>
+
+```
+
+
+```js
+
+let recognition = new webkitSpeechRecognition();
+console.log(recognition);
+
+recognition.continuous = true;
+recognition.lang = "es-ES";
+
+$('#start').on({
+    click: function () {
+        //Empieza a reconocer la voz
+        recognition.start();
+    }
+});
+
+$('#stop').on({
+    click: function() {
+        recognition.abort();
+    }
+});
+
+recognition.onresult = (evento) => {
+    //evento.results
+    console.log(evento.results);
+    // cojo la ultima linea
+    
+    let texto = evento.results[evento.results.length - 1][0].transcript;
+    let confianza = evento.results[evento.results.length - 1][0].confiance;
+
+    pintaTexto(texto, confiance);
+}
+
+function pintaTexto (texto, confianza) {
+    $('#texto').append(texto);
+    $('#confianza').text(confianza);
+}
+
+function voz (texto) {
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = texto;
+    speech.volume = 2;
+    speech.pitch = 1;
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+}
 
 ```
