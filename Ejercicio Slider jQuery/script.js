@@ -1,5 +1,6 @@
 'use strict'
 
+
 let actual = 0;
 
 let imagenes = ['https://picsum.photos/id/237/200', 
@@ -8,10 +9,6 @@ let imagenes = ['https://picsum.photos/id/237/200',
 'https://picsum.photos/id/235/200',
 'https://picsum.photos/id/236/200',
 'https://picsum.photos/id/233/200'];
-
-$('.slider').ready(function (){
-    $('.imagen>img').attr('src', imagenes[actual]);
-});
 
 $('.flechaIzq').on({
     click: function () {
@@ -26,19 +23,21 @@ $('.flechaDcha').on({
 });
 
 function cambiaDerecha () {
+    $('.slider__img>img')[actual].classList.add('oculto');
     actual++;
-    if (actual >= imagenes.length) {
+    if (actual >= $('.slider__img>img').length) {
         actual = 0;
     }
-    $('.imagen>img').attr('src', imagenes[actual]);
+    $('.slider__img>img')[actual].classList.remove('oculto');
 }
 
 function cambiaIzquierda () {
+    $('.slider__img>img')[actual].classList.add('oculto');
     actual--;
     if (actual < 0) {
-        actual = imagenes.length - 1;
+        actual = $('.slider__img>img').length - 1;
     }
-    $('.imagen>img').attr('src', imagenes[actual]);
+    $('.slider__img>img')[actual].classList.remove('oculto');
 }
 
 let intervalo = setInterval( () => {
@@ -46,3 +45,4 @@ let intervalo = setInterval( () => {
     cambiaDerecha();
 
 }, 3000);
+

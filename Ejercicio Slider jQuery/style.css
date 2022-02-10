@@ -4,7 +4,6 @@ body {
 
 .slider {
     height: 100vh;
-    width: 100%;
 }
 
 .flechaDcha, .flechaIzq {
@@ -18,6 +17,7 @@ body {
     width: 10%;
     font-size: 2em;
     cursor: pointer;
+    z-index: 1;
 }
 
 .flechaIzq {
@@ -28,16 +28,18 @@ body {
     right: 0;
 }
 
-.imagen {
-    width: 100%;
-    height: 100%;
+.slider__img {
+    align-items: center;
+    overflow: hidden;
 }
 
-.imagen img {
+.slider__img img {
+    object-fit: contain;
     width: 100%;
-    
+    margin: auto;
 }
 
 .oculto {
     display: none;
+    visibility: hidden;
 }
