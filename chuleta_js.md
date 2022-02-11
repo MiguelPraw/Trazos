@@ -99,9 +99,9 @@ nodoBody.addEventListener ('mousemove', function () {
 
 ```
 
-### PROMESAS JS
+## PROMESAS JS
 
-## Creación y resolucion de promesas
+### Creación y resolucion de promesas
 
 ```js
 
@@ -162,7 +162,7 @@ promesa_contenido.then( respuesta => {
 
 ```
 
-### JQuery
+# JQuery
 
 ```js
 
@@ -364,7 +364,7 @@ $(window).on({
 
 ```
 
-### APIS
+# APIS
 
 ## API de Speech
 
@@ -427,3 +427,48 @@ function voz (texto) {
 }
 
 ```
+
+# JSON (JavaScript Object Notation)
+
+## Objeto -> JSON (Método Stringify)
+
+```js
+
+let alumno = {
+    nombre: "Pepe",
+    apellido: "Gómez"
+}
+
+let json_alumno = JSON.stringify(alumno);
+
+```
+
+## JSON -> Objeto (Método Parse)
+
+```js
+
+console.log(JSON.parse(json_alumno));
+
+```
+
+## Local Storage (Almacenamiento local en el navegador como Bases de Datos)
+
+### Guardar Datos
+
+```js
+
+localStorage.setItem('coche', 'Mercedes');
+
+```
+
+### Pedir Datos
+
+```js
+
+let miCoche = localStorage.getItem('coche');
+console.log(miCoche);
+
+```
+
+### Borrar Datos
+

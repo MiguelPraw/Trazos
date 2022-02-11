@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script async defer src="script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <input id="entrada" type="text">
+        <button id="enviar" type="submit">+</button>
+    </div>
+    <div class="tareas">
+        <div class="tareas__pendientes">
+            <h2>Tareas pendientes</h2>
+            <div class="tarea">
+                <span>HTML</span>
+                <div class="botones">
+                    <span>&#128465;</span>
+                    <span>✓</span>
+                </div>
+            </div>
+        </div>
+        <div class="tareas__completadas">
+            <h2>Tareas completadas</h2>
+            <div class="tarea">
+                <span>JS</span>
+                <div class="botones">
+                    <span>&#128465;</span>
+                    <span>&#10003;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
