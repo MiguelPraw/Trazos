@@ -19,6 +19,10 @@ body {
     padding: 10px;
 }
 
+.header #fecha {
+    padding: 8px;
+}
+
 .header i {
     font-size: 2em;
     color: white;

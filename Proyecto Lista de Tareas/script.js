@@ -83,7 +83,11 @@ function construyeNodoTarea (tarea) {
     nodoTarea.appendChild(nodoNombre);
 
     let nodoFecha = document.createElement('span');
-    nodoFecha.innerHTML = tarea.fecha;
+    let dias = devuelveDiasFaltantes(tarea.fecha);
+    if (dias <= 0) {
+        dias = 0;
+    }
+    nodoFecha.innerHTML = `Faltan ${dias} días`;
     nodoTarea.appendChild(nodoFecha);
 
     let nodoBotones = document.createElement('div');
@@ -94,9 +98,9 @@ function construyeNodoTarea (tarea) {
     nodoBotonCompletar.classList.add('completar');
     nodoBotonBorrar.innerHTML = `<i class="bi bi-folder-x"></i>`;
     nodoBotonCompletar.innerHTML = `<i class="bi bi-check2-square"></i>`;
-
     nodoBotones.appendChild(nodoBotonBorrar);
     nodoBotones.appendChild(nodoBotonCompletar);
+    
     nodoTarea.appendChild(nodoBotones);
     nodoTarea.draggable = true;
 
@@ -116,6 +120,13 @@ function construyeNodoTarea (tarea) {
     return nodoTarea;
 }
 
+function devuelveDiasFaltantes (fecha) {
+    let nueva = new Date (fecha);
+    let hoy = new Date ();
+    let resta = nueva.getTime() - hoy.getTime();
+    return Math.round(resta/ (1000*60*60*24));
+}
+
 $(document).ready(function () {
     leeTareasStorage();
     pintaTareas();
@@ -123,19 +134,6 @@ $(document).ready(function () {
 
 $(document).on({
     keyup: function (evento) {
-        if (evento.key === "j" && $('#fecha').val() !== "") {
-            let fecha = $('#fecha').val();
-            console.log(fecha);
-            let nueva = new Date (fecha);
-            let dia = nueva.getDate();
-            let mes = nueva.getMonth();
-            let año = nueva.getFullYear();
-            console.log(nueva);
-            console.log("dia", dia);
-            console.log("mes", mes);
-            console.log("año", año);
-
-        }
         if (evento.key === "Enter") {
             if ($('#entrada').val() !== "" && $('#fecha').val() !== "") {
                 tramitaTarea($('#entrada').val(), $('#fecha').val());
