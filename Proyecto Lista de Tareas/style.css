@@ -10,8 +10,7 @@ body {
     justify-content: center;
     gap: 20px;
 
-    width: 100%;
-    background-color: cadetblue;
+    background-color: rgb(0, 0, 0);
     padding: 20px;
 }
 
@@ -31,10 +30,52 @@ body {
     border-bottom: 1px solid gainsboro;
 }
 
+.tareas .tareas__pendientes, .tareas .tareas__completadas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
 .tareas .tarea {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
+    padding: 10px;
+    background-color: beige;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    cursor: pointer;
+}
+
+.tareas .tarea>span {
+    margin-left: 20px;
+}
+
+.tareas .tarea .botones {
+    margin-right: 20px;
+    font-size: 1.5em;
+}
+
+.tareas .tarea .botones i {
+    margin-right: 10px;
+}
+
+.tareas .tarea .borrar:hover {
+    color: tomato;
+}
+
+.tareas .tarea .completar:hover {
+    color: green;
+}
+
+.tareas .tarea .botones span:hover {
+    cursor: pointer;
+}
+
+.completado {
+    text-decoration: line-through;
 }
