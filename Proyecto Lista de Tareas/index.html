@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,22 +12,28 @@
 </head>
 <body>
     <div class="header">
+        <i id="grid" class="bi bi-grid-3x2"></i>
+        <i id="flex" class="bi bi-card-checklist"></i>
         <input id="entrada" type="text">
-        <button id="enviar" type="submit">+</button>
+        <input type="date" name="fecha" id="fecha">
+        <i id="enviar" class="bi bi-plus-circle-fill"></i>
     </div>
     <div class="tareas">
-        <h2>Tareas pendientes</h2>
-        <div class="tareas__pendientes">
-            <!-- <div class="tarea">
-                <span>HTML</span>
-                <div class="botones">
-                    <i class="bi bi-folder-x"></i>
-                    <i class="bi bi-check2-square"></i>
-                </div>
-            </div> -->
+        <div class="caja__tareas">
+            <h2>Tareas pendientes</h2>
+            <div class="tareas__pendientes flex"></div>
+                <!-- <div class="tarea">
+                    <span>HTML</span>
+                    <div class="botones">
+                        <i class="bi bi-folder-x"></i>
+                        <i class="bi bi-check2-square"></i>
+                    </div>
+                </div> -->
         </div>
-        <h2>Tareas completadas</h2>
-        <div class="tareas__completadas">
+        <div class="caja__tareas">
+            
+            <h2>Tareas completadas</h2>
+            <div class="tareas__completadas flex"></div>
         </div>
     </div>
 </body>
