@@ -17,12 +17,19 @@ body {
 }
 
 .header #entrada {
-    width: 50%;
+    width: 30%;
     padding: 10px;
+    font-family: 'Rowdies', cursive;
 }
 
 .header #fecha {
     padding: 8px;
+    font-family: 'Rowdies', cursive;
+}
+
+.header #persona {
+    padding: 10px;
+    font-family: 'Rowdies', cursive;
 }
 
 .header i {
@@ -38,11 +45,11 @@ body {
 .caja__tareas {
     display: flex;
     flex-direction: column;
-    height: 40vh;
 }
 
 .tareas h2 {
-    font-family: sans-serif;
+    text-align: center;
+    font-family: 'Rowdies', cursive;
     padding: 0 20px 20px 20px;
     border-bottom: 1px solid rgb(23, 68, 105);
 }
@@ -75,33 +82,55 @@ body {
 }
 
 .tareas .tarea {
-    padding: 10px;
-    background-color: beige;
+    padding: 20px;
+    background-color: rgb(230, 154, 93);
     margin-left: 20px;
     margin-right: 20px;
 
     cursor: move;
 }
 
-.tareas .tarea>span {
+.tareas .tarea span {
     font-family: 'Rowdies', cursive;
 }
 
-.tareas .tareaFlex>span {
+.tareas .tareaFlex span:first-child {
     margin-left: 20px;
 }
 
-.tareas .tareaFlex .botones {
-    margin-right: 20px;
-    font-size: 1.5em;
+.tarea .datos {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.tareas .tareaGrid .botones {
-    font-size: 1.5em;
+.tarea .datos .nombre {
+    font-size: 1.2em;
 }
 
-.tareas .tarea .botones i {
-    margin-right: 10px;
+.tarea .datos .persona {
+    color: black;
+    background-color: beige;
+    padding: 5px;
+    border-radius: 10%;
+}
+
+.tarea .fecha {
+    font-size: 0.9em;
+}
+
+.tareas .tareaFlex .botones, .tareas .tareaGrid .botones {
+    font-size: 1.5em;
+    display: flex;
+    gap: 10px;
+}
+
+.tareas .tarea .botones span:hover {
+    cursor: pointer;
+}
+
+.tareas .tarea .fav:hover {
+    color: red;
 }
 
 .tareas .tarea .borrar:hover {
@@ -112,16 +141,8 @@ body {
     color: green;
 }
 
-.tareas .tarea .botones span:hover {
-    cursor: pointer;
-}
-
-.completado .completar {
-    color: rgb(13, 49, 13);
-}
-
-.completado .completar:hover {
-    color: whitesmoke !important;
+.favorito span {
+    color: white;
 }
 
 .completado {
@@ -131,4 +152,12 @@ body {
 
 .completado span {
     color: white;
+}
+
+.completado .completar {
+    color: rgb(13, 49, 13);
+}
+
+.completado .completar:hover {
+    color: whitesmoke !important;
 }

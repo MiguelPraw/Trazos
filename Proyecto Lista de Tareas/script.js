@@ -1,19 +1,56 @@
 'use strict'
 
 let tareas = [];
+let listaUsuarios;
 
 let objetoMovido;
 
+class ListaUsuarios {
+    lista;
+    usuarioActivo;
+
+    constructor () {
+        this.lista = [];
+    }
+
+    añadeUsuario (usuario) {
+        this.lista.push(usuario);
+    }
+
+    actualizaUsuarioActivo (usuario) {
+        this.usuarioActivo = usuario;
+    }
+}
+
+class Usuario {
+    nombre;
+    apellido;
+    tareas;
+
+    constructor(nombre, apellido, tareas) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tareas = tareas;
+    }
+
+    actualizaTareas (tareas) {
+        this.tareas = tareas;
+    }
+}
+
 //localStorage.removeItem('tareas');
+//localStorage.removeItem('usuarios');
 
 class Tarea {
     nombre;
+    persona;
     fecha;
     pendiente;
     contenidoHTML;
 
-    constructor(nombre, fecha, estado = true, contenidoHTML = "") {
+    constructor(nombre, persona, fecha, estado = true, contenidoHTML = "") {
         this.nombre = nombre;
+        this.persona = persona;
         this.fecha = fecha;
         this.pendiente = estado;
         this.contenidoHTML = contenidoHTML;
@@ -27,11 +64,15 @@ class Tarea {
         this.contenidoHTML = contenido;
     }
 
+    modificaNombre (nombre) {
+        this.nombre = nombre;
+    }
+
 }
 
 // Crea una tarea, la guarda y la pinta
-function tramitaTarea (nombreTarea, fecha) {
-    let tarea = new Tarea (nombreTarea, fecha);
+function tramitaTarea (nombreTarea, persona, fecha) {
+    let tarea = new Tarea (nombreTarea, persona, fecha);
     if (tareas === null) {
         tareas = [];
     }
@@ -42,20 +83,36 @@ function tramitaTarea (nombreTarea, fecha) {
     pintaTarea(tarea);
 }
 
+function guardaUsuariosStorage () {
+    let usuario_json = JSON.stringify(listaUsuarios);
+    localStorage.setItem('usuarios', usuario_json);
+}
+
 function guardaTareasStorage () {
     let tareas_json = JSON.stringify(tareas);
     localStorage.setItem('tareas', tareas_json);
+}
+
+function leeUsuariosStorage () {
+    let usuariosStorage = JSON.parse(localStorage.getItem('usuarios'));
+    listaUsuarios = new ListaUsuarios ();
+    usuariosStorage.lista.forEach ( usuarioStorage => {
+        let usuario = new Usuario (usuarioStorage.nombre, usuarioStorage.apellido, usuarioStorage.tareas);
+        listaUsuarios.añadeUsuario(usuario);
+    })
+    listaUsuarios.actualizaUsuarioActivo(usuariosStorage.usuarioActivo);
+    console.log(listaUsuarios);
 }
 
 //Lee todas las tareas del storage
 function leeTareasStorage () {
     let tareasStorage = JSON.parse(localStorage.getItem('tareas'));
     tareasStorage.forEach( tareaStorage => {
-        let tarea = new Tarea (tareaStorage.nombre, tareaStorage.fecha, tareaStorage.pendiente);
+        let tarea = new Tarea (tareaStorage.nombre, tareaStorage.persona, tareaStorage.fecha, tareaStorage.pendiente);
         let contenidoTarea = construyeNodoTarea(tarea);
         tarea.modificaContenidoHTML(contenidoTarea);
         tareas.push(tarea);
-    })
+    });
 }
 
 function pintaTarea (tarea) {
@@ -80,11 +137,22 @@ function construyeNodoTarea (tarea) {
     nodoTarea.classList.add('tarea');
     nodoTarea.classList.add('tareaFlex');
 
+    let nodoDatos = document.createElement('div');
+    nodoDatos.classList.add('datos');
+
     let nodoNombre = document.createElement('span');
+    nodoNombre.classList.add('nombre');
     nodoNombre.innerHTML = tarea.nombre;
-    nodoTarea.appendChild(nodoNombre);
+    nodoDatos.appendChild(nodoNombre);
+
+    let nodoPersona = document.createElement('span');
+    nodoPersona.classList.add('persona');
+    nodoPersona.innerHTML = tarea.persona;
+    nodoDatos.appendChild(nodoPersona);
+    nodoTarea.appendChild(nodoDatos);
 
     let nodoFecha = document.createElement('span');
+    nodoFecha.classList.add('fecha');
     let dias = devuelveDiasFaltantes(tarea.fecha);
     if (dias <= 0) {
         dias = 0;
@@ -94,21 +162,22 @@ function construyeNodoTarea (tarea) {
 
     let nodoBotones = document.createElement('div');
     nodoBotones.classList.add('botones');
+    let nodoBotonEditar = document.createElement('span');
     let nodoBotonBorrar = document.createElement('span');
     let nodoBotonCompletar = document.createElement('span');
     let nodoBotonFavorito = document.createElement('span');
+    nodoBotonEditar.classList.add('editar');
     nodoBotonBorrar.classList.add('borrar');
     nodoBotonCompletar.classList.add('completar');
-    nodoBotonFavorito.classList.add('favorito');
+    nodoBotonFavorito.classList.add('fav');
+    nodoBotonEditar.innerHTML = '<i class="bi bi-pencil-square"></i>';
     nodoBotonBorrar.innerHTML = `<i class="bi bi-folder-x"></i>`;
     nodoBotonCompletar.innerHTML = `<i class="bi bi-check2-square"></i>`;
-    nodoBotonFavorito.innerHTML = `<i class="bi bi-chat-heart"></i>`;
+    nodoBotonFavorito.innerHTML = '<i class="bi bi-star"></i>';
+    nodoBotones.appendChild(nodoBotonEditar);
     nodoBotones.appendChild(nodoBotonBorrar);
     nodoBotones.appendChild(nodoBotonCompletar);
     nodoBotones.appendChild(nodoBotonFavorito);
-    
-    nodoTarea.appendChild(nodoBotones);
-    nodoTarea.draggable = true;
 
     nodoBotonBorrar.addEventListener ('click', () => {
         tareas.splice(tareas.indexOf(tarea), 1);
@@ -121,7 +190,23 @@ function construyeNodoTarea (tarea) {
         tarea.contenidoHTML.parentNode.removeChild(nodoTarea);
         pintaTarea(tarea);
         guardaTareasStorage();
-    })
+    });
+
+    nodoBotonFavorito.addEventListener ('click', () => {
+        if (nodoTarea.classList.contains('favorito')) {
+            nodoTarea.classList.remove('favorito');
+        } else {
+            nodoTarea.classList.add('favorito');
+        }
+        if (nodoTarea.style.backgroundColor === "tomato") {
+            nodoTarea.style.backgroundColor = "";
+        } else {
+            nodoTarea.style.backgroundColor = "tomato";
+        }
+    });
+    
+    nodoTarea.appendChild(nodoBotones);
+    nodoTarea.draggable = true;
 
     return nodoTarea;
 }
@@ -134,6 +219,7 @@ function devuelveDiasFaltantes (fecha) {
 }
 
 $(document).ready(function () {
+    leeUsuariosStorage();
     leeTareasStorage();
     pintaTareas();
 });
@@ -142,7 +228,7 @@ $(document).on({
     keyup: function (evento) {
         if (evento.key === "Enter") {
             if ($('#entrada').val() !== "" && $('#fecha').val() !== "") {
-                tramitaTarea($('#entrada').val(), $('#fecha').val());
+                tramitaTarea($('#entrada').val(), $('#persona').val(), $('#fecha').val());
             }
         }
     },
@@ -193,7 +279,7 @@ $('.caja__tareas').on({
 $('#enviar').on({
     click: function () {
         if ($('#entrada').val() !== "" && $('#fecha').val() !== "") {
-            tramitaTarea($('#entrada').val(), $('#fecha').val());
+            tramitaTarea($('#entrada').val(), $('#persona').val(), $('#fecha').val());
         }
     }
 });
