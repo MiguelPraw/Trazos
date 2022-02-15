@@ -2,6 +2,8 @@
 
 let tareas = [];
 
+let objetoMovido;
+
 //localStorage.removeItem('tareas');
 
 class Tarea {
@@ -94,12 +96,16 @@ function construyeNodoTarea (tarea) {
     nodoBotones.classList.add('botones');
     let nodoBotonBorrar = document.createElement('span');
     let nodoBotonCompletar = document.createElement('span');
+    let nodoBotonFavorito = document.createElement('span');
     nodoBotonBorrar.classList.add('borrar');
     nodoBotonCompletar.classList.add('completar');
+    nodoBotonFavorito.classList.add('favorito');
     nodoBotonBorrar.innerHTML = `<i class="bi bi-folder-x"></i>`;
     nodoBotonCompletar.innerHTML = `<i class="bi bi-check2-square"></i>`;
+    nodoBotonFavorito.innerHTML = `<i class="bi bi-chat-heart"></i>`;
     nodoBotones.appendChild(nodoBotonBorrar);
     nodoBotones.appendChild(nodoBotonCompletar);
+    nodoBotones.appendChild(nodoBotonFavorito);
     
     nodoTarea.appendChild(nodoBotones);
     nodoTarea.draggable = true;
@@ -142,7 +148,8 @@ $(document).on({
     },
 
     dragstart: function (evento) {
-        console.log(evento.target);
+        console.log(evento);
+        objetoMovido = evento.target;
     },
 
     dragleave: function (evento) {
@@ -150,7 +157,36 @@ $(document).on({
     },
 
     dragover: function (evento) {
-        evento.target.style.opacity = "0.4";
+        evento.preventDefault();
+        evento.target.style.opacity = "0.6";
+    }
+});
+
+$('.caja__tareas').on({
+    dragover: function (evento) {
+        evento.preventDefault();
+    },
+    
+    drop: function (evento) {
+        evento.target.style.opacity = "";
+        console.log(evento);
+        let cajaTareas = this.lastElementChild;
+        tareas.forEach(tarea => {
+            if (tarea.contenidoHTML === objetoMovido) {
+                if (cajaTareas.classList.contains('tareas__completadas') && 
+                !objetoMovido.classList.contains('completado')){
+                    objetoMovido.classList.add('completado');
+                    tarea.modificaEstado();
+                } else if (cajaTareas.classList.contains('tareas__pendientes') &&
+                objetoMovido.classList.contains('completado')){
+                    objetoMovido.classList.remove('completado');
+                    tarea.modificaEstado();
+                }
+                tarea.contenidoHTML = objetoMovido;
+                guardaTareasStorage();
+            }
+        });
+        $(cajaTareas).append(objetoMovido);
     }
 });
 
@@ -159,34 +195,6 @@ $('#enviar').on({
         if ($('#entrada').val() !== "" && $('#fecha').val() !== "") {
             tramitaTarea($('#entrada').val(), $('#fecha').val());
         }
-    }
-});
-
-$('.tarea').on({
-    dragstart: function (evento){
-        
-    }
-});
-
-$('.tareas__pendientes').on({
-    drop: function (evento) {
-        evento.preventDefault();
-        console.log(evento);
-    },
-
-    dragover: function (evento) {
-        evento.preventDefault();
-    }
-});
-
-$('.tareas__completadas').on({
-    drop: function (evento) {
-        console.log(evento);
-        evento.preventDefault();
-    },
-
-    dragover: function (evento) {
-        evento.preventDefault();
     }
 });
 

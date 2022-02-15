@@ -472,3 +472,104 @@ console.log(miCoche);
 
 ### Borrar Datos
 
+```js
+
+localStorage.removeItem('coche');
+
+```
+
+# Drag and Drop
+
+## jQuery
+
+```html
+<div id="grid">
+    <div class="cuadrado"></div>
+    <div class="cuadrado"></div>
+    <div class="cuadrado"></div>
+    <div class="cuadrado"></div>
+</div>
+
+<div id="drop">
+    <span id="count">0</span>
+</div>
+```
+
+```js
+
+// Se necesita jQuery UI
+let contador = 0;
+
+$('.cuadrado').draggable({
+    cursor: 'move',
+    opacity: 0.5,
+    //distance: 100,
+    //grid: [100, 100],
+    revert: true,
+    revertDuration: 2000,
+    enable: false,
+    start: function (evento) {
+        $(this).draggable('disable');
+
+        setTimeout( () => {
+            $(this).draggable('enable');
+        }, 4000);
+    }
+});
+
+$('#drop').droppable({
+    drop: function (evento, elementoUi) {
+        console.log(elementoUi);
+        contador++;
+        $('#count').html(contador);
+        elementoUi.draggable.draggable({
+            revert: false;
+        });
+        $(this).append(elementoUi.draggable);
+    }
+});
+
+```
+
+## JavaScript Nativo
+
+```html
+<div id="grid">
+    <div class="cuadrado" draggable="true"></div>
+    <div class="cuadrado" draggable="true"></div>
+    <div class="cuadrado" draggable="true"></div>
+    <div class="cuadrado" draggable="true"></div>
+</div>
+
+<div id="drop">
+    <span id="count">0</span>
+</div>
+```
+
+```js
+
+$('.cuadrado').attr('draggable', true);
+
+$('.cuadrado').on({
+    dragstart: function (evento) {
+        console.log(evento);
+        evento.originalEvent.dataTransfer.setData('dato',this.id);
+    }
+})
+
+$('#grid').on({
+    dragover: function (evento) {
+        evento.preventDefault(); 
+        //Quiero permitir el drop
+    },
+    
+    drop: function (evento) {
+        evento.preventDefault();
+        console.log(evento);
+        console.log(evento.originalEvent.dataTransfer.getData('dato'));
+        let id = evento.originalEvent.dataTransfer.getData('dato');
+        $(this).append($("#"+id));
+    }
+})
+
+```
