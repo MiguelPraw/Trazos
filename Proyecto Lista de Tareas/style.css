@@ -6,14 +6,13 @@ body {
 .header {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 20px;
 
     background-color: rgb(23, 68, 105);
     padding: 20px;
-
-    height: 10vh;
 }
 
 .header #entrada {
@@ -42,9 +41,34 @@ body {
     color: rgb(10, 4, 65);
 }
 
+#modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000088;
+}
+
+#contenidoModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    border-radius: 3%;
+    height: 30%;
+    width: 30%;
+}
+
 .caja__tareas {
     display: flex;
     flex-direction: column;
+    height: 42vh;
+    overflow: scroll;
 }
 
 .tareas h2 {
@@ -69,6 +93,7 @@ body {
 .tareaFlex {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -147,7 +172,6 @@ body {
 
 .completado {
     background-color: rgb(63, 92, 21) !important;
-    opacity: 0.9;
 }
 
 .completado span {

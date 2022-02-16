@@ -573,3 +573,116 @@ $('#grid').on({
 })
 
 ```
+
+# AJAX y API
+
+## Llamadas asíncronas a un servidor
+
+```js
+
+// API REST -> Cada una de las peticiones que hacemos son unicas
+// Endpoints -> Puntos de la API
+// CRUD -> Agrupacion de endpoints que hacen algo sobre una entidad
+// C: Create (POST -> Tienen Header y Body), R: Read (GET -> Solo tienen Header), U: Update (UPDATE), D: Delete (DELETE)
+
+// jQuery
+
+let base_img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+let next_url;
+
+
+$.ajax ({
+    method: "GET", // Si no lo ponemos, por defecto es GET
+    url: "https://pokeapi.co/api/v2/pokemon/",
+    success: function (respuesta) {
+
+        pintaGrid (respuesta);
+        
+    },
+    error: function (error) {
+        console.log("Error");
+        console.log(error);
+    }
+});
+
+$('#btnNext').on({
+    click: function () {
+        $.ajax ({
+            method: "GET",
+            url: next_url,
+            success: function (respuesta) {
+                console.log(respuesta);
+                pintaGrid(respuesta);
+            },
+            error: function () {
+
+            }
+        })
+    }
+})
+
+function pintaGrid (respuesta) {
+    console.log(respuesta);
+
+    let count = respuesta.count;
+    $('#numPokemon').html(count);
+    next_url = respuesta.next;
+
+    respuesta.results.forEach( pokemon => {
+        let idPokemon = getId (pokemon.url);
+        pintaPokemon(pokemon.name, idPokemon);
+    });
+}
+
+function getId (url) {
+    let split_url = url.split("pokemon/");
+    return split_url[1].replace("/", "");
+}
+
+function pintaPokemon (nombre, id) {
+    let nodoDiv = document.createElement('div');
+    $(nodoDiv).addClass('pokemon').html(nombre);
+    let timeout;
+    // El load hace que cada vez que se actualiza el src se lance un nuevo Timeout
+    let nodoImg = $('<img/>').attr('src', `${base_img}${id}.png`).on({
+        load: function () {
+            timeout = setTimeout( () => {
+                if ($(this).attr('src').includes("back")) {
+                    $(this).attr('src', `${base_img}${id}.png`);
+                } else {
+                    $(this).attr('src', `${base_img}back/${id}.png`);
+                }
+            }, 3000 * Math.random() + 500);
+        },
+        mouseenter: function () {
+            clearTimeout(timeout);
+        },
+        mouseleave: function () {
+            timeout = setTimeout( () => {
+                if ($(this).attr('src').includes("back")) {
+                    $(this).attr('src', `${base_img}${id}.png`);
+                } else {
+                    $(this).attr('src', `${base_img}back/${id}.png`);
+                }
+            }, 3000 * Math.random() + 500);
+        }
+    });
+    $(nodoDiv).append(nodoImg);
+    
+    $('#grid').append(nodoDiv);
+}
+
+```
+
+```html
+
+<h1>Pokémon (<span id="numPokemon">0</span>)</h1>
+<div id="grid">
+    <div class="pokemon"> Pikachu </div>
+</div>
+
+<button id="btnNext"> Siguiente </button>
+<button> </button>
+
+```
+

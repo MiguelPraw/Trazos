@@ -133,9 +133,8 @@ function pintaTareas () {
 }
 
 function construyeNodoTarea (tarea) {
-    let nodoTarea = document.createElement('div');
-    nodoTarea.classList.add('tarea');
-    nodoTarea.classList.add('tareaFlex');
+    let nodoTarea = $('<div/>').addClass(['tarea', 'tareaFlex'])[0];
+    console.log(nodoTarea);
 
     let nodoDatos = document.createElement('div');
     nodoDatos.classList.add('datos');
@@ -174,10 +173,17 @@ function construyeNodoTarea (tarea) {
     nodoBotonBorrar.innerHTML = `<i class="bi bi-folder-x"></i>`;
     nodoBotonCompletar.innerHTML = `<i class="bi bi-check2-square"></i>`;
     nodoBotonFavorito.innerHTML = '<i class="bi bi-star"></i>';
-    nodoBotones.appendChild(nodoBotonEditar);
+    $(nodoBotones).append(nodoBotonEditar, nodoBotonBorrar, nodoBotonCompletar, nodoBotonFavorito);
+    /*nodoBotones.appendChild(nodoBotonEditar);
     nodoBotones.appendChild(nodoBotonBorrar);
     nodoBotones.appendChild(nodoBotonCompletar);
-    nodoBotones.appendChild(nodoBotonFavorito);
+    nodoBotones.appendChild(nodoBotonFavorito);*/
+
+    nodoBotonEditar.addEventListener ('click', () => {
+        $('#modal').css({
+            display: 'flex'
+        });
+    });
 
     nodoBotonBorrar.addEventListener ('click', () => {
         tareas.splice(tareas.indexOf(tarea), 1);
@@ -219,7 +225,7 @@ function devuelveDiasFaltantes (fecha) {
 }
 
 $(document).ready(function () {
-    leeUsuariosStorage();
+    //leeUsuariosStorage();
     leeTareasStorage();
     pintaTareas();
 });
