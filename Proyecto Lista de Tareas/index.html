@@ -14,6 +14,24 @@
     <script async defer src="script.js"></script>
 </head>
 <body>
+    <div class="modal">
+        <div id="contenidoModal">
+            <h3>Editar Tarea</h3>
+            <input id="entradaEditar" type="text">
+            <div>
+                <input type="date" name="fechaEditar" id="fechaEditar">
+                <select name="personaEditar" id="personaEditar">
+                    <option value="Luis" selected>Luis</option>
+                    <option value="Alba">Alba</option>
+                    <option value="Miguel">Miguel</option>
+                    <option value="Pablo">Pablo</option>
+                    <option value="Sergio">Sergio</option>
+                </select>
+            </div>
+            <button id="btnCambiar">Cambiar</button>
+        </div>
+        
+    </div>
     <div class="header">
         <i id="grid" class="bi bi-grid-3x2"></i>
         <i id="flex" class="bi bi-card-checklist"></i>
@@ -32,12 +50,6 @@
         </div>
     </div>
     <div class="tareas">
-        <div id="modal">
-            <div id="contenidoModal">
-                <input id="entrada" type="text" placeholder="Añadir Tarea">
-            </div>
-            
-        </div>
         <div class="caja__tareas">
             <h2>Tareas pendientes</h2>
             <div class="tareas__pendientes flex"></div>

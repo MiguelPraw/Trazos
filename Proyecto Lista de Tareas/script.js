@@ -68,6 +68,14 @@ class Tarea {
         this.nombre = nombre;
     }
 
+    modificaPersona (persona) {
+        this.persona = persona;
+    }
+
+    modificaFecha (fecha) {
+        this.fecha = fecha;
+    }
+
 }
 
 // Crea una tarea, la guarda y la pinta
@@ -134,14 +142,10 @@ function pintaTareas () {
 
 function construyeNodoTarea (tarea) {
     let nodoTarea = $('<div/>').addClass(['tarea', 'tareaFlex'])[0];
-    console.log(nodoTarea);
 
-    let nodoDatos = document.createElement('div');
-    nodoDatos.classList.add('datos');
+    let nodoDatos = $('<div/>').addClass('datos')[0];
 
-    let nodoNombre = document.createElement('span');
-    nodoNombre.classList.add('nombre');
-    nodoNombre.innerHTML = tarea.nombre;
+    let nodoNombre = $('<span/>').addClass('nombre').html(tarea.nombre)[0];
     nodoDatos.appendChild(nodoNombre);
 
     let nodoPersona = document.createElement('span');
@@ -161,28 +165,14 @@ function construyeNodoTarea (tarea) {
 
     let nodoBotones = document.createElement('div');
     nodoBotones.classList.add('botones');
-    let nodoBotonEditar = document.createElement('span');
-    let nodoBotonBorrar = document.createElement('span');
-    let nodoBotonCompletar = document.createElement('span');
-    let nodoBotonFavorito = document.createElement('span');
-    nodoBotonEditar.classList.add('editar');
-    nodoBotonBorrar.classList.add('borrar');
-    nodoBotonCompletar.classList.add('completar');
-    nodoBotonFavorito.classList.add('fav');
-    nodoBotonEditar.innerHTML = '<i class="bi bi-pencil-square"></i>';
-    nodoBotonBorrar.innerHTML = `<i class="bi bi-folder-x"></i>`;
-    nodoBotonCompletar.innerHTML = `<i class="bi bi-check2-square"></i>`;
-    nodoBotonFavorito.innerHTML = '<i class="bi bi-star"></i>';
-    $(nodoBotones).append(nodoBotonEditar, nodoBotonBorrar, nodoBotonCompletar, nodoBotonFavorito);
-    /*nodoBotones.appendChild(nodoBotonEditar);
-    nodoBotones.appendChild(nodoBotonBorrar);
-    nodoBotones.appendChild(nodoBotonCompletar);
-    nodoBotones.appendChild(nodoBotonFavorito);*/
+    let nodoBotonEditar = $('<span/>').addClass('editar').html('<i class="bi bi-pencil-square"></i>')[0];
+    let nodoBotonBorrar = $('<span/>').addClass('borrar').html('<i class="bi bi-folder-x"></i>')[0];
+    let nodoBotonCompletar = $('<span/>').addClass('completar').html('<i class="bi bi-check2-square"></i>')[0];
+    $(nodoBotones).append(nodoBotonEditar, nodoBotonCompletar, nodoBotonBorrar);
 
     nodoBotonEditar.addEventListener ('click', () => {
-        $('#modal').css({
-            display: 'flex'
-        });
+        $('.modal').addClass('activo');
+        lanzaModal(tarea);
     });
 
     nodoBotonBorrar.addEventListener ('click', () => {
@@ -197,24 +187,38 @@ function construyeNodoTarea (tarea) {
         pintaTarea(tarea);
         guardaTareasStorage();
     });
-
-    nodoBotonFavorito.addEventListener ('click', () => {
-        if (nodoTarea.classList.contains('favorito')) {
-            nodoTarea.classList.remove('favorito');
-        } else {
-            nodoTarea.classList.add('favorito');
-        }
-        if (nodoTarea.style.backgroundColor === "tomato") {
-            nodoTarea.style.backgroundColor = "";
-        } else {
-            nodoTarea.style.backgroundColor = "tomato";
-        }
-    });
     
     nodoTarea.appendChild(nodoBotones);
     nodoTarea.draggable = true;
 
     return nodoTarea;
+}
+
+function lanzaModal (tarea) {
+    if (tarea.pendiente) {
+        $('#contenidoModal').css({
+            'background-color': 'rgb(230, 154, 93)'
+        });
+    } else {
+        $('#contenidoModal').css({
+            'background-color': 'rgb(63, 92, 21)',
+            'color': 'rgb(18 27 6)'
+        });
+    }
+    document.querySelector('#entradaEditar').value = tarea.nombre;
+    document.querySelector('#fechaEditar').value = tarea.fecha;
+    document.querySelector('#personaEditar').value = tarea.persona;
+
+    $('#btnCambiar').on({
+        click: function () {
+            tarea.modificaNombre($('#entradaEditar').val());
+            tarea.modificaFecha($('#fechaEditar').val());
+            tarea.modificaPersona($('#personaEditar').val());
+            tarea.modificaContenidoHTML(construyeNodoTarea(tarea));
+            guardaTareasStorage();
+            location.reload();
+        }
+    });
 }
 
 function devuelveDiasFaltantes (fecha) {
@@ -315,5 +319,14 @@ $('#flex').on({
             $(this).removeClass('tareaGrid');
             $(this).addClass('tareaFlex');
         });
+    }
+});
+
+$('.modal').on({
+    click: function (evento) {
+        evento.stopPropagation();
+        if (evento.target === $('.modal')[0]) {
+            $('.modal').removeClass('activo');
+        }
     }
 });

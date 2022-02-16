@@ -38,13 +38,14 @@ body {
 }
 
 .header i:hover {
-    color: rgb(10, 4, 65);
+    color: rgb(0, 0, 0);
 }
 
-#modal {
+.modal {
     position: absolute;
     top: 0;
     left: 0;
+
     display: none;
     align-items: center;
     justify-content: center;
@@ -55,20 +56,47 @@ body {
 
 #contenidoModal {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    font-family: 'Rowdies', cursive;
 
     background-color: white;
-    border-radius: 3%;
-    height: 30%;
-    width: 30%;
+    height: 35%;
+    width: 35%;
+}
+
+#contenidoModal h3 {
+    text-align: center;
+}
+
+#contenidoModal input, #contenidoModal select {
+    font-family: 'Rowdies', cursive;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#contenidoModal button {
+    border: none;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Rowdies', cursive;
+}
+
+.activo {
+    display: flex;
 }
 
 .caja__tareas {
     display: flex;
     flex-direction: column;
     height: 42vh;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .tareas h2 {
@@ -99,6 +127,7 @@ body {
 }
 
 .tareaGrid {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,12 +136,17 @@ body {
 }
 
 .tareas .tarea {
-    padding: 20px;
     background-color: rgb(230, 154, 93);
     margin-left: 20px;
     margin-right: 20px;
 
+    transition: transform 0.1s ease;
+
     cursor: move;
+}
+
+.tareas .tarea:hover {
+    transform: scale(1.01);
 }
 
 .tareas .tarea span {
@@ -148,26 +182,35 @@ body {
     font-size: 1.5em;
     display: flex;
     gap: 10px;
+    background-color: #00000088;
+    color: white;
+}
+
+.tareaGrid .botones {
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tareaFlex .botones {
+    padding: 20px;
 }
 
 .tareas .tarea .botones span:hover {
     cursor: pointer;
 }
 
-.tareas .tarea .fav:hover {
-    color: red;
-}
-
 .tareas .tarea .borrar:hover {
-    color: red;
+    color: tomato;
 }
 
 .tareas .tarea .completar:hover {
     color: green;
 }
 
-.favorito span {
-    color: white;
+.tareas .tarea .editar:hover {
+    color: gold;
 }
 
 .completado {
