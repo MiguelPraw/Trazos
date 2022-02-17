@@ -239,6 +239,7 @@ $(document).on({
         if (evento.key === "Enter") {
             if ($('#entrada').val() !== "" && $('#fecha').val() !== "") {
                 tramitaTarea($('#entrada').val(), $('#persona').val(), $('#fecha').val());
+                $('#entrada')[0].value = "";
             }
         }
     },
@@ -290,6 +291,7 @@ $('#enviar').on({
     click: function () {
         if ($('#entrada').val() !== "" && $('#fecha').val() !== "") {
             tramitaTarea($('#entrada').val(), $('#persona').val(), $('#fecha').val());
+            $('#entrada')[0].value = "";
         }
     }
 });

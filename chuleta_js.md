@@ -578,6 +578,8 @@ $('#grid').on({
 
 ## Llamadas asíncronas a un servidor
 
+### jQuery
+
 ```js
 
 // API REST -> Cada una de las peticiones que hacemos son unicas
@@ -589,7 +591,6 @@ $('#grid').on({
 
 let base_img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
 let next_url;
-
 
 $.ajax ({
     method: "GET", // Si no lo ponemos, por defecto es GET
@@ -686,3 +687,52 @@ function pintaPokemon (nombre, id) {
 
 ```
 
+### JS Nativo
+
+```js
+
+//JS Nativo
+
+//Fetch -> Devuelve una promesa
+
+    // Original Forma
+    fetch('url').then(respuesta => { 
+        console.log(respuesta);
+        return respuesta.json(); // Body -> json -> a Object
+    }).then( datos => {
+        console.log(datos);
+        // Hacer cosas con los datos
+    })
+
+    //Pa entenderlo
+
+    let primeraRespuesta = fetch('url').then(respuesta => { 
+        console.log(respuesta);
+        return respuesta.json(); // Body -> json -> a Object
+    });
+    
+    primeraRespuesta.then( datos => {
+        console.log(datos);
+        // Hacer cosas con los datos
+    });
+
+// Con Await
+
+let promesa = fetch('url');
+
+//async se usa cuando tengo promesas con await dentro de la funcion
+async function getDatos () {
+    try {
+        // .then( respuesta => { } )
+        let respuesta = await fetch('url');
+        
+        let respuesta2 = await respuesta.json(); //Devuelve una promesa
+    } catch (error) {
+
+    }
+     
+}
+
+getDatos();
+
+```
