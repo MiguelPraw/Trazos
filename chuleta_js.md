@@ -736,3 +736,42 @@ async function getDatos () {
 getDatos();
 
 ```
+
+## API Authentication
+
+```js
+
+fetch ( url, {
+    method: "GET",
+    headers: {
+        'Content-Type': 'application/json',
+        //'Authoritation' -> en el caso de los gatos:
+        'x-api-key': KEY
+    }
+}).then (respuesta => {
+    return respuesta.json();
+}).then (datos => {
+    console.log(datos);
+}).catch (error) {
+
+};
+
+//Para hacer el POST (gatos)
+let bodyPost = {
+    image_id: id_gato
+}
+
+fetch(url, {
+    method: "POST",
+    body: JSON.stringify(bodyPost);
+    headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': KEY
+    }
+}).then (respuesta => {
+    return respuesta.json();
+}).catch (error) {
+    
+}
+
+```
