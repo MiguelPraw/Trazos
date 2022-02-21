@@ -18,15 +18,23 @@ class Pokemon {
     id;
     nombre;
     tipos;
+    sprite;
+    nodoHtml;
 
-    constructor(id, nombre) {
+    constructor(id, nombre, sprite) {
         this.id = id;
         this.nombre = nombre;
         this.tipos = [];
+        this.sprite = sprite;
+        this.nodoHtml = "";
     }
     
     añadeTipo (tipo) {
         this.tipos.push(tipo);
+    }
+
+    actualizaNodoHtml (html) {
+        this.nodoHtml = html;
     }
 }
 
@@ -74,14 +82,15 @@ async function getTiposEspañol (id) {
         let tipoEspañol = respuesta.names.find ( elemento => elemento.language.name === "es");
         return tipoEspañol.name;
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 }
 
 function actualizaPokedex (idPokemon) {
     let datosPokemon = getDatosPokemon(idPokemon);
     datosPokemon.then (datos => {
-        let pokemon = new Pokemon(datos.id, datos.name);
+        //console.log(datos.sprites.other);
+        let pokemon = new Pokemon(datos.id, datos.name, datos.sprites.front_default);
         datos.types.forEach(tipo => {
             let idTipo = getIdTipo(tipo.type.url);
             getTiposEspañol(idTipo).then(respuesta => {
@@ -89,8 +98,24 @@ function actualizaPokedex (idPokemon) {
             });
         });
         pokedex.añadePokemon(pokemon);
+        //pintaPokemon2(pokemon);
+        pokedex.listaPokemon.sort( function (a, b) {
+            if (a.id < b.id) {
+                return -1;
+            } else if (a.id > b.id) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        console.log(pokedex);
+        if (pokedex.listaPokemon.length === 20) {
+        
+            pokedex.listaPokemon.forEach (pokemon => {
+                console.log(pokemon.tipos);
+            })
+        }    
     });
-    pokedex.listaPokemon.sort();
 }
 
 function pintaGrid (respuesta) {
@@ -103,8 +128,6 @@ function pintaGrid (respuesta) {
         pintaPokemon(pokemon.name, idPokemon);
     });
     //pintaPokemon2(pokedex.listaPokemon[0]);
-    console.log(pokedex);
-    console.log(pokedex.listaPokemon);
 }
 
 function pintaPokemon2 (pokemon) {
@@ -125,7 +148,6 @@ function pintaPokemon (nombre, id) {
     let nodoDiv = document.createElement('div');
     $(nodoDiv).addClass('pokemon').html(nombre);
     let nodoImg = $('<img/>').attr('src', `${base_img}${id}.png`);
-    
     $(nodoDiv).append(nodoImg);
     $('#grid').append(nodoDiv);
 }
@@ -136,13 +158,11 @@ function iniciaPokedex () {
     
     resultado.then( respuesta => {
         console.log(respuesta);
-
         pintaGrid (respuesta);
         if (anteriorUrl === "") {
             $('#btnPrev').prop('disabled', true);
         }
     });
-
 }
 
 iniciaPokedex();
