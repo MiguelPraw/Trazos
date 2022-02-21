@@ -108,14 +108,18 @@ function actualizaPokedex (idPokemon) {
                 return 0;
             }
         });
-        console.log(pokedex);
-        if (pokedex.listaPokemon.length === 20) {
-        
-            pokedex.listaPokemon.forEach (pokemon => {
-                console.log(pokemon.tipos);
-            })
-        }    
     });
+}
+
+function actualizaPokedex2 (respuesta) {
+    return new Promise ((resolve, reject) => {
+        siguienteUrl = respuesta.next;
+        respuesta.results.forEach(pokemon => {
+            //console.log(pokemon);
+            let idPokemon = getIdPokemon(pokemon.url);
+            actualizaPokedex (idPokemon);
+        });
+    })
 }
 
 function pintaGrid (respuesta) {
@@ -154,9 +158,9 @@ function pintaPokemon (nombre, id) {
 
 function iniciaPokedex () {
 
-    let resultado = getDatos();
+    let resultadoConsultaInicial = getDatos();
     
-    resultado.then( respuesta => {
+    resultadoConsultaInicial.then( respuesta => {
         console.log(respuesta);
         pintaGrid (respuesta);
         if (anteriorUrl === "") {
@@ -178,3 +182,12 @@ $('#btnNext').on({
 
     }
 }); 
+
+
+/* 
+
+Consulto a la API
+Cuando tengo el fetch -> actualizo la pokedex (me devuelve una promesa)
+Cuando tengo el fetch -> pinto la lista de pokemon
+
+*/

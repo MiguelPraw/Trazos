@@ -99,7 +99,7 @@ nodoBody.addEventListener ('mousemove', function () {
 
 ```
 
-## PROMESAS JS
+## ºS JS
 
 ### Creación y resolucion de promesas
 
