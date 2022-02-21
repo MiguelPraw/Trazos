@@ -117,9 +117,34 @@ function actualizaPokedex2 (respuesta) {
         respuesta.results.forEach(pokemon => {
             //console.log(pokemon);
             let idPokemon = getIdPokemon(pokemon.url);
-            actualizaPokedex (idPokemon);
+            let datosPokemon = getDatosPokemon(idPokemon);
+            datosPokemon.then (datos => {
+                //console.log(datos.sprites.other);
+                let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default);
+                datos.types.forEach(tipo => {
+                    let idTipo = getIdTipo(tipo.type.url);
+                    getTiposEspañol(idTipo).then(respuesta => {
+                        pokemon.añadeTipo(respuesta);
+                    });
+                });
+                pokedex.añadePokemon(pokemon);
+                //pintaPokemon2(pokemon);
+                pokedex.listaPokemon.sort( function (a, b) {
+                    if (a.id < b.id) {
+                        return -1;
+                    } else if (a.id > b.id) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                });
+            });
+            console.log(pokedex);
+            resolve(pokedex);
         });
-    })
+        //console.log(pokedex);
+        //resolve(pokedex);
+    });
 }
 
 function pintaGrid (respuesta) {
@@ -163,6 +188,9 @@ function iniciaPokedex () {
     resultadoConsultaInicial.then( respuesta => {
         console.log(respuesta);
         pintaGrid (respuesta);
+        /*actualizaPokedex2(respuesta).then( datos => {
+            console.log(datos);
+        });*/
         if (anteriorUrl === "") {
             $('#btnPrev').prop('disabled', true);
         }
