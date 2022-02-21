@@ -75,7 +75,7 @@ async function getDatosPokemon (id) {
     }
 }
 
-async function getTiposEspañol (id) {
+async function getTipoEspañol (id) {
     try {
         let urlTipo = base_tipo + "/" + id + "/";
         let respuesta = await ((await fetch(urlTipo)).json());
@@ -86,82 +86,63 @@ async function getTiposEspañol (id) {
     }
 }
 
-function actualizaPokedex (idPokemon) {
-    let datosPokemon = getDatosPokemon(idPokemon);
-    datosPokemon.then (datos => {
-        //console.log(datos.sprites.other);
-        let pokemon = new Pokemon(datos.id, datos.name, datos.sprites.front_default);
-        datos.types.forEach(tipo => {
-            let idTipo = getIdTipo(tipo.type.url);
-            getTiposEspañol(idTipo).then(respuesta => {
-                pokemon.añadeTipo(respuesta);
-            });
-        });
-        pokedex.añadePokemon(pokemon);
-        //pintaPokemon2(pokemon);
-        pokedex.listaPokemon.sort( function (a, b) {
-            if (a.id < b.id) {
-                return -1;
-            } else if (a.id > b.id) {
-                return 1;
-            } else {
-                return 0;
-            }
-        });
-    });
-}
-
-function actualizaPokedex2 (respuesta) {
-    return new Promise ((resolve, reject) => {
-        siguienteUrl = respuesta.next;
-        respuesta.results.forEach(pokemon => {
-            //console.log(pokemon);
-            let idPokemon = getIdPokemon(pokemon.url);
-            let datosPokemon = getDatosPokemon(idPokemon);
-            datosPokemon.then (datos => {
-                //console.log(datos.sprites.other);
-                let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default);
-                datos.types.forEach(tipo => {
-                    let idTipo = getIdTipo(tipo.type.url);
-                    getTiposEspañol(idTipo).then(respuesta => {
-                        pokemon.añadeTipo(respuesta);
-                    });
-                });
-                pokedex.añadePokemon(pokemon);
-                //pintaPokemon2(pokemon);
-                pokedex.listaPokemon.sort( function (a, b) {
-                    if (a.id < b.id) {
-                        return -1;
-                    } else if (a.id > b.id) {
-                        return 1;
-                    } else {
-                        return 0;
+function devuelveDatosPokemon (idPokemon) {
+    let contTipos = 0;
+    return new Promise (resolve => {
+        let datosPokemon = getDatosPokemon(idPokemon);
+        datosPokemon.then (datos => {
+            //console.log(datos.sprites.other);
+            let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default);
+            datos.types.forEach (tipo => {
+                let idTipo = getIdTipo(tipo.type.url);
+                getTipoEspañol(idTipo).then (respuesta => {
+                    contTipos++;
+                    pokemon.añadeTipo(respuesta);
+                    if (contTipos >= datos.types.length) {
+                        resolve (pokemon);
                     }
                 });
             });
-            console.log(pokedex);
-            resolve(pokedex);
         });
-        //console.log(pokedex);
-        //resolve(pokedex);
     });
 }
 
-function pintaGrid (respuesta) {
-    //console.log(respuesta);
+function ordenaPokedex () {
+    pokedex.listaPokemon.sort( function (a, b) {
+        if (a.id < b.id) {
+            return -1;
+        } else if (a.id > b.id) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+}
+
+function actualizaPokedex (respuesta) {
     siguienteUrl = respuesta.next;
-    respuesta.results.forEach(pokemon => {
-        //console.log(pokemon);
-        let idPokemon = getIdPokemon(pokemon.url);
-        actualizaPokedex (idPokemon);
-        pintaPokemon(pokemon.name, idPokemon);
+    let cont = 0;
+    return new Promise (resolve => {
+        for (let i = 0; i < respuesta.results.length; i++) {
+            let pokemonAPI = respuesta.results[i];
+            let idPokemon = getIdPokemon(pokemonAPI.url);
+            let promesaPokemon = devuelveDatosPokemon (idPokemon);
+            promesaPokemon.then (pokemon => {
+                pokedex.añadePokemon (pokemon);
+                cont++;
+                if (cont >= respuesta.results.length) {
+                    resolve (pokedex);
+                }
+            });
+        }
     });
-    //pintaPokemon2(pokedex.listaPokemon[0]);
 }
 
-function pintaPokemon2 (pokemon) {
+function pintaPokemon (pokemon) {
     let nodoDiv = document.createElement('div');
-    $(nodoDiv).addClass('pokemon').html(pokemon.nombre);
+    $(nodoDiv).addClass('pokemon');
+    let nodoSpan = $('<span/>').addClass('nombre').html(pokemon.nombre);
+    $(nodoDiv).append(nodoSpan);
     let nodoImg = $('<img/>').attr('src', `${base_img}${pokemon.id}.png`);
     $(nodoDiv).append(nodoImg);
     pokemon.tipos.forEach(tipo => {
@@ -173,24 +154,19 @@ function pintaPokemon2 (pokemon) {
     $('#grid').append(nodoDiv);
 }
 
-function pintaPokemon (nombre, id) {
-    let nodoDiv = document.createElement('div');
-    $(nodoDiv).addClass('pokemon').html(nombre);
-    let nodoImg = $('<img/>').attr('src', `${base_img}${id}.png`);
-    $(nodoDiv).append(nodoImg);
-    $('#grid').append(nodoDiv);
-}
-
 function iniciaPokedex () {
 
     let resultadoConsultaInicial = getDatos();
     
     resultadoConsultaInicial.then( respuesta => {
         console.log(respuesta);
-        pintaGrid (respuesta);
-        /*actualizaPokedex2(respuesta).then( datos => {
-            console.log(datos);
-        });*/
+        actualizaPokedex (respuesta).then ( () => {
+            console.log(pokedex);
+            ordenaPokedex();
+            pokedex.listaPokemon.forEach (pokemon => {
+                pintaPokemon (pokemon);
+            });
+        });
         if (anteriorUrl === "") {
             $('#btnPrev').prop('disabled', true);
         }
