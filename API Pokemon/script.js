@@ -19,13 +19,17 @@ class Pokemon {
     nombre;
     tipos;
     sprite;
+    spriteShiny;
+    spriteOficial;
     nodoHtml;
 
-    constructor(id, nombre, sprite) {
+    constructor(id, nombre, sprite, spriteShiny, spriteOficial) {
         this.id = id;
         this.nombre = nombre;
         this.tipos = [];
         this.sprite = sprite;
+        this.spriteShiny = spriteShiny;
+        this.spriteOficial = spriteOficial;
         this.nodoHtml = "";
     }
     
@@ -42,8 +46,7 @@ let pokedex = new Pokedex ();
 
 let siguienteUrl = "";
 let anteriorUrl = "";
-let base_img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
-let base_tipo = "https://pokeapi.co/api/v2/type";
+const base_tipo = "https://pokeapi.co/api/v2/type";
 
 
 function getIdPokemon (url) {
@@ -57,9 +60,9 @@ function getIdTipo (url) {
     return split[split.length - 2];
 }
 
-async function getDatos () {
+async function getDatos (url) {
     try {
-        let respuesta = await ((await fetch(URL)).json());
+        let respuesta = await ((await fetch(url)).json());
         return respuesta;
     } catch (error) {
         console.log(error);
@@ -92,7 +95,8 @@ function devuelveDatosPokemon (idPokemon) {
         let datosPokemon = getDatosPokemon(idPokemon);
         datosPokemon.then (datos => {
             //console.log(datos.sprites.other);
-            let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default);
+            console.log(datos.sprites);
+            let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default, datos.sprites.front_shiny, datos.sprites.other['official-artwork'].front_default);
             datos.types.forEach (tipo => {
                 let idTipo = getIdTipo(tipo.type.url);
                 getTipoEspañol(idTipo).then (respuesta => {
@@ -131,7 +135,7 @@ function actualizaPokedex (respuesta) {
                 pokedex.añadePokemon (pokemon);
                 cont++;
                 if (cont >= respuesta.results.length) {
-                    resolve (pokedex);
+                    resolve ();
                 }
             });
         }
@@ -141,22 +145,27 @@ function actualizaPokedex (respuesta) {
 function pintaPokemon (pokemon) {
     let nodoDiv = document.createElement('div');
     $(nodoDiv).addClass('pokemon');
-    let nodoSpan = $('<span/>').addClass('nombre').html(pokemon.nombre);
-    $(nodoDiv).append(nodoSpan);
-    let nodoImg = $('<img/>').attr('src', `${base_img}${pokemon.id}.png`);
+    let nodoImg = $('<img/>').addClass('imagen').attr('src', pokemon.spriteOficial);
     $(nodoDiv).append(nodoImg);
+    let nodoNombre = $('<span/>').addClass('nombre').html(pokemon.nombre);
+    $(nodoDiv).append(nodoNombre);
+    let nodoNumero = $('<span/>').addClass('numero').html("Nº" + pokemon.id);
+    $(nodoDiv).append(nodoNumero);
+    let nodoTipos = document.createElement('div');
+    nodoTipos.classList.add('tipos');
     pokemon.tipos.forEach(tipo => {
         let nodoSpan = document.createElement('span');
         nodoSpan.classList.add(tipo);
         nodoSpan.innerHTML = tipo;
-        $(nodoDiv).append(nodoSpan);
+        $(nodoTipos).append(nodoSpan);
     });
+    $(nodoDiv).append(nodoTipos);
     $('#grid').append(nodoDiv);
 }
 
 function iniciaPokedex () {
 
-    let resultadoConsultaInicial = getDatos();
+    let resultadoConsultaInicial = getDatos(URL);
     
     resultadoConsultaInicial.then( respuesta => {
         console.log(respuesta);
@@ -183,15 +192,17 @@ $('#btnPrev').on({
 
 $('#btnNext').on({
     click: function () {
-
+        let resultadoConsulta = getDatos (siguienteUrl);
+        resultadoConsulta.then (respuesta => {
+            console.log(respuesta);
+            actualizaPokedex (respuesta).then( () => {
+                console.log(pokedex);
+                ordenaPokedex();
+                $('#grid').empty();
+                pokedex.listaPokemon.forEach (pokemon => {
+                    pintaPokemon (pokemon);
+                });
+            });
+        });
     }
 }); 
-
-
-/* 
-
-Consulto a la API
-Cuando tengo el fetch -> actualizo la pokedex (me devuelve una promesa)
-Cuando tengo el fetch -> pinto la lista de pokemon
-
-*/
