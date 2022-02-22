@@ -110,7 +110,9 @@ h1 {
 }
 
 .Tierra {
-    background-color: #e4c274;
+    /*background-color: #e4c274;*/
+    background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+    background-color: #f7de3f;
 }
 
 .Hada {
