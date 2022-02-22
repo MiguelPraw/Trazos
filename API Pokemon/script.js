@@ -40,6 +40,19 @@ class Pokemon {
     actualizaNodoHtml (html) {
         this.nodoHtml = html;
     }
+
+    ordenaTipos () {
+        this.tipos.sort ( function (a,b) {
+            if (a < b) {
+                return -1;
+            } else if (a > b) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    }
+
 }
 
 let pokedex = new Pokedex ();
@@ -95,7 +108,6 @@ function devuelveDatosPokemon (idPokemon) {
         let datosPokemon = getDatosPokemon(idPokemon);
         datosPokemon.then (datos => {
             //console.log(datos.sprites.other);
-            console.log(datos.sprites);
             let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default, datos.sprites.front_shiny, datos.sprites.other['official-artwork'].front_default);
             datos.types.forEach (tipo => {
                 let idTipo = getIdTipo(tipo.type.url);
@@ -103,6 +115,7 @@ function devuelveDatosPokemon (idPokemon) {
                     contTipos++;
                     pokemon.añadeTipo(respuesta);
                     if (contTipos >= datos.types.length) {
+                        pokemon.ordenaTipos();
                         resolve (pokemon);
                     }
                 });
@@ -149,7 +162,7 @@ function pintaPokemon (pokemon) {
     $(nodoDiv).append(nodoImg);
     let nodoNombre = $('<span/>').addClass('nombre').html(pokemon.nombre);
     $(nodoDiv).append(nodoNombre);
-    let nodoNumero = $('<span/>').addClass('numero').html("Nº" + pokemon.id);
+    let nodoNumero = $('<span/>').addClass('numero').html("Nº " + pokemon.id);
     $(nodoDiv).append(nodoNumero);
     let nodoTipos = document.createElement('div');
     nodoTipos.classList.add('tipos');
@@ -161,6 +174,18 @@ function pintaPokemon (pokemon) {
     });
     $(nodoDiv).append(nodoTipos);
     $('#grid').append(nodoDiv);
+    pokemon.actualizaNodoHtml(nodoDiv);
+
+    $(nodoDiv).on({
+        click: function () {
+            $('.modal').addClass('activo');
+            $('.spritePokemon').empty();
+            let nodoSprite = $('<img/>').addClass('sprite').attr('src', pokemon.spriteShiny);
+            $('.spritePokemon').append(nodoSprite);
+            $('.datosPokemon').html(pokemon.nombre);
+
+        }
+    });
 }
 
 function iniciaPokedex () {
@@ -206,3 +231,10 @@ $('#btnNext').on({
         });
     }
 }); 
+
+$('.modal').on({
+    click: function (evento) {
+        evento.preventDefault();
+        $('.modal').removeClass('activo');
+    }
+});

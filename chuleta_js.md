@@ -775,3 +775,14 @@ fetch(url, {
 }
 
 ```
+
+# Historial Navegador
+
+```js
+
+function clickNavigation (pathName) {
+    window.history.pushState({}, pathName, window.location.origin + pathName);
+    root.innerHTML = routes[this.pathname];
+}
+
+```
