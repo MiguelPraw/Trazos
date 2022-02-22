@@ -183,7 +183,6 @@ function pintaPokemon (pokemon) {
             let nodoSprite = $('<img/>').addClass('sprite').attr('src', pokemon.spriteShiny);
             $('.spritePokemon').append(nodoSprite);
             $('.datosPokemon').html(pokemon.nombre);
-
         }
     });
 }
