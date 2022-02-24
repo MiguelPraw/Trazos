@@ -17,16 +17,22 @@ class Pokedex {
 class Pokemon {
     id;
     nombre;
+    peso;
+    altura;
     tipos;
+    habilidades;
     sprite;
     spriteShiny;
     spriteOficial;
     nodoHtml;
 
-    constructor(id, nombre, sprite, spriteShiny, spriteOficial) {
+    constructor(id, nombre, peso, altura, sprite, spriteShiny, spriteOficial) {
         this.id = id;
         this.nombre = nombre;
+        this.peso = peso;
+        this.altura = this.calculaAltura(altura);
         this.tipos = [];
+        this.habilidades = [];
         this.sprite = sprite;
         this.spriteShiny = spriteShiny;
         this.spriteOficial = spriteOficial;
@@ -35,6 +41,10 @@ class Pokemon {
     
     añadeTipo (tipo) {
         this.tipos.push(tipo);
+    }
+
+    añadeHabilidad (habilidad) {
+        this.habilidades.push(habilidad);
     }
 
     actualizaNodoHtml (html) {
@@ -53,6 +63,26 @@ class Pokemon {
         });
     }
 
+    ordenaHabilidades () {
+        this.habilidades.sort ( function (a,b) {
+            if (a < b) {
+                return -1;
+            } else if (a > b) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    }
+
+    calculaPeso () {
+        
+    }
+
+    calculaAltura (altura) {
+        let aux = altura / 10;
+        return aux + " m";
+    }
 }
 
 let pokedex = new Pokedex ();
@@ -60,7 +90,6 @@ let pokedex = new Pokedex ();
 let siguienteUrl = "";
 let anteriorUrl = "";
 const base_tipo = "https://pokeapi.co/api/v2/type";
-
 
 function getIdPokemon (url) {
     let segmento = url.split(URL + "/");
@@ -102,22 +131,66 @@ async function getTipoEspañol (id) {
     }
 }
 
+function devuelveHabilidadesEspañol (arrayHabilidades, pokemon) {
+    return new Promise ((resolve) => {
+        let contHabilidades = 0;
+        arrayHabilidades.forEach( habilidad => {
+            let url = habilidad.ability.url;
+            fetch(url).then( respuesta => {
+                return respuesta.json();
+            }).then (datos => {
+                //console.log(datos);
+                contHabilidades++;
+                let descripcionEspañol = datos["flavor_text_entries"].find ( elemento => elemento.language.name === "es" && elemento.version_group.name === "sword-shield");
+                //console.log(descripcionEspañol["flavor_text"]);
+                let habilidadEspañol = datos.names.find ( elemento => elemento.language.name === "es");
+                let habilidadAux = {
+                    nombre: habilidadEspañol.name,
+                    descripcion: descripcionEspañol["flavor_text"]
+                };
+                pokemon.añadeHabilidad (habilidadAux);
+                if (contHabilidades >= arrayHabilidades.length) {
+                    pokemon.ordenaHabilidades();
+                    resolve (pokemon);
+                }
+            }).catch( error => {
+                console.log(error);
+            });
+        });
+    });
+}
+
+function devuelveTiposPokemon (arrayTipos, pokemon) {
+    return new Promise (resolve => {
+        let contTipos = 0;
+        arrayTipos.forEach (tipo => {
+            let idTipo = getIdTipo(tipo.type.url);
+            getTipoEspañol(idTipo).then (respuesta => {
+                contTipos++;
+                pokemon.añadeTipo (respuesta);
+                if (contTipos >= arrayTipos.length) {
+                    pokemon.ordenaTipos();
+                    resolve (pokemon);
+                }
+            });
+        });
+    });
+}
+
 function devuelveDatosPokemon (idPokemon) {
-    let contTipos = 0;
     return new Promise (resolve => {
         let datosPokemon = getDatosPokemon(idPokemon);
         datosPokemon.then (datos => {
             //console.log(datos.sprites.other);
-            let pokemon = new Pokemon (datos.id, datos.name, datos.sprites.front_default, datos.sprites.front_shiny, datos.sprites.other['official-artwork'].front_default);
-            datos.types.forEach (tipo => {
-                let idTipo = getIdTipo(tipo.type.url);
-                getTipoEspañol(idTipo).then (respuesta => {
-                    contTipos++;
-                    pokemon.añadeTipo(respuesta);
-                    if (contTipos >= datos.types.length) {
-                        pokemon.ordenaTipos();
-                        resolve (pokemon);
-                    }
+            //console.log(datos);
+            let pokemon = new Pokemon (datos.id, datos.name, datos.weight, datos.height,
+                 datos.sprites.front_default, datos.sprites.front_shiny,
+                 datos.sprites.other['official-artwork'].front_default);
+            devuelveTiposPokemon (datos.types, pokemon).then ( respuesta => {
+                pokemon = respuesta;
+                devuelveHabilidadesEspañol (datos.abilities, pokemon).then ( respuesta => {
+                    pokemon = respuesta;
+                    resolve (pokemon);
                 });
             });
         });
@@ -179,10 +252,21 @@ function pintaPokemon (pokemon) {
     $(nodoDiv).on({
         click: function () {
             $('.modal').addClass('activo');
-            $('.spritePokemon').empty();
-            let nodoSprite = $('<img/>').addClass('sprite').attr('src', pokemon.spriteShiny);
-            $('.spritePokemon').append(nodoSprite);
-            $('.datosPokemon').html(pokemon.nombre);
+            $('.imagenPokemon').empty();
+            let nodoSprite = $('<img/>').addClass('sprite').attr('src', pokemon.sprite);
+            $('.imagenPokemon').append(nodoSprite);
+            let nodoBtn = $('<button/>').addClass('btnShiny').html('Shiny').on({
+                click: function () {
+                    if ($(nodoSprite).attr('src') === pokemon.sprite) {
+                        $(nodoSprite).attr('src', pokemon.spriteShiny);
+                    } else {
+                        $(nodoSprite).attr('src', pokemon.sprite);
+                    }
+                }
+            });
+            $('.imagenPokemon').append(nodoBtn);
+            let nodoNombre = $('<span/>').addClass('nombrePokemon').html(pokemon.nombre);
+            $('.datosPokemon').append(nodoNombre);
         }
     });
 }
@@ -234,6 +318,8 @@ $('#btnNext').on({
 $('.modal').on({
     click: function (evento) {
         evento.preventDefault();
-        $('.modal').removeClass('activo');
+        if (evento.target === $('.modal')[0]) {
+            $('.modal').removeClass('activo');
+        }
     }
 });
