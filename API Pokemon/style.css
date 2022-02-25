@@ -60,12 +60,13 @@ h1 {
 .tipos {
     width: 80%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .tipos span {
     font-family: 'VT323', monospace;
-    width: 40%;
+    min-width: 40%;
     padding: 4px;
     letter-spacing: -1px;
     font-size: 1.3em;
@@ -184,20 +185,45 @@ h1 {
 }
 
 .contenidoModal {
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    padding: 0 0 20px 0;
+    gap: 20px;
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     background-color: white;
-    margin: 0 auto;
+
+    border-radius: 10px;
 }
 
 .activo {
     left: 0;
+}
+
+.nombre__pokemon {
+    width: 100%;
+    text-align: center;
+    background-color: #631a0e;
+    padding: 10px 0 10px 0;
+    font-family: 'VT323', monospace;
+    font-size: 2em;
+    text-transform: capitalize;
+    color: white;
+}
+
+.descripcion__pokemon {
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+}
+
+.contenido__pokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .imagenPokemon {
@@ -206,11 +232,37 @@ h1 {
     justify-content: center;
     align-items: center;
 
-    width: 50%;
+    width: 30%;
+}
+
+.sprite {
+    width: 100%;
+}
+
+.botones__sprites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.botones__sprites button {
+    
+    background-color: #911904;
+    border: none;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .datosPokemon {
-    width: 50%;
+    width: 65%;
+    gap: 10px;
+    padding-right: 10px;
 
     display: flex;
     flex-direction: column;
@@ -218,10 +270,54 @@ h1 {
     align-items: center;
 }
 
-.nombrePokemon {
-    text-transform: capitalize;
+.estadisticas__pokemon {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-color: #911904;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+    
 }
 
-.sprite {
-    width: 90%;
+.datos__pokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    background-color: #631a0e;
+    padding: 10px;
+}
+
+.habilidades__pokemon {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 10px;
+}
+
+.altura__pokemon, .peso__pokemon {
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+}
+
+.habilidad {
+    display: flex;
+    justify-content: space-between;
+}
+
+.habilidad__nombre {
+    width: 20%;
+}
+
+.habilidad__descripcion {
+    width: 60%;
+}
+
+.habilidad span {
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
 }

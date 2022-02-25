@@ -17,6 +17,7 @@ class Pokedex {
 class Pokemon {
     id;
     nombre;
+    descripcion;
     peso;
     altura;
     tipos;
@@ -24,19 +25,28 @@ class Pokemon {
     sprite;
     spriteShiny;
     spriteOficial;
+    spriteHome;
+    spriteHomeShiny;
     nodoHtml;
 
-    constructor(id, nombre, peso, altura, sprite, spriteShiny, spriteOficial) {
+    constructor(id, nombre, peso, altura, sprite, spriteShiny, spriteOficial, spriteHome, spriteHomeShiny) {
         this.id = id;
         this.nombre = nombre;
-        this.peso = peso;
+        this.descripcion = "";
+        this.peso = this.calculaPeso(peso);
         this.altura = this.calculaAltura(altura);
         this.tipos = [];
         this.habilidades = [];
         this.sprite = sprite;
         this.spriteShiny = spriteShiny;
         this.spriteOficial = spriteOficial;
+        this.spriteHome = spriteHome;
+        this.spriteHomeShiny = spriteHomeShiny;
         this.nodoHtml = "";
+    }
+
+    añadeDescripcion (descripcion) {
+        this.descripcion = descripcion;
     }
     
     añadeTipo (tipo) {
@@ -75,8 +85,8 @@ class Pokemon {
         });
     }
 
-    calculaPeso () {
-        
+    calculaPeso (peso) {
+        return (peso / 10) + " kg";
     }
 
     calculaAltura (altura) {
@@ -131,8 +141,26 @@ async function getTipoEspañol (id) {
     }
 }
 
+function devuelveDescripcionEspañol (url, pokemon) {
+    return new Promise ((resolve, reject) => {
+        fetch (url).then( respuesta => {
+            return respuesta.json();
+        }).then ( datos => {
+            let descripcionEspañol = datos["flavor_text_entries"].find ( elemento => elemento.language.name === "es" 
+            && elemento.version.name === "sword");
+            if (descripcionEspañol === undefined) {
+                descripcionEspañol = datos["flavor_text_entries"].find ( elemento => elemento.language.name === "es" 
+                && elemento.version.name === "alpha-sapphire");
+            }
+            resolve (descripcionEspañol["flavor_text"]);
+        }).catch ( error => {
+            reject ( error );
+        })
+    });
+}
+
 function devuelveHabilidadesEspañol (arrayHabilidades, pokemon) {
-    return new Promise ((resolve) => {
+    return new Promise ((resolve, reject) => {
         let contHabilidades = 0;
         arrayHabilidades.forEach( habilidad => {
             let url = habilidad.ability.url;
@@ -142,7 +170,6 @@ function devuelveHabilidadesEspañol (arrayHabilidades, pokemon) {
                 //console.log(datos);
                 contHabilidades++;
                 let descripcionEspañol = datos["flavor_text_entries"].find ( elemento => elemento.language.name === "es" && elemento.version_group.name === "sword-shield");
-                //console.log(descripcionEspañol["flavor_text"]);
                 let habilidadEspañol = datos.names.find ( elemento => elemento.language.name === "es");
                 let habilidadAux = {
                     nombre: habilidadEspañol.name,
@@ -154,7 +181,7 @@ function devuelveHabilidadesEspañol (arrayHabilidades, pokemon) {
                     resolve (pokemon);
                 }
             }).catch( error => {
-                console.log(error);
+                reject ( error );
             });
         });
     });
@@ -182,15 +209,18 @@ function devuelveDatosPokemon (idPokemon) {
         let datosPokemon = getDatosPokemon(idPokemon);
         datosPokemon.then (datos => {
             //console.log(datos.sprites.other);
-            //console.log(datos);
             let pokemon = new Pokemon (datos.id, datos.name, datos.weight, datos.height,
                  datos.sprites.front_default, datos.sprites.front_shiny,
-                 datos.sprites.other['official-artwork'].front_default);
+                 datos.sprites.other['official-artwork'].front_default,
+                 datos.sprites.other.home.front_default, datos.sprites.other.home.front_shiny);
             devuelveTiposPokemon (datos.types, pokemon).then ( respuesta => {
                 pokemon = respuesta;
                 devuelveHabilidadesEspañol (datos.abilities, pokemon).then ( respuesta => {
                     pokemon = respuesta;
-                    resolve (pokemon);
+                    devuelveDescripcionEspañol (datos.species.url, pokemon).then ( respuesta => {
+                        pokemon.añadeDescripcion(respuesta);
+                        resolve (pokemon);
+                    });
                 });
             });
         });
@@ -252,21 +282,61 @@ function pintaPokemon (pokemon) {
     $(nodoDiv).on({
         click: function () {
             $('.modal').addClass('activo');
+            $('.nombre__pokemon').html(pokemon.nombre);
             $('.imagenPokemon').empty();
+            $('.descripcion__pokemon').empty();
             let nodoSprite = $('<img/>').addClass('sprite').attr('src', pokemon.sprite);
             $('.imagenPokemon').append(nodoSprite);
-            let nodoBtn = $('<button/>').addClass('btnShiny').html('Shiny').on({
+            let nodoBotones = $('<div/>').addClass('botones__sprites');
+            let nodoBtnNormal = $('<button/>').addClass('btnNormal').html('Normal').on({
                 click: function () {
-                    if ($(nodoSprite).attr('src') === pokemon.sprite) {
-                        $(nodoSprite).attr('src', pokemon.spriteShiny);
-                    } else {
-                        $(nodoSprite).attr('src', pokemon.sprite);
-                    }
+                    $(nodoSprite).attr('src', pokemon.sprite);
+                    this.disabled = true;
+                    $('.btnShiny')[0].disabled = false;
+                    $('.btnHome')[0].disabled = false;
+                    $('.btnHomeShiny')[0].disabled = false;
                 }
             });
-            $('.imagenPokemon').append(nodoBtn);
-            let nodoNombre = $('<span/>').addClass('nombrePokemon').html(pokemon.nombre);
-            $('.datosPokemon').append(nodoNombre);
+            let nodoBtnShiny = $('<button/>').addClass('btnShiny').html('Shiny').on({
+                click: function () {
+                    $(nodoSprite).attr('src', pokemon.spriteShiny);
+                    this.disabled = true;
+                    $('.btnNormal')[0].disabled = false;
+                    $('.btnHome')[0].disabled = false;
+                    $('.btnHomeShiny')[0].disabled = false;
+                }
+            });
+            let nodoBtnHome = $('<button/>').addClass('btnHome').html('Home Normal').on({
+                click: function () {
+                    $(nodoSprite).attr('src', pokemon.spriteHome);
+                    this.disabled = true;
+                    $('.btnNormal')[0].disabled = false;
+                    $('.btnShiny')[0].disabled = false;
+                    $('.btnHomeShiny')[0].disabled = false;
+                }
+            });
+            let nodoBtnHomeShiny = $('<button/>').addClass('btnHomeShiny').html('Home Shiny').on({
+                click: function () {
+                    $(nodoSprite).attr('src', pokemon.spriteHomeShiny);
+                    this.disabled = true;
+                    $('.btnNormal')[0].disabled = false;
+                    $('.btnShiny')[0].disabled = false;
+                    $('.btnHome')[0].disabled = false;
+                }
+            });
+            $(nodoBotones).append(nodoBtnNormal).append(nodoBtnShiny).append(nodoBtnHome).append(nodoBtnHomeShiny);
+            $('.imagenPokemon').append(nodoBotones);
+            $('.descripcion__pokemon').html(pokemon.descripcion);
+            $('.altura__pokemon').html("Altura: " + pokemon.altura);
+            $('.peso__pokemon').html("Peso: " + pokemon.peso);
+            $('.habilidades__pokemon').empty();
+            pokemon.habilidades.forEach ( habilidad => {
+                let nodoDiv = $('<div/>').addClass('habilidad');
+                let nodoHabilidad = $('<span/>').addClass('habilidad__nombre').html(habilidad.nombre);
+                let nodoDescripcion = $('<span/>').addClass('habilidad__descripcion').html(habilidad.descripcion);
+                $(nodoDiv).append(nodoHabilidad).append(nodoDescripcion);
+                $('.habilidades__pokemon').append(nodoDiv);
+            });
         }
     });
 }
