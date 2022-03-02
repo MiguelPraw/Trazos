@@ -788,3 +788,57 @@ function clickNavigation (pathName) {
 ```
 
 api-key: 82ca1c74-fa03-4c37-b25f-6a7e7dcb499e
+
+# Web Custom Elements
+
+```html
+
+<app-saludo nombre="Juan">
+
+</app-saludo>
+
+
+```
+
+```js
+
+class SaludoElement extends HTMLElement {
+    constructor () {
+        super(); //Llamar al constructor de la clase padre
+        this.innerHTML = "Hola";
+    }
+
+    // Hook que salta cuando un elemento entra en el DOM
+    connectedCallback(){
+        console.log("Acabo de entrar en el DOM");
+    }
+
+    // Hook que salta cuando un elemento sale del DOM
+    disconnectedCallback(){
+        console.log("Eliminado en el DOM");
+    }
+
+    // Detecta cuando un atributo ha sido cambiado
+    attributeChangedCallback( attr, oldValue, newValue ){
+        console.log("Atributo cambiado");
+        console.log(`${attr} ha cambiado: ${oldValue} => ${newValue}`);
+    }
+    
+    // Define que atributos quiero observar
+    static get observedAttributes() {
+        return["nombre"];
+    }
+
+    render () {
+        
+    }
+}
+
+window.customElements.define ('app-saludo', saludoElement);
+
+```
+
+# ANGULAR
+
+Angular JS = Angular 1
+Angular 2
