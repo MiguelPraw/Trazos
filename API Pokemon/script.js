@@ -208,7 +208,7 @@ function devuelveDatosPokemon (idPokemon) {
     return new Promise (resolve => {
         let datosPokemon = getDatosPokemon(idPokemon);
         datosPokemon.then (datos => {
-            //console.log(datos.sprites.other);
+            // console.log(datos.abilities);
             let pokemon = new Pokemon (datos.id, datos.name, datos.weight, datos.height,
                  datos.sprites.front_default, datos.sprites.front_shiny,
                  datos.sprites.other['official-artwork'].front_default,
