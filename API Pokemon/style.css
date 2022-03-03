@@ -8,16 +8,19 @@ body {
 
 h1 {
     text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
 }
 
 #grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 70%;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     margin: 0 auto;
-
-    padding-right: 10%;
-    padding-left: 10%;
 
     gap: 10px;
 }
@@ -27,6 +30,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 20%;
     gap: 10px;
 
     padding: 15px;
@@ -239,15 +243,7 @@ h1 {
     width: 100%;
 }
 
-.botones__sprites {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.botones__sprites button {
+.imagenPokemon select {
     
     background-color: #911904;
     border: none;
@@ -257,6 +253,22 @@ h1 {
 
     padding: 10px;
     border-radius: 10px;
+}
+
+.imagenPokemon select option {
+    font-family: 'VT323', monospace;
+}
+
+.imagenPokemon select option:checked {
+    background-color: #212121;
+}
+
+.imagenPokemon select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+}
+
+select:focus > option:checked { 
+    background: #000 !important;
 }
 
 .datosPokemon {

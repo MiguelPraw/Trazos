@@ -10,19 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <script async defer src="script.js"></script>
 </head>
 <body>
-    <div id="modal">
+    <div class="modal">
         <h3>Tres en Raya</h3>
         <input id="jugador1" type="text" placeholder="Jugador 1" autocomplete="off" required>
         <input id="jugador2" type="text" placeholder="Jugador 2" autocomplete="off" required>
         <input id="dimension" type="number" placeholder="Dimensión" autocomplete="off" required>
-        <button id="empezar"> 
-            <span class="material-icons">
-            play_arrow
-            </span> 
+        <button id="btnEmpezar"> 
+            <span class="material-icons">play_arrow</span> 
         </button>
         <p id="consola"></p>
     </div>
@@ -37,6 +34,9 @@
             <h3 class="estadisticas__jugador jugador2"></h3>
             <span class="ganadas jugador2"></span>
         </div>
+    </div>
+    <div class="reset">
+        <button id="btnReset">Reiniciar Juego</button>
     </div>
 </body>
 </html>

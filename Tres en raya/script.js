@@ -1,6 +1,7 @@
 'use strict'
 
-let nodoEmpezar = document.querySelector("#empezar");
+let nodoEmpezar = document.querySelector("#btnEmpezar");
+let nodoReset = document.querySelector("#btnReset")
 let nodoJuego = document.querySelector("#juego");
 
 const WIN_CONDITION = 3;
@@ -350,17 +351,39 @@ function empiezaJuego (juego) {
 }
 
 nodoEmpezar.addEventListener ('click', () => {
-    let nodoModal = document.querySelector("#modal");
+    let nodoModal = document.querySelector(".modal");
     let nodoJugador1 = nodoModal.querySelector("#jugador1");
     let nodoJugador2 = nodoModal.querySelector("#jugador2");
     let nodoDimension = nodoModal.querySelector("#dimension");
+    let nodoConsola = nodoModal.querySelector("#consola");
 
     if (nodoJugador1.value === "" || nodoJugador2.value === "" || nodoDimension.value === "") {
-        let nodoConsola = nodoModal.querySelector("#consola");
         nodoConsola.innerHTML = "Introduce todos los campos";
+    } else if (nodoDimension.value <= 2 || nodoDimension.value >= 8) {
+        nodoConsola.innerHTML = "Dimensión no válida. Tiene que ser mayor que 2 y menor que 8";   
     } else {
         nodoModal.classList.add("empezado");
         let juego = new Juego (nodoDimension.value, nodoJugador1.value, nodoJugador2.value);
         empiezaJuego(juego);
     }
+});
+
+nodoReset.addEventListener ('click', () => {
+    let nodoModal = document.querySelector(".modal");
+    let nodoJugador1 = nodoModal.querySelector("#jugador1");
+    let nodoJugador2 = nodoModal.querySelector("#jugador2");
+    let nodoDimension = nodoModal.querySelector("#dimension");
+    let nodoConsola = nodoModal.querySelector("#consola");
+
+    nodoModal.classList.remove("empezado");
+    nodoJugador1.value = "";
+    nodoJugador2.value = "";
+    nodoDimension.value = "";
+    nodoConsola.innerHTML = "";
+
+    setTimeout ( () => {
+        nodoJuego.removeChild(document.querySelector('.jugador'));
+        nodoJuego.removeChild(document.querySelector('.tablero'));
+        nodoJuego.removeChild(document.querySelector('.consola'));
+    }, 1500);
 });
