@@ -11,9 +11,11 @@
 
 body {
     background-color: black;
+    overflow: hidden;
+    height: 100vh;
 }
 
-#modal {
+.modal {
     position: absolute;
     top: 0;
     left: 0;
@@ -27,15 +29,16 @@ body {
     height: 100vh;
     width: 100%;
     gap: 10px;
-    transition: all 1.5s ease;
+    
+    transition: transform 0.5s ease-in;
 }
 
 .empezado {
-    opacity: 0;
-    visibility: hidden;
+    transform: translateX(100%);
+    animation: desaparece 0.5s 1 forwards;
 }
 
-#modal h3 {
+.modal h3 {
     font-family: var(--fuente);
     font-size: 2.5em;
     color: var(--color-jugador1);
@@ -71,7 +74,7 @@ input:focus-visible {
     opacity: 0.7;
 }
 
-#empezar {
+#btnEmpezar {
     background-color: var(--color-jugador1);
     border-radius: 5px;
     border: none;
@@ -80,7 +83,7 @@ input:focus-visible {
     transition: all 1s ease;
 }
 
-#empezar:hover {
+#btnEmpezar:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -111,14 +114,15 @@ input:focus-visible {
 
 .casilla {
     background-color: rgb(16 74 76);
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     transition: all 1s ease;
 }
 
 .casilla:hover {
     opacity: 0.8;
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .activo1 {
@@ -148,14 +152,38 @@ input:focus-visible {
 .estadisticas {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     color: rgb(18, 183, 189);
 }
 
 .estadisticas h3 {
     margin: 0;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset button {
+    background-color: var(--color-jugador1);
+    font-family: var(--fuente);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    width: auto;
+    height: auto;
+    /*transition: all 1s ease;*/
+}
+
+.reset button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 @keyframes efecto {
@@ -173,5 +201,23 @@ input:focus-visible {
     }
     100% {
         padding-bottom: 0;
+    }
+}
+
+@keyframes desaparece {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0;
     }
 }

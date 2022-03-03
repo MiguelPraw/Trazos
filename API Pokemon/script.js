@@ -208,7 +208,7 @@ function devuelveDatosPokemon (idPokemon) {
     return new Promise (resolve => {
         let datosPokemon = getDatosPokemon(idPokemon);
         datosPokemon.then (datos => {
-            //console.log(datos.sprites.other);
+            // console.log(datos.abilities);
             let pokemon = new Pokemon (datos.id, datos.name, datos.weight, datos.height,
                  datos.sprites.front_default, datos.sprites.front_shiny,
                  datos.sprites.other['official-artwork'].front_default,
@@ -287,45 +287,35 @@ function pintaPokemon (pokemon) {
             $('.descripcion__pokemon').empty();
             let nodoSprite = $('<img/>').addClass('sprite').attr('src', pokemon.sprite);
             $('.imagenPokemon').append(nodoSprite);
-            let nodoBotones = $('<div/>').addClass('botones__sprites');
-            let nodoBtnNormal = $('<button/>').addClass('btnNormal').html('Normal').on({
-                click: function () {
-                    $(nodoSprite).attr('src', pokemon.sprite);
-                    this.disabled = true;
-                    $('.btnShiny')[0].disabled = false;
-                    $('.btnHome')[0].disabled = false;
-                    $('.btnHomeShiny')[0].disabled = false;
+            let nodoSelect = $('<select/>').attr('id', 'selectSprite');
+            nodoSelect.append($('<option/>').val('Normal').html('Normal').attr('selected', true));
+            nodoSelect.append($('<option/>').val('Shiny').html('Shiny'));
+            nodoSelect.append($('<option/>').val('Home Normal').html('Home Normal'));
+            nodoSelect.append($('<option/>').val('Home Shiny').html('Home Shiny'));
+            $('.imagenPokemon').append(nodoSelect);
+
+            $(nodoSelect).on({
+                change: function () {
+                    switch (this.value) {
+                        case "Normal":
+                            $(nodoSprite).attr('src', pokemon.sprite);
+                        break;
+                        case "Shiny":
+                            $(nodoSprite).attr('src', pokemon.spriteShiny);
+                        break;
+                        case "Home Normal":
+                            $(nodoSprite).attr('src', pokemon.spriteHome);
+                        break;
+                        case "Home Shiny":
+                            $(nodoSprite).attr('src', pokemon.spriteHomeShiny);
+                        break;
+                        default:
+                            console.log("FALLO");
+                        break;
+                    }
                 }
             });
-            let nodoBtnShiny = $('<button/>').addClass('btnShiny').html('Shiny').on({
-                click: function () {
-                    $(nodoSprite).attr('src', pokemon.spriteShiny);
-                    this.disabled = true;
-                    $('.btnNormal')[0].disabled = false;
-                    $('.btnHome')[0].disabled = false;
-                    $('.btnHomeShiny')[0].disabled = false;
-                }
-            });
-            let nodoBtnHome = $('<button/>').addClass('btnHome').html('Home Normal').on({
-                click: function () {
-                    $(nodoSprite).attr('src', pokemon.spriteHome);
-                    this.disabled = true;
-                    $('.btnNormal')[0].disabled = false;
-                    $('.btnShiny')[0].disabled = false;
-                    $('.btnHomeShiny')[0].disabled = false;
-                }
-            });
-            let nodoBtnHomeShiny = $('<button/>').addClass('btnHomeShiny').html('Home Shiny').on({
-                click: function () {
-                    $(nodoSprite).attr('src', pokemon.spriteHomeShiny);
-                    this.disabled = true;
-                    $('.btnNormal')[0].disabled = false;
-                    $('.btnShiny')[0].disabled = false;
-                    $('.btnHome')[0].disabled = false;
-                }
-            });
-            $(nodoBotones).append(nodoBtnNormal).append(nodoBtnShiny).append(nodoBtnHome).append(nodoBtnHomeShiny);
-            $('.imagenPokemon').append(nodoBotones);
+
             $('.descripcion__pokemon').html(pokemon.descripcion);
             $('.altura__pokemon').html("Altura: " + pokemon.altura);
             $('.peso__pokemon').html("Peso: " + pokemon.peso);
@@ -342,9 +332,7 @@ function pintaPokemon (pokemon) {
 }
 
 function iniciaPokedex () {
-
     let resultadoConsultaInicial = getDatos(URL);
-    
     resultadoConsultaInicial.then( respuesta => {
         console.log(respuesta);
         actualizaPokedex (respuesta).then ( () => {
@@ -354,42 +342,45 @@ function iniciaPokedex () {
                 pintaPokemon (pokemon);
             });
         });
-        if (anteriorUrl === "") {
-            $('#btnPrev').prop('disabled', true);
-        }
     });
 }
 
 iniciaPokedex();
-
-$('#btnPrev').on({
-    click: function () {
-
-    }
-});
-
-$('#btnNext').on({
-    click: function () {
-        let resultadoConsulta = getDatos (siguienteUrl);
-        resultadoConsulta.then (respuesta => {
-            console.log(respuesta);
-            actualizaPokedex (respuesta).then( () => {
-                console.log(pokedex);
-                ordenaPokedex();
-                $('#grid').empty();
-                pokedex.listaPokemon.forEach (pokemon => {
-                    pintaPokemon (pokemon);
-                });
-            });
-        });
-    }
-}); 
 
 $('.modal').on({
     click: function (evento) {
         evento.preventDefault();
         if (evento.target === $('.modal')[0]) {
             $('.modal').removeClass('activo');
+        }
+    }
+});
+
+let buscando = false;
+
+$(window).on({
+    scroll: function () {
+        let topScroll = Math.round($(this).scrollTop());
+        let gridHeight = Math.round($('#grid').height());
+        let windowHeight = Math.round($(window).height());
+
+        let recorrido = topScroll + windowHeight;
+        
+        if (recorrido >= gridHeight && !buscando) {
+            buscando = true;
+            let resultadoConsulta = getDatos (siguienteUrl);
+            resultadoConsulta.then (respuesta => {
+                console.log(respuesta);
+                actualizaPokedex (respuesta).then( () => {
+                    buscando = false;
+                    console.log(pokedex);
+                    ordenaPokedex();
+                    $('#grid').empty();
+                    pokedex.listaPokemon.forEach (pokemon => {
+                        pintaPokemon (pokemon);
+                    });
+                });
+            });
         }
     }
 });
