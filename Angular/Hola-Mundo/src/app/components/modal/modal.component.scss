@@ -1,0 +1,32 @@
+.modal {
+    background-color: #00000088;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease;
+
+    &__contenido {
+        background-color: white;
+        padding: 50px;
+    }
+
+}
+
+.boton {
+    padding: 20px;
+
+    background-color: lightslategray;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abierto {
+    top: 0;
+    
+}

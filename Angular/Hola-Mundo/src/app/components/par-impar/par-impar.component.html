@@ -1,0 +1,29 @@
+<hr>
+<div class="container">
+    <h1> Par o impar </h1>
+
+    <div *ngIf="contador === 0" class="cero center">
+        CERO
+    </div>
+
+    <div *ngIf="isPar() && contador !== 0" class="par center">
+        PAR
+    </div>
+
+    <div *ngIf="contador % 2 !== 0" class="impar center">
+        IMPAR
+    </div>
+
+    <div class="contador" [ngClass] = "{ 'red':isPar(), 'green':!isPar() }">
+        {{contador}}
+    </div>
+
+    <div>
+        <button (click)="restar()"> Menos </button>
+        <button (click)="sumar()"> Más </button>
+    </div>
+
+    <img src="{{urlImagen}}">
+    <img [src]="urlImagen">
+
+</div>

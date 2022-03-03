@@ -1,0 +1,9 @@
+<div (click)="cerrarModal()" class="modal center" [ngClass]="{ 'abierto' : modalAbierto }">
+    <div (click)="$event.stopPropagation()" class="modal__contenido center">
+        hola
+    </div>
+</div>
+
+<div class="boton center">
+    <button (click)="abrirModal()"> Abrir Modal </button>
+</div>
