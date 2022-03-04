@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
-import { RelojComponent } from './components/reloj/reloj.component';
+import { FiltroImagenesComponent } from './components/filtro-imagenes/filtro-imagenes.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RelojComponent } from './components/reloj/reloj.component';
     HomePageComponent,
     ContactPageComponent,
     ServicesPageComponent,
-    RelojComponent
+    FiltroImagenesComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

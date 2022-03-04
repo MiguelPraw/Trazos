@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    &__botones {
+        display: flex;
+
+        gap: 20px;
+    }
+    
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        &__imagen {
+            width: 500px;
+            height: 300px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.modal {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: #00000088;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__contenido {
+        width: 70%;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.abierto {
+    top: 0;
+}
