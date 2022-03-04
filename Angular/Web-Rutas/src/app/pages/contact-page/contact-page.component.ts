@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
+  listaImagenes = [
+    
+  ];
+
   constructor() {
     console.log("Construido contacto");
   }
