@@ -11,10 +11,13 @@ export class PrincipalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let random = Math.round(Math.random() * 200);
+    this.imagenSrc = `https://picsum.photos/id/${random}/800/600`;
   }
 
   public cambiaImagen () {
-
+    let random = Math.round(Math.random() * 200);
+    this.imagenSrc = `https://picsum.photos/id/${random}/800/600`;
   }
 
 }

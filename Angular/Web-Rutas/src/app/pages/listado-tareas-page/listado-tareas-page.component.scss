@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    &__input {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__tareas {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        gap: 10px;
+
+        .tareas__pendientes, .tareas__completadas {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+            .tarea {
+                padding: 20px;
+                width: 80%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                &__botones {
+                    display: flex;
+                    gap: 5px;
+
+                    .completar {
+                        background-color: lime;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 10px;
+                    }
+
+                    .pendiente {
+                        background-color: yellow;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 10px;
+                    }
+
+                    .borrar {
+                        background-color: tomato;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 10px;
+                        color: white;
+                    }
+
+                    .completar:hover, .borrar:hover, .pendiente:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .tareas__pendientes {
+
+            .tarea {
+                background-color: blanchedalmond;
+            }
+        }
+
+        .tareas__completadas {
+            
+            .tarea {
+                background-color: lightgreen;
+            }
+        }
+
+    }
+}

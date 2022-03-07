@@ -1,0 +1,39 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contador {
+    font-size: 2rem;
+
+    &.red {
+        color: red;
+    }
+
+    &.green {color: limegreen;
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.par {
+    background-color: lightblue;
+}
+
+.impar {
+    background-color: lightgreen;
+}
+
+.cero {
+    background-color: lightseagreen;
+}

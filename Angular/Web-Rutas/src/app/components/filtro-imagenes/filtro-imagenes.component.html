@@ -1,0 +1,22 @@
+<div class="container">
+    <h1> Grid Imágenes </h1>
+
+    <div class="container__botones">
+        <button (click)="filtra('')"> Todas </button>
+        <button (click)="filtra('hobbit')" > Hobbit </button>
+        <button (click)="filtra('orco')" > Orco </button>
+    </div>
+    <div class="grid">
+        <ng-container *ngFor="let cadaImagen of listaImagenes">
+            <div class="grid__imagen" *ngIf="categoria === '' || cadaImagen.categoria === categoria">
+                <img (click)="abreModal(cadaImagen.url)" src="{{cadaImagen.url}}" alt="sema">
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div (click)="cierraModal()" class="modal" [ngClass]="{ 'abierto': modalAbierto}">
+    <div (click)="$event.stopPropagation()" class="modal__contenido">
+        <img src="{{urlActivo}}" alt="sema">
+    </div>
+</div>
