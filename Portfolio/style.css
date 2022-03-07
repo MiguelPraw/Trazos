@@ -17,34 +17,129 @@
     --fuente-principal: 'Space Mono', monospace;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 .header {
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1b181888;
+    width: 100%;
+    padding-top: 10px;
+    z-index: 1;
 }
 
-.portada {
+.header .header__nav ul {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: black;
+    justify-content: space-around;
 
 }
 
-.portada__h1 {
-    color: var(--color-secundario);
+.header .header__nav ul li {
+    list-style: none;
     font-family: var(--fuente-principal);
-    opacity: 0.5;
-    transition: opacity 1s ease;
-}
-
-.portada__h1:hover {
-    opacity: 1;
+    font-weight: bold;
+    color: var(--color-primario);
     cursor: pointer;
 }
 
-h2 {
+.activo {
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+.main {
+    height: 100vh;
+    transition: all 1s ease;
+}
+
+.main__portada, .main__proyectos, .main__about, .main__contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+    background-color: black;
+    position: absolute;
+    left: 0;
+}
+
+.main__portada {
+    top: 0;
+}
+
+.main__proyectos {
+    top: 100%;
+}
+
+.main__about {
+    top: 200%;
+}
+
+.main__contacto {
+    top: 300%;
+}
+
+.portada__h2 h2, .proyectos__h2 h2, .about__h2 h2, .contacto__h2 h2 {
+    font-family: var(--fuente-principal);
     color: var(--color-secundario);
+}
+
+.main__proyectos {
+    gap: 20px;
+}
+
+.main__proyectos .proyectos__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.proyectos__grid .proyecto {
+    width: 25%;
+    height: 45%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.proyectos__grid .proyecto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 1s ease;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000CC;
+    color: white;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.proyecto:hover .overlay {
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.proyecto:hover {
+    cursor: pointer;
+}
+
+.proyecto:hover img {
+    transform: scale(1.15);
 }
