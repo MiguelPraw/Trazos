@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { FiltroImagenesComponent } from './components/filtro-imagenes/filtro-imagenes.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { ListadoAlumnosPageComponent } from './pages/listado-alumnos-page/listado-alumnos-page.component';
+import { ListadoTareasPageComponent } from './pages/listado-tareas-page/listado-tareas-page.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { SliderComponent } from './components/slider/slider.component';
     ContactPageComponent,
     ServicesPageComponent,
     FiltroImagenesComponent,
-    SliderComponent
+    SliderComponent,
+    ListadoAlumnosPageComponent,
+    ListadoTareasPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

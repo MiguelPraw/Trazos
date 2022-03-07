@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="container__h1">
+        <h1> Alumnos </h1>
+    </div>
+
+    <div class="container__input">
+        <input type="text" [(ngModel)]="entradaNombre">
+        <button (click)="add()"> Añadir </button>
+    </div>
+
+    <div class="container__alumnos">
+        <div *ngFor="let alumno of listaAlumnos; let i = index" class="alumno">
+            {{i + 1}}. {{alumno.nombre}} {{alumno.apellidos}}
+        </div>
+    </div>
+
+</div>
