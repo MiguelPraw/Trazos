@@ -273,7 +273,7 @@ select:focus > option:checked {
 
 .datosPokemon {
     width: 65%;
-    gap: 10px;
+    gap: 20px;
     padding-right: 10px;
 
     display: flex;

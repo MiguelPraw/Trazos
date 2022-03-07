@@ -146,16 +146,13 @@ function devuelveDescripcionEspañol (url, pokemon) {
         fetch (url).then( respuesta => {
             return respuesta.json();
         }).then ( datos => {
-            let descripcionEspañol = datos["flavor_text_entries"].find ( elemento => elemento.language.name === "es" 
-            && elemento.version.name === "sword");
-            if (descripcionEspañol === undefined) {
-                descripcionEspañol = datos["flavor_text_entries"].find ( elemento => elemento.language.name === "es" 
-                && elemento.version.name === "alpha-sapphire");
-            }
-            resolve (descripcionEspañol["flavor_text"]);
+            //console.log(datos);
+            let descripcion = datos["flavor_text_entries"].filter ( elemento => elemento.language.name === "es");
+            console.log();
+            resolve (descripcion[descripcion.length-1].flavor_text);
         }).catch ( error => {
             reject ( error );
-        })
+        });
     });
 }
 
