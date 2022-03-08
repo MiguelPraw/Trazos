@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { FiltroImagenesComponent } from './components/filtro-imagenes/filtro-ima
 import { SliderComponent } from './components/slider/slider.component';
 import { ListadoAlumnosPageComponent } from './pages/listado-alumnos-page/listado-alumnos-page.component';
 import { ListadoTareasPageComponent } from './pages/listado-tareas-page/listado-tareas-page.component';
+import { ListadoRickMortyComponent } from './pages/listado-rick-morty/listado-rick-morty.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { ListadoTareasPageComponent } from './pages/listado-tareas-page/listado-
     FiltroImagenesComponent,
     SliderComponent,
     ListadoAlumnosPageComponent,
-    ListadoTareasPageComponent
+    ListadoTareasPageComponent,
+    ListadoRickMortyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

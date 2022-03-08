@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ListadoAlumnosPageComponent } from './pages/listado-alumnos-page/listado-alumnos-page.component';
+import { ListadoRickMortyComponent } from './pages/listado-rick-morty/listado-rick-morty.component';
 import { ListadoTareasPageComponent } from './pages/listado-tareas-page/listado-tareas-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: "contacto", component: ContactPageComponent},
   {path: "services", component: ServicesPageComponent},
   {path: "alumnos", component: ListadoAlumnosPageComponent},
-  {path: "tareas", component: ListadoTareasPageComponent}
+  {path: "tareas", component: ListadoTareasPageComponent},
+  {path: "rick-morty", component: ListadoRickMortyComponent}
 ];
 
 @NgModule({
