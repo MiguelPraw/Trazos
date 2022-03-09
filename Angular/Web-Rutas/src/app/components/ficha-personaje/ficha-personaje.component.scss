@@ -1,0 +1,13 @@
+.personaje {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    gap: 10px;
+
+    &__imagen {
+        line-height: 0;
+    }
+}

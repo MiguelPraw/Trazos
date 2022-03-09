@@ -27,6 +27,7 @@ export class ListadoRickMortyComponent implements OnInit {
       console.log( 'TODO OK' );
       console.log( respuesta );
       this.personajes = <Personaje[]>respuesta.results;
+      this.num_personajes = this.personajes.length;
     }, error => {
       console.log( 'ERROR' );
       console.log( error );
@@ -62,6 +63,11 @@ export class ListadoRickMortyComponent implements OnInit {
       let boton:any = document.querySelector('#anterior');
       boton.disabled = true;
     }
+  }
+
+  detectarEvento(evento:any){
+    console.log("Evento Cazado Fuera");
+    console.log(evento);
   }
 
 }

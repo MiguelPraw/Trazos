@@ -13,6 +13,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ListadoAlumnosPageComponent } from './pages/listado-alumnos-page/listado-alumnos-page.component';
 import { ListadoTareasPageComponent } from './pages/listado-tareas-page/listado-tareas-page.component';
 import { ListadoRickMortyComponent } from './pages/listado-rick-morty/listado-rick-morty.component';
+import { FichaPersonajeComponent } from './components/ficha-personaje/ficha-personaje.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListadoRickMortyComponent } from './pages/listado-rick-morty/listado-ri
     SliderComponent,
     ListadoAlumnosPageComponent,
     ListadoTareasPageComponent,
-    ListadoRickMortyComponent
+    ListadoRickMortyComponent,
+    FichaPersonajeComponent
   ],
   imports: [
     BrowserModule,

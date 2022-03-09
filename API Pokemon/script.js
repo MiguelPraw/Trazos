@@ -207,9 +207,9 @@ function devuelveDatosPokemon (idPokemon) {
         datosPokemon.then (datos => {
             // console.log(datos.abilities);
             let pokemon = new Pokemon (datos.id, datos.name, datos.weight, datos.height,
-                 datos.sprites.front_default, datos.sprites.front_shiny,
-                 datos.sprites.other['official-artwork'].front_default,
-                 datos.sprites.other.home.front_default, datos.sprites.other.home.front_shiny);
+                datos.sprites.front_default, datos.sprites.front_shiny,
+                datos.sprites.other['official-artwork'].front_default,
+                datos.sprites.other.home.front_default, datos.sprites.other.home.front_shiny);
             devuelveTiposPokemon (datos.types, pokemon).then ( respuesta => {
                 pokemon = respuesta;
                 devuelveHabilidadesEspañol (datos.abilities, pokemon).then ( respuesta => {
