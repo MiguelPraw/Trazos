@@ -96,9 +96,21 @@ todas_letras = [ ...todas_letras, 'E']; // PUSH
 En React no se pueden usar métodos mutables (Aquellos que modifican el objeto original)
 
 React es una libreria, se va a poder utilizar en cualquier proyecto.
-Hay dos maneras de utilizarse: mediante libreria y CDN o mediante el Cli de React
+Hay dos maneras de utilizarse: mediante libreria y CDN o mediante el Cli de React.
 
 ## Características
 
 En React, que utiliza JSX, se tiene que utilizar siempre "className" en lugar de "class".
 Solo puede devolver un único contenedor HTML. Se puede utilizar <Fragment> para devolver varios.
+
+## Componentes
+
+Para crear variables dinámicas utilizamos:
+
+```js
+
+const [ contador, setContador ] = useState ( 0 );
+
+```
+
+'contador' es el GET de la variable, setContador el SETTER y useState implementa el estado inicial.
