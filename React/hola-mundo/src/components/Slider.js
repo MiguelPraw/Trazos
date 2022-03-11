@@ -12,18 +12,14 @@ function Slider () {
 
     const [ imgActual, setImgActual ] = useState ( 0 );
 
-    const [ url, setUrl ] = useState (arrayUrls[imgActual]);
-
     console.log("inicial", imgActual);
 
     const siguienteImagen = () => {
-        if (imgActual >= arrayUrls.lenght - 1) {
+        if (imgActual >= arrayUrls.length - 1) {
             setImgActual( 0 );
         } else {
             setImgActual( imgActual + 1 );
         }
-        console.log("posicion actual", imgActual);
-        setUrl(arrayUrls[imgActual]);
     }
 
     const anteriorImagen = () => {
@@ -32,8 +28,6 @@ function Slider () {
         } else {
             setImgActual ( imgActual - 1);
         }
-        console.log("posicion actual", imgActual);
-        setUrl(arrayUrls[imgActual+1]);
     }
 
     const pintaImagen = () => {
@@ -48,8 +42,6 @@ function Slider () {
                 </div>
                 <div className="slider">
                     {pintaImagen()}
-                    {imgActual}
-                    {url}
                 </div>
                 <div className="container__boton">
                     <button onClick={siguienteImagen} className="boton"> Next </button>
