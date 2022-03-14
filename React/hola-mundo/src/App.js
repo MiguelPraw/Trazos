@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.scss';
 import { Fragment } from 'react';
 import Saludo from './components/Saludo';
-import Contador from './components/Contador';
 import Modal from './components/Modal';
 import Slider from './components/Slider';
-import Alumnos from './components/Alumnos';
 import Footer from './components/Footer';
+import Contador from './components/Contador';
+import Alumnos from './components/Alumnos';
 import GridImagenes from './components/GridImagenes';
+import ListaTareas from './components/ListaTareas';
 
 import {
   BrowserRouter,
@@ -22,14 +23,16 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <nav className="menu">
-            <Link to="/"> Home </Link>
-            <Link to="/grid"> Grid </Link>
-            <Link to="/alumnos"> Alumnos </Link>
+            <span><Link to="/"> Home </Link></span>
+            <span><Link to="/grid"> Grid </Link></span>
+            <span><Link to="/alumnos"> Alumnos </Link></span>
+            <span><Link to="/listaTareas"> Lista de Tareas </Link></span>
           </nav>
           <Routes>
             <Route path="/" element={<Contador/>}></Route>
             <Route path="/grid" element={<GridImagenes/>}></Route>
             <Route path="/alumnos" element={<Alumnos/>}></Route>
+            <Route path="/listaTareas" element={<ListaTareas/>}></Route>
           </Routes>
         </BrowserRouter>
       </div>

@@ -146,6 +146,63 @@
   }
 }
 
+.container__tareas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+
+  .tareas-pendientes, .tareas-completadas {
+    display: flex;
+    flex-direction: column;
+    width: 100% ;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .tarea {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 20px;
+    justify-content: space-between;
+  }
+
+  .pendiente {
+    background-color: blanchedalmond;
+  }
+
+  .completada {
+    background-color: lightgreen;
+  }
+
+  .btn_completar, .btn_pendiente, .btn_borrar {
+    border: none;
+    padding: 10px 20px;
+  }
+
+  .btn_completar:hover, .btn_pendiente:hover, .btn_borrar:hover {
+    cursor: pointer;
+  }
+
+  .btn_completar {
+    background-color: green;
+    color: white;
+  }
+
+  .btn_pendiente {
+    background-color: moccasin;
+  }
+
+  .btn_borrar {
+    background-color: tomato;
+    color: white;
+  }
+}
+
 footer {
   position: fixed;
   bottom: 0;
