@@ -40,7 +40,7 @@ function App() {
     // <Fragment>
     //   <div className="App">
     //     <h1>Hola Mundo React</h1>
-    //     {/* <Saludo></Saludo> */}
+    //     {/* <Saludo titulo="PEPE"></Saludo> */}
     //     {/* <Contador></Contador> */}
     //     {/* <Modal></Modal> */}
     //     {/* <Slider></Slider> */}
