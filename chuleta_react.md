@@ -90,7 +90,6 @@ todas_letras = [ ...todas_letras, 'E']; // PUSH
 
 ```
 
-
 # React
 
 En React no se pueden usar métodos mutables (Aquellos que modifican el objeto original)

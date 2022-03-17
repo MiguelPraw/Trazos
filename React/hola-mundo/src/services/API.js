@@ -8,13 +8,12 @@ const getCharacter = ( param ) => {
             resolve(datos);
         }).catch ( error => {
             reject(error);
-        })
+        });
     });
-
 }
 
 const deleteCharacter = () => {
-
+    
 }
 
 const API = {
