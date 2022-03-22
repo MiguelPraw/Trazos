@@ -20,11 +20,13 @@
     h3 {
         color: tomato;
         text-align: center;
+        margin: 20px;
     }
 
     h4 {
-        color: green;
+        color: tomato;
         text-align: center;
+        margin: 20px;
     }
 
     i {
@@ -120,12 +122,12 @@ npx tsc --init          # Crea el archivo de configuración de TypeScript
 
 npx tsc -w              # Inicia la transpilación sincronizada
 ```
-
+---
 #### RESUMEN
 
 ```bash
 npm init -y                         #
-npm i nodemon -D                    #   Instala los JSON 
+npm i nodemon -D                    #   Instala las dependencias y actualiza JSON 
 npm i typescript -D                 #
 
 npx tsc --init                      #   
