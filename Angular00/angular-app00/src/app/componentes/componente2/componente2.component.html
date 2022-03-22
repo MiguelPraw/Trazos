@@ -1,0 +1,27 @@
+
+<!-- <h1> {{ semana }} </h1>
+
+<ul>
+    <li *ngFor="let dia of semana"> {{ dia }} </li>
+</ul>
+
+<ul>
+    <li *ngFor="let alumno of clase"> {{ alumno.nombre }} {{ alumno.apellido }} </li>
+</ul>
+
+<section *ngFor=" let alumno of clase ">
+    <h3> {{alumno.nombre}} </h3>
+    <p> Y se apellida {{ alumno.apellido }} </p>
+</section> -->
+
+<section *ngFor="let slider of thefork" class="section" >
+    <h2 class="section__h2"> {{ slider.titulo }} </h2>
+    <ul class="section__ul">
+        <li *ngFor="let cadaLi of slider.elementos" class="section__li">
+            <img class="section__img" src="" alt="">
+            <h3 class="section__h3"> {{ cadaLi.titulo }} </h3>
+            <p class="section__p"> {{ cadaLi.descripcion }} </p>
+            <a class="section__a" href="#"> {{ cadaLi.boton }} </a>
+        </li>
+    </ul>
+</section>

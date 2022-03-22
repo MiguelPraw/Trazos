@@ -1,0 +1,22 @@
+
+.section {
+
+    width: 90%;
+    background: lightblue;
+    margin: 1em auto;
+    padding: 1em;
+
+    &__ul {
+        width: 100%;
+        background: orange;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__li {
+        background: red;
+    }
+}
