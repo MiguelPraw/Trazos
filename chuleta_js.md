@@ -48,38 +48,24 @@ const saludo_funcion_arrow = () => {
 
 let nodoBody = document.querySelector('body');
 
-nodoBody.addEventListener ('mousemove', function () {
+nodoBody.addEventListener ('mousemove', function () {});
 
-});
+nodoBody.addEventListener ('mousedown', function () {});
 
-nodoBody.addEventListener ('mousedown', function () {
+nodoBody.addEventListener ('mouseup', function () {});
 
-});
+nodoBody.addEventListener ('keydown', function () {});
 
-nodoBody.addEventListener ('mouseup', function () {
-
-});
-
-nodoBody.addEventListener ('keydown', function () {
-
-});
-
-nodoBody.addEventListener ('keyup', function () {
-
-});
+nodoBody.addEventListener ('keyup', function () {});
 
 
 ```
 
 ```js
 
-function crearCirculo () {
+function crearCirculo () {}
 
-}
-
-function crearCuadrado () {
-
-}
+function crearCuadrado () {}
 
 let callback_activo = crearCirculo;
 let isPainting = true;
