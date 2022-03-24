@@ -1,14 +1,25 @@
 
 <div class="container">
 
-        <ul 
-            class="container__ul">
-            <li 
-                *ngFor=" let item of items; let i = index "
-                class="container__li">
-                {{ item.nombre }}
-                <span class="container__span">{{ item.marca }}</span>
-            </li>
-        </ul>
+    <div class="container__background">
+        <div 
+            *ngFor=" let item of items ; let i = index "
+            [ngClass]="{ 'activo' : actual === i }"
+            style="background-image: url({{item.fondo}});"
+            class="background">
+        </div>
+    </div>
+
+    <ul class="container__ul">
+        <li 
+            *ngFor=" let item of items; let i = index "
+            (mouseenter)="setActual(i)"
+            (mouseout)="setActual(-1)"
+            [ngClass]=" { 'activo' : actual === i || actual === -1 } "
+            class="container__li">
+            {{ item.nombre }}
+            <span class="container__span">{{ item.marca }}</span>
+        </li>
+    </ul>
 
 </div>

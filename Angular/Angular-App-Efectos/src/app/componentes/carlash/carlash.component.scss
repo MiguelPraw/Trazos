@@ -1,15 +1,44 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: black;
+    background: #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            opacity: 0;
+            transition: all 0.5s ease;
+            
+            &.activo {
+                opacity: 1;
+                display: flex;
+            }
+        }
+    }
 
     &__ul {
         width: 80%;
         height: 100%;
         margin: auto;
+        position: relative;
+        z-index: 4;
+        background: transparent;
 
         display: flex;
         flex-flow: row wrap;
@@ -18,15 +47,32 @@
 
     &__li {
         color: white;
-        font-size: 4em;
-        margin: 0.5em;
+        font-size: 4.5vw;
+        margin: 0.5em 0.2em;
+        letter-spacing: -4px;
 
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
+    
+        opacity: 0.2;
+        transition: all 0.5s ease;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.activo {
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 2rem;
+        }
     }
 
     &__span {
         font-size: 0.2em;
         font-style: italic;
+        letter-spacing: normal;
     }
 }
