@@ -130,10 +130,25 @@ Atributos de las etiquetas para marcar pautas.
 <div *ngIf=""></div>
 <div [ngStyle]=""></div>
 <div [ngClass]=""></div>
-<div (click)=""></div>
+<div (click)="metodo()"></div>
 <div [(ngModel)]=""></div>
 ```
 
+## Eventos
+
+```html
+<h1 [ngClass]=" { 'verde' : activo , 'grande' : true } "> Lorem ipsum </h1>
+```
+
+Si queremos indicar a un atributo de HTML que le vamos a pasar un parámetro, se mete entre [].
+
+```html
+<li 
+    *ngFor=" let li of elementos; let i = index "
+    class="header__li">
+    <a class="header__a" [href]="li.url"> {{ li.nombre }} </a>
+</li>
+```
 
 
 

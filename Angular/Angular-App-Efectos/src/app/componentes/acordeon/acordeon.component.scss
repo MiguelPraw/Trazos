@@ -1,0 +1,70 @@
+// .acordeon {
+//     width: 90%;
+//     max-width: 600px;
+//     background: lightgray;
+//     margin: auto;
+
+//     &__fila {
+//         background: orange;
+//         margin: 0 0 1em;
+//     }
+
+//     &__p {
+//         background: lime;
+//         height: 0;
+//         overflow: hidden;
+//         transition: all .5s ease;
+    
+//         &.ver {
+//             height: 2em;
+//         }
+//     }
+// }
+
+.acordeon {
+    margin: 1em auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+
+    &__fila {
+        margin: 0 0 2em;
+        background: #e0e0e0;
+        box-shadow: inset 10px 10px 30px #bebebe,
+            inset -10px -10px 30px #ffffff;
+
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 1s ease;
+
+        
+    }
+
+    &__titulo {
+        font-size: 1.5em;
+        padding: 1em 0;
+        width: 100%;
+        text-align: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__p {
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+        background: #bebebe;
+        transition: all 0.5s ease;
+
+        &.ver {
+            height: 5em;
+            padding: 1em;
+            display: flex;
+        }
+    }
+
+}

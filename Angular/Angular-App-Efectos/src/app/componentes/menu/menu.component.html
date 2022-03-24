@@ -1,0 +1,50 @@
+<!-- <header class="header">
+    <h1 class="header__h1"> Logo </h1>
+
+    <button 
+        (click)="setMenu()" 
+        class="header__button"> Menu </button>
+
+    <nav 
+        [ngClass]="{ 'ver' : menu }" 
+        class="header__nav">
+        <ul class="header__ul">
+            <li class="header__li">
+                <a class="header__a" href="#"> Item 1 </a>
+            </li>
+            <li class="header__li">
+                <a class="header__a" href="#"> Item 2 </a>
+            </li>
+            <li class="header__li">
+                <a class="header__a" href="#"> Item 3 </a>
+            </li>
+            <li class="header__li">
+                <a class="header__a" href="#"> Item 4 </a>
+            </li>
+        </ul>
+    </nav>
+</header> -->
+
+<header class="header">
+    <h1 class="header_h1"> Logo </h1>
+
+    <button 
+        (click)="setMenu()"
+        class="header__button"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+    </button>
+
+    <nav
+        [ngClass]=" { 'ver' : menu } "
+        class="header__nav">
+        <ul class="header__ul">
+            <li 
+                *ngFor=" let li of elementos; let i = index "
+                class="header__li">
+                <a class="header__a" [href]="li.url"> {{ li.nombre }} </a>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__ul {
+        width: 80%;
+        height: 100%;
+        margin: auto;
+
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    &__li {
+        color: white;
+        font-size: 4em;
+        margin: 0.5em;
+
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    &__span {
+        font-size: 0.2em;
+        font-style: italic;
+    }
+}

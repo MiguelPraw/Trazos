@@ -1,0 +1,140 @@
+// .header {
+//     width: 100%;
+//     background: lightgray;
+//     padding: 2em;
+
+//     display: flex;
+//     flex-flow: row wrap;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     &__button {
+//         display: none;
+
+//         @media screen and (max-width: 800px) {
+//             display: flex;
+//         }
+//     }
+
+//     &__nav {
+//         background: coral;
+//         position: relative;
+
+//         @media screen and (max-width: 800px) {
+//             display: none;
+
+//             &.ver {
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 width: 100%;
+
+//             }
+//         }
+//     }
+
+//     &__ul {
+//         display: flex;
+//         flex-flow: row wrap;
+//         justify-content: center;
+//         align-items: center;
+
+//         @media screen and (max-width: 800px) {
+//             flex-direction: column;
+//             margin: 1em 0;
+//         }
+//     }
+
+//     &__li {
+//         margin: 0 1em;
+//     }
+// }
+
+.header {
+    width: 100%;
+    background: lightgrey;
+    padding: 2em;
+    position: relative;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__button {
+        display: none;
+
+        @media screen and (max-width: 700px) {
+            display: flex;
+            
+        }
+    }
+
+    &__nav {
+
+        transition: all 0.5s ease;
+
+        
+        @media screen and (max-width: 700px) {
+            // display: none;
+            margin-top: -200%;
+            width: 100%;
+            pointer-events: none;
+            
+            &.ver {
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                animation: opacidad 0.75s;
+                margin-top: 0%;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 700px) {
+            flex-direction: column;
+        }
+    
+    }
+
+    &__li {
+        margin: 0 1em;
+
+        @media screen and (max-width: 700px) {
+            margin: 0.5em 0;
+        }
+    }
+
+    @keyframes opacidad {
+
+        0% {
+            opacity: 0;
+        }
+
+        25% {
+            opacity: 0.25;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        75% {
+            opacity: 0.75;
+        }
+
+        100% {
+            opacity: 1;
+        }
+        
+    }
+}

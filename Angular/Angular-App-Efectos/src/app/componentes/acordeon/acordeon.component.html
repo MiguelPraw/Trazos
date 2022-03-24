@@ -1,0 +1,13 @@
+
+<div class="acordeon">
+    <div 
+        *ngFor=" let elemento of elementos; let i = index "
+        (click)="setParrafo1(i)"
+        class="acordeon__fila">
+        <h2 class="acordeon__titulo"> {{ elemento.titulo }} </h2>
+        <p
+            [ngClass]=" { 'ver' : activo === i } "
+            class="acordeon__p"> {{ elemento.parrafo }} </p>
+
+    </div>
+</div>

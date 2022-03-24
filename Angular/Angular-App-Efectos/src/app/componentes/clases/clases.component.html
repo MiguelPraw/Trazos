@@ -1,0 +1,35 @@
+<!-- 
+<h1 [ngClass]=" { 'verde' : activo } " > {{ activo }} </h1>
+<button (click)=" cambiarActivo() "> Cambiar activo </button>
+
+<h1 [ngClass]=" { 'verde' : activo1 } "> {{ activo1 }} </h1>
+<button (click)=" cambiarActivo1() "> Cambiar activo1 </button>
+
+<h1 [ngClass]=" { 'grande' : activo2 } "> {{ activo2 }} </h1>
+<button (click)=" cambiarActivo2() "> Cambiar activo2 </button>
+
+<h1 [ngClass]=" { 'grande' : activo3 } "> {{ activo3 }} </h1>
+<button (click)=" cambiarActivo3() "> Cambiar activo3 </button> -->
+
+<h1> {{ foto }} </h1>
+<h2 [ngClass]=" { 'ver' : foto === 0 } "> Algo </h2>
+<h2 [ngClass]=" { 'ver' : foto === 1 } "> Algo </h2>
+<h2 [ngClass]=" { 'ver' : foto === 2 } "> Algo </h2>
+
+<button (click)=" aumentarFoto() ">Aumentar foto</button>
+<button (click)=" disminuirFoto() ">Disminuir foto</button>
+<button (click)=" cambiarFoto(0) ">Cambiar foto a 0</button>
+<button (click)=" cambiarFoto(1) ">Cambiar foto a 1</button>
+<button (click)=" cambiarFoto(2) ">Cambiar foto a 2</button>
+
+<h1> {{ foto1 }} </h1>
+<h2 [ngClass]=" { 'ver' : foto1 === 0 } " > Algo 1 </h2>
+<h2 [ngClass]=" { 'ver' : foto1 === 1 } " > Algo 1 </h2>
+<h2 [ngClass]=" { 'ver' : foto1 === 2 } " > Algo 1 </h2>
+
+<button (click)=" aumentarFoto1() "> Aumentar foto </button>
+<button (click)=" disminuirFoto1() "> Disminuir foto </button>
+<button (click)=" cambiarFoto1(0) "> Cambiar foto a 0 </button>
+<button (click)=" cambiarFoto1(1) "> Cambiar foto a 1 </button>
+<button (click)=" cambiarFoto1(2) "> Cambiar foto a 2 </button>
+

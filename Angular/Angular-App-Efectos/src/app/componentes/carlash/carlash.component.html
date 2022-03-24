@@ -1,0 +1,14 @@
+
+<div class="container">
+
+        <ul 
+            class="container__ul">
+            <li 
+                *ngFor=" let item of items; let i = index "
+                class="container__li">
+                {{ item.nombre }}
+                <span class="container__span">{{ item.marca }}</span>
+            </li>
+        </ul>
+
+</div>
