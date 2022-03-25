@@ -1,0 +1,68 @@
+
+.container {
+    // background: green;
+    width: 100%;
+    height: 100vh;
+
+    &__slider {
+        height: 85%;
+        // background: darkcyan;
+
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    &__info {
+        width: 50%;
+        margin: auto;
+        // background: chocolate;
+
+        padding: 1em 3em;
+
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: left;
+        gap: 20px;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+
+        span {
+
+        }
+
+        h2 {
+            font-weight: bold;
+            color: black;
+            font-size: 1.5em;
+        }
+    }
+
+    &__detalles {
+        width: 40%;
+        padding: 1em 0.2em;
+        background: black;
+        color: white;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    &__imagen {
+        // background: crimson;
+        width: 50%;
+        margin: auto;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    &__banner {
+        // background: lightcoral;
+        height: 15%;
+    }
+}

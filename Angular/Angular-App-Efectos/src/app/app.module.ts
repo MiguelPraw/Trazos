@@ -19,7 +19,7 @@ import { CarlashComponent } from './componentes/carlash/carlash.component';
     AcordeonComponent,
     SliderComponent,
     BuclesComponent,
-    CarlashComponent
+    CarlashComponent,
   ],
   imports: [
     BrowserModule

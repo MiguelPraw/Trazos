@@ -1,0 +1,101 @@
+
+.header {
+    width: 100%;
+    position: relative;
+
+    &__menu {
+        width: 100%;
+        // background: orange;
+        padding: 1em 3em;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__h1 {
+        font-size: 2em;
+        color: black;
+        
+        position: relative;
+        z-index: 3;
+        
+        transition: all 3s ease;
+
+        &.activo { 
+            color: white;
+        }
+    }
+
+    &__button {
+        border: 1px solid black;
+        padding: 10px;
+        color: black;
+
+        position: relative;
+        z-index: 3;
+
+        transition: all 1s ease;
+
+        &.activo {
+            color: white;
+            border-color: white;
+        }
+    }
+
+    &__nav {
+        width: 100%;
+        height: 100vh;
+        background: black;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        z-index: 2;
+
+        transition: all 1s ease;
+        
+        &.activo {
+            left: 0;
+        }
+    }
+
+    &__ul {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        margin-left: 3em;
+        
+    }
+
+    &__li {
+        font-size: 2em;
+        width: 100%;
+        margin: 1em 0;
+
+        &--subli {
+            display: none;
+            opacity: 0;
+            font-size: 0.5em;
+            margin: 1em 0;
+
+            &.ver {
+                display: flex;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__a {
+        color: white;
+
+        width: 100%;
+    }
+}
