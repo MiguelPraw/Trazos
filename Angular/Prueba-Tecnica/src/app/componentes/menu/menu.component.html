@@ -18,28 +18,45 @@
     <nav
         [ngClass]=" { 'activo' : activo } "
         class="header__nav">
-        <ul class="header__ul">
-            <li 
-                *ngFor=" let elemento of listaMenu; let i = index "
-                (mouseon)="setOver()"
-                (mouseout)="setOver()"
-                class="header__li">
-                <a href="#" class="header__a"> {{ elemento.nombre }} </a>
-                <ul>
+        <div class="header__nav--izq">
+            <ul class="header__ul">
+                <li 
+                    *ngFor=" let elemento of listaMenu; let i = index "
+                    (mouseover)="setOver(i)"
+                    (mouseout)="setOver(-1)"
+                    [ngClass]=" { 'activo' : activo, 'inactivo' : !activo } "
+                    class="header__li">
+                    <a href="#" class="header__a"> {{ elemento.nombre }} </a>
+                    <ul 
+                        [ngClass]=" { 'ver' : over === i } "
+                        class="header__li--subul">
+                        <li 
+                            *ngFor=" let subelemento of elemento.elementos; let i = index "
+                            (mouseover)="setSrcActiva(subelemento.src)"
+                            (mouseout)="setSrcActiva('')"
+                            class="header__li--subli"> 
+                            {{ subelemento.nombre }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="header__footer">
+                <ul class="header__footer--ul">
                     <li 
-                        *ngFor=" let subelemento of elemento.elementos "
-                        [ngClass]=" { 'ver' : over } "
-                        class="header__li--subli"> 
-                        <a href="#"> {{ subelemento }} </a>
+                        *ngFor=" let elemento of footer; let i = index "
+                        class="header__footer--li"> 
+                        {{ elemento }}
                     </li>
                 </ul>
-            </li>
-        </ul>
-        <!-- <footer class="header__footer">
-            <ul class="header__footer--ul">
-                <li class="header__footer--li"> About </li>
-            </ul>
-        </footer> -->
+            </div>
+        </div>
+        
+        <div class="header__imagen">
+            <img
+                [ngClass]=" { 'activa' : srcActiva !== '' } "  
+                class="header__imagen--img" [src]="srcActiva" alt="prueba">
+        </div>
+        
     </nav>
     
 </header>

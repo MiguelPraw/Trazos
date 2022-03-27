@@ -13,15 +13,46 @@ export class MenuComponent implements OnInit {
   }
 
   listaMenu : ElementoLista[] = [
-      { nombre : "Collection"   , elementos : [ "Furniture", "Lighting", "Accessories"]},
-      { nombre : "Design"       , elementos : [ "Lorem" ]},
-      { nombre : "Craftmanship" , elementos : [ "Lorem" ] },
-      { nombre : "Ethics"       , elementos : [ "Lorem" ] }
-    ]
+    { 
+      nombre : "Collection", 
+      elementos : [ 
+        { nombre : "Furniture"  , src : "../../../assets/sofa_blanco.png" },
+        { nombre : "Lighting"   , src : "../../../assets/sofa_blanco.png" },
+        { nombre : "Accesories" , src : "../../../assets/sofa_blanco.png" }
+      ]
+    },
+    { 
+      nombre : "Design", 
+      elementos : [
+        { nombre : "Furniture" , src : "" } 
+      ] 
+    },
+    { 
+      nombre : "Craftmanship", 
+      elementos : [
+        { nombre : "Furniture" , src : "" }
+      ]
+    },
+    { 
+      nombre : "Ethics", 
+      elementos : [
+        { nombre : "Furniture" , src : "" }
+      ]
+    }
+  ];
 
-  activo : boolean = true;
-  
-  over   : boolean = true;
+  footer : any[] = [
+    "About",
+    "Contact",
+    "Dealers",
+    "News",
+    "Care",
+    "Press"
+  ]
+
+  activo : boolean = false;
+  over : number = -1;
+  srcActiva : string = "";
 
   constructor() { }
 
@@ -31,8 +62,12 @@ export class MenuComponent implements OnInit {
     this.activo = !this.activo;
   }
 
-  setOver() : void {
-    this.over = !this.over;
+  setOver( valor : number) : void {
+    this.over = valor;
+  }
+
+  setSrcActiva( valor : string ) : void {
+    this.srcActiva = valor;
   }
 
 }

@@ -32,14 +32,11 @@
         background: #e0e0e0;
         box-shadow: inset 10px 10px 30px #bebebe,
             inset -10px -10px 30px #ffffff;
-
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
         transition: all 1s ease;
-
-        
     }
 
     &__titulo {

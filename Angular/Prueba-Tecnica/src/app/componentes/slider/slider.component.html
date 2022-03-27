@@ -1,34 +1,49 @@
 
 
-<div class="container">
+<div 
+    (wheel)="setActivoWheel($event)"
+    class="container">
 
     <div class="container__slider">
-        <div class="container__info">
-            <span class="container__autor">
-                Pepe
-            </span>
-            <h2 class="container__nombre">
-                Dunes Anthrazite
-            </h2>
-            <p class="container__descripcion">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ipsa architecto temporibus, ut sequi maxime culpa quia perspiciatis aperiam rem perferendis.
-            </p>
-            <button class="container__detalles">
-                Product Details
-            </button>
-        </div>
-        <div class="container__imagen">
-            <img src="../../../assets/silla_negra.png" alt="">
+        <div 
+            *ngFor=" let mueble of listaMuebles; let i = index "
+            [ngClass]=" { 'activo' : activo === i, 'inactivo' : activo !== i } "
+            class="container__item">
+            <div class="container__info">
+                <div class="container__info--datos">
+                    <span class="container__autor">
+                        {{ mueble.autor }}
+                    </span>
+                    <h2 class="container__nombre">
+                        {{ mueble.nombre }}
+                    </h2>
+                </div>
+                <p class="container__descripcion">
+                    {{ mueble.descripcion }}
+                </p>
+                <button class="container__detalles">
+                    Product Details
+                </button>
+            </div>
+            <div class="container__imagen">
+                <img [src]="mueble.src" alt="">
+            </div>
         </div>
     </div>
 
     <div class="container__banner">
-        <div class="container__elemento">
+        <div
+            *ngFor=" let mueble of listaMuebles; let i = index "
+            (click)="setActivo(i)"
+            [ngClass]=" { 'activo' : activo === i } " 
+            class="container__elemento">
             <span class="container__numero">
-                01
+                0{{ i + 1 }}
             </span>
-            <h3 class="container__mueble">
-                Dunes Anthrazite
+            <h3 
+                [ngClass]=" { 'activo' : activo === i } "
+                class="container__mueble">
+                {{ mueble.nombre }}
             </h3>
         </div>
     </div>
