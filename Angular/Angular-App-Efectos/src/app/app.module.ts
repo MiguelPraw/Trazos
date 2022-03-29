@@ -9,6 +9,7 @@ import { AcordeonComponent } from './componentes/acordeon/acordeon.component';
 import { SliderComponent } from './componentes/slider/slider.component';
 import { BuclesComponent } from './componentes/bucles/bucles.component';
 import { CarlashComponent } from './componentes/carlash/carlash.component';
+import { EstilosEnLineaComponent } from './componentes/estilos-en-linea/estilos-en-linea.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CarlashComponent } from './componentes/carlash/carlash.component';
     SliderComponent,
     BuclesComponent,
     CarlashComponent,
+    EstilosEnLineaComponent,
   ],
   imports: [
     BrowserModule

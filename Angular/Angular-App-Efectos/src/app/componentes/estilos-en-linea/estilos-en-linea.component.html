@@ -1,0 +1,23 @@
+
+<!-- <div [ngStyle]=" {
+    'width' : '200px',
+    'height' : '200px',
+    'background-color' : 'red'
+}"></div>
+
+<div [ngStyle]=" {
+    width : '200px',
+    height : '200px',
+    backgroundColor : 'red'
+}"></div> -->
+
+<div [ngStyle]=" {
+    'width' : ancho(),
+    'height' : alto(),
+    'background-color' : fondo(),
+    'transform' : translate()
+}"></div>
+
+<h1> {{ numero }} </h1>
+<button (click)=" aumentar()" > Aumentar </button>
+<button (click)=" disminuir()" > Disminuir </button>

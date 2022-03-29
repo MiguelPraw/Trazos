@@ -1,29 +1,37 @@
 
 .container {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 
     @media screen and (max-width: 768px) {
         height: 100%;
     }
 
     &__slider {
-        height: 85%;
         width: 100%;
-        position: relative;
+        position: fixed;
+        top: 30%;
 
-        &:first-child {
-            position: static;
-        }
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 1s ease;
 
     }
 
     &__item {
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
+
         display: flex;
-        flex-flow: row wrap;
-        position: fixed;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
         opacity: 0;
-        
+
         transition: all 1s ease;
 
         &.activo {
@@ -32,7 +40,6 @@
 
         &.inactivo {
             opacity: 0;
-            transform: translateY(-100%);
         }
 
         @media screen and (max-width: 768px) {
@@ -44,7 +51,6 @@
 
     &__info {
         width: 30%;
-        padding: 0 0 0 3em;
 
         display: flex;
         flex-flow: column;
@@ -99,8 +105,6 @@
         margin: auto;
 
         img {
-            width: 90%;
-            margin: auto;
 
             @media screen and (max-width: 768px) {
                 width: 40vw;
@@ -109,34 +113,49 @@
     }
 
     &__banner {
-        height: 15%;
         width: 100%;
-        padding: 0 0 0 3em;
-
-        display: flex;
-        flex-flow: row wrap;
-        gap: 50px;
+        position: fixed;
+        bottom: 0;
 
         border-top: 1px solid lightgrey;
 
-        @media screen and (max-width: 768px) {
-            display: none;
-        }
+    }
+
+    &__centrado {
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 0 1em;
+
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 50px;
     }
 
     &__elemento {
-        padding: 0 0.5em 1.5em 0.5em;
+        position: relative;
+        cursor: pointer;
+        padding: 2em 1em;
 
         display: flex;
         flex-flow: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
 
-        &:hover {
-            cursor: pointer;
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            top: 0;
+            background: black;
+            transform: scale(0);
+            transform-origin: left;
+            transition: all 1s ease;
         }
 
-        &.activo {
-            border-top: 2px solid black;
+        &.activo::before {
+            transform: scale(1);
         }
     }
 

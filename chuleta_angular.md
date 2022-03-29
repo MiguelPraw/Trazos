@@ -150,5 +150,82 @@ Si queremos indicar a un atributo de HTML que le vamos a pasar un parámetro, se
 </li>
 ```
 
+## NgStyle
+
+Para calcular la cantidad de translate en un slider:
+
+    posicionElemento * (100% / numElemento)
 
 
+```html
+<div
+    [ngStyle]="{
+        transform : translateY()
+    }"
+    class="columna">
+</div>
+```
+
+```ts
+translateY() : string {
+    return `translateY(${this.numero} * (100 / lista.lenght))`;
+}
+```
+
+## Input y Output
+
+El input sirve para transmitir información desde el componente padre al hijo, mientras que el output se utiliza para comunicar al hijo con el padre.
+
+## Routing
+
+Se nos genera un TypeScript llamado *app-routing.module.ts*.
+Modificamos la constante *routes* y añadimos las rutas:
+
+```ts
+const routes: Routes = [
+  { path : ''         , component : InicioComponent     },
+  { path : 'trabajos' , component : TrabajosComponent   },
+  { path : 'contacto' , component : TrabajosComponent   },
+  /* Para cualquier ruta no especificada, redirige a Inicio */
+  { path : '**'       , component : InicioComponent     }
+];
+```
+
+```html
+<ul>
+    <li><a [routerLink]=" ['/'] ">Inicio</a></li>
+    <li><a [routerLink]=" ['/trabajos'] ">Trabajos</a></li>
+    <li><a [routerLink]=" ['/contacto'] ">Contacto</a></li>
+</ul>
+```
+
+Si queremos añadir un parámetro a la URL, modificamos el Routing normal:
+
+```ts
+const routes: Routes = [
+  { path : ''                 , component : InicioComponent     },
+  { path : 'trabajos/:nombre' , component : TrabajosComponent   }
+];
+```
+
+```html
+<ul>
+    <li><a [routerLink]=" ['/'] ">Inicio</a></li>
+    <li><a [routerLink]=" ['/trabajos' , 'Timmy'] ">Trabajos</a></li>
+    <li><a [routerLink]=" ['/contacto'] ">Contacto</a></li>
+</ul>
+```
+
+```ts
+  nombre : string = ''
+
+  constructor( 
+    private activatedRoute : ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe( ( { nombre } ) => {
+      this.nombre = nombre;
+    })
+  }
+```

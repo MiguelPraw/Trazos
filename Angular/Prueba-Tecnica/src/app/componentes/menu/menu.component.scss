@@ -1,12 +1,15 @@
 
 .header {
     width: 100%;
-    height: 10vh;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     &__menu {
-        width: 100%;
-        padding: 1em 3em;
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 1em 0;
 
         display: flex;
         flex-flow: row wrap;
@@ -30,13 +33,17 @@
 
     &__button {
         border: 1px solid black;
-        padding: 10px;
+        padding: 0.65rem;
         color: black;
 
         position: relative;
         z-index: 3;
 
         transition: all 1s ease;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         &.activo {
             color: white;

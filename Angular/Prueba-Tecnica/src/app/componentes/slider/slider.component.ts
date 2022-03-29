@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Mueble } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -7,6 +7,23 @@ import { Mueble } from 'src/app/interfaces/interfaces';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
+
+  @HostListener("wheel", ['$event'])
+  onScroll( e : any ) {
+    e.preventDefault();
+    if(this.ruedaActiva) {
+      this.ruedaActiva = false;
+      ( e.deltaY < 0 ) ? this.activo-- : this.activo++;
+      if ( this.activo < 0 ) {
+        this.activo = this.listaMuebles.length - 1;
+      } else if ( this.activo >= this.listaMuebles.length ) {
+        this.activo = 0;
+      }
+      setTimeout ( ()=> {
+        this.ruedaActiva = true;
+      }, 1500)
+    }
+  }
 
   listaMuebles : Mueble[] = [
     { 
@@ -29,6 +46,8 @@ export class SliderComponent implements OnInit {
     },
   ];
 
+  ruedaActiva : boolean = true;
+
   activo : number = 0;
 
   constructor() { }
@@ -39,8 +58,7 @@ export class SliderComponent implements OnInit {
     this.activo = valor;
   }
 
-  setActivoWheel(e : any) : void {
-    console.log(e);
+  setActivoWheel( e : WheelEvent ) : void {
     ( e.deltaY < 0 ) ? this.activo-- : this.activo++;
     if ( this.activo < 0 ) {
       this.activo = this.listaMuebles.length - 1;
@@ -48,5 +66,10 @@ export class SliderComponent implements OnInit {
       this.activo = 0;
     }
   }
+
+  translateY() : string {
+    return `translateY(-${this.activo * (100 / this.listaMuebles.length)}%)`;
+  }
+
 
 }
