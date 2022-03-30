@@ -217,6 +217,8 @@ const routes: Routes = [
 ```
 
 ```ts
+export class TrabajosComponent implements OnInit {
+
   nombre : string = ''
 
   constructor( 
@@ -226,6 +228,48 @@ const routes: Routes = [
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( ( { nombre } ) => {
       this.nombre = nombre;
-    })
+    });
   }
+
+}
 ```
+
+## Módulos
+
+Una vez creado el proyecto, generamos los módulos. Indicamos el nombre de la carpeta que queremos modularizar. Nos va a generar un *components.module.ts*
+
+```bash
+ng g m components
+ng g m pages
+```
+
+En el *app.module.ts*, añadimos e importamos los nuevos módulos dentro de *imports*.
+
+```ts
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ComponentsModule
+  ],
+```
+
+En el archivo *components.module.ts* que nos genera, tendremos que añadir dentro del decorador el parámetro *exports : []*, que rellenaremos con los componentes que queremos exportar. En *declarations* añadiremos todos los componentes del módulo.
+
+Para utilizar otros módulos dentro del que acabamos de crear, tenemos que añadir en *imports* aquellos que querramos usar, como por ejemplo *AppRouterModule*
+
+```ts
+@NgModule({
+  declarations: [
+    CabeceraComponent,
+    PieComponent
+  ],
+  exports: [                        // Añadimos esta línea
+    CabeceraComponent,
+    PieComponent
+  imports: [
+    CommonModule,
+    AppRouterModule
+  ]
+})
+```
+

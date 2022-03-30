@@ -1,0 +1,23 @@
+@import 'mixins';
+
+.header {
+
+    background: red;
+
+    &__sup {
+        background: lightblue;
+    }
+
+    .sup__ul {
+        background: lime;
+        @include flex ( row , nowrap , flex-end , center );
+    }
+
+    &__inf {
+        @include flex ( row , nowrap , space-between , center);
+
+        &__button {
+            @include flex ( row , nowrap , center , center);
+        }
+    }
+}

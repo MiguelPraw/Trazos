@@ -1,0 +1,21 @@
+<p>inicio works!</p>
+
+<app-card
+    *ngFor=" let alumno of clase; let i = index "
+    [nombre]=" alumno.nombre "
+    [apellido]=" alumno.apellido "
+    [edad]=" alumno.edad "></app-card>
+
+<!-- <app-card 
+    [nombre]=" 'Timmy' "
+    [apellido]=" 'Anderson' "
+    [edad]=" 32 "></app-card>
+<app-card 
+    [nombre]=" 'Emma' "
+    [apellido]=" 'Watson' "></app-card>
+<app-card 
+    [nombre]=" 'Will' "
+    [apellido]=" 'Smith' "></app-card>
+<app-card 
+    [nombre]=" 'Pepa' "
+    [apellido]=" 'Pep' "></app-card> -->
