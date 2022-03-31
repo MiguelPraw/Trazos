@@ -1,1 +1,52 @@
-<p>slider-card works!</p>
+
+<div class="card">
+
+    <div class="card__image">
+        <h2 
+            *ngIf=" tipo === 'ciudad' "
+            class="card__h2"> {{ datos.nombre }} </h2>
+        <img 
+            class="card__img"
+            [src]="datos.src" 
+            alt="imagen">
+    </div>
+
+    <div
+        *ngIf=" tipo === 'restaurante' ">
+        <ul class="card__ul">
+            <li class="card__li">Tipo</li>
+        </ul>
+        <div class="card__row">
+            <h3 class="card__h3" >{{ datos.nombre }}</h3>
+            <span class="card__nota">{{ datos.nota }}</span>
+        </div>
+        <ul class="card__specs">
+            <li 
+                *ngIf=" datos.specs.double "
+                class="card__spec">Doble Yums</li>
+            <li 
+                *ngIf=" datos.specs.pay "
+                class="card__spec">Fork Pay</li>
+            <li 
+                *ngIf=" datos.specs.insider "
+                class="card__spec">Insider</li>
+        </ul>
+        <p class="card__direccion">{{ datos.descripcion }}</p>
+        <ul class="card__ofertas">
+            <li 
+                *ngIf="datos.specs.offer"
+                class="card__oferta"> {{datos.specs.offer}}%</li>
+            <li 
+                *ngIf="datos.specs.yums"
+                class="card__oferta"> Acepta Yums </li>
+        </ul>
+    </div>
+
+    <div
+        *ngIf=" tipo === 'seleccion' ">
+        <h2 class="card__h2">{{ datos.nombre }}</h2>
+        <p class="card__descripcion">{{ datos.descripcion }}</p>
+        <a class="card__btn" [href]="datos.reserva.href"> {{ datos.reserva.texto }} </a>
+    </div>
+
+</div>

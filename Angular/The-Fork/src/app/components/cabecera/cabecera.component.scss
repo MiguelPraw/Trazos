@@ -1,23 +1,30 @@
 @import 'mixins';
 
 .header {
-
+    width: 100%;
     background: red;
 
     &__sup {
         background: lightblue;
+        padding: 0 1rem;
     }
 
     .sup__ul {
-        background: lime;
         @include flex ( row , nowrap , flex-end , center );
     }
 
+    .sup__li {
+        color: green;
+        
+    }
+
     &__inf {
+        background: orange;
+        padding: 1.2rem 1rem;
         @include flex ( row , nowrap , space-between , center);
 
         &__button {
-            @include flex ( row , nowrap , center , center);
+            
         }
     }
 }

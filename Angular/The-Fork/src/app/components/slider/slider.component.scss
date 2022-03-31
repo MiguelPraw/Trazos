@@ -1,0 +1,123 @@
+@import 'mixins';
+
+// .slider {
+//     width: 90%;
+//     color: black;
+//     max-width: 62.5rem;
+//     margin: 2rem auto;
+//     padding: 1rem;
+//     box-shadow: 0 0 1rem rgba(0,0,0,.1);
+
+//     overflow: hidden;
+// }
+// .slider__superior {
+//     width: 100%;
+
+//     @include flex ( row , nowrap , space-between , center );
+// }
+// .slider__titulo {
+//     font-weight: 600;
+// }
+// .slider__ul {
+//     @include flex ( row , nowrap, flex-end, center);
+// }
+// .slider__li {
+//     margin: 0 0 0 .5rem;
+// }
+// .slider__btn {
+//     max-width: 2rem;
+//     border: 1px solid grey;
+//     padding: .3rem;
+//     border-radius: .2rem;
+
+//     transition: all .5 ease;
+//     cursor: pointer;
+
+//     &:hover {
+//         border-color: green;
+//         background: rgba(0, 255, 0, .05);
+
+//         .slider__svg {
+//             fill: green;
+//         }
+//     }
+
+//     &.disabled {
+//         cursor: not-allowed;
+//         border-color: lightgrey;
+//         background: lightgrey;
+        
+//         .slider__svg {
+//             fill: lightgrey;
+//         }   
+//     }
+// }
+// .slider__svg {}
+
+// .slider__move {
+//     background: lightgrey;
+//     margin: 1rem 0 0;
+
+//     display: grid;
+//     grid-template-columns: repeat( 8 , 1fr);
+//     gap: 1rem;
+
+//     transition: all .5s ease;
+// }
+
+
+.slider {
+    width: 90%;
+    max-width: 62.5rem;
+    color: black;
+    margin: 2rem auto;
+    padding: 1rem;
+
+    overflow: hidden;
+}
+.slider__superior {
+
+    @include flex ( row, nowrap, space-between, center );
+}
+.slider__titulo {
+    font-weight: 600;
+}
+.slider__ul {
+    @include flex ( row, nowrap, center, center );
+}
+.slider__li {
+    margin: 0 0 0 .5rem;
+}
+.slider__btn {
+    max-width: 2rem;
+    border: 1px solid lightgrey;
+    padding: .5rem;
+    border-radius: .3rem;
+    cursor: pointer;
+
+    &:hover {
+        border-color: black;
+        background: rgba(0, 255, 0, .05);
+        fill: rgba(0, 255, 0, .05);
+    }
+
+    &.disabled {
+        background: lightgrey;
+
+        &:hover {
+            cursor: not-allowed;
+            border-color: lightgrey;
+        }
+    }
+}
+
+.slider__lista {
+    width: 200%;
+    margin: 1rem 0 0;
+    background: orchid;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1rem;
+
+    transition: all .5s ease;
+}
