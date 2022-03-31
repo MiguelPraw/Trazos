@@ -94,6 +94,7 @@
     padding: .5rem;
     border-radius: .3rem;
     cursor: pointer;
+    transition: all .5s ease;
 
     &:hover {
         border-color: black;

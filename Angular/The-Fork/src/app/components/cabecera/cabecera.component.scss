@@ -2,29 +2,61 @@
 
 .header {
     width: 100%;
-    background: red;
+    box-shadow: -0.125rem 0.375rem 0.625rem hsl(0deg 0% 0% / 8%);
 
     &__sup {
-        background: lightblue;
-        padding: 0 1rem;
+        background: hsl(180, 9%, 98%);
+        padding: .3rem 1rem;
     }
 
     .sup__ul {
-        @include flex ( row , nowrap , flex-end , center );
+        @include flex ( row , nowrap , flex-end , baseline );
     }
 
     .sup__li {
-        color: green;
-        
+        color: #589442;
+        margin: 0 .5rem;
+    }
+
+    .sup__span {
+        &::after {
+            content: '|';
+            display: block;
+            color: hsl(214, 9%, 85%);
+        }
+    }
+
+    .sup__a {
+        text-transform: uppercase;
+        font-size: .8em;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
     }
 
     &__inf {
-        background: orange;
-        padding: 1.2rem 1rem;
-        @include flex ( row , nowrap , space-between , center);
+        padding: 1rem 1.5rem;
+        @include flex ( row , nowrap , space-between , center );
+    }
 
-        &__button {
-            
+    .inf__button {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer;
+
+        svg {
+            width: auto;
         }
+    }
+
+    .inf__span {
+        width: 100%;
+        text-transform: uppercase;
+        color: #589442;
+        font-family: 'Raleway', sans-serif;
+        font-size: .9em;
+        font-weight: 600;
+        margin: 0 0 0 .5rem;
     }
 }
