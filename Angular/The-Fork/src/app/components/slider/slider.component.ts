@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -7,19 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
-  numero            : number = 0;
-  elementosVisibles : number = 4;
+  @Input() titulo            : string = "";
+  @Input() elementosVisibles : number = 4;
+  @Input() tipo              : string = "";
+  numero                     : number = 0;
 
-  slides : any[] = [
-    { },
-    { },
-    { },
-    { },
-    { },
-    { },
-    { },
-    { }
-  ];
+  @Input() slides : any[] = [];
 
   limite : number = this.slides.length / this.elementosVisibles;
 

@@ -23,14 +23,20 @@
     max-width: 67rem;
     margin: auto;
     @include flex ( row , nowrap , center , center);
+    gap: 1rem;
 }
 
 .container__tarjeta {
-
 }
 .container__info {
     @include flex ( row , nowrap , center , center );
     gap: 1rem;
+    color: black;
+    width: 100%;
+
+    @media screen and (max-width: 768px) {
+        flex-flow: wrap;
+    }
 }
 .container__texto {
     width: 100%;

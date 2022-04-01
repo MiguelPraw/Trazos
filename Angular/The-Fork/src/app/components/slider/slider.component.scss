@@ -76,11 +76,12 @@
     overflow: hidden;
 }
 .slider__superior {
-
     @include flex ( row, nowrap, space-between, center );
 }
 .slider__titulo {
-    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600
 }
 .slider__ul {
     @include flex ( row, nowrap, center, center );
@@ -114,8 +115,7 @@
 
 .slider__lista {
     width: 200%;
-    margin: 1rem 0 0;
-    background: orchid;
+    margin: 1.2rem 0 0;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 1rem;

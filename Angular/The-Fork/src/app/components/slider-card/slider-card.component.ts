@@ -7,25 +7,48 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SliderCardComponent implements OnInit {
 
-  @Input() tipo : string = "";
+  // @Input() tipo : string = "";
 
-  @Input() datos : any = {
-    nombre      : 'Cadiz',
-    src         : '#',
-    nota        : 10,
-    specs       : {
+  @Input() tipo  : string  = "restaurante";
+  
+  @Input() props : any     = {
+    nombre  : 'Nombre',
+    img     : '#',
+    tipos   : [ 'Mediterráneo', 'Romántico' ],
+    nota    : 9.4,
+    specs   : {
+      insider : true,
       double  : true,
-      pay     : true,
-      insider : false,
+      pay     : true
+    },
+    descripcion : 'Lorem',
+    offers  : {
       offer   : 50,
       yums    : true
     },
-    descripcion : "Lorem ipsum",
-    reserva     : {
-      texto : 'Reserva Ya',
-      href  : '#'
+    boton   : {
+      href  : '#',
+      title : 'Reserva Ya'
     }
   }
+
+  // @Input() datos : any = {
+  //   nombre      : 'Cadiz',
+  //   src         : '#',
+  //   nota        : 10,
+  //   specs       : {
+  //     double  : true,
+  //     pay     : true,
+  //     insider : false,
+  //     offer   : 50,
+  //     yums    : true
+  //   },
+  //   descripcion : "Lorem ipsum",
+  //   reserva     : {
+  //     texto : 'Reserva Ya',
+  //     href  : '#'
+  //   }
+  // }
 
   constructor() { }
 
