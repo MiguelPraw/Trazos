@@ -22,6 +22,7 @@ export class SliderCardComponent implements OnInit {
       pay     : true
     },
     descripcion : 'Lorem',
+    precio      : 20,
     offers  : {
       offer   : 50,
       yums    : true

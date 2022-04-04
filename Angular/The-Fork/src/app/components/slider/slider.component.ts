@@ -12,13 +12,15 @@ export class SliderComponent implements OnInit {
   @Input() tipo              : string = "";
   numero                     : number = 0;
 
-  @Input() slides : any[] = [];
+  @Input() slides            : any[] = [];
 
-  limite : number = this.slides.length / this.elementosVisibles;
+  limite : number = 0;
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {  
+    this.limite = this.slides.length / this.elementosVisibles;
+  }
 
   aumentarNumero() : void {
     if ( this.numero < this.limite - 1 ) {

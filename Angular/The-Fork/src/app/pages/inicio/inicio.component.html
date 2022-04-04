@@ -1,4 +1,8 @@
 <app-tarjeta-regalo></app-tarjeta-regalo>
-<app-slider></app-slider>
-<app-slider></app-slider>
-<app-slider></app-slider>
+<app-slider
+    *ngFor=" let slider of sliders; let i = index"
+    [titulo]=" slider.titulo "
+    [tipo]=" slider.tipo "
+    [slides]=" slider.slides "
+    [elementosVisibles]=" slider.elementosVisibles "
+    ></app-slider>
