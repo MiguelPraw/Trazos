@@ -1,28 +1,16 @@
 <div class="slider">
-
-    <div
-        [ngStyle]=" {
-            width : ancho(),
-            gridTemplateColumns : grid(),
-            transform : translateX()
-        } "
-        class="slider__cards">
-        <div class="slider__card">
-            <img src="https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp" alt="imagen" class="slider__img">
-            <div class="slider__info inicial">
-                <h2 class="slider__h2">El mayor catálogo de cine y series</h2>
-                <p class="slider__descripcion">Suscríbete por 7,99 €</p>
-                <button class="slider__btn">Más información</button>
-            </div>
-        </div>
-        <div class="slider__card">
-            <video preload="none" playsinline="" src="https://trailer.filmin.com/es/extras/mp4/the-beach-bum-tl-fix.mp4"></video>
-            <div class="slider__info">
-                <h2 class="slider__h2">The Beach Bum</h2>
-                <p class="slider__descripcion">Suscríbete por 7,99 €</p>
-                <button class="slider__btn">Más información</button>
-            </div>
-        </div>
+    <div class="slider__centrado">
+        <ul
+            [ngStyle]=" {
+                width : ancho(),
+                gridTemplateColumns : grid(),
+                transform : translateX()
+            } "
+            class="slider__cards">
+            <app-slider-cabecera-card 
+                *ngFor=" let slide of slider; let i = index "
+                [slide]="slide"></app-slider-cabecera-card>
+        </ul> 
     </div>
 
     <button 
@@ -35,6 +23,7 @@
     </button>
     <button
         (click)="aumentar()"
+        [ngClass]="{ 'disabled' : numero === slider.length - 1 }"
         class="slider__flecha dcha">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>

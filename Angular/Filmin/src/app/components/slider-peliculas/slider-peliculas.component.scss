@@ -1,0 +1,75 @@
+.slider {
+    width: 100%;
+    position: relative;
+
+    &__centrado {
+        width: 92%;
+        margin: auto;
+    }
+
+    &__superior {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    &__p {
+        margin: .5rem 0;
+        font-weight: 600;
+        color: grey;
+    }
+
+    &__ver {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .9rem;
+        cursor: pointer;
+    }
+
+    &__cards {
+        width: 200%;
+        background: tomato;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    &__card {
+        
+    }
+
+    &__btn {
+        position: absolute;
+        top: 0;
+        z-index: 4;
+        height: 100%;
+        background: #00000088;
+        cursor: pointer;
+
+        svg {
+            fill: white;
+            padding: 0 1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke: white;
+            stroke-width: 1px;
+        }
+
+        &.izq {
+            left: 0;
+        }
+
+        &.dcha {
+            right: 0;
+        }
+
+        &.disabled {
+            display: none;
+        }
+    }
+}

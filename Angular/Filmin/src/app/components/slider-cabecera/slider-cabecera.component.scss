@@ -1,66 +1,18 @@
 .slider {
     width: 100%;
-    
-    overflow: hidden;
-
     position: relative;
-
+}
+.slider__centrado {
+    width: 92%;
+    margin: auto;
 }
 .slider__cards {
     width: 200%;
-    height: 64vh;
+    height: 40vh;
     
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
 
     transition: all .5s ease-in;
-
-}
-.slider__card {
-    width: 92%;
-    margin: 0 auto;
-    position: relative;
-}
-.slider__img {
-    border-radius: .5rem;
-    height: 64vh;
-}
-.slider__info {
-    position: absolute;
-    top: 0;
-    z-index: 3;
-    height: 64vh;
-    width: 100%;
-
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-
-    &.inicial {
-        align-items: center;
-        padding: 0 0 5rem 0;
-    }
-}
-.slider__h2 {
-    font-size: 2.75rem;
-    letter-spacing: -1px;
-    font-weight: 900;
-    color: white;
-}
-.slider__descripcion {
-    margin: 1.5rem 0 0 0;
-    font-size: 1.5rem;
-    opacity: 0.6;
-    color: white;
-}
-.slider__btn {
-    margin: 2rem 0 0 0;
-    background: white;
-    padding: 1rem;
-    border-radius: .4rem;
-    font-weight: 600;
-    text-transform: uppercase;
 }
 .slider__flecha {
     position: absolute;
@@ -68,6 +20,7 @@
     height: 100%;
     z-index: 4;
     cursor: pointer;
+    background: #00000088;
 
     svg {
         fill: white;

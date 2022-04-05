@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider-cabecera',
@@ -9,15 +9,11 @@ export class SliderCabeceraComponent implements OnInit {
 
   numero : number = 0;
 
-  slides : any[] = [
-    {},
-    {},
-  ];
-
+  @Input() slider : any[] = [];
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {  }
 
   aumentar() {
     this.numero++;
@@ -28,15 +24,15 @@ export class SliderCabeceraComponent implements OnInit {
   }
 
   translateX() : string {
-    return `translateX(-${this.numero * 50}%)`;
+    return `translateX(-${this.numero * (100 / this.slider.length)}%)`;
   }
 
   ancho() : string {
-    return `${this.slides.length * 100}%`;
+    return `${this.slider.length * 100}%`;
   }
 
   grid() : string {
-    return `repeat(${this.slides.length},1fr)`;
+    return `repeat(${this.slider.length},1fr)`;
   }
 
 }

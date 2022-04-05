@@ -1,1 +1,23 @@
-<p>slider-cabecera-card works!</p>
+<div class="card">
+    <img [src]="slide.img" alt="imagen" class="card__img">
+    <div
+        *ngIf=" slide.inicial "
+        class="card__info inicial">
+        <span
+            *ngIf=" slide.serie "
+            class="card__span"> Serie completa </span>
+        <h2 class="card__h2"> {{ slide.titulo }} </h2>
+        <p class="card__descripcion"> {{ slide.subtitulo }} </p>
+        <button class="card__btn"> {{ slide.boton.texto }} </button>
+    </div>
+    <div
+        *ngIf=" !slide.inicial "
+        class="card__info">
+        <span
+            *ngIf=" slide.serie "
+            class="card__span"> Serie completa </span>
+        <h2 class="card__h2"> {{ slide.titulo }} </h2>
+        <p class="card__descripcion"> {{ slide.subtitulo }} </p>
+        <button class="card__btn"> {{ slide.boton.texto }} </button>
+    </div>
+</div>
