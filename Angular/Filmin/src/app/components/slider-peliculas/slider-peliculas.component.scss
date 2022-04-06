@@ -33,14 +33,19 @@
     }
 
     &__cards {
-        width: 200%;
-        background: tomato;
+        
         display: grid;
         grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        // grid-template-columns: repeat(auto-fit, minmax(12%,1fr));
+        // grid-template-rows: repeat(2, 1fr);
+
+        transition: all .5s ease;
+        
     }
 
     &__card {
-        
+        max-width: 300px;
     }
 
     &__btn {

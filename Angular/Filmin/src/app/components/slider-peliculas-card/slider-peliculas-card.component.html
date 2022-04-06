@@ -1,1 +1,43 @@
-<p>slider-peliculas-card works!</p>
+<div 
+    (mouseover)="setOver(true)"
+    (mouseout)="setOver(false)"
+    class="card">
+    <img [src]="slide.src" [alt]="slide.titulo" class="card__img">
+    <div class="card__portada">
+        <div class="card__info">
+            <h4 class="card__titulo">{{slide.titulo}}</h4>
+            <p class="card__director">{{slide.director}}</p>
+        </div>
+        <span class="card__nota">{{slide.nota}}</span>
+    </div>
+    <div
+        [ngClass]=" { 'visible' : over } "
+        class="card__datos">
+        <ul class="card__superior">
+            <li
+                *ngIf="slide.suscriptores"
+                class="card__requisito">Solo para suscriptores</li>
+            <li
+                *ngIf="slide.alquiler"
+                class="card__requisito">Alquilar por 3,95€</li>
+            <li class="card__anio">{{slide.anio}}</li>
+            <li class="card__duracion">{{slide.duracion}}</li>
+        </ul>
+        <p class="card__descripcion">{{slide.descripcion}}</p>
+        <div class="card__botones">
+            <button class="card__reloj">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                </svg>
+            </button>
+            <button class="card__like">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                </svg>
+            </button>
+            <button class="card__guardar">
+                Guardar
+            </button>
+        </div>
+    </div>
+</div>

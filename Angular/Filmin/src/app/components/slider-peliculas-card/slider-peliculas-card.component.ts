@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider-peliculas-card',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderPeliculasCardComponent implements OnInit {
 
+  @Input() slide : any = {}
+
+  over : boolean = false;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  setOver( valor : boolean ) : void {
+    this.over = valor;
   }
 
 }

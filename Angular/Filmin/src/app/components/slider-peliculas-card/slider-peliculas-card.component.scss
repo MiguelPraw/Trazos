@@ -1,0 +1,103 @@
+.card {
+    position: relative;
+    padding: .3rem;
+    cursor: pointer;
+}
+.card__img {
+    border-radius: .3rem;
+}
+.card__portada {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0 1rem .5rem 1rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.card__info {}
+.card__titulo {
+    font-weight: 900;
+    color: white;
+}
+.card__director {
+    font-size: .9rem;
+}
+.card__nota {
+    background: #5d606b;
+    padding: .2rem .4rem;
+    border-radius: .3rem;
+    font-weight: 900;
+}
+.card__datos {
+    padding: .3rem;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background: black;
+    opacity: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    
+
+    transition: opacity .25s ease;
+
+    &.visible {
+        opacity: 1;
+    }
+}
+.card__superior {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.card__requisito {
+    color: #02ffa1;
+    font-size: .9rem;
+    font-weight: 900;
+}
+.card__anio {
+    font-size: .8rem;
+
+    &::after {
+        content: '·';
+    }
+}
+.card__duracion {
+    font-size: .8rem;
+}
+.card__descripcion {
+    margin: .5rem 0 0 0;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+}
+.card__botones {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card__reloj {
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    svg {
+        fill: white;
+    }
+}
+.card__like {
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    svg {
+        fill: white;
+    }
+}
+.card__guardar {
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+}

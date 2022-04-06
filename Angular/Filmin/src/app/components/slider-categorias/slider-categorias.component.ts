@@ -23,9 +23,6 @@ export class SliderCategoriasComponent implements OnInit {
 
   setOver( valor : boolean ) : void {
     this.over = valor;
-    console.log(valor);
-    console.log(this.over);
-    console.log((this.numero <= 0) && this.over)
   }
 
   aumentar() : void {
