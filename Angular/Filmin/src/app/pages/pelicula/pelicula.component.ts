@@ -10,8 +10,9 @@ import { DatosService } from 'src/app/services/datos.service';
 export class PeliculaComponent implements OnInit {
 
   url : string = "";
-
-  pelicula : any = {};
+  peliculas : any[] = [];
+  
+  pelicula  : any = {};
 
   constructor(
     private datosService : DatosService,
@@ -23,9 +24,17 @@ export class PeliculaComponent implements OnInit {
       this.url = url;
     });
 
+    this.peliculas = this.datosService.peliculas;
+    console.log(this.peliculas);
+
     this.pelicula = this.datosService.peliculas.find( ( cadaPelicula : any ) => {
-      return cadaPelicula.url = this.url;
-    })
+      return cadaPelicula.url === this.url;
+    });
+    console.log(this.pelicula);
+  }
+
+  backgroundImage () : string {
+    return `url(${this.pelicula.src})`;
   }
 
 }

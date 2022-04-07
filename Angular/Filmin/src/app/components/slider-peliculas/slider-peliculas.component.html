@@ -31,7 +31,7 @@
                 </li>
             </ul>   
             <button 
-                [ngClass]=" { 'disabled' : numero === 0 } "
+                [ngClass]=" { 'disabled' : numero <= 0 } "
                 (click)="disminuir()"
                 class="slider__btn izq">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -39,7 +39,7 @@
                 </svg>
             </button>
             <button 
-                [ngClass]=" { 'disabled' : numero === numColumnas - 1 } "
+                [ngClass]=" { 'disabled' : numero >= limite - 1 } "
                 (click)="aumentar()"
                 class="slider__btn dcha">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">

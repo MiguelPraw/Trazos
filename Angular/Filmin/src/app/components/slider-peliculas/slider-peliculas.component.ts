@@ -10,8 +10,12 @@ export class SliderPeliculasComponent implements OnInit {
   elementosVisibles : number = 4;
   numFilas          : number = 2;
   numColumnas       : number = 0;
+  limite            : number = 0;
 
   numero            : number = 0;
+
+  // 16 / 2 = 8 -> columnas
+  // 8 / 4 = 2
   
   @Input() slider : any = {}
 
@@ -19,6 +23,7 @@ export class SliderPeliculasComponent implements OnInit {
 
   ngOnInit(): void { 
     this.numColumnas = this.slider.items.length / this.elementosVisibles;
+    this.limite = (this.slider.items.length / this.numFilas) / this.elementosVisibles;
   }
 
   aumentar() : void {
