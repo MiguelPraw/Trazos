@@ -8,20 +8,14 @@ import { DatosService } from 'src/app/services/datos.service';
 })
 export class InicioComponent implements OnInit {
 
-  sliderCabecera    : any[] = [];
-
-  sliderCategorias  : any[] = [];
-
-  slidersInicio     : any[] = [];
+  sliders : any = [];
 
   constructor(
     private datosService : DatosService
   ) { }
 
   ngOnInit(): void { 
-    this.sliderCabecera   = this.datosService.sliderCabecera;
-    this.sliderCategorias = this.datosService.sliderCategorias;
-    this.slidersInicio    = this.datosService.slidersInicio;
+    this.sliders = this.datosService.slidersInicio;
   }
 
 }

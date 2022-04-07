@@ -4,8 +4,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { PeliculaComponent } from './pages/pelicula/pelicula.component';
 
 const routes: Routes = [
-  { path : '' , component : InicioComponent },
-  { path : 'pelicula/:url' , component : PeliculaComponent }
+  {path : ""                  , component : InicioComponent },
+  {path : "pelicula/:url"     , component : PeliculaComponent }
 ];
 
 @NgModule({

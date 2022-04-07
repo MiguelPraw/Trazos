@@ -1,0 +1,31 @@
+<div class="pelicula">
+
+    {{ pelicula | json }}
+
+    <section class="pelicula__superior">
+
+        <div class="pelicula__centrado">
+
+            <div class="pelicula__datos--sup">
+                <span class="pelicula__nota"> {{ pelicula.nota }} </span>
+                <div class="pelicula__cabecera">
+                    <img src="#" [alt]="pelicula.url">
+                    <div class="pelicula__info">
+                        <h2 class="pelicula__h2"> {{ pelicula.titulo }} </h2>
+                        <ul class="pelicula__ul">
+                            <li class="pelicula__director"> {{ pelicula.director }} </li>
+                            <li class="pelicula__genero"> {{ pelicula.genero }} </li>
+                        </ul>
+                        <ul class="pelicula__ul">
+                            <li class="pelicula__anio"> {{ pelicula.anio }} </li>
+                            <li class="pelicula__duracion"> {{ pelicula.duracion }} </li>
+                            <li class="pelicula__edad"> {{ pelicula.edad }} </li>
+                            <li class="pelicula__edad"> {{ pelicula.edad }} </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

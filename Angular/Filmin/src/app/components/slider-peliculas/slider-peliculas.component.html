@@ -24,8 +24,10 @@
                 <li 
                     *ngFor=" let item of slider.items "
                     class="slider__card">
-                    <app-slider-peliculas-card
-                        [slide]="item"></app-slider-peliculas-card>
+                    <a [routerLink]=" [ '/pelicula' , item.url ] ">
+                        <app-slider-peliculas-card
+                            [slide]="item"></app-slider-peliculas-card>
+                    </a>
                 </li>
             </ul>   
             <button 

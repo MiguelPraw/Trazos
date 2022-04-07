@@ -7,6 +7,7 @@ import { SliderCategoriasComponent } from './slider-categorias/slider-categorias
 import { SliderPeliculasComponent } from './slider-peliculas/slider-peliculas.component';
 import { SliderPeliculasCardComponent } from './slider-peliculas-card/slider-peliculas-card.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ]
 })
 export class ComponentsModule { }

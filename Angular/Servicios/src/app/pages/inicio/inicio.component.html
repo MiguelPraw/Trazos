@@ -1,0 +1,12 @@
+
+<h1> Inicio </h1>
+
+<section *ngFor=" let slider of sliders ">
+    <h2> {{ slider.titulo }} </h2>
+    <ul>
+        <li *ngFor=" let pelicula of slider.items " >
+            <h3>{{ pelicula.titulo }}</h3>
+            <a [routerLink]=" [ '/pelicula' , pelicula.url ] "> Ver película </a>
+        </li>
+    </ul>
+</section>

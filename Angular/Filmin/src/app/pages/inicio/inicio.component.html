@@ -5,6 +5,7 @@
     [slider]="sliderCategorias"></app-slider-categorias>
 
 <app-slider-peliculas
-    [slider]="sliderGeneral"></app-slider-peliculas>
+    *ngFor=" let slider of slidersInicio "
+    [slider]="slider"></app-slider-peliculas>
 
 <app-footer></app-footer>

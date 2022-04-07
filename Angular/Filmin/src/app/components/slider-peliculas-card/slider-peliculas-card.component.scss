@@ -68,6 +68,10 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+
+    @media screen and (max-width: 1340px) {
+        flex-flow: row wrap;
+    }
 }
 .card__requisito {
     color: #02ffa1;
@@ -96,6 +100,10 @@
     font-weight: 600;
     line-height: 1.2rem;
     overflow: hidden;
+
+    @media screen and (max-width: 1340px) {
+        height: 30%;
+    }
 }
 .card__botones {
     position: absolute;

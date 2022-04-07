@@ -203,8 +203,8 @@ Si queremos añadir un parámetro a la URL, modificamos el Routing normal:
 
 ```ts
 const routes: Routes = [
-  { path : ''                 , component : InicioComponent     },
-  { path : 'trabajos/:nombre' , component : TrabajosComponent   }
+  { path : ''                         , component : InicioComponent     },
+  { path : 'trabajos/:nombreVariable' , component : TrabajosComponent   }
 ];
 ```
 
@@ -271,5 +271,34 @@ Para utilizar otros módulos dentro del que acabamos de crear, tenemos que añad
     AppRouterModule
   ]
 })
+```
+
+## Servicios
+
+Es un objeto independiente que se puede utilizar en cualquier componente.
+
+Creamos en la terminal el servicio:
+
+```bash
+ng g s services/datos
+```
+
+Lo importamos y añadimos en [providers] dentro de app.module.ts
+
+```ts
+import { ProfesorService } from 'ruta';
+providers : [ ProfesorService ]
+```
+
+Lo importamos en el componente que lo necesitemos
+
+```ts
+import { ProfesorService } from 'ruta';
+```
+
+Lo añadimos al constructor con su propio nombre para usarlo en la clase
+
+```ts
+constructor( private profesorService : ProfesorService ) {}
 ```
 
