@@ -1,6 +1,6 @@
 .slider {
     width: 100%;
-    position: relative;
+    margin: 4rem 0;
 
     &__centrado {
         width: 92%;
@@ -17,6 +17,7 @@
     &__h3 {
         font-size: 1.5rem;
         font-weight: 600;
+        color: white;
     }
 
     &__p {
@@ -29,7 +30,18 @@
         text-transform: uppercase;
         font-weight: 600;
         font-size: .9rem;
+        color: white;
         cursor: pointer;
+
+        &:hover {
+            color: #02ffa1;
+        }
+    }
+
+    &__inferior {
+        position: relative;
+        width: 100%;
+        margin: 1rem 0;
     }
 
     &__cards {
@@ -40,18 +52,19 @@
         // grid-template-columns: repeat(auto-fit, minmax(12%,1fr));
         // grid-template-rows: repeat(2, 1fr);
 
-        transition: all .5s ease;
+        transition: all 1s ease;
         
     }
 
     &__card {
-        max-width: 300px;
+        max-width: 400px;
     }
 
     &__btn {
         position: absolute;
         top: 0;
         z-index: 4;
+        width: 4%;
         height: 100%;
         background: #00000088;
         cursor: pointer;

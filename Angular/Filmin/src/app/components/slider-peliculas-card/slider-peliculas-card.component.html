@@ -3,7 +3,9 @@
     (mouseout)="setOver(false)"
     class="card">
     <img [src]="slide.src" [alt]="slide.titulo" class="card__img">
-    <div class="card__portada">
+    <div
+        [ngClass]=" { 'visible' : over } " 
+        class="card__portada">
         <div class="card__info">
             <h4 class="card__titulo">{{slide.titulo}}</h4>
             <p class="card__director">{{slide.director}}</p>
@@ -19,7 +21,7 @@
                 class="card__requisito">Solo para suscriptores</li>
             <li
                 *ngIf="slide.alquiler"
-                class="card__requisito">Alquilar por 3,95€</li>
+                class="card__requisito">Alquilar por 3,95 €</li>
             <li class="card__anio">{{slide.anio}}</li>
             <li class="card__duracion">{{slide.duracion}}</li>
         </ul>

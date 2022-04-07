@@ -12,47 +12,61 @@
     bottom: 0;
     padding: 0 1rem .5rem 1rem;
 
+    background-image: linear-gradient(180deg, transparent 0, RGBA(6, 6, 19, 0.03) 7%, RGBA(6, 6, 19, 0.11) 21%, RGBA(6, 6, 19, 0.61) 77%, RGBA(6, 6, 19, 0.75));
+    background-repeat: no-repeat;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+
+    transition: all 0.5s ease;
+
+    &.visible {
+        filter: blur(4px);
+    }
 }
-.card__info {}
+.card__info {
+    
+}
 .card__titulo {
     font-weight: 900;
     color: white;
+    font-size: .9rem;
 }
 .card__director {
     font-size: .9rem;
+    color: #c9cacd;
+    font-weight: 500;
 }
 .card__nota {
-    background: #5d606b;
-    padding: .2rem .4rem;
-    border-radius: .3rem;
-    font-weight: 900;
+    background-color: #5d606b;
+    color: #fff;
+    border-radius: 0.1875rem;
+    font-size: .875rem;
+    font-weight: 800;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+    padding: 0.1rem .5rem;
 }
 .card__datos {
-    padding: .3rem;
+    padding: 1rem;
+    border-radius: .3rem;
     position: absolute;
     height: 100%;
     top: 0;
     background: black;
     opacity: 0;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
     
-
-    transition: opacity .25s ease;
+    transition: opacity .5s ease;
 
     &.visible {
-        opacity: 1;
+        opacity: .9;
     }
 }
 .card__superior {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 .card__requisito {
@@ -62,42 +76,72 @@
 }
 .card__anio {
     font-size: .8rem;
+    color: #93959c;
+    margin: 0 0 0 1rem;
 
     &::after {
         content: '·';
+        font-size: 1rem;
+        margin: 0 .3rem;
     }
 }
 .card__duracion {
+    color: #93959c;
     font-size: .8rem;
 }
 .card__descripcion {
+    color: white;
     margin: .5rem 0 0 0;
     font-size: .8rem;
+    font-weight: 600;
     line-height: 1.2rem;
     overflow: hidden;
 }
 .card__botones {
+    position: absolute;
+    bottom: 7%;
+    right: 7%;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: center;
 }
 .card__reloj {
-    margin: 0 1rem 0 0;
     cursor: pointer;
+    padding: .5rem .75rem;
+
     svg {
         fill: white;
     }
+    &:hover {
+        background: #242432;
+        border-radius: .3rem;
+    }
 }
 .card__like {
-    margin: 0 1rem 0 0;
+    padding: .5rem .75rem;
     cursor: pointer;
+
     svg {
         fill: white;
+    }
+    &:hover {
+        background: #242432;
+        border-radius: .3rem;
     }
 }
 .card__guardar {
     cursor: pointer;
     color: white;
     font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    padding: .5rem .75rem;
+    opacity: 1;
+
+    &:hover {
+        background: #242432;
+        border-radius: .3rem;
+    }
 }

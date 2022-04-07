@@ -8,15 +8,21 @@
 }
 .slider__cards {
     width: 200%;
-    height: 40vh;
+    min-height: 40vh;
+    max-height: 64vh;
     
     display: grid;
 
     transition: all .5s ease-in;
+
+    @media screen and (min-width: 768px) and (max-width: 1920px) {
+        height: 64vh;
+    }
 }
 .slider__flecha {
     position: absolute;
     top: 0;
+    width: 4%;
     height: 100%;
     z-index: 4;
     cursor: pointer;

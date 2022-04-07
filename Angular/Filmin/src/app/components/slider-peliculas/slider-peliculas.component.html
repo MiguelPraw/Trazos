@@ -6,41 +6,44 @@
                 <h3 class="slider__h3">{{ slider.titulo }}</h3>
                 <p class="slider__p">{{ slider.subtitulo }}</p>
             </div>
-            <span class="slider__ver">
+            <button class="slider__ver">
                 Ver todo
-            </span>
+            </button>
         </div>
-
-        <ul 
-            [ngStyle]="{
-                width : ancho(),
-                gridTemplateColumns : gridColumns(),
-                transform : translateX()
-            }"
-            class="slider__cards">
-            <li 
-                *ngFor=" let item of slider.items "
-                class="slider__card">
-                <app-slider-peliculas-card
-                    [slide]="item"></app-slider-peliculas-card>
-            </li>
-        </ul>
     </div>
 
-    <button 
-        [ngClass]=" { 'disabled' : numero === 0 } "
-        (click)="disminuir()"
-        class="slider__btn izq">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-        </svg>
-    </button>
-    <button 
-        [ngClass]=" { 'disabled' : numero === numColumnas - 1 } "
-        (click)="aumentar()"
-        class="slider__btn dcha">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
-    </button>
+    <div class="slider__inferior">
+        <div class="slider__centrado">
+            <ul 
+                [ngStyle]="{
+                    width : ancho(),
+                    gridTemplateColumns : gridColumns(),
+                    transform : translateX()
+                }"
+                class="slider__cards">
+                <li 
+                    *ngFor=" let item of slider.items "
+                    class="slider__card">
+                    <app-slider-peliculas-card
+                        [slide]="item"></app-slider-peliculas-card>
+                </li>
+            </ul>   
+            <button 
+                [ngClass]=" { 'disabled' : numero === 0 } "
+                (click)="disminuir()"
+                class="slider__btn izq">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+            </button>
+            <button 
+                [ngClass]=" { 'disabled' : numero === numColumnas - 1 } "
+                (click)="aumentar()"
+                class="slider__btn dcha">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
 </div>

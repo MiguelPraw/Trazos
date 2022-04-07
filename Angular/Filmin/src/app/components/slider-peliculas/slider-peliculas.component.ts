@@ -38,7 +38,7 @@ export class SliderPeliculasComponent implements OnInit {
   }
 
   translateX() : string {
-    return `translateX(-${this.numero * (100 / this.numColumnas)}%)`;
+    return `translateX(-${this.numero * (100 / ((this.slider.items.length / this.numFilas) / this.numColumnas))}%)`;
   }
 
 }
