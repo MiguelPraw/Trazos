@@ -1,5 +1,10 @@
 <div class="card">
-    <img [src]="slide.img" alt="imagen" class="card__img">
+    <img
+        *ngIf="!slide.video"
+        [src]="slide.img" alt="imagen" class="card__img">
+    <video 
+        *ngIf="slide.video"
+        preload="none" playsinline [src]="slide.src" class="card__video" autoplay></video>
     <div
         *ngIf=" slide.inicial "
         class="card__info inicial">

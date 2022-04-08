@@ -6,7 +6,15 @@
     border-radius: .5rem;
     height: 40vh;
     
-    @media screen and (min-width: 768px) and (max-width: 1920px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        height: 64vh;
+    }
+}
+.card__video {
+    border-radius: .5rem;
+    height: 40vh;
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
         height: 64vh;
     }
 }
@@ -31,7 +39,7 @@
         padding: 0 0 5rem 0;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1920px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
         height: 64vh;
     }
 }

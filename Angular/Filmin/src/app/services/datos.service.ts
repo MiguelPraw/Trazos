@@ -5,9 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class DatosService {
 
+  // <video preload="none" playsinline="" src="https://trailer.filmin.com/es/extras/mp4/drive-my-car-trailer-vose-estreno-en-cines.mp4"></video>
+
   sliderCabecera : any[] = [
     {
       inicial   : true,
+      video     : false,
       img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
       titulo    : "El mayor catálogo de cine y series",
       subtitulo : "Suscríbete por 7,99 €",
@@ -18,16 +21,20 @@ export class DatosService {
       }
     },
     {
+      video     : true,
+      src       : "https://trailer.filmin.com/es/extras/mp4/drive-my-car-trailer-vose-estreno-en-cines.mp4",
       img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
-      titulo    : "The Beach Bum",
-      subtitulo : "Harmony Korine",
-      serie     : true,
+      titulo    : "Drive My Car",
+      subtitulo : "Ryusuke Hamaguchi",
+      serie     : false,
       boton     : {
         texto : "Más información",
         href : "#"
       }
     },
     {
+      video     : true,
+      src       : "https://trailer.filmin.com/es/extras/mp4/the-beach-bum-tl-fix.mp4",
       img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
       titulo    : "The Beach Bum",
       subtitulo : "Harmony Korine",
