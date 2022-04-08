@@ -302,3 +302,43 @@ Lo añadimos al constructor con su propio nombre para usarlo en la clase
 constructor( private profesorService : ProfesorService ) {}
 ```
 
+## Formularios
+
+### Formularios Normales
+
+1. Importar en el `app.module.ts` o en el módulo que lo requiera `FormsModule`.
+2. Generar una propiedad en el `component.ts`.
+3. Añadir la directiva `[(ngModel)]="nombre"`, con el mismo nombre que la propiedad, y el `name="nombre"` en el `input`.
+
+```html
+<input 
+        type="text" 
+        name="nombre"
+        [(ngModel)]="nombre"
+        #fNombre="ngModel"
+        required
+        minlength="3"
+        autocomplete="off"
+        pattern="[a-zA-Z0-9]{3,16}">
+
+        <!--  ESTADOS  -->
+
+        <p 
+            *ngIf=" fNombre.invalid && fNombre.touched && fNombre.dirty "
+            class="error">Introduce bien el nombre</p>
+
+        {{ fNombre.valid }}           <!--  Comprueba las validaciones  -->
+        {{ fNombre.invalid }}         <!--  Opuesto a valid  -->
+        {{ fNombre.touched }}         <!--  Comprueba cuando el cursor ha estado en el input  -->
+        {{ fNombre.dirty }}           <!--  Cuando el usuario ha escrito algo  -->
+        {{ fNombre.pristine }}        <!--  Cuando el input nunca ha sido usado  -->
+```
+
+## Pipes
+
+```bash
+  ng g p nombrePipe
+```
+
+En el `pipe.ts` alteramos dentro del `transform` el `value` que recibimos y lo devolvemos como queramos.
+

@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-buscador',
+  templateUrl: './buscador.component.html',
+  styleUrls: ['./buscador.component.scss']
+})
+export class BuscadorComponent implements OnInit {
+
+  termino : string = "";
+
+  clase : any = [
+    { nombre : 'Pablo' },
+    { nombre : 'Alba' },
+    { nombre : 'Miguel' },
+    { nombre : 'Sergio' },
+    { nombre : 'Alvaro' },
+  ]
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

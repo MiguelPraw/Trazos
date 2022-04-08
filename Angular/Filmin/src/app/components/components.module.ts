@@ -8,6 +8,13 @@ import { SliderPeliculasComponent } from './slider-peliculas/slider-peliculas.co
 import { SliderPeliculasCardComponent } from './slider-peliculas-card/slider-peliculas-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { PeliculaCabeceraComponent } from './pelicula-cabecera/pelicula-cabecera.component';
+import { PeliculaTabsComponent } from './pelicula-tabs/pelicula-tabs.component';
+import { PeliculaDetallesCardComponent } from './pelicula-detalles-card/pelicula-detalles-card.component';
+import { PeliculaSimilaresComponent } from './pelicula-similares/pelicula-similares.component';
+import { PeliculaValoracionesComponent } from './pelicula-valoraciones/pelicula-valoraciones.component';
+import { PeliculaExtrasComponent } from './pelicula-extras/pelicula-extras.component';
+import { PeliculaDetallesComponent } from './pelicula-detalles/pelicula-detalles.component';
 
 
 @NgModule({
@@ -18,7 +25,14 @@ import { AppRoutingModule } from '../app-routing.module';
     SliderCategoriasComponent,
     SliderPeliculasComponent,
     SliderPeliculasCardComponent,
-    FooterComponent
+    PeliculaCabeceraComponent,
+    PeliculaTabsComponent,
+    PeliculaDetallesComponent,
+    PeliculaDetallesCardComponent,
+    PeliculaSimilaresComponent,
+    PeliculaValoracionesComponent,
+    PeliculaExtrasComponent,
+    FooterComponent,
   ],
   exports : [
     CabeceraComponent,
@@ -27,7 +41,14 @@ import { AppRoutingModule } from '../app-routing.module';
     SliderCategoriasComponent,
     SliderPeliculasComponent,
     SliderPeliculasCardComponent,
-    FooterComponent
+    PeliculaCabeceraComponent,
+    PeliculaTabsComponent,
+    PeliculaDetallesComponent,
+    PeliculaDetallesCardComponent,
+    PeliculaSimilaresComponent,
+    PeliculaValoracionesComponent,
+    PeliculaExtrasComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,

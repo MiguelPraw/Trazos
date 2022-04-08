@@ -91,6 +91,25 @@ export class DatosService {
       anio          : 1998,
       duracion      : "1h 57min",
       descripcion   : "Los hermanos Coen entretejen una oda ambivalente a la ciudad de Los Ángeles protagonizada por el antihéroe de los 90 por antonomasia, 'El Nota' en este mito incontestable de la cultura pop.",
+      detalles    : {
+        sinopsis    :  "Premiada con 7 Oscars incluyendo el de Mejor Película, Steven Spielberg se consagró en el olimpo del séptimo arte con esta desgarradora historia real del holocausto en la que un empresario alemán sacrificó su negocio y reputación para salvar miles de vidas judías. Oskar Schindler (Liam Neeson), un empresario alemán de gran talento para las relaciones públicas, busca ganarse la simpatía de los nazis de cara a su beneficio personal. Después de la invasión de Polonia por los alemanes en 1939, Schindler consigue, gracias a sus relaciones con los altos jerarcas nazis, la propiedad de una fábrica de Cracovia. Allí emplea a cientos de operarios judíos, cuya explotación le hace prosperar rápidamente, gracias sobre todo a su gerente Itzhak Stern (Ben Kingsley), también judío. Pero conforme la guerra avanza, Schindler y Stern comienzan a ser conscientes de que a los judíos que contratan, los salvan de una muerte casi segura en el temible campo de concentración de Plaszow, que lidera el Comandante nazi Amon Goeth (Ralph Fiennes), un hombre cruel que disfruta ejecutando judíos.",
+        premios     : [
+          { premio : "EFA"    , cantidad : 1 },
+          { premio : "Otros"  , cantidad : 10 }
+        ],
+        temas       : [ "Clásicos Universal" , "Clásico Moderno" , "Neo-noir"],
+        reparto     : [ "Jeff Bridges", "John Goodman", "Julianne Moore", "Steve Buscemi" ],
+        audio       : ["Español" , "Inglés"],
+        subtitulos  : ["Español"],
+        masInfo     : {
+          tituloOriginal  : "The Big Lebowski",
+          pais            : "Estados Unidos",
+          estreno         : "14/05/98",
+          recaudacion     : "2.541.775,00 €",
+          espectadores    : 690031
+        }
+      },
+      
     },
     {
       url           : "la-milla-verde",

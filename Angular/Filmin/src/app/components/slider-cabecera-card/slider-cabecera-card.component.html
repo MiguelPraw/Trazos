@@ -2,9 +2,8 @@
     <img
         *ngIf="!slide.video"
         [src]="slide.img" alt="imagen" class="card__img">
-    <video 
-        *ngIf="slide.video"
-        preload="none" playsinline [src]="slide.src" class="card__video" autoplay></video>
+        <video *ngIf=" autoplay && slide.video " preload="none" playsinline [src]="slide.src" class="card__video" muted autoplay></video>
+        <video *ngIf=" !autoplay && slide.video " preload="none" playsinline [src]="slide.src" class="card__video"></video>
     <div
         *ngIf=" slide.inicial "
         class="card__info inicial">

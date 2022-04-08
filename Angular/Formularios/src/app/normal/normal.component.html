@@ -1,0 +1,27 @@
+<h1>Formularios Normales</h1>
+
+<h2> {{ nombre }} </h2>
+
+<form>
+    <input 
+        type="text" 
+        name="nombre"
+        [(ngModel)]="nombre"
+        #fNombre="ngModel"
+        required
+        minlength="3"
+        autocomplete="off"
+        pattern="[a-zA-Z0-9]{3,16}">
+
+        <!--  ESTADOS  -->
+
+        <p 
+            *ngIf=" fNombre.invalid && fNombre.touched && fNombre.dirty "
+            class="error">Introduce bien el nombre</p>
+
+        {{ fNombre.valid }}           <!--  Comprueba las validaciones  -->
+        {{ fNombre.invalid }}         <!--  Opuesto a valid  -->
+        {{ fNombre.touched }}         <!--  Comprueba cuando el cursor ha estado en el input  -->
+        {{ fNombre.dirty }}           <!--  Cuando el usuario ha escrito algo  -->
+        {{ fNombre.pristine }}        <!--  Cuando el input nunca ha sido usado  -->
+</form>

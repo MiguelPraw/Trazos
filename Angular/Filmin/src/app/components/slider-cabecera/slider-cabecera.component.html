@@ -9,6 +9,7 @@
             class="slider__cards">
             <app-slider-cabecera-card 
                 *ngFor=" let slide of slider; let i = index "
+                [autoplay]=" numero == i  "
                 [slide]="slide"></app-slider-cabecera-card>
         </ul> 
     </div>

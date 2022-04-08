@@ -1,0 +1,47 @@
+
+<section class="tabs">
+    <div class="tabs__centrado">
+        <ul class="tabs__ul">
+            <li 
+                (click)=" setNumero(0) "
+                [ngClass]=" { 'activo' : numero === 0 } "
+                class="tabs__li">Detalles</li>
+            <li 
+                (click)=" setNumero(1) "
+                [ngClass]=" { 'activo' : numero === 1 } "
+                class="tabs__li">Similares</li>
+            <li 
+                (click)=" setNumero(2) "
+                [ngClass]=" { 'activo' : numero === 2 } "
+                class="tabs__li">Valoraciones</li>
+            <li 
+                (click)=" setNumero(3) "
+                [ngClass]=" { 'activo' : numero === 3 } "
+                class="tabs__li">Extras</li>
+        </ul>
+
+        <article 
+            [ngClass]=" { 'activo' : numero === 0 } "
+            class="tabs__detalles">
+            <app-pelicula-detalles></app-pelicula-detalles>
+        </article>
+
+        <article
+            [ngClass]=" { 'activo' : numero === 1 } " 
+            class="tabs__similares">
+            <app-pelicula-similares></app-pelicula-similares>
+        </article>
+
+        <article 
+            [ngClass]=" { 'activo' : numero === 2 } "
+            class="tabs__valoraciones">
+            <app-pelicula-valoraciones></app-pelicula-valoraciones>
+        </article>
+
+        <article
+            [ngClass]=" { 'activo' : numero === 3 } " 
+            class="tabs__extras">
+            <app-pelicula-extras></app-pelicula-extras>
+        </article>
+    </div>
+</section>

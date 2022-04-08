@@ -7,10 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SliderCabeceraCardComponent implements OnInit {
 
-  @Input() slide : any = {}
+  @Input() slide    : any = {}
+  @Input() autoplay : boolean = false
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
 }

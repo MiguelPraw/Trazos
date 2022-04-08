@@ -1,0 +1,15 @@
+
+<h1>Buscador</h1>
+
+<input 
+    type="text" 
+    name="termino"
+    [(ngModel)]="termino">
+
+<ul>
+    <li *ngFor=" let alumno of clase | uno:termino "> 
+        {{ alumno.nombre }}
+    </li>
+</ul>
+
+<h2>{{ termino | uno:'h':'p' }}</h2>
