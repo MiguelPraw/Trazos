@@ -1,0 +1,120 @@
+.buscador {
+    width: 100%;
+    margin: 4em 0;
+}
+.buscador__wrapper {
+    width: 80%;
+    margin: auto;
+    background: goldenrod;
+}
+.buscador__form {
+    background: green;
+}
+.buscador__container {
+    position: relative;
+}
+.buscador__input {
+    background: white;
+    padding: 1em 2em;
+    width: 100%;
+    border-radius: .3rem;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: black;
+    }
+}
+.buscador__text {
+    width: calc( 100% - 4.5rem );
+    padding: 2rem 1rem;
+    border: none;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    &::placeholder {
+        font-size: 1.3rem;
+        color: grey;
+        font-weight: 500;
+    }
+
+    &:focus-visible {
+        outline-style: none;
+    }
+
+    &:focus + .buscador__resultado {
+        display: flex;
+    }
+}
+.buscador__resultado {
+    background: purple;
+    width: 100%;
+    border-radius: .3rem;
+
+    display: none;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
+.buscador__destacado {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.buscador__h3 {
+    color: lightgray;
+}
+.buscador__pelicula {
+    background: tomato;
+    position: relative;
+
+    margin: 1em 0 0 0;
+}
+.buscador__img {
+}
+.buscador__info {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: .5em 1em;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.buscador__datos {
+
+}
+.buscador__nombre {
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+.buscador__director {
+    font-size: .875rem;
+    color: lightgray;
+}
+.buscador__nota {
+    background-color: #5d606b;
+    color: #fff;
+    border-radius: 0.1875rem;
+    font-size: .875rem;
+    font-weight: 800;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+    padding: 0.1rem .5rem;
+}
+.buscador__otros {
+    padding: 1em;
+    width: 100%;
+}
+.buscador__ul {
+    margin: 1em 0 0 0;
+}

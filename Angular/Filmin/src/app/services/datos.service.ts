@@ -99,8 +99,8 @@ export class DatosService {
         ],
         temas       : [ "Clásicos Universal" , "Clásico Moderno" , "Neo-noir"],
         reparto     : [ "Jeff Bridges", "John Goodman", "Julianne Moore", "Steve Buscemi" ],
-        audio       : ["Español" , "Inglés"],
-        subtitulos  : ["Español"],
+        audio       : [ "Español" , "Inglés" ],
+        subtitulos  : [ "Español" ],
         masInfo     : {
           tituloOriginal  : "The Big Lebowski",
           pais            : "Estados Unidos",
@@ -220,7 +220,7 @@ export class DatosService {
     {
       url           : "la-lista-de-schindler",
       src           : "https://static.filmin.es/images/media/39953/3/card_0_3_550x310.webp",
-      portada       : "https://static.filmin.es/images/media/39953/1/poster_0_3_338x507.png",
+      portada       : "https://static.filmin.es/images/media/39953/1/poster_0_3_640x0.png",
       fondo         : "https://static.filmin.es/images/media/39953/2/still_2_3_1360x765.png",
       titulo        : "La lista de Schindler",
       director      : "Steven Spielberg",

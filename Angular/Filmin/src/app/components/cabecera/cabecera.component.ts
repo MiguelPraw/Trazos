@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
+  buscador : boolean = false;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  setBuscador( evento : MouseEvent ) : void {
+    evento.preventDefault();
+    this.buscador = !this.buscador;
+    if( evento.target !== document.querySelector('.buscador') && evento.target !== document.querySelector('.buscador__resultado') ) {
+      console.log("click");
+      this.buscador = true;
+    }
   }
 
 }

@@ -19,9 +19,13 @@
             *ngIf=" fNombre.invalid && fNombre.touched && fNombre.dirty "
             class="error">Introduce bien el nombre</p>
 
-        {{ fNombre.valid }}           <!--  Comprueba las validaciones  -->
-        {{ fNombre.invalid }}         <!--  Opuesto a valid  -->
-        {{ fNombre.touched }}         <!--  Comprueba cuando el cursor ha estado en el input  -->
-        {{ fNombre.dirty }}           <!--  Cuando el usuario ha escrito algo  -->
-        {{ fNombre.pristine }}        <!--  Cuando el input nunca ha sido usado  -->
+        <h3>Valido: {{ fNombre.valid }}</h3>            <!--  Comprueba las validaciones  -->
+        <h3>Invalido: {{ fNombre.invalid }}</h3>        <!--  Opuesto a valid  -->
+        <h3>Touched: {{ fNombre.touched }}</h3>         <!--  Comprueba cuando el cursor ha estado en el input  -->
+        <h3>Dirty: {{ fNombre.dirty }}</h3>             <!--  Cuando el usuario ha escrito algo  -->
+        <h3>Pristine: {{ fNombre.pristine }}</h3>       <!--  Cuando el input nunca ha sido usado  -->
 </form>
+
+<hr>
+
+<h2>{{ nombre | filtrar:1:'texto':true }}</h2>

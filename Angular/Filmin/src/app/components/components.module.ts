@@ -15,6 +15,7 @@ import { PeliculaSimilaresComponent } from './pelicula-similares/pelicula-simila
 import { PeliculaValoracionesComponent } from './pelicula-valoraciones/pelicula-valoraciones.component';
 import { PeliculaExtrasComponent } from './pelicula-extras/pelicula-extras.component';
 import { PeliculaDetallesComponent } from './pelicula-detalles/pelicula-detalles.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PeliculaDetallesComponent } from './pelicula-detalles/pelicula-detalles
     PeliculaValoracionesComponent,
     PeliculaExtrasComponent,
     FooterComponent,
+    BuscadorComponent,
   ],
   exports : [
     CabeceraComponent,

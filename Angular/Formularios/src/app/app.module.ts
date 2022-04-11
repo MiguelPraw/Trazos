@@ -8,6 +8,7 @@ import { NormalComponent } from './normal/normal.component';
 import { ReactivoComponent } from './reactivo/reactivo.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { UnoPipe } from './uno.pipe';
+import { FiltrarPipe } from './pipes/filtrar.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UnoPipe } from './uno.pipe';
     NormalComponent,
     ReactivoComponent,
     BuscadorComponent,
-    UnoPipe
+    UnoPipe,
+    FiltrarPipe
   ],
   imports: [
     BrowserModule,

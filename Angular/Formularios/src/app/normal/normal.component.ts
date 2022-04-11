@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NormalComponent implements OnInit {
 
-  nombre : string = "";
+  nombre : string = "Timmy";
 
   constructor(){}
   ngOnInit(): void {}

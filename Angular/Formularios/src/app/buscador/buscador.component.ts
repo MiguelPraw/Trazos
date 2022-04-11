@@ -7,19 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscadorComponent implements OnInit {
 
-  termino : string = "";
+  nombre : string = "Timmy";
 
   clase : any = [
-    { nombre : 'Pablo' },
-    { nombre : 'Alba' },
-    { nombre : 'Miguel' },
-    { nombre : 'Sergio' },
-    { nombre : 'Alvaro' },
+    { nombre : 'Timmy' , apellido : "Anderson"  },
+    { nombre : 'Emma'  , apellido : "Anderson"  },
+    { nombre : 'Jorge' , apellido : "Nitales"   },
+    { nombre : 'Paco'  , apellido : "Garcia"    },
+    { nombre : 'Pedro' , apellido : "Tilla"     },
   ]
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

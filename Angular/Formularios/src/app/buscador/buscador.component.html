@@ -3,13 +3,40 @@
 
 <input 
     type="text" 
-    name="termino"
-    [(ngModel)]="termino">
+    name="nombre"
+    [(ngModel)]="nombre"
+    #texto="ngModel">
 
 <ul>
-    <li *ngFor=" let alumno of clase | uno:termino "> 
+    <li *ngFor=" let alumno of clase | filtrar:nombre "> 
         {{ alumno.nombre }}
     </li>
 </ul>
 
-<h2>{{ termino | uno:'h':'p' }}</h2>
+<div class="buscador">
+    <div class="wrapper">
+        <h3 class="buscador__h3"></h3>
+        <form action="#" class="buscador__form">
+            <div class="buscador__input">
+                <input 
+                type="text" 
+                name="nombre" 
+                class="buscador__text"
+                placeholder="Tipo de cocina">
+
+            <ul class="buscador__resultado">
+                <li class="buscador__item">
+                    <svg class="buscador__svg"></svg>
+                    <h4 class="buscador__h4">Nombre</h4>
+                    <p class="buscador__p">28004, Madrid</p>
+                </li>
+                <li class="buscador__item">
+                    <svg class="buscador__svg"></svg>
+                    <h4 class="buscador__h4">Nombre</h4>
+                    <p class="buscador__p">28004, Madrid</p>
+                </li>
+            </ul>
+            </div>
+        </form>
+    </div>
+</div>

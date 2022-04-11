@@ -337,8 +337,22 @@ constructor( private profesorService : ProfesorService ) {}
 ## Pipes
 
 ```bash
-  ng g p nombrePipe
+  ng g p pipes/nombrePipe
 ```
 
 En el `pipe.ts` alteramos dentro del `transform` el `value` que recibimos y lo devolvemos como queramos.
+
+```ts
+export class UnoPipe implements PipeTransform {
+
+  transform(value: any, ...args: any[]): any {
+    let buscar = value.filter( ( alumno : any ) => {
+      return alumno.nombre.toLowerCase().includes( args[0].toLowerCase() );
+    })
+    return buscar;
+  }
+}
+```
+
+
 
