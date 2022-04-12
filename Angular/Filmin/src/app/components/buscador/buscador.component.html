@@ -1,65 +1,58 @@
 
 <div class="buscador">
-
     <div class="buscador__wrapper">
-        
         <form action="#" class="buscador__form">
-
             <div class="buscador__container">
-
                 <div class="buscador__input">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                     </svg>
                     <input 
                         type="text"
+                        name="pelicula"
+                        [(ngModel)]="pelicula"
                         placeholder="Busca por título, director, actor, tag..."
+                        autocomplete="off"
                         class="buscador__text">
-                        <div class="buscador__resultado">
 
-                            <div class="buscador__destacado">
-                                <h3 class="buscador__h3">Resultado destacado</h3>
+                    <ng-container *ngFor="let pelicula of peliculas | filtrar:pelicula ">
+                        <a [routerLink]=" [ '/pelicula' , pelicula.url ] ">
+                            <div class="buscador__resultado">
                                 <div class="buscador__pelicula">
-                                    <img src="https://static.filmin.es/images/media/39953/1/poster_0_3_640x0.png" alt="hola" class="buscador__img">
+                                    <img [src]="pelicula.portada" alt="hola" class="buscador__img">
                                     <div class="buscador__info">
                                         <ul class="buscador__datos">
                                             <li class="buscador__nombre">
-                                                La lista de Schindler
+                                                {{ pelicula.titulo }}
                                             </li>
                                             <li class="buscador__director">
-                                                Steven Spielberg, 1993
+                                                {{ pelicula.director }}, {{ pelicula.anio }}
                                             </li>
                                         </ul>
                                         <span class="buscador__nota">
-                                            9,1
+                                            {{ pelicula.nota }}
                                         </span>
                                     </div>
                                 </div>
+            
+                                <div class="buscador__otros">
+                                    <h2 class="buscador__titulo">{{ pelicula.titulo }}</h2>
+                                    <ul class="buscador__ul">
+                                        <li class="buscador__li">
+                                            {{ pelicula.director }}
+                                        </li>
+                                        <li class="buscador__li">
+                                            {{ pelicula.anio }}
+                                        </li>
+                                    </ul>
+                                    <p class="buscador__duracion"> {{ pelicula.duracion }} </p>
+                                    <p class="buscador__descripcion"> {{ pelicula.descripcion }} </p>
+                                </div>
                             </div>
-        
-                            <div class="buscador__otros">
-                                <h2 class="buscador__titulo">El gran Lebowski</h2>
-                                <ul class="buscador__ul">
-                                    <li class="buscador__li">
-                                        Joel Coen
-                                    </li>
-                                    <li>
-                                        1998
-                                    </li>
-                                </ul>
-                                    <p class="buscador__duracion"></p>
-                                    <p class="buscador__descripcion"></p>
-                            </div>
-        
-                        </div>
+                        </a>
+                    </ng-container>
                 </div>
-                
-                
-
             </div>
-
         </form>
-
     </div>
-
 </div>

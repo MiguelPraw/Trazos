@@ -16,10 +16,14 @@ export class CabeceraComponent implements OnInit {
   setBuscador( evento : MouseEvent ) : void {
     evento.preventDefault();
     this.buscador = !this.buscador;
-    if( evento.target !== document.querySelector('.buscador') && evento.target !== document.querySelector('.buscador__resultado') ) {
-      console.log("click");
+    if( evento.target !== document.querySelector('.buscador')) {
       this.buscador = true;
     }
+    this.setScroll();
+  }
+
+  setScroll() : void {
+    document.body.style.overflow = (this.buscador) ? "hidden" : "visible";
   }
 
 }

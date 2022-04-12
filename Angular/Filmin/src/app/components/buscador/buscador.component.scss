@@ -3,12 +3,13 @@
     margin: 4em 0;
 }
 .buscador__wrapper {
-    width: 80%;
+    width: 60%;
     margin: auto;
-    background: goldenrod;
+    max-height: 80vh;
+    
+    overflow-y: scroll;
 }
 .buscador__form {
-    background: green;
 }
 .buscador__container {
     position: relative;
@@ -25,8 +26,8 @@
     align-items: center;
 
     svg {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
         fill: black;
     }
 }
@@ -53,30 +54,27 @@
     }
 }
 .buscador__resultado {
-    background: purple;
     width: 100%;
     border-radius: .3rem;
+    margin: 1em 0 0 0;
+    padding: 1em;
 
-    display: none;
+    display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
-}
-.buscador__destacado {
-    width: 100%;
-    padding: 1em;
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.buscador__h3 {
-    color: lightgray;
+
+    transition: all .5s ease;
+
+    &:hover {
+        background: #5d606b40;
+    }
 }
 .buscador__pelicula {
     background: tomato;
+    width: 100%;
+    max-width: 300px;
     position: relative;
 
-    margin: 1em 0 0 0;
 }
 .buscador__img {
 }
@@ -95,8 +93,9 @@
 
 }
 .buscador__nombre {
-    font-size: 1.1rem;
     font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
 }
 .buscador__director {
     font-size: .875rem;
@@ -115,6 +114,32 @@
     padding: 1em;
     width: 100%;
 }
+.buscador__titulo {
+    font-size: 2.5rem;
+    color: black;
+    font-weight: 600;
+}
 .buscador__ul {
     margin: 1em 0 0 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.buscador__li {
+    color: black;
+    opacity: 0.5;
+    font-weight: 600;
+    margin: 0 1em 0 0;
+}
+.buscador__duracion {
+    margin: 1em 0;
+    color: black;
+    font-weight: 600;
+}
+.buscador__descripcion {
+    color: black;
+    font-weight: 600;
+    line-height: 1.5em;
+    font-size: 1.1rem;
 }

@@ -13,9 +13,7 @@ export class SliderCabeceraComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { 
-    console.log(this.slider);
-  }
+  ngOnInit(): void {}
 
   aumentar() {
     this.numero++;

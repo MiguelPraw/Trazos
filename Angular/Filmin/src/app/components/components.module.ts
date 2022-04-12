@@ -16,6 +16,8 @@ import { PeliculaValoracionesComponent } from './pelicula-valoraciones/pelicula-
 import { PeliculaExtrasComponent } from './pelicula-extras/pelicula-extras.component';
 import { PeliculaDetallesComponent } from './pelicula-detalles/pelicula-detalles.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { FormsModule } from '@angular/forms';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { BuscadorComponent } from './buscador/buscador.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }

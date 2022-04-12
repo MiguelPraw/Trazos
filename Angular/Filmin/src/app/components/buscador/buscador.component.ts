@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-buscador',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscadorComponent implements OnInit {
 
-  constructor() { }
+  pelicula : string = "";
+
+  peliculas : any = [];
+
+  constructor(
+    private datosService : DatosService
+  ) { }
 
   ngOnInit(): void {
+    this.peliculas = this.datosService.peliculas;
   }
 
 }

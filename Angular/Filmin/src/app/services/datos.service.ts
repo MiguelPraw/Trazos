@@ -168,6 +168,7 @@ export class DatosService {
     {
       url           : "el-gran-lebowski",
       src           : "https://static.filmin.es/images/media/39491/1/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "El gran Lebowski",
       director      : "Joel Coen",
       nota          : "8,7",
@@ -181,6 +182,7 @@ export class DatosService {
     {
       url           : "la-milla-verde",
       src           : "https://static.filmin.es/images/media/39680/1/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "La milla verde",
       director      : "Frank Darabont",
       nota          : "8,1",
@@ -194,6 +196,7 @@ export class DatosService {
     {
       url           : "el-hombre-que-nunca-estuvo-alli",
       src           : "https://static.filmin.es/images/media/39947/1/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "El hombre que nunca estuvo allí",
       director      : "Joel Coen",
       nota          : "8,4",
@@ -207,6 +210,7 @@ export class DatosService {
     {
       url           : "sneakers",
       src           : "https://static.filmin.es/images/media/39820/2/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "Sneakers (Los fisgones)",
       director      : "Phil Alden Robinson",
       nota          : "7,3",
@@ -229,7 +233,7 @@ export class DatosService {
       hd            : true,
       nota          : "9,1",
       serie         : true,
-      suscriptores  : true,
+      suscriptores  : false,
       alquiler      : true,
       anio          : 1993,
       duracion      : "3h 16min",
@@ -292,10 +296,11 @@ export class DatosService {
     {
       url           : "la-lista-de-schindler",
       src           : "https://static.filmin.es/images/media/39953/3/card_0_3_550x310.webp",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "La lista de Schindler",
       director      : "Steven Spielberg",
       nota          : "9,1",
-      serie         : true,
+      serie         : false,
       suscriptores  : false,
       alquiler      : true,
       anio          : 1993,
@@ -305,6 +310,7 @@ export class DatosService {
     {
       url           : "notting-hill",
       src           : "https://static.filmin.es/images/media/39949/1/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "Notting Hill",
       director      : "Roger Michell",
       nota          : "7,8",
@@ -318,6 +324,7 @@ export class DatosService {
     {
       url           : "el-presidente-y-miss-wade",
       src           : "https://static.filmin.es/images/media/39377/1/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "El presidente y Miss Wade",
       director      : "Rob Reiner",
       nota          : "7,4",
@@ -331,6 +338,7 @@ export class DatosService {
     {
       url           : "regreso-al-futuro",
       src           : "https://static.filmin.es/images/media/39404/1/card_0_3_550x310.png",
+      portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
       titulo        : "Regreso al futuro",
       director      : "Robert Zemeckis",
       nota          : "9,1",
