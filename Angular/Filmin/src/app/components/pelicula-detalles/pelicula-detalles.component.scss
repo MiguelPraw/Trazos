@@ -1,0 +1,43 @@
+.detalles {
+    width: 100%;
+    background: red;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.detalles__izq {
+    background: goldenrod;
+    width: 55%;
+}
+.card {
+    padding: 1.5em;
+    margin: 1em 0;
+    border-radius: .5rem;
+}
+.detalles__h2 {
+    font-size: 1.4rem;
+    margin: 0 0 1em 0;
+}
+.detalles__sinopsis {
+    background: grey;
+}
+.detalles__premios {
+    background: tomato;
+}
+.detalles__temas {
+    background: burlywood;
+}
+.detalles__dcha {
+    background: green;
+    width: 45%;
+}
+.detalles__reparto {
+    background: cadetblue;
+}
+.detalles__audio {
+    background: chocolate;
+}
+.detalles__masinfo {
+    background: cornflowerblue;
+}

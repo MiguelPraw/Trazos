@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactivo',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReactivoComponent implements OnInit {
 
-  constructor() { }
+  contacto : FormGroup = this.fb.group({
+    nombreUsuario : [ 
+      '' , 
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(16),
+        Validators.pattern(''),
+      ]
+    ],
+    email : ['timmy@mail.com'],
+    edad : 32
+  });
 
-  ngOnInit(): void {
-  }
+  constructor(
+    private fb : FormBuilder
+  ) { }
+
+  ngOnInit(): void { }
 
 }

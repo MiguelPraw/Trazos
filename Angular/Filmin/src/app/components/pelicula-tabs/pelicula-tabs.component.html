@@ -23,7 +23,8 @@
         <article 
             [ngClass]=" { 'activo' : numero === 0 } "
             class="tabs__detalles">
-            <app-pelicula-detalles></app-pelicula-detalles>
+            <app-pelicula-detalles
+                [detalles]="pelicula.detalles"></app-pelicula-detalles>
         </article>
 
         <article

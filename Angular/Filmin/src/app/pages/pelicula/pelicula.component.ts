@@ -22,15 +22,13 @@ export class PeliculaComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( ( { url } ) => {
       this.url = url;
-    });
 
-    this.peliculas = this.datosService.peliculas;
-    console.log(this.peliculas);
+      this.peliculas = this.datosService.peliculas;
 
-    this.pelicula = this.datosService.peliculas.find( ( cadaPelicula : any ) => {
-      return cadaPelicula.url === this.url;
-    });
-    console.log(this.pelicula);
+      this.pelicula = this.datosService.peliculas.find( ( cadaPelicula : any ) => {
+        return cadaPelicula.url === this.url;
+      });
+    })
   }
 
   backgroundImage () : string {

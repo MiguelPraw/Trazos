@@ -16,7 +16,9 @@
                         class="buscador__text">
 
                     <ng-container *ngFor="let pelicula of peliculas | filtrar:pelicula ">
-                        <a [routerLink]=" [ '/pelicula' , pelicula.url ] ">
+                        <a 
+                            (click)="emiteBuscador()"
+                            [routerLink]="[ '/pelicula' , pelicula.url ]">
                             <div class="buscador__resultado">
                                 <div class="buscador__pelicula">
                                     <img [src]="pelicula.portada" alt="hola" class="buscador__img">
@@ -50,6 +52,41 @@
                                 </div>
                             </div>
                         </a>
+                        
+                        <!-- <a [routerLink]=" [ 'pelicula' , pelicula.url ] ">
+                            <div class="buscador__resultado">
+                                <div class="buscador__pelicula">
+                                    <img [src]="pelicula.portada" alt="hola" class="buscador__img">
+                                    <div class="buscador__info">
+                                        <ul class="buscador__datos">
+                                            <li class="buscador__nombre">
+                                                {{ pelicula.titulo }}
+                                            </li>
+                                            <li class="buscador__director">
+                                                {{ pelicula.director }}, {{ pelicula.anio }}
+                                            </li>
+                                        </ul>
+                                        <span class="buscador__nota">
+                                            {{ pelicula.nota }}
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="buscador__otros">
+                                    <h2 class="buscador__titulo">{{ pelicula.titulo }}</h2>
+                                    <ul class="buscador__ul">
+                                        <li class="buscador__li">
+                                            {{ pelicula.director }}
+                                        </li>
+                                        <li class="buscador__li">
+                                            {{ pelicula.anio }}
+                                        </li>
+                                    </ul>
+                                    <p class="buscador__duracion"> {{ pelicula.duracion }} </p>
+                                    <p class="buscador__descripcion"> {{ pelicula.descripcion }} </p>
+                                </div>
+                            </div>
+                        </a> -->
                     </ng-container>
                 </div>
             </div>

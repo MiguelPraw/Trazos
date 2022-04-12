@@ -1,1 +1,9 @@
 <p>reactivo works!</p>
+
+<form [formGroup]="contacto">
+    <input formControlName="nombreUsuario" type="text" placeholder="Nombre">
+    <input formControlName="email" type="email">
+    <input formControlName="edad" type="number">
+</form>
+
+{{ contacto.controls['nombreUsuario'].valid }}

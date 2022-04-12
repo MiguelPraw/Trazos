@@ -334,6 +334,49 @@ constructor( private profesorService : ProfesorService ) {}
         {{ fNombre.pristine }}        <!--  Cuando el input nunca ha sido usado  -->
 ```
 
+### Formularios Reactivos
+
+1. Importamos en el `app.module.ts` o en módulo que lo requiera `ReactiveFormsModule`
+2. Importar en el Componente `FormBuilder`, `FormGroup` y `Validators`
+
+```ts
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+```
+
+3. Modificamos el TypeScript y añadimos los Validators:
+
+```ts
+nombreFormulario : FormGroup = this.fb.group({
+    nombreUsuario : [ 
+      'Timmy' , 
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(16),
+        Validators.pattern(''),
+      ]
+    ],
+    email : ['timmy@mail.com'],
+    edad : 32
+  });
+
+  constructor(
+    private fb : FormBuilder
+  ) { }
+```
+
+4. En el HTML creamos el formulario y las validaciones.
+
+```html
+<form [formGroup]="nombreFormulario">
+    <input formControlName="nombreUsuario" type="text" placeholder="Nombre">
+    <input formControlName="email" type="email">
+    <input formControlName="edad" type="number">
+</form>
+
+{{ contacto.controls['nombreUsuario'].valid }}
+```
+
 ## Pipes
 
 ```bash
@@ -354,5 +397,18 @@ export class UnoPipe implements PipeTransform {
 }
 ```
 
+## Peticiones
 
+1. Importar el módulo:
 
+```ts
+import { HttpClientModule } from '@angular/common/http';
+```
+
+2. Lo declaramos en el `component.ts`:
+
+```ts
+constructor(
+    private httpClient : HttpClient
+  ) {}
+```
