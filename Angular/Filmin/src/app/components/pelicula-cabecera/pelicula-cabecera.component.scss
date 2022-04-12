@@ -3,15 +3,18 @@
     position: relative;
 
     &__superior {
-        min-height: 85vh;
+        // min-height: 85vh;
+        max-height: 85vh;
         position: relative;
     }
 
     &__slider {
         min-height: 85vh;
+        max-height: 85vh;
 
         .slider__img {
             min-height: 85vh;
+            max-height: 85vh;
             width: 100%;
         }
     }
@@ -54,7 +57,6 @@
         }
 
         &--dcha {
-            
             display: column;
             flex-flow: row nowrap;
             justify-content: flex-start;

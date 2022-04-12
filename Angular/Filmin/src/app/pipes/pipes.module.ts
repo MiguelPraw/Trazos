@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FiltrarPipe } from './filtrar.pipe';
-
+import { SaltoDeLineaPipe } from './salto-de-linea.pipe';
 
 
 @NgModule({
   declarations: [
-    FiltrarPipe
+    FiltrarPipe,
+    SaltoDeLineaPipe
   ],
   exports: [
-    FiltrarPipe
+    FiltrarPipe,
+    SaltoDeLineaPipe
   ],
   imports: [
     CommonModule

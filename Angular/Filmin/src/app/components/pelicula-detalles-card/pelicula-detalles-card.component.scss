@@ -1,0 +1,67 @@
+.card__p {
+    color: white;
+    hyphens: initial;
+    line-height: 1.4em;
+    font-size: 1.2em;
+}
+
+.card__ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card__premio, .card__tema {
+    color: white;
+    margin: 1em 1em 0 0;
+    padding: .4em 1em;
+    border-radius: 1rem;
+    background: #5d606b;
+    font-weight: 600;
+    cursor: pointer;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    svg {
+        height: 1.3em;
+        width: 1.3em;
+
+        background: white;
+        fill: #5d606b;
+        padding: .4em;
+
+        margin: -0.5em 1em -0.5em -1em;
+        border-radius: 1.3rem;
+    }
+
+    &:hover {
+        background: #141426;
+    }
+}
+.card__reparto {}
+.card__direccion {
+
+}
+.card__director, .card__actor {
+    color: white;
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    text-decoration: underline;
+    margin: 0 0 0 .5em;
+    cursor: pointer;
+
+    &:hover {
+        color: #02ffa1;
+    }
+}
+.card__span {
+    color: #93959c;
+    font-weight: 600;
+}
+.card__actores {
+    margin: 1em 0 0 0;
+}

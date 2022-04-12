@@ -1,5 +1,4 @@
 import { Component, OnInit, Output , EventEmitter} from '@angular/core';
-import { Router } from '@angular/router';
 import { DatosService } from 'src/app/services/datos.service';
 
 
@@ -16,17 +15,16 @@ export class BuscadorComponent implements OnInit {
   @Output() ocultarBuscador : EventEmitter<any> = new EventEmitter<any>()
     
   constructor(
-    private datosService : DatosService,
-    private router        : Router
+    private datosService : DatosService
   ) { }
 
   ngOnInit(): void {
     this.peliculas = this.datosService.peliculas;
   }
 
-  navegar( base : string , url : string  ) : void{
-    this.router.navigate( [base , url ]);
-  }
+  // navegar( base : string , url : string  ) : void{
+  //   this.router.navigate( [base , url ]);
+  // }
 
   emiteBuscador() : void {
     this.ocultarBuscador.emit( false );

@@ -39,7 +39,8 @@
     &__detalles, &__similares, &__valoraciones, &__extras {
         position: absolute;
         opacity: 0;
-        width: 100%;
+        width: 92%;
+        margin: auto;
 
         &.activo {
             opacity: 1;

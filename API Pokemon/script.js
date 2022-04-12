@@ -367,10 +367,10 @@ $(window).on({
             buscando = true;
             let resultadoConsulta = getDatos (siguienteUrl);
             resultadoConsulta.then (respuesta => {
-                console.log(respuesta);
+                // console.log(respuesta);
                 actualizaPokedex (respuesta).then( () => {
                     buscando = false;
-                    console.log(pokedex);
+                    // console.log(pokedex);
                     ordenaPokedex();
                     $('#grid').empty();
                     pokedex.listaPokemon.forEach (pokemon => {

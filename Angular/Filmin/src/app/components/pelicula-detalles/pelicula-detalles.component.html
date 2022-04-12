@@ -3,24 +3,32 @@
     <div class="detalles__izq">
         <article class="detalles__sinopsis card">
             <h2 class="detalles__h2" >Sinopsis</h2>
-            <app-pelicula-detalles-card></app-pelicula-detalles-card>
+            <app-pelicula-detalles-card
+                [detalles]="detalles"
+                [tipo]="'sinopsis'"></app-pelicula-detalles-card>
         </article>
         
         <article class="detalles__premios card">
             <h2 class="detalles__h2" >Premios y nominaciones</h2>
-            <app-pelicula-detalles-card></app-pelicula-detalles-card>
+            <app-pelicula-detalles-card
+                [detalles]="detalles"
+                [tipo]="'premios'"></app-pelicula-detalles-card>
         </article>
     
         <article class="detalles__temas card">
             <h2 class="detalles__h2" >Temas</h2>
-            <app-pelicula-detalles-card></app-pelicula-detalles-card>
+            <app-pelicula-detalles-card
+                [detalles]="detalles"
+                [tipo]="'temas'"></app-pelicula-detalles-card>
         </article>
     </div>
 
     <div class="detalles__dcha">
         <article class="detalles__reparto card">
             <h2 class="detalles__h2" >Dirección y reparto</h2>
-            <app-pelicula-detalles-card></app-pelicula-detalles-card>
+            <app-pelicula-detalles-card
+                [detalles]="detalles"
+                [tipo]="'reparto'"></app-pelicula-detalles-card>
         </article>
     
         <article class="detalles__audio card">

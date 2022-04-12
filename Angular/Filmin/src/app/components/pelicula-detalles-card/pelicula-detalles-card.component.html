@@ -1,2 +1,53 @@
 
-<p >DETALLE</p>
+<p 
+    *ngIf="tipo === 'sinopsis'"
+    class="card__p">{{ detalles.sinopsis | saltoDeLinea }}</p>
+
+<ul 
+    *ngIf="tipo === 'premios'"
+    class="card__ul">
+    <ng-container *ngFor="let premio of detalles.premios ">
+        <li 
+            *ngIf="premio.premio !== 'Otros' "
+            class="card__premio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+                <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+                <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+            </svg>
+            {{ premio.cantidad }} Premios {{ premio.premio }}
+        </li>
+        <li 
+            *ngIf="premio.premio === 'Otros' "
+            class="card__premio">
+            Otros {{ premio.cantidad }} premios o nominaciones
+        </li>
+    </ng-container>
+</ul>
+
+<ul
+    *ngIf="tipo === 'temas'"
+    class="card__ul">
+    <li 
+        *ngFor="let tema of detalles.temas"
+        class="card__tema">
+        {{ tema }}
+    </li>
+</ul>
+
+<div
+    *ngIf="tipo === 'reparto'"
+    class="card__reparto">
+    <p class="card__direccion">  
+        <span class="card__span">Dirección:</span>
+        <span 
+            *ngFor=" let director of detalles.directores "
+            class="card__director">{{ director }}</span>
+    </p>
+
+    <p class="card__actores">
+        <span class="card__span">Reparto:</span>
+        <span 
+            *ngFor=" let actor of detalles.reparto "
+            class="card__actor">{{ actor }}</span>
+    </p>
+</div>
