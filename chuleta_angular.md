@@ -399,10 +399,15 @@ export class UnoPipe implements PipeTransform {
 
 ## Peticiones
 
-1. Importar el módulo:
+1. Importar el módulo e importarlo en el `module.ts`:
 
 ```ts
 import { HttpClientModule } from '@angular/common/http';
+
+imports: [
+    BrowserModule,
+    HttpClientModule
+  ],
 ```
 
 2. Lo declaramos en el `component.ts`:
@@ -412,3 +417,22 @@ constructor(
     private httpClient : HttpClient
   ) {}
 ```
+
+## Observables
+
+Utilizamos la libreria `RxJS`. Un Observable es una promesa a la que va a estar atenta Angular para recibir datos de forma dinámica.
+
+```ts
+constructor(
+    private httpClient : HttpClient
+  ) {}
+
+  getPosts() : Observable<IPosts[]> {
+    return this.httpClient.get<IPosts[]>("https://jsonplaceholder.typicode.com/posts");
+  }
+```
+
+### Generar Interface
+
+En la web `quicktype.io` insertar el JSON y nos construye la Interface.
+
