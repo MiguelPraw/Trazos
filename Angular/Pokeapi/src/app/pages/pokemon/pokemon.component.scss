@@ -1,0 +1,254 @@
+.pokemon {
+    width: 100%;
+}
+.pokemon__wrapper {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+.pokemon__h1 {
+    font-family: 'VT323', monospace;
+    font-size: 4em;
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+    background: #2b2929;
+    padding: 1em;
+}
+.pokemon__info {
+    margin: 2em 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.pokemon__imagen {
+    width: 50%;
+    background: #e0e0e0;
+    border-radius: .5rem;
+    padding: 1em 0 1.5em 0;
+}
+.pokemon__datos {
+    padding: 0 0 0 1em;
+    width: 50%;
+}
+.pokemon__tipos {
+    padding: 1em 0 1em 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.pokedex__tipo {
+    font-family: 'VT323', monospace;
+    text-align: center;
+    min-width: 20%;
+    padding: 0.3em 1em;
+    letter-spacing: -1px;
+    font-size: 1.3em;
+    border-radius: 1rem;
+
+    &.planta {
+        background-color: #76cb54;
+        color: #1c1c1c;
+    }
+    &.agua {
+        background-color: #3397fd;
+        color: white;
+    }
+    &.normal {
+        background-color: #DDCCAA;
+    }
+    &.veneno {
+        background-color: #7f3b6f;
+        color: white;
+    }
+    &.volador {
+        background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+        background-color: #3dc7ef;
+        color: #212121;
+    }
+    &.bicho {
+        background-color: #a6b621;
+        color: #1c1c1c;
+    }
+    &.fuego {
+        background-color: #ff4f30;
+        color: white;
+    }
+    &.electrico {
+        background-color: #FFD700;
+    }
+    &.tierra {
+        /*background-color: #e4c274;*/
+        background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+        background-color: #f7de3f;
+    }
+    &.hada {
+        background-color: #fca8fc;
+        color: #323030;
+    }
+    &.lucha {
+        background-color: #c46756;
+        color: white;
+    }
+    &.psiquico {
+        background-color: #fe589a;
+        color: white;
+    }
+    &.fantasma {
+        background-color: #6565b7;
+        color: white;
+    }
+    &.roca {
+        background-color: #c6b577;
+    }
+    &.acero {
+        background-color: #a4a4b5;
+    }
+    &.dragon {
+        background-color: #7459df;
+        color: white;
+    }
+    &.hielo {
+        background-color: #7edffd;
+    }
+    &.siniestro {
+        background-color: #5b4a42;
+        color: white;
+    }
+}
+.pokemon__img {
+    width: 50%;
+    margin: auto;
+}
+.pokemon__descripcion {
+    font-family: 'VT323', monospace;
+    color: black;
+    font-size: 1.6em;
+    hyphens: initial;
+    background: #e0e0e0;
+    padding: 1em;
+    text-align: justify;
+    letter-spacing: -1px;
+    line-height: 1.1em;
+}
+.pokemon__a {
+    background: #211d1d;
+    max-width: 200px;
+    color: white;
+    margin: auto;
+    letter-spacing: -1px;
+    border-radius: .5rem;
+    padding: .5em 0;
+    font-size: 1.5em;
+    text-align: center;
+    font-family: 'VT323', monospace;
+
+}
+.pokemon__estadisticas {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+
+    background: #e0e0e0;
+    border-radius: .5rem;
+    padding: 1em 4em;
+}
+.pokemon__columna {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+}
+.pokemon__row {
+    margin: .5em 0;
+}
+.pokemon__h4 {
+    color: black;
+    font-family: 'VT323', monospace;
+    font-size: 1.7em;
+    margin: 0 0 0.5em 0;
+    text-decoration: underline;
+}
+.pokemon__span {
+    color: black;
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+
+    &.info {
+        margin: 0 0 0 .5em;
+    }
+
+    &.stat {
+        margin: 1em 0 0 0;
+        hyphens: initial;
+        text-transform: capitalize;
+        text-align: center;
+        font-family: 'VT323', monospace;
+        width: calc( 100% / 6);
+    }
+}
+.pokemon__habilidades {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+.pokemon__habilidad {
+    margin: 0 .5em 0 0;
+    color: white;
+    background: #6d3c3c;
+
+    font-family: 'VT323', monospace;
+    text-align: center;
+    min-width: 30%;
+    padding: 6px;
+    letter-spacing: -1px;
+    font-size: 1.3em;
+    border-radius: 15%;
+    cursor: pointer;
+}
+.pokemon__stats {
+    background: #e0e0e0;
+    margin: 1em 0 0 0;
+    border-radius: .5rem;
+    padding: 1.5em;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.pokemon__stat {
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.pokemon__barra {
+    height: 200px;
+    width: 50px;
+    margin: auto;
+    background: #6d3c3c;
+    position: relative;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.pokemon__barra--actual {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 50px;
+    background: #211d1d;
+    z-index: 2;
+}
+.pokemon__nombresStat {
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}

@@ -1,1 +1,94 @@
-<p>pokemon works!</p>
+
+<div class="pokemon">
+
+    <h1 class="pokemon__h1">{{ pokemon.nombre }}</h1>
+
+    <div class="pokemon__wrapper">
+
+        <div class="pokemon__info">
+            <div class="pokemon__imagen">
+                <img 
+                [src]="pokemon.src" 
+                [alt]="pokemon.nombre"
+                class="pokemon__img">
+                <div class="pokemon__tipos">
+                    <span 
+                            *ngFor=" let tipo of pokemon.tipos"
+                            [ngClass]="{ 
+                                'planta'    : tipo === 'Planta',
+                                'fuego'     : tipo === 'Fuego',
+                                'agua'      : tipo === 'Agua',
+                                'bicho'     : tipo === 'Bicho',
+                                'volador'   : tipo === 'Volador',
+                                'veneno'    : tipo === 'Veneno',
+                                'psiquico'  : tipo === 'Psíquico',
+                                'roca'      : tipo === 'Roca',
+                                'tierra'    : tipo === 'Tierra',
+                                'normal'    : tipo === 'Normal',
+                                'electrico' : tipo === 'Eléctrico',
+                                'hada'      : tipo === 'Hada',
+                                'dragon'    : tipo === 'Dragón',
+                                'hielo'     : tipo === 'Hielo',
+                                'fantasma'  : tipo === 'Fantasma',
+                                'lucha'     : tipo === 'Lucha'
+                            }"
+                            class="pokedex__tipo">
+                            {{ tipo }}
+                        </span>
+                </div>
+                <p class="pokemon__descripcion"> {{ pokemon.descripcion }} </p>
+                <a 
+                    [routerLink]=" [''] "
+                    class="pokemon__a">Volver</a>
+            </div>
+
+            <div class="pokemon__datos">
+                
+                <div class="pokemon__estadisticas">
+                    <div class="pokemon__columna">
+                        <div class="pokemon__row">
+                            <h4 class="pokemon__h4">Altura:</h4>
+                            <span class="pokemon__span info">{{ pokemon.altura }} m</span>
+                        </div>
+                        <div class="pokemon__row">
+                            <h4 class="pokemon__h4">Peso:</h4>
+                            <span class="pokemon__span info">{{ pokemon.peso }} kg</span>
+                        </div>
+                    </div>
+                    <div class="pokemon__columna">
+                        <div class="pokemon__row">
+                            <h4 class="pokemon__h4">Habilidades:</h4>
+                            <div class="pokemon__habilidades">
+                                <span 
+                                    *ngFor=" let habilidad of pokemon.habilidades"
+                                    class="pokemon__habilidad">{{ habilidad }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemon__stats">
+                    <div class="pokemon__stat">
+                        <div 
+                            *ngFor=" let estadistica of pokemon.estadisticas " 
+                            class="pokemon__barra">
+                            <div 
+                                [ngStyle]="{
+                                    'height' : altura(estadistica.base_stat)
+                                }"
+                                class="pokemon__barra--actual">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pokemon__nombresStat">
+                        <span 
+                            *ngFor=" let estadistica of pokemon.estadisticas" 
+                            class="pokemon__span stat">{{ estadistica.stat.name }}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

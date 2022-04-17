@@ -9,8 +9,8 @@ import { DatosService } from 'src/app/services/datos.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  pelicula  : string = "";
-  peliculas : any = [];
+  pelicula  : string  = "";
+  peliculas : any     = [];
 
   @Output() ocultarBuscador : EventEmitter<any> = new EventEmitter<any>()
     

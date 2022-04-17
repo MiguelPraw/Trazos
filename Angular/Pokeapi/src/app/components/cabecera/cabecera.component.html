@@ -1,0 +1,22 @@
+
+<header class="header">
+
+    <div class="header__wrapper">
+        <h1 class="header__h1">
+            <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png" 
+                alt="logo"
+                class="header__logo">
+        </h1>
+
+        <input
+            (keyup)="emiteNombre()"
+            name="nombrePokemon"
+            [(ngModel)]="nombrePokemon"
+            placeholder="Escribe un Pokémon..."
+            class="header__input"
+            autocomplete="off"
+            type="text">
+    </div>
+
+</header>

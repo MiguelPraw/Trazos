@@ -148,7 +148,6 @@ function devuelveDescripcionEspañol (url, pokemon) {
         }).then ( datos => {
             //console.log(datos);
             let descripcion = datos["flavor_text_entries"].filter ( elemento => elemento.language.name === "es");
-            console.log();
             resolve (descripcion[descripcion.length-1].flavor_text);
         }).catch ( error => {
             reject ( error );
