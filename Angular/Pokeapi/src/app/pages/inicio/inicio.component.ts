@@ -17,6 +17,7 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { 
+
     this.pokeapi.getPokemons().subscribe( ( pokemons : any ) => {
       
       pokemons.results.forEach( ( cadaPokemon : any, index : number ) => {

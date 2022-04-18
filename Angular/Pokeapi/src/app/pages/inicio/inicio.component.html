@@ -6,9 +6,9 @@
     
     <div class="pokedex__wrapper">
 
-         <div class="pokedex__grid">
+        <div class="pokedex__grid">
 
-             <article 
+            <article 
                 *ngFor=" let pokemon of pokedex | filtraPokemon:nombrePokemon ; let i = index  "
                 class="pokedex__pokemon">
                 <a [routerLink]=" [ '/pokemon' , pokemon.nombre ]"
@@ -47,7 +47,7 @@
                 </a>
             </article>
 
-         </div>
+        </div>
     </div>
 
 </main>

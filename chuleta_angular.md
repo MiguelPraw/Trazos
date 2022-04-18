@@ -436,3 +436,21 @@ constructor(
 
 En la web `quicktype.io` insertar el JSON y nos construye la Interface.
 
+## Headers
+
+```ts
+import { HttpHeaders } from '@angular/common/http';
+
+const options = {
+      headers : new HttpHeaders ({
+        'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
+        'X-RapidAPI-Key': '37f18af15bmsha5208b60c12c991p199490jsn43bdda422907'
+      })
+    }
+
+    return this.http.get('https://free-nba.p.rapidapi.com/players', options );
+```
+
+## Axios
+
+Es un data-layer para hacer peticiones a APIs. 
