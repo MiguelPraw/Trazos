@@ -10,8 +10,8 @@ import { RapidapiService } from 'src/app/services/rapidapi.service';
 })
 export class InicioComponent implements OnInit {
 
-  playersNBA : Datum[] = [];
-  teamsNBA : any = [];
+  playersNBA  : Datum[] = [];
+  teamsNBA    : any = [];
 
   informacionNacional : any = [];
 

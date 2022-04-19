@@ -92,17 +92,68 @@ todas_letras = [ ...todas_letras, 'E']; // PUSH
 
 # React
 
-En React no se pueden usar métodos mutables (Aquellos que modifican el objeto original)
+ReactJS es la librería, React Native el framework. ReactJS sirve para hacer interfaces de usuario, React Native para aplicaciones.
+Se conecta habitualmente con Redux (gestión de los estados) y Styled Components (CSS con JavaScript).
+En React no se pueden usar métodos mutables (Aquellos que modifican el objeto original).
 
-React es una libreria, se va a poder utilizar en cualquier proyecto.
 Hay dos maneras de utilizarse: mediante libreria y CDN o mediante el Cli de React.
 
-## Características
+# Características
 
-En React, que utiliza JSX, se tiene que utilizar siempre "className" en lugar de "class".
-Solo puede devolver un único contenedor HTML. Se puede utilizar <Fragment> para devolver varios.
+## Creación de una aplicación
+
+```bash
+npx create-react-app nombreApp        
+npm start
+
+npm create vite@latest
+npm i
+npm run dev
+```
+
+## Estructura
+
+1. public       : Carpeta donde se guarda el favicon, el css, html, etc.
+2. src          : Carpeta donde se guarda la aplicacion.
+3. package.json : Contiene el resumen de todas las dependencias de la aplicación.
+
+## Base de la aplicación
+
+El `index.js` es el HTML principal. `index.css` es el CSS global. `App.js` es el componente principal.
 
 ## Componentes
+
+Un componente en React es una parte de la app creada con HTML y CSS. La estructura básica de un componente es:
+
+```js
+import 'archivo.scss';
+
+const App = () => {}
+
+export default App;
+```
+
+Solo puede devolver un único contenedor HTML. Se puede utilizar <Fragment> o `<> </>` para devolver varios.
+
+### Styled-Components
+
+```bash
+npm i styled-components
+```
+
+### Metodología SuitCSS
+
+```html
+<header class="Header">
+    <h1 class="Header-h1"></h1>
+    <nav class="Header-nav"></nav>
+    <nav class="Header-nav Header-nav__rrss"></nav>
+</header>
+```
+
+### Props
+
+En React, que utiliza JSX, se tiene que utilizar siempre "className" en lugar de "class".
 
 Para crear variables dinámicas utilizamos:
 
@@ -113,3 +164,5 @@ const [ contador, setContador ] = useState ( 0 );
 ```
 
 'contador' es el GET de la variable, setContador el SETTER y useState implementa el estado inicial.
+
+

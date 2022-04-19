@@ -1,0 +1,10 @@
+h1 {
+  color: red;
+}
+a {
+  display: inline-flex;
+  background: red;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: white;
+}
