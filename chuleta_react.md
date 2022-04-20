@@ -1,3 +1,33 @@
+<style>
+    .titulo {
+        font-size: 20px;
+    }
+    h1 {
+        text-align: center;
+        font-weight: bold;
+        color: orange;
+    }
+    h2 {
+        font-weight: bold;
+        text-align: center;
+        margin: 20px;
+        color: orange;
+    }
+    h3 {
+        color: tomato;
+        text-align: center;
+        margin: 20px;
+    }
+    h4 {
+        color: tomato;
+        text-align: center;
+        margin: 20px;
+    }
+    i {
+        font-weight: bold;
+    }
+</style>
+
 # Repaso JS Previo
 
 ```js
@@ -133,13 +163,8 @@ const App = () => {}
 export default App;
 ```
 
-Solo puede devolver un único contenedor HTML. Se puede utilizar <Fragment> o `<> </>` para devolver varios.
-
-### Styled-Components
-
-```bash
-npm i styled-components
-```
+Solo puede devolver un único contenedor HTML. Se puede utilizar `<Fragment>` o `<> </>` para devolver varios.
+En React, que utiliza JSX, se tiene que utilizar siempre `className` en lugar de `class`.
 
 ### Metodología SuitCSS
 
@@ -151,9 +176,63 @@ npm i styled-components
 </header>
 ```
 
+### Operador Ternario
+
+El operador ternario se usa como el `*ngIf` de Angular. 
+
+```jsx
+<h3>{ meQuiere ? <Verdadero/> : <Falso/> }</h3>
+```
+
+### Map
+
+Se utiliza con los arrays. Hay que añadir un `key` al elemento que se itera.
+
+```jsx
+<ul>
+    { 
+        semana.map( ( cadaDia , i ) => {
+            return <li key={i}>{cadaDia} {i}</li>;
+        }) 
+    }
+</ul>
+
+<div>
+    {
+        clase.map( ( alumno, i ) => 
+            <section key={alumno.id}>
+                <h2>{ alumno.nombre }</h2>
+                <h3>{ alumno.apellido }</h3>
+                {
+                    alumno.edad >= 18 
+                    ? <p>Es mayor de edad</p>
+                    : <p>Es menor de edad</p>
+                }
+            </section>
+        )
+    }
+</div>
+```
+
 ### Props
 
-En React, que utiliza JSX, se tiene que utilizar siempre "className" en lugar de "class".
+```jsx
+const Titulo = ({ texto }) => {
+    return (
+        <h2>{ texto }</h2>
+    )
+}
+
+<Titulo texto={ 'Primer turno' }/>
+```
+
+## Styled-Components
+
+```bash
+npm i styled-components
+```
+
+## Hooks
 
 Para crear variables dinámicas utilizamos:
 
