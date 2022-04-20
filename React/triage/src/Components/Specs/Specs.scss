@@ -1,0 +1,67 @@
+.Wrapper {
+
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2em 0;
+
+    display: grid;
+    grid-template-columns: repeat( 3 , 1fr);
+    gap: 2rem;
+}
+
+.Specs {
+    width: 100%;
+    background: lightgrey;
+
+    &-spec{
+        background: aqua;
+        padding: 2rem;
+        border-radius: .5rem;
+        
+        &.amarillo {
+            background: rgba(255,184,0);
+        }
+        &.negro {
+            background: black;
+        }
+        &.lila {
+            background: rgba(112,0,255);
+        }
+        &.blanco {
+            background: white;
+        }
+        &.azul {
+            background: rgba(0,122,255);
+        }
+        &.rosa {
+            background: rgba(255,45,85);
+        }
+    }
+    &-svg {
+        width: 2rem;
+        height: 2rem;
+        background: crimson;
+        border-radius: 50%;
+        margin: 0 0 1rem;
+    }
+    &-h2 {
+        color: black;
+        font-size: 1.3rem;
+        line-height: 1.2em;
+        font-weight: 600;
+
+        &.negro {
+            color: white;
+        }
+        &.lila {
+            color: white;
+        }
+        &.azul {
+            color: white;
+        }
+        &.rosa {
+            color: white;
+        }
+    }
+}
