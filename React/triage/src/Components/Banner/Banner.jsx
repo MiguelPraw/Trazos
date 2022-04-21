@@ -19,7 +19,7 @@ const Banner = ({ banner, posicion }) => {
     return (
         <div className={`Banner ${banner.clase}`}>
             {
-               ( posicion % 2 === 0 )
+                ( posicion % 2 === 0 )
                     ?   ( posicion < 2 ) 
                         ? <BannerContainer banner={banner} clase={'par arriba'}/>
                         : <BannerContainer banner={banner} clase={'par abajo'}/>

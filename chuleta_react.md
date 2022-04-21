@@ -228,8 +228,94 @@ const Titulo = ({ texto }) => {
 
 ## Styled-Components
 
+Nos permiten dar estilos a los componentes de React. 
+
+1. Se pueden aplicar a cualquier componente que acepte `className`.
+2. Se pueden combinar con archivos CSS/SCSS
+3. Usarlos cuando tengamos componentes pequeños o en componentes cuyo estilo cambia con un `State`.
+
 ```bash
-npm i styled-components
+npm i styled-components -S
+
+npm i --save-dev @types/styled-components    -> Si vamos a usar TypeScript
+```
+
+```js
+import styled from 'styled-components'
+
+export const NombreComponente = styled.etiquetaHTML`
+    propiedadCSS: valor;
+    propiedadCSS: valor;
+`
+
+const Etiqueta = styled.div`
+  width             : ${ ({ width })            => width            || '100%'     };
+  height            : ${ ({ height })           => height           || 'auto'     };
+  background-color  : ${ ({ backgroundColor })  => backgroundColor  || 'initial'  };
+  margin            : ${ ({ margin })           => margin           || 'auto'     };
+  padding           : ${ ({ padding })          => padding          || '0'        };
+  border            : ${ ({ border })           => border           || 'initial'  };
+`
+
+<Etiqueta width="90%" margin="auto"></Etiqueta>
+```
+
+### Theme Provider
+
+Nos permite crear propiedades para dar estilo mediante Props a cualquier Styled Component que creemos. 
+Su función es la misma que la de las Custom Properties.
+
+```js
+import ThemeProvider from 'styled-components';
+
+const theme = {
+  verde : 'green',
+  rojo  : 'red',
+  negro : 'black',
+  blanco: 'white',
+}
+
+const App = () => {
+    return (
+        <ThemeProvider theme={ theme }>
+            <div className="App"></div>
+        </ThemeProvider>
+    )
+}
+
+```
+
+### Global Style
+
+Si quiero utilizar un estilo global, es obligatorio usar el Theme Provider. 
+Es un CSS que se va a aplicar a todos los Componentes, como el Reset CSS.
+
+```js
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+
+* {
+    margin: 0;
+    padding : 0;
+    border: 0;
+}
+`;
+
+export default GlobalStyle;
+
+/* EN EL APP */
+
+import GlobalStyle from './assets/global.styled';
+
+const App = () => {
+    return (
+        <ThemeProvider theme={ theme }>
+            <GlobalStyle />
+            <div className="App"></div>
+        </ThemeProvider>
+    )
+}
 ```
 
 ## Hooks
