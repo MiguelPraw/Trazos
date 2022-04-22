@@ -143,8 +143,8 @@ npm run dev
 
 ## Estructura
 
-1. public       : Carpeta donde se guarda el favicon, el css, html, etc.
-2. src          : Carpeta donde se guarda la aplicacion.
+1. public       : Carpeta donde se guarda el favicon, el css, html, las img, svgs, etc.
+2. src          : Carpeta donde se guarda la aplicacion y todo el funcionamiento interno de desarrollo.
 3. package.json : Contiene el resumen de todas las dependencias de la aplicación.
 
 ## Base de la aplicación
