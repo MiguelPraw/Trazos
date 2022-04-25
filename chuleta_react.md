@@ -320,14 +320,66 @@ const App = () => {
 
 ## Hooks
 
-Para crear variables dinámicas utilizamos:
+En React cada componente se renderiza a si mismo y se autorenderiza cada vez que hay un pequeño cambio, a través de los hooks.
+Son ciclos de vida de un componente. El orden de ejecución es:
+
+1. `UseContext`         : Datos globales de la aplicación
+2. `UseLayoutEffect`    : Hacer cálculos y aplicarlos a CSS antes del render
+3. `UseRef`             : Datos que cambian pero NO renderizan al componente
+* Render del componente (TODOS los componentes internos se renderizan de nuevo)
+4. `useEffect`           
+    1. `useEffect SIN dependencias []` : Se ejecuta una sola vez hasta que se destruya
+    2. `useEffect CON dependencias [estado]`   : Se ejecuta cada vez que un state cambia
+5. `useState`           : Datos que cambian pero SI renderizan al componente
+    1. `useReducer`     : Una alternativa al useState, si el State es muy grande
+    2. `Redux`          : Se utiliza como alternativa al Reducer en States muy complejos
+6. `useEffect - cleanUp`: useEffect con return
+
+* Extra:
+
+1. `useMemo` : Cálculos muy grandes
+2. `useCallback`: Guardar funciones en memoria
+
+### UseState y UseEffect
 
 ```js
+const [ foto , setFoto ] = useState (0);
+const [ nombre , setNombre ] = useState('Emma');
+```
 
-const [ contador, setContador ] = useState ( 0 );
+`foto` es el Getter de la variable, `setContador` el Setter y `useState` implementa el estado inicial.
+
+El `useState` se usa indicar que una variable genere un estado, es decir, que cada vez que varíe de valor, el componente se renderiza.
+
+`useEffect` es un hook que se lanza cada vez que el `State` cambia; cada vez que se inicia, renderiza o destruye un componente.
+
+```jsx
+    
+    useLayoutEffect( () => {
+        console.log('useLayoutEffect');
+    }); /* Se ejecuta antes de renderizar el componente. Ejemplo: calcular e indicar el ancho de un slider antes de pintarlo */
+
+    useEffect( () => {
+        console.log('Ejecutando useEffect, SIN dependencia o con dependencia vacía ');
+    }, []); /* Su funcion es la misma que el ngOnInit de Angular */
+
+    useEffect( () => {
+        console.log('Ejecutando useEffect, se ejecuta ante cualquier cambio en el State');
+    });
+
+    useEffect( () => {
+        console.log('Ejecutando useEffect con dependencia de foto')
+    }, [ foto ]);
+
+    useEffect( () => {
+        /* Función cleanup */
+        return function () {
+            console.log('Destruyendo componente');
+        }
+    });
 
 ```
 
-'contador' es el GET de la variable, setContador el SETTER y useState implementa el estado inicial.
+ ### HOC (Higher Order Components)
 
-
+Es un patrón o técnica para el reuso de la lógica de React. Se le llama así a aquellos componentes que tienen hooks.
