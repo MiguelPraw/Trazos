@@ -102,7 +102,7 @@ export const Footer = styled.footer`
 export const Wrapper = styled.div`
     width: 90%;
     max-width: 1200px;
-    margin auto;
+    margin: auto;
 
     display: flex;
     flex-flow       : ${ ({ direction }) => direction || 'row' } ${ ({ wrap }) => wrap || 'nowrap' };

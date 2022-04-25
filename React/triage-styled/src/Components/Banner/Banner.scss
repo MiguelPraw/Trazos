@@ -1,0 +1,84 @@
+.Banner {
+    width: 100%;
+
+    &.rosa {
+        background: rgba(255,45,85);
+    }
+    &.negro {
+        background: black;
+    }
+    &.amarillo {
+        background: rgba(255,184,0);
+    }
+    &.lila {
+        background: rgba(112,0,255);
+    }
+
+}
+.Banner-container {
+
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &.par {
+        flex-flow: row;
+    }
+
+    &.impar {
+        flex-flow: row-reverse;
+    }
+}
+.Banner-imagen {
+    width: 50%;
+
+    &.arriba {
+        padding-bottom: 6em;
+    }
+    &.abajo {
+        padding-top: 6em;
+    }
+}
+.Banner-img {
+    width: 80%;
+    
+    &.par {
+        margin-right: auto;
+    }
+    &.impar {
+        margin-left: auto;
+    }
+}
+.Banner-info { 
+    padding: 5em;
+    width: 50%;
+
+    &.par {
+        padding-left: 9em;
+    }
+    &.impar {
+        padding-left: 0;
+    }
+}
+.Banner-svg {
+    width: 2.5em;
+    height: 2.5em;
+    background: lime;
+    border-radius: 50%;
+}
+.Banner-h3 {
+    color: white;
+    font-size: 2em;
+    margin: 1em 0 0;
+}
+.Banner-p {
+    color: white;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    opacity: .7;
+    margin: .75em 0;
+}
