@@ -380,6 +380,6 @@ El `useState` se usa indicar que una variable genere un estado, es decir, que ca
 
 ```
 
- ### HOC (Higher Order Components)
+### HOC (Higher Order Components)
 
-Es un patrón o técnica para el reuso de la lógica de React. Se le llama así a aquellos componentes que tienen hooks.
+Es un patrón o técnica para el reuso de la lógica de React. Se le llama así a aquellos componentes que tienen hooks, es decir, un componente funcional.
