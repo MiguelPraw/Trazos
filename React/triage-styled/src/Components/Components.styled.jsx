@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Footer = styled.footer`
+    width: 100%;
+    padding: 0 0 2em 0;
+`
+
 export const Seccion = styled.div`
     width: 100%;
     background-color: ${ ({ bg }) => bg || 'initial' };
@@ -22,8 +27,8 @@ export const Seccion = styled.div`
 export const Wrapper = styled.div`
     width: 90%;
     max-width: 950px;
-    margin: auto;
     padding: ${ ({ padding }) => padding || '0' };
+    margin: ${ ({ margin }) => margin || 'auto' };
 
     &.grid {
         display: grid;
@@ -40,14 +45,25 @@ export const Wrapper = styled.div`
 `;
 
 export const Imagen = styled.img`
-    max-width: 40%;
-    padding: ${ ({ padding }) => padding || '0'};
+    max-width: ${ ({ maxWidth }) => maxWidth || '40%' };
+    padding: ${ ({ padding }) => padding || '0' };
+    margin: ${ ({ margin }) => margin || '0' };
 `
 
 export const Bloque = styled.article`
     padding: ${ ({ padding }) => padding || '0em'};
     border-radius: 0.5rem;
+    width: ${ ({ width }) => width || '100%' };
 
+    &.inferior{
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &.columna{
+        padding:3rem 0 0 ;
+    }
     &.amarillo {
         background: rgba(255,184,0);
     }
@@ -66,6 +82,9 @@ export const Bloque = styled.article`
     &.rosa {
         background: rgba(255,45,85);
     }
+    &.gris {
+        background: rgb(242, 242, 242);
+    }
 `;
 export const Icono = styled.svg`
     width: 2rem;
@@ -77,6 +96,11 @@ export const Titulo = styled.h2`
     font-size: 1.5rem;
     font-weight: 600;
     margin: 1em 0 0 0;
+    hyphens: initial;
+
+    &.columna {
+        font-size: 2em;
+    }
 
     &.negro {
         color: white;
@@ -94,4 +118,27 @@ export const Titulo = styled.h2`
 `;
 export const Subtitulo = styled.h3`
     color: ${ ({ color }) => color || 'black' };
+    font-size: 1.45em;
+    margin: 1em 0 0 0;
+    opacity: .6;
+`
+
+export const Parrafo = styled.p`
+    font-size: 1.175em;
+    hyphens: initial;
+    font-weight: 200;
+`
+
+export const Lista = styled.ul`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    margin: ${ ({ margin }) => margin || '0' };
+    font-size: 1.1em;
+`
+
+export const ItemFooter = styled.li`
+    margin: 0 1.5em 0 0;
 `

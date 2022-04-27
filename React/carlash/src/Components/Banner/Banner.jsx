@@ -25,10 +25,10 @@ const Banner = ({ items }) => {
                     items.map( ( cadaItem , i ) => {
                         return (
                             <li 
+                                key={ cadaItem.id }
                                 onMouseOver={ () => actualizaEstado(i) }
                                 onMouseOut={ () => actualizaEstado(-1) }
-                                key={ cadaItem.id }
-                                className="Banner-li">
+                                className={`Banner-li ${ ( activo === i || activo === -1 ) ? 'activo' : 'inactivo' }`}>
                                 <h2 className="Banner-h2">{ cadaItem.nombre }</h2>
                                 <span className="Banner-span"> { cadaItem.marca } </span>
                             </li>
