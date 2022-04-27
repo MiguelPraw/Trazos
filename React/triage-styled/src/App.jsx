@@ -1,7 +1,8 @@
 import { ThemeProvider } from "styled-components";
 import theme from './assets/theme.styled'
 import GlobalStyle from "./assets/global.styled";
-import { Seccion, Wrapper, Bloque, Icono, Titulo, Subtitulo, Imagen } from "./Components/Components.styled";
+import { Seccion, Wrapper, Bloque, Icono, Titulo, Subtitulo, Imagen, Parrafo, Footer, Lista, ItemFooter } from "./Components/Components.styled";
+import Svg from "./Components/Svg";
 import Banner from './Components/Banner/Banner'
 
 const App = () => {
@@ -30,6 +31,15 @@ const App = () => {
     { id : 3 , icono : '#' , titulo : 'Reply in context'      , subtitulo : 'Send a quick reply without leaving the app.'             , img : 'https://triage.cc/screenshots/reply.png'   , clase : 'lila' },
   ];
 
+  const praise = [
+    { id : 0 , texto : 'Since I’ve been using Triage, I’m more caught up on my email than I have been in years.' , img : 'https://triage.cc/logos/daring-fireball.png' },
+    { id : 1 , texto : 'If you are constantly battling to keep your email account at inbox zero, Triage for iOS could be worth a look.' , img : 'https://triage.cc/logos/the-verge.png' },
+    { id : 2 , texto : 'Triage makes it feel seamless, and even fun, to achieve — if not Inbox Zero — at least Inbox Zen.' , img : 'https://triage.cc/logos/macworld.svg' },
+    { id : 3 , texto : 'Triage provides the first aid necessary to get your inbox back in fighting shape.' , img : 'https://triage.cc/logos/maclife.png' },
+    { id : 4 , texto : 'Triage is a boon to those who have struggled to keep their inboxes clean and organized.' , img : 'https://triage.cc/logos/clean-email.png' },
+    { id : 5 , texto : 'Triage is my new favorite email app for iPhone.' , img : 'https://triage.cc/logos/macstories.png' },
+  ];
+
   return (
     <ThemeProvider theme={ theme }>
       <GlobalStyle />
@@ -37,33 +47,11 @@ const App = () => {
         {
           banners.map( ( banner , i ) => {
             return (
-              //   <Seccion className={ banner.clase }  padding="0">
-              //   {
-              //     ( i % 2 === 0 ) 
-              //     ? <Wrapper className="flex" direction="row">
-              //         <Imagen src={ banner.img }></Imagen>
-              //         <Bloque>
-              //           <Icono></Icono>
-              //           <Titulo>{ banner.titulo }</Titulo>
-              //           <Subtitulo>{ banner.subtitulo }</Subtitulo>
-              //         </Bloque>
-              //       </Wrapper>
-              //     : <Wrapper className="flex" direction="row-reverse">
-              //         <Imagen src={ banner.img }></Imagen>
-              //         <Bloque>
-              //           <Icono></Icono>
-              //           <Titulo>{ banner.titulo }</Titulo>
-              //           <Subtitulo>{ banner.subtitulo }</Subtitulo>
-              //         </Bloque>
-              //       </Wrapper>
-              //   }
-              // </Seccion>
-
               <Banner key={ banner.id } banner={ banner } posicion={ i } />
             )
           })
         }
-        <Seccion bg="lightgrey">
+        <Seccion bg="rgb(242, 242, 242)">
           <Wrapper className="grid" gap="2rem">
             {
               specs.map( ( spec => {
@@ -77,6 +65,39 @@ const App = () => {
             }
           </Wrapper>
         </Seccion>
+        <Seccion>
+          <Wrapper className="flex">
+            <Titulo>Praise for Triage 1</Titulo>
+          </Wrapper>
+          <Wrapper className="grid" gap="2rem" margin="3rem auto">
+            {
+              praise.map( cadaPraise => {
+                return (
+                  <Bloque key={ cadaPraise.id } className="inferior gris" padding="2em">
+                    <Parrafo>{ cadaPraise.texto }</Parrafo>
+                    <Imagen src={ cadaPraise.img } margin="1em 0 0 0" maxWidth="50%"></Imagen>
+                  </Bloque>
+                )
+              })
+            }
+          </Wrapper>
+        </Seccion>
+        <Footer>
+          <Lista>
+            <ItemFooter>FAQ</ItemFooter>
+            <ItemFooter>Privacy</ItemFooter>
+            <ItemFooter>Terms</ItemFooter>
+            <ItemFooter>Security</ItemFooter>
+          </Lista>
+          <Lista margin="1.5em 0 0 0">
+            <ItemFooter>
+              <Svg nombre={"mail"} />
+            </ItemFooter>
+            <ItemFooter>
+              <Svg nombre={"twitter"} />
+            </ItemFooter>
+          </Lista>
+        </Footer>
       </div>
     </ThemeProvider>
   );

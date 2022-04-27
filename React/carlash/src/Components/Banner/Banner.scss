@@ -1,6 +1,7 @@
 .Banner {
-    background: black;
+    background: #1a1a1a;
     position: relative;
+    overflow: hidden;
 
     &-fondo {
         position: relative;
@@ -21,6 +22,8 @@
         &.activo {
             z-index: 1;
             opacity: 1;
+            animation-name: agrandar;
+            animation-duration: 20s;
         }
     }
 
@@ -32,7 +35,7 @@
         width: 80%;
         max-width: 1200px;
         margin: auto;
-        padding: 20vh 0;
+        padding: 25vh 0;
 
         display: flex;
         flex-flow: row wrap;
@@ -45,17 +48,27 @@
     }
 
     &-li {
-        margin: 0 0 0 1em;
+        margin: 0 0 0 1.5em;
         cursor: pointer;
         
         display: flex;
         flex-flow: row nowrap;
         justify-content: baseline;
         align-items: baseline;
+
+        transition: all .5s ease;
+
+        &.activo {
+            opacity: 1;
+        }
+
+        &.inactivo {
+            opacity: .2;
+        }
     }
 
     &-h2 {
-        font-size: 5em;
+        font-size: 5vw;
         color: white;
         font-weight: 900;
 
@@ -70,5 +83,15 @@
         font-style: italic;
         font-size: .75em;
         margin: 0 0 0 .5em;
+    }
+
+    @keyframes agrandar {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.2);
+        }
     }
 }

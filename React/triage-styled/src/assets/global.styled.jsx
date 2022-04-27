@@ -75,7 +75,7 @@ table, tr, td {
 svg {
   width: 100%;
   display: block;
-  fill: currentColor;
+  /* fill: currentColor; */
 }
 body {
   min-height: 100vh;
