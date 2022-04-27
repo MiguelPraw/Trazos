@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
     <script async defer src="script.js"></script>
 </head>
 <body>
-    <header class="header">
+    <!-- <header class="header">
         <nav class="header__nav">
             <ul>
                 <li>Inicio</li>
@@ -21,7 +22,7 @@
                 <li>Contacto</li>
             </ul>
         </nav>
-    </header>
+    </header> -->
     <main class="main">
         <div class="main__portada">
             <div class="portada__h2">
@@ -29,44 +30,105 @@
             </div>
         </div>
         <div class="main__proyectos">
-            <div class="proyectos__h2">
-                <h2>Proyectos</h2>
+            
+            <div class="proyectos__container">
+                <ul class="proyectos__ul">
+                    <li class="proyectos__li angular">
+                        <h2 class="proyectos__h2 angular">Angular</h2>
+                        <ul class="proyectos__specs">
+                            <li class="proyectos__spec">Components</li>
+                            <li class="proyectos__spec">Routing</li>
+                            <li class="proyectos__spec">Services</li>
+                        </ul>
+                    </li>
+                    <li class="proyectos__li react">
+                        <h2 class="proyectos__h2 react">React</h2>
+                        <ul class="proyectos__specs">
+                            <li class="proyectos__spec">Components</li>
+                            <li class="proyectos__spec">Components</li>
+                            <li class="proyectos__spec">Components</li>
+                        </ul>
+                    </li>
+                    <li class="proyectos__li javascript">
+                        <h2 class="proyectos__h2 javascript">JavaScript</h2>
+                        <ul class="proyectos__specs">
+                            <li class="proyectos__spec">Components</li>
+                            <li class="proyectos__spec">Components</li>
+                            <li class="proyectos__spec">Components</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="proyectos__display">
+                    <div class="proyectos__grid angular">
+                        <div class="proyecto">
+                            <img src="./assets/tres-en-raya.jpg" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Tres en Raya</span>
+                                <span class="overlay__subtitulo">Javascript Nativo</span>
+                            </div>
+                        </div>
+                        <div class="proyecto">
+                            <img src="./assets/pokedex.jpg" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Pokédex</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proyectos__grid react">
+                        <div class="proyecto">
+                            <img src="https://picsum.photos/800/600" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Hola</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                        <div class="proyecto">
+                            <img src="https://picsum.photos/800/600" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Hola</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proyectos__grid javascript">
+                        <div class="proyecto">
+                            <img src="https://picsum.photos/800/600" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Hola</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                        <div class="proyecto">
+                            <img src="https://picsum.photos/800/600" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Hola</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                        <div class="proyecto">
+                            <img src="https://picsum.photos/800/600" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Hola</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                        <div class="proyecto">
+                            <img src="https://picsum.photos/800/600" alt="">
+                            <div class="overlay">
+                                <span class="overlay__titulo">Hola</span>
+                                <span class="overlay__subtitulo">API Rest con JQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="proyectos__grid">
-                <div class="proyecto">
-                    <img src="./assets/tres-en-raya.jpg" alt="">
-                    <div class="overlay">
-                        <span class="overlay__titulo">Tres en Raya</span>
-                        <span class="overlay__subtitulo">Javascript Nativo</span>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="./assets/pokedex.jpg" alt="">
-                    <div class="overlay">
-                        <span class="overlay__titulo">Pokédex</span>
-                        <span class="overlay__subtitulo">API Rest con JQuery</span>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://picsum.photos/800/600" alt="">
-                    <div class="overlay">
-                        <span class="overlay__titulo">Hola</span>
-                        <span class="overlay__subtitulo">API Rest con JQuery</span>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://picsum.photos/800/600" alt="">
-                    <div class="overlay">
-                        <span class="overlay__titulo">Hola</span>
-                        <span class="overlay__subtitulo">API Rest con JQuery</span>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <div class="main__about">
-            <div class="about__h2">
-                <h2>Sobre mí</h2>
-            </div>
+
+            <h2>ok</h2>
+
         </div>
         <div class="main__contacto">
             <div class="contacto__h2">
