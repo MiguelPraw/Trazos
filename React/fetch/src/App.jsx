@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
-import { usePrimero , useSegundo , useFetch } from './Hooks/usePrimero';
+import Albums from './Components/Albums/Albums';
+import Comments from './Components/Comments/Comments';
+import Photos from './Components/Photos/Photos';
+import Posts from './Components/Posts/Posts';
+import Todos from './Components/Todos/Todos';
+import Users from './Components/Users/Users';
 
 const App = () => {
   
   const [ posts , setPosts ] = useState([]);
-
-  const datos = useFetch('https://jsonplaceholder.typicode.com/posts');
 
   useEffect( () => {
     
@@ -17,10 +19,6 @@ const App = () => {
     // });
 
   }, []);
-
-  useEffect( () => {
-    setPosts(datos);
-  }, [ datos ]);
   
   return (
     <div className="App">
@@ -33,6 +31,12 @@ const App = () => {
           )
         })
       }
+      {/* <Posts /> */}
+      <Albums />
+      {/* <Comments /> */}
+      <Photos />
+      {/* <Users /> */}
+      <Todos />
     </div>
   )
 }

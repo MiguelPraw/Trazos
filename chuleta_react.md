@@ -389,6 +389,95 @@ Es un patrón o técnica para el reuso de la lógica de React. Se le llama así 
 Podemos crear nuestros propios Hooks para optimizar y reutilizar lógica de nuestra aplicación.
 
 ```js
+const useFetch = ( endpoint ) => {
 
+    const baseUrl = 'https://jsonplaceholder.typicode.com'
+
+    const [ datos , setDatos ] = useState({
+        status  : false,
+        datos   : []
+    })
+
+    useEffect( () => {
+        fetch( baseUrl + endpoint )
+        .then( res => res.json())
+        .then( data => {
+            setDatos({
+                status  : true,
+                datos   : data
+            })
+        })
+        .catch( err => {
+            setDatos({
+                status  : true,
+                ...datos,
+                error   : err
+            })
+        })
+    }, []);
+
+    return datos;
+}
+
+/* En el App.jsx */
+
+import useFetch from './../../Hooks/useFetch';
+
+const datos = useFetch('/posts');
+
+```
+
+## GlobalContext
+
+1. Crear el archivo `global.context.jsx` y dentro de él:
+
+```jsx
+import { createContext } from 'react'
+
+/* Creamos la constante donde guardar los datos */
+export const datos = { nombre : "Pepe" }
+
+/* Creamos el contexto */
+export const GlobalContext = createContext( datos );
+```
+
+2. En el `App.jsx`:
+
+```jsx
+/* Importamos los datos que acabamos de crear y el GlobalContext */
+import { datos , GlobalContext } from './assets/global.context'
+
+function App() {
+  
+  /* Añadimos el GlobalContext en la raíz de la App */
+  return (
+    <GlobalContext.Provider value={ datos }>
+        <div className="App">
+          <Componente></Componente>
+        </div>
+    </GlobalContext.Provider>
+  )
+
+}
+```
+
+3. En el `Componente` de turno:
+
+```jsx
+import { useContext } from "react";
+import { GlobalContext } from "../assets/global.context";
+
+const Componente = ({}) => {
+
+    const datos = useContext( GlobalContext );
+
+    return (
+        <div className="Componente">
+            <h1>Componente</h1>
+        </div>
+    )
+}
+
+export default Componente;
 ```
 
