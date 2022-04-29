@@ -5,7 +5,7 @@ const Primero = ({}) => {
 
     const { nombre } = useContext( GlobalContext );
 
-    const [ contador , setContador ] = useState(0);
+    const [ contador , setContador ] = useState( 0 );
 
     return (
         <div className="Primero">

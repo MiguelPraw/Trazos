@@ -481,3 +481,64 @@ const Componente = ({}) => {
 export default Componente;
 ```
 
+## Routing
+
+Si utilizamos `Vite` para crear un proyecto de React, debemos instalar el módulo `react-router-dom`:
+
+```bash
+npm i react-router-dom
+```
+
+```jsx
+import { BrowserRouter as Router , Routes , Route } from "react-router-dom";
+
+const App = () => {
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={ <Inicio /> }/>
+        <Route path="/trabajos" element={ <Trabajos /> }/>
+        <Route path="/trabajos/:nombre" element={ <Trabajos /> }/>  {/* Rutas con parametros */}
+
+        <Route path="/contacto" element={ <h2>Contacto</h2> } />    {/* SubRutas */}
+          <Route path="/contacto/*" >
+            <Route path="github" element={ <h4>Github</h4> } />
+            <Route path="facebook" element={ <h4>Facebook</h4> } />
+          </Route>
+      </Routes>
+    </Router>
+  )
+}
+
+/**** PARA RECOGER EL PARAMETRO EN TRABAJOS ****/
+
+import { useParams } from "react-router-dom";
+
+const Trabajos = ({}) => {
+
+    const { nombre } = useParams();
+    return (
+        
+    )
+}
+
+```
+
+Creamos un componente `Cabecera`, que importará el componente `NavLink` de React para usar los enlaces.
+
+```jsx
+import { NavLink } from "react-router-dom";
+
+const Cabecera = ({}) => {
+    return (
+        <div className="Cabecera">
+            <ul>
+                <li><NavLink to="/">Inicio</NavLink></li>
+                <li><NavLink to="/trabajos">Trabajos</NavLink></li>
+                <li><NavLink to="/trabajos/web">Trabajos de web</NavLink></li>
+            </ul>
+        </div>
+    )
+}
+```
