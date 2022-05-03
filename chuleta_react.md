@@ -489,7 +489,7 @@ Si utilizamos `Vite` para crear un proyecto de React, debemos instalar el módul
 npm i react-router-dom
 ```
 
-```jsx
+```js
 import { BrowserRouter as Router , Routes , Route } from "react-router-dom";
 
 const App = () => {
@@ -518,16 +518,14 @@ import { useParams } from "react-router-dom";
 const Trabajos = ({}) => {
 
     const { nombre } = useParams();
-    return (
-        
-    )
+    return (<> </>)
 }
 
 ```
 
 Creamos un componente `Cabecera`, que importará el componente `NavLink` de React para usar los enlaces.
 
-```jsx
+```js
 import { NavLink } from "react-router-dom";
 
 const Cabecera = ({}) => {
@@ -541,4 +539,103 @@ const Cabecera = ({}) => {
         </div>
     )
 }
+```
+
+## React con TypeScript
+
+```bash
+# En el proyecto actual
+npm i -D typescript
+
+# Con create-react-app
+npx create-react-app my-app --typescript
+
+# Con Vite
+npx vite create my-app --typescript
+```
+
+```ts
+// Con Interface
+interface Props { nombre : string , edad : number }
+
+// Con Type
+type Props = { nombre : string , edad : number }
+
+// Con Type y typeof
+type Props = { nombre : string , edad : number } & typeof defaultProps;
+
+Componente.defaultProps = { nombre : '' , edad : 0 };
+
+const Componente = ({ nombre , edad } : Props ) : JSX.Element => {
+    return (<>Soy Componente</>)
+}
+
+
+export default Componente;
+```
+
+Para definir un Children:
+
+```ts
+type Props = { children? : React.ReactNode }
+
+export const Componente = ({ children } : Props ) : JSX.Element => {
+    return (<>{ children }</>)
+}
+```
+
+Para definir Hooks:
+
+```ts
+const [ estado , setEstado ] = useState<any>(true);
+const [ estado , setEstado ] = useState<string>('valor');
+const [ estado , setEstado ] = useState<number>(1);
+
+const [ estado , setEstado ] = useState<string[]>([ 'Lunes' ]);
+const [ estado , setEstado ] = useState<number[]>([ 1 ]);
+```
+
+## Formularios en React
+
+```js
+const [ formulario , setFormulario ] = useState({
+    nombre    : '',
+    apellido  : ''
+  });
+
+  let { nombre , apellido } = formulario;
+
+/* Se deconstruye el Target del evento que recibe la función desde el input */
+  const formChange = ( { target }) => {
+    let { value , type , name , checked } = target;
+    /* let valor = type === 'checkbox' ? checked : value */
+    setFormulario({
+      ...formulario,
+      [ name ] : type === 'checkbox' ? checked : value
+    })
+  }
+
+  return (
+    <div className="App">
+      <h1>Formularios</h1>
+
+      <h2>{ nombre } { apellido }</h2>
+
+      <form>
+        <input 
+          type="text" 
+          name="nombre" 
+          placeholder="nombre" 
+          value={ nombre } 
+          onChange={ formChange }/>
+
+        <input 
+          type="text" 
+          name="apellido" 
+          placeholder="apellido" 
+          value={ apellido } 
+          onChange={ formChange }/>
+
+        <input type="submit" value="Enviar" />
+      </form>
 ```
