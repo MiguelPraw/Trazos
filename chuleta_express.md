@@ -133,6 +133,7 @@ Importamos `express` del módulo que hemos instalado. Esta variable es una funci
 ```js
 const express = require('express');
 const app     = express();
+const router  = express.Router();
 
 // Leer datos
 app.get( '/' , ( req , res ) => {
@@ -169,4 +170,25 @@ En el método `POST` se envía y recibe la información a través del body
     let { nombre , apellido } = req.body;
 ```
 
+### Router
+
+```js
+const router = express.Router();
+
+app.use( router );
+
+router.route('/')
+    .get    ( (  req , res ) => {
+        res.json("Estoy en / haciendo get");
+    })
+    .post   ( (  req , res ) => {
+        res.json("Estoy en / haciendo post");
+    })
+    .put    ( (  req , res ) => {
+        res.json("Estoy en / haciendo put");
+    })
+    .delete ( (  req , res ) => {
+        res.json("Estoy en / haciendo delete");
+    })
+```
 
