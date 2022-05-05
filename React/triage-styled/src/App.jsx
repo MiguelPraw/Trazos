@@ -18,10 +18,11 @@ const App = () => {
 
   const cabecera = {
     id : 0 , 
-    icono : '#' , 
+    iconoSup : 'https://triage.cc/hero.svg' , 
     titulo : 'Triage is first aid for your inbox.' , 
     subtitulo : 'Everything you loved about the original Triage is back - only better. Download Triage 2 on the App Store today.',
-    img : '',
+    img : 'https://triage.cc/screenshots/hero.png',
+    icono : 'https://triage.cc/download.svg'
   }
 
   const banners = [
@@ -44,6 +45,17 @@ const App = () => {
     <ThemeProvider theme={ theme }>
       <GlobalStyle />
       <div className="App">
+        <Seccion bg="rgba(0,122,255)" padding="5rem 0 0 0">
+          <Wrapper className="flex">
+              <Bloque className="columna" width="40%">
+                  <Imagen maxWidth="20%" src={ cabecera.iconoSup } />
+                  <Titulo color="white" size="2.5rem">{ cabecera.titulo }</Titulo>
+                  <Subtitulo color="white">{ cabecera.subtitulo }</Subtitulo>
+                  <Imagen margin="1em 0 0 0" src={ cabecera.icono } />
+              </Bloque>
+              <Imagen src={ cabecera.img } />
+          </Wrapper>
+        </Seccion>
         {
           banners.map( ( banner , i ) => {
             return (

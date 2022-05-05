@@ -62,7 +62,7 @@ export const Bloque = styled.article`
         align-items: flex-start;
     }
     &.columna{
-        padding:3rem 0 0 ;
+        padding: 3rem 0 0 ;
     }
     &.amarillo {
         background: rgba(255,184,0);
@@ -87,13 +87,14 @@ export const Bloque = styled.article`
     }
 `;
 export const Icono = styled.svg`
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
     background: orange;
 `;
 export const Titulo = styled.h2`
     color: ${ ({ color }) => color || 'black' };
-    font-size: 1.5rem;
+    font-size: ${ ({ size }) => size || '1.5rem' };
     font-weight: 600;
     margin: 1em 0 0 0;
     hyphens: initial;
@@ -119,8 +120,10 @@ export const Titulo = styled.h2`
 export const Subtitulo = styled.h3`
     color: ${ ({ color }) => color || 'black' };
     font-size: 1.45em;
+    font-weight: 100;
     margin: 1em 0 0 0;
     opacity: .6;
+    hyphens: initial;
 `
 
 export const Parrafo = styled.p`

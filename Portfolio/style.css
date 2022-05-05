@@ -12,9 +12,12 @@
 }
 
 :root {
-    --color-primario: rgb(103, 16, 185);
-    --color-secundario: rgb(18, 183, 189);
+    --color-javascript: #ffc601;
+    --color-angular: rgb(214, 54, 54);
+    --color-react: rgb(18, 183, 189);
+    --color-mongo: #20AE5A;
     --fuente-principal: 'Space Mono', monospace;
+    --fuente-secundaria: 'Montserrat', sans-serif;
 }
 
 body {
@@ -47,7 +50,7 @@ body::-webkit-scrollbar-track {
     border-radius: 10px;  
 } */
 
-.header {
+/* .header {
     position: fixed;
     top: 0;
     left: 0;
@@ -71,16 +74,30 @@ body::-webkit-scrollbar-track {
     font-weight: bold;
     color: var(--color-secundario);
     cursor: pointer;
+} */
+
+.fondos {
+    position: relative;
+    z-index: 1;
+    transition: all 1.5s ease;
+}
+
+.fondo__portada {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+
+    background: url('https://wallpaperaccess.com/full/5651990.jpg');
+    background-position: center;
+    filter: brightness(0.3);
 }
 
 .main {
     height: 100vh;
-    transition: all 1s ease;
+    transition: all 1.5s ease;
     
-    background: url(https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2015/06/108191-webassembly-pretende-ser-nuevo-estandar-programacion-web.jpg?itok=NvuuYPF-);
-    background-size: cover;
-    background-position: center;
     position: relative;
+    z-index: 4;
 }
 
 .main__portada, .main__proyectos, .main__about, .main__contacto {
@@ -95,7 +112,7 @@ body::-webkit-scrollbar-track {
     left: 0;
 }
 
-.main__proyectos, .main__about, .main__contacto {
+.main__proyectos, .main__contacto {
     background: #222020;
 }
 
@@ -115,9 +132,74 @@ body::-webkit-scrollbar-track {
     top: 300%;
 }
 
-.portada__h2 h2, .proyectos__h2 h2, .about__h2 h2, .contacto__h2 h2 {
-    font-family: var(--fuente-principal);
-    color: var(--color-secundario);
+.portada__container h3, .proyectos__h2 h2, .about__h2 h2, .contacto__h2 h2 {
+    font-family: var(--fuente-secundaria);
+    color: white;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.portada__container {
+    max-width: 1200px;
+    width: 80%;
+}
+
+.portada__container h1 {
+    font-size: 5em;
+    font-weight: 600;
+    line-height: 1;
+    color: white;
+    font-family: var(--fuente-secundaria);
+    margin: 0.5em 0 0 0;
+}
+
+.portada__h2 {
+    margin: 2em 0 0 0;
+    position: relative;
+    height: 100%;
+}
+
+.portada__span {
+    font-family: var(--fuente-secundaria);
+    font-size: 4em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 1;
+    transform: rotateX(180deg) translateY(-100%);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.portada__span.visible {
+    opacity: 1;
+    transform: rotateX(0) translateY(0%);
+}
+
+.portada__span.javascript {
+    color: var(--color-javascript);
+}
+.portada__span.angular {
+    color: var(--color-angular);
+}
+.portada__span.react {
+    color: var(--color-react);
+}
+.portada__span.mongo {
+    color: var(--color-mongo);
+}
+
+.portada__botones {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.portada__boton {
+    background: #262424;
+    color: white;
+    padding: 0.5em 1em;
 }
 
 .proyectos__container {
@@ -129,7 +211,7 @@ body::-webkit-scrollbar-track {
     border-radius: 16px;
     background: #222020;
     box-shadow:  12px 12px 21px #1e1c1c,
-             -12px -12px 21px #1e1c1c;
+                -12px -12px 21px #1e1c1c;
     
     display: flex;
     flex-flow: column;
@@ -156,10 +238,10 @@ body::-webkit-scrollbar-track {
     font-size: 3vw;
     font-weight: 600;
     line-height: 1em;
-    font-family: var(--fuente-principal);
+    font-family: var(--fuente-secundaria);
     cursor: pointer;
     color: lightgray;
-    
+
     transition: all 0.5s ease;
 }
 
@@ -169,7 +251,7 @@ body::-webkit-scrollbar-track {
     width: 0%;
     margin: 2px 0 0 0;
     height: 3px;
-    background: var(--color-secundario);
+    background: var(--color-react);
     transition: all 1s ease;
 }
 
@@ -178,7 +260,7 @@ body::-webkit-scrollbar-track {
 }
 
 .proyectos__h2.activo {
-    color: var(--color-secundario);
+    color: var(--color-react);
 }
 
 .proyectos__h2.angular.activo {
@@ -189,11 +271,11 @@ body::-webkit-scrollbar-track {
 }
 
 .proyectos__h2.javascript.activo {
-    color: #ffc601;
+    color: var(--color-javascript);
 }
 
 .proyectos__h2.javascript::after {
-    background: #ffc601;
+    background: var(--color-javascript);
 }
 
 .proyectos__specs {
@@ -226,8 +308,9 @@ body::-webkit-scrollbar-track {
     position: absolute;
     top: 0;
     height: 0;
-    left: 0;
+    /* height: 100%; */
     width: 100%;
+    left: 0;
     opacity: 0;
 
     display: grid;
@@ -307,3 +390,14 @@ body::-webkit-scrollbar-track {
     font-size: 0.8rem;
 }
 
+.main__about {
+    background: #262424;
+}
+
+
+
+.footer {
+    background: #262424;
+    bottom: 0;
+    padding: 1em 0;
+}

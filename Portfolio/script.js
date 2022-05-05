@@ -1,30 +1,45 @@
 'use strict'
 
-/*let nodoPortada = document.querySelector('.portada');
-let nodoH1 = document.querySelector('.portada__h1');
+let fondos = [ 'https://wallpaperaccess.com/full/5651982.jpg' , 'https://wallpaperaccess.com/full/5651990.jpg' ];
 
-let texto = "Hola, soy Miguel Pérez, desarrollador web.";
-
+let nodosSpan = document.querySelectorAll('.portada__span');
 let n = 0;
 
-
-let textoPrincipal = setInterval( function (){
-
-    if (n < texto.length) {
-        nodoH1.innerHTML += texto[n];
-        n++;
-    } else {
-        clearInterval(textoPrincipal);
+let intervalo = setInterval( () => {
+    nodosSpan[n].classList.remove('visible');
+    n++;
+    if (n >= nodosSpan.length) {
+        n = 0;
     }
+    nodosSpan[n].classList.add('visible');
 
-}, 100);*/
+}, 3000);
+
+// let texto = "Desarrollador web";
+// let intervaloSpecs = setInterval( function (){
+
+//     if (n < texto.length) {
+//         nodoH2.innerHTML += texto[n];
+//         n++;
+//     } else {
+//         clearInterval(intervaloSpecs);
+//     }
+
+// }, 250);
+
+
+document.querySelector('.main__portada').addEventListener( 'mousemove' , function (evento) {
+    console.clear();
+    console.log( evento );
+});
+
+
+/***** JS para el SCROLL *****/
 
 let distancia = 0;
 let nodoMainActivo;
 
-document.querySelector('body').addEventListener ('wheel', (evento) => {
-    // console.log(evento);
-    // console.log(nodoMainActivo);
+document.querySelector('body').addEventListener ('wheel', ( evento ) => {
     if (evento.deltaY > 0) {
         if (distancia <= 200) {
             distancia += 100;
@@ -34,17 +49,10 @@ document.querySelector('body').addEventListener ('wheel', (evento) => {
             distancia -= 100;
         }
     }
-    // añadeClaseHeader();
-    actualizaMain();
-    document.querySelector('main').style.transform = `translateY(-${distancia}%)`;
+    document.querySelector('main').style.transform = `translateY(-${ distancia }%)`;
 });
 
-
-function actualizaMain() {
-    let nodoMain = document.querySelectorAll('main>div');
-    nodoMainActivo = nodoMain[distancia/100];
-    // console.log(nodoMainActivo);
-}
+/* JS para los PROYECTOS */
 
 let nodoH2React = document.querySelector('.proyectos__h2.react');
 let nodoH2Angular = document.querySelector('.proyectos__h2.angular');
@@ -95,10 +103,3 @@ document.querySelectorAll('.proyectos__h2').forEach( nodoProyecto => {
 //     });
 //     nodoLi[distancia/100].classList.add('activo');
 // }
-
-function ocultaProyectos () {
-    document.querySelector('.proyectos__grid.javascript').classList.remove('activo');
-    document.querySelector('.proyectos__grid.javascript').classList.remove('activo');
-
-}
-
