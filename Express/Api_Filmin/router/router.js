@@ -10,7 +10,7 @@ router.route('/')
 router.route('/peliculas')
     .get( getPeliculas )
 
-router.route('/peliculas/:url')
+router.route('/pelicula/:url')
     .get( getPeliculaByUrl )
 
 router.route('/peliculas/genero/:genero')

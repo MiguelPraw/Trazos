@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatosService } from 'src/app/services/datos.service';
+import { IPelicula } from 'src/interfaces/filmin.interfaces';
 
 @Component({
   selector: 'app-pelicula',
@@ -9,10 +10,12 @@ import { DatosService } from 'src/app/services/datos.service';
 })
 export class PeliculaComponent implements OnInit {
 
-  url : string = "";
+  url       : string = "";
   peliculas : any[] = [];
   
-  pelicula  : any = {};
+  pelicula  : IPelicula | any = {};
+  prueba  : IPelicula | any = {};
+  
 
   constructor(
     private datosService : DatosService,
@@ -21,18 +24,24 @@ export class PeliculaComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( ( { url } ) => {
-      this.url = url;
+      // this.url = url;
 
-      this.peliculas = this.datosService.peliculas;
+      // this.peliculas = this.datosService.peliculas;
 
-      this.pelicula = this.datosService.peliculas.find( ( cadaPelicula : any ) => {
-        return cadaPelicula.url === this.url;
+      // this.pelicula = this.datosService.peliculas.find( ( cadaPelicula : any ) => {
+      //   return cadaPelicula.url === this.url;
+      // });
+
+
+      this.datosService.getPeliculaByUrl( url ).subscribe( ( data : any ) => {
+        this.pelicula = data.data;
+        console.log(this.pelicula);
       });
     })
   }
 
-  backgroundImage () : string {
-    return `url(${this.pelicula.src})`;
-  }
+  // backgroundImage () : string {
+  //   return `url(${this.pelicula.src})`;
+  // }
 
 }

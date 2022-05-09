@@ -9,9 +9,7 @@ import { DatosService } from 'src/app/services/datos.service';
 export class InicioComponent implements OnInit {
 
   sliderCabecera    : any[] = [];
-
   sliderCategorias  : any[] = [];
-
   slidersInicio     : any[] = [];
 
   constructor(

@@ -2,7 +2,8 @@ const { peliculas } = require('./../bbdd');
 
 function getPeliculas( req , res ) {
     res.status(200).json({
-        data : peliculas
+        data : peliculas,
+        msj : 'Correcto'
     });
 }
 
