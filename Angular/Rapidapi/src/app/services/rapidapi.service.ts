@@ -39,8 +39,8 @@ export class RapidapiService {
 
     const options : IOptions = {
       headers : new HttpHeaders ({
-        'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
-        'X-RapidAPI-Key': '37f18af15bmsha5208b60c12c991p199490jsn43bdda422907'
+        'X-RapidAPI-Host'   : 'free-nba.p.rapidapi.com',
+        'X-RapidAPI-Key'    : '37f18af15bmsha5208b60c12c991p199490jsn43bdda422907'
       })
     }
 
@@ -50,8 +50,8 @@ export class RapidapiService {
   getAllTeamsNBA() : Observable<ITeams> {
     const options : IOptions = {
       headers : new HttpHeaders ({
-        'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
-        'X-RapidAPI-Key': '37f18af15bmsha5208b60c12c991p199490jsn43bdda422907'
+        'X-RapidAPI-Host' : 'free-nba.p.rapidapi.com',
+        'X-RapidAPI-Key'  : '37f18af15bmsha5208b60c12c991p199490jsn43bdda422907'
       })
     }
 
