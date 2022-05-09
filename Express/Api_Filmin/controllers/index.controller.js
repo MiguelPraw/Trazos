@@ -1,10 +1,11 @@
-const { peliculas , slidersInicio , sliderCategorias } = require('./../bbdd');
+const { peliculas , slidersInicio , sliderCategorias , sliderCabecera } = require('./../bbdd');
 
 function getIndex( req , res ) {
     res.status(200).json({
         data : {
+            sliderCabecera : sliderCabecera,
+            sliderCategorias : sliderCategorias,
             slidersInicio : slidersInicio,
-            sliderCategorias : sliderCategorias
         }
     });
 }

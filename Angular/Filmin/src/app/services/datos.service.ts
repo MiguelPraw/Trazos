@@ -1,80 +1,82 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IPelicula, IResponsePeliculas } from 'src/interfaces/filmin.interfaces';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DatosService {
 
   // <video preload="none" playsinline="" src="https://trailer.filmin.com/es/extras/mp4/drive-my-car-trailer-vose-estreno-en-cines.mp4"></video>
 
-  sliderCabecera : any[] = [
-    {
-      inicial   : true,
-      video     : false,
-      img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
-      titulo    : "El mayor catálogo de cine y series",
-      subtitulo : "Suscríbete por 7,99 €",
-      serie     : false,
-      boton     : {
-        texto : "Más información",
-        href : "#"
-      }
-    },
-    {
-      video     : true,
-      src       : "https://trailer.filmin.com/es/extras/mp4/drive-my-car-trailer-vose-estreno-en-cines.mp4",
-      img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
-      titulo    : "Drive My Car",
-      subtitulo : "Ryusuke Hamaguchi",
-      serie     : false,
-      boton     : {
-        texto : "Más información",
-        href : "#"
-      }
-    },
-    {
-      video     : true,
-      src       : "https://trailer.filmin.com/es/extras/mp4/the-beach-bum-tl-fix.mp4",
-      img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
-      titulo    : "The Beach Bum",
-      subtitulo : "Harmony Korine",
-      serie     : true,
-      boton     : {
-        texto : "Más información",
-        href : "#"
-      }
-    },
-  ];
+    sliderCabecera      : any[] = [
+        {
+            inicial   : true,
+            video     : false,
+            img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
+            titulo    : "El mayor catálogo de cine y series",
+            subtitulo : "Suscríbete por 7,99 €",
+            serie     : false,
+            boton     : {
+                texto : "Más información",
+                href : "#"
+            }
+        },
+        {
+            video     : true,
+            src       : "https://trailer.filmin.com/es/extras/mp4/drive-my-car-trailer-vose-estreno-en-cines.mp4",
+            img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
+            titulo    : "Drive My Car",
+            subtitulo : "Ryusuke Hamaguchi",
+            serie     : false,
+            boton     : {
+                texto : "Más información",
+                href : "#"
+            }
+        },
+        {
+            video     : true,
+            src       : "https://trailer.filmin.com/es/extras/mp4/the-beach-bum-tl-fix.mp4",
+            img       : "https://static.filmin.es/images/wildcard/1077/9/highlighted_0_3_1280x605.webp",
+            titulo    : "The Beach Bum",
+            subtitulo : "Harmony Korine",
+            serie     : true,
+            boton     : {
+                texto : "Más información",
+                href : "#"
+            }
+        },
+    ];
 
-  sliderCategorias : any[] = [
-    {
-      src : "https://static.filmin.es/images/wildcard/1358/8/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1011/1/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1648/1/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1507/3/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1358/8/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1011/1/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1648/1/card_0_3_550x311.webp"
-    },
-    {
-      src : "https://static.filmin.es/images/wildcard/1507/3/card_0_3_550x311.webp"
-    },
-  ];
+    sliderCategorias    : any[] = [
+        {
+            src : "https://static.filmin.es/images/wildcard/1358/8/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1011/1/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1648/1/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1507/3/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1358/8/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1011/1/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1648/1/card_0_3_550x311.webp"
+        },
+        {
+            src : "https://static.filmin.es/images/wildcard/1507/3/card_0_3_550x311.webp"
+        },
+    ];
 
-    peliculas : any[] = [
+    peliculas           : IPelicula[] = [
         {
             url           : "el-gran-lebowski",
             src           : "https://static.filmin.es/images/media/39491/1/still_1_3_1360x765.png",
@@ -677,31 +679,41 @@ export class DatosService {
                 }
             }
         }
+    ];
+    
+    slidersInicio       : any[] = [
+        {
+            titulo : "Nuevos Estrenos de Universal",
+            subtitulo : "Aquí los clásicos se ven de otra forma",
+            items : this.peliculas,
+        },
+        {
+            titulo : "Las más vistas",
+            subtitulo : "De la última semana",
+            items : this.peliculas,
+        },
+        {
+            titulo : "Grandes estrenos exclusivos",
+            subtitulo : "Solo los verás en Filmin",
+            items : this.peliculas,
+        },
     ]
 
-    slidersInicio : any[] = [
-        {
-        titulo : "Nuevos Estrenos de Universal",
-        subtitulo : "Aquí los clásicos se ven de otra forma",
-        items : this.peliculas,
-        },
-        {
-        titulo : "Las más vistas",
-        subtitulo : "De la última semana",
-        items : this.peliculas,
-        },
-        {
-        titulo : "Grandes estrenos exclusivos",
-        subtitulo : "Solo los verás en Filmin",
-        items : this.peliculas,
-        },
-    ]
+    base_url = 'http://localhost:5000/peliculas'
 
     constructor(
         private http : HttpClient
     ) { }
 
-    getPeliculas() : any{
-        return this.http.get('https//:localhost:5000')
+    getInicio() : Observable<any> {
+        return this.http.get<any>(this.base_url);
+    }
+
+    getPeliculas() : Observable<IResponsePeliculas> {
+        return this.http.get<IResponsePeliculas>('http://localhost:5000/peliculas');
+    }
+
+    getPeliculaByUrl( url : string ) : Observable<IResponsePeliculas> {
+        return this.http.get<IResponsePeliculas>(`http://localhost:5000/pelicula/${ url }`);
     }
 }

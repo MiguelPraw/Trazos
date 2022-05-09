@@ -691,5 +691,6 @@ const sliderCategorias = [
 module.exports = {
     peliculas,
     slidersInicio,
-    sliderCategorias
+    sliderCategorias,
+    sliderCabecera
 }

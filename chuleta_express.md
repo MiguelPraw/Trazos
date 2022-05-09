@@ -192,3 +192,27 @@ router.route('/')
     })
 ```
 
+## Método POST con Formularios
+
+```js
+const postAlumno = ( req , res ) => {
+
+    const { nombre } = req.body;
+
+    clase.push({
+        id : clase.length,
+        nombre
+    })
+
+    let data = clase;
+    let msj  = 'Alumno añadido';
+
+    res.status(200).json({ data , msj })
+}
+```
+
+### React
+
+```js
+
+```
