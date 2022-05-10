@@ -451,6 +451,14 @@ const options = {
     return this.http.get('https://free-nba.p.rapidapi.com/players', options );
 ```
 
+## Params
+
+En las peticiones `POST` se puede enviar un objeto con los parámetros que deseemos; si no tenemos que enviarlos a través de la URL.
+
+```ts
+
+```
+
 ## Axios
 
 Es un data-layer para hacer peticiones a APIs. 

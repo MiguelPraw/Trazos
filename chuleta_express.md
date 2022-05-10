@@ -211,8 +211,55 @@ const postAlumno = ( req , res ) => {
 }
 ```
 
-### React
+## Yargs
+
+```bash
+npm i yargs
+```
+
+Sirve para facilitar el uso de argumentos en Node. 
+Por ejemplo, nos sirve para filtar por el puerto que queremos abrir cuando abrimos el servidor. Para ello, en el `package.json` añadimos:
+
+```json
+"scripts": {
+    "dev": "npx nodemon index --puerto=5000",
+    "start": "npx nodemon index --puerto=7004",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+```
 
 ```js
+const yargs  = require('yargs').argv
+const { puerto } = require('yargs').argv
 
+console.log( yargs );
+
+app.listen( puerto , () => {
+    console.log("Iniciando API en puerto " + puerto);
+})
+```
+
+```bash
+node index --puerto=5000    # Con Node
+
+npm run start               # Abre la api en el puerto 7004
+npm run dev                 # Abre la api en el puerto 5000
+```
+
+## Dotenv
+
+Es una manera de poder poner visualmente datos que no vamos a poder meter en otro tipo de archivo.
+
+Creamos un archivo `.env` en el que añadimos dichos datos.
+
+```bash
+CONTRASENIA="123"
+```
+
+En la API de Express, tras hacer el `npm i dotenv --save`:
+
+```js 
+const { CONTRASENIA } = require('dotenv').config().parsed
+
+console.log( CONTRASENIA );
 ```

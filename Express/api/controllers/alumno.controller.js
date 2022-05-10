@@ -26,7 +26,38 @@ const postAlumno = ( req , res ) => {
     res.status(200).json({ data , msj })
 }
 
+const putAlumno = ( req , res ) => {
+
+    let { id } = req.body;
+    console.log(req.body)
+
+    let resultado = clase.map( alumno => {
+        return (alumno.id === id) ? alumno = req.body : alumno;
+    })
+
+    let data = resultado;
+    console.log(resultado);
+
+    res.status(200).json({
+        data,
+        msj  : 'Actualisado'
+    })
+}
+
+const deleteAlumno = ( req , res ) => {
+
+    let { id } = req.params;
+    console.log( req.params )
+
+    res.status(200).json({
+        data : [],
+        msj  : 'Eliminado'
+    })
+}
+
 module.exports = {
     getAlumnoById,
-    postAlumno
+    postAlumno,
+    putAlumno,
+    deleteAlumno
 }

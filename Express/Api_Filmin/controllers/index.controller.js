@@ -3,10 +3,11 @@ const { peliculas , slidersInicio , sliderCategorias , sliderCabecera } = requir
 function getIndex( req , res ) {
     res.status(200).json({
         data : {
-            sliderCabecera : sliderCabecera,
+            sliderCabecera   : sliderCabecera,
             sliderCategorias : sliderCategorias,
-            slidersInicio : slidersInicio,
-        }
+            slidersInicio    : slidersInicio,
+        },
+        msj  : 'Correcto'
     });
 }
 

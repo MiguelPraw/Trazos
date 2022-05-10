@@ -1,15 +1,18 @@
 console.clear()
 
+const express       = require('express')
+const app           = express()
 
-const express = require('express')
-const app     = express()
+const { CONTRASENIA } = require('dotenv').config().parsed
 
-const {router} = require('./router/router')
+console.log( CONTRASENIA );
 
-const cors   = require('cors')
-const helmet = require('helmet')
-const morgan = require('morgan')
+const { router }    = require('./router/router')
 
+const cors          = require('cors')
+const helmet        = require('helmet')
+const morgan        = require('morgan')
+const { puerto }    = require('yargs').argv
 
 app.use( express.json() )
 app.use( express.urlencoded({ extended : false }))
@@ -20,6 +23,6 @@ app.use( morgan('tiny'))
 
 app.use( router )
 
-app.listen( 5000 , ()=>{
+app.listen( puerto , ()=>{
     console.log(`Iniciando la API`)
 })
