@@ -225,7 +225,7 @@ Por ejemplo, nos sirve para filtar por el puerto que queremos abrir cuando abrim
     "dev": "npx nodemon index --puerto=5000",
     "start": "npx nodemon index --puerto=7004",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  }
 ```
 
 ```js
@@ -263,3 +263,71 @@ const { CONTRASENIA } = require('dotenv').config().parsed
 
 console.log( CONTRASENIA );
 ```
+
+# Deploy
+
+## Angular 
+
+Para subir un proyecto, usamos el comando:
+
+```bash
+npm run build
+
+ng build
+
+ng build --configuation=production          # Con esta flag se optimiza aún más el deploy, cambiando el archivo de environment.ts por ejemplo
+
+```
+
+Nos genera una carpeta llamada `dist` que contiene todos los archivos construidos del proyecto.
+
+## React
+
+Comando:
+
+```bash
+npm run build
+
+vite build
+```
+
+### Sitios para el deploy
+
+1. Netlify
+2. Heroku
+3. Vercel
+
+En Angular, cuando indicamos la ruta de la carpeta `dist`, debemos añadir la ruta de la carpeta del proyecto: `dist/nombre-carpeta`.
+
+### Variables de entorno
+
+Cuando despleguemos la API, en Angular hay que añadir las url en los archivos de la carpeta `environments`.
+
+En `environment.ts`:
+
+```ts
+export const environment = {
+  production: false,
+  url       : 'http://localhost:5000/'
+};
+
+// Y en el environment.prod.ts:
+
+export const environment = {
+  production: true,
+  url       : 'url-heroku'
+};
+```
+
+En el servicio:
+
+```ts
+import { environment } from './../../environments/environment';
+
+this.base_api = environment.url;
+```
+
+# MongoDB
+
+## Mongoose
+

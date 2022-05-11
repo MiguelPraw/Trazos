@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header , Wrapper , Empresa , Icono , Boton , Desplegable , Menu , Elemento , ContainerImagenes } from "../Components.styled";
+import { Header , Wrapper , Empresa , Icono , Boton , Desplegable , Menu , Elemento , ContainerImagenes } from "./Components.styled";
 
 const Cabecera = ({}) => {
 

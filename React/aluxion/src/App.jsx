@@ -1,5 +1,5 @@
 import theme from "./assets/theme.styled";
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./assets/global.styled";
 
 import Cabecera from "./Components/Cabecera/Cabecera";
