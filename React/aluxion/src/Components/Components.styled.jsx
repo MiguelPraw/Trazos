@@ -22,6 +22,7 @@ export const Cuerpo = styled.div`
 export const Footer = styled.footer`
     height: 15vh;
     width: 100%;
+    border-top: 1px solid lightgrey;
 `
 
 export const Wrapper = styled.div`
@@ -36,6 +37,8 @@ export const Wrapper = styled.div`
     flex-flow: ${ ({ flow }) => flow || "row nowrap" };
     justify-content: ${ ({ justify }) => justify || 'space-between' };
     align-items: center;
+
+    transition: all 2s ease;
     
 `
 
@@ -98,17 +101,64 @@ export const Desplegable = styled.div`
 `
 
 export const Menu = styled.ul`
+
+`
+
+export const SubMenu = styled.ul`
+    height: 0;
+    margin-top: 1em;
+    overflow: hidden;
+
+    transition: all 1s ease;
+            
+    &.ver {
+        height: 6em;
+        opacity: 1;
+    }
 `
 
 export const Elemento = styled.li`
     color: white;
-    margin: 1em 0;
     font-size: 2em;
+    margin: 0.5em 0;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100px);
+
+    transition: all 1s ease 2s;
+
+    &.desplegado {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`
+
+export const SubElemento = styled.li`
+    color: lightgrey;
+    margin: .5em 1em;
     cursor: pointer;
 `
 
 export const ContainerImagenes = styled.div`
 
+`
+
+export const Imagen = styled.img`
+    width: 40%;
+`
+
+export const ImagenMenu = styled.img`
+    width: 40%;
+    position: ${ ({ position }) => position || 'static' };
+    top: -50px;
+    right: 0;
+    opacity: 0;
+
+    transition: all 0.5s ease;
+
+    &.activo {
+        opacity: 1;
+    }
 `
 
 export const Seccion = styled.div`
@@ -127,7 +177,6 @@ export const Seccion = styled.div`
 `
 
 export const Informacion = styled.article`
-    background: orange;
     max-width: 40%;
 `
 
@@ -137,8 +186,13 @@ export const Autor = styled.h3`
 
 export const Nombre = styled.h2`
     font-size: ${ ({ size }) => size || '1.5em' };
+    font-weight: ${ ({ weight }) => weight || 'initial' };
     color: black;
     margin: .5em 0 0 0;
+
+    &.activo {
+        font-weight: bold;
+    }
 `
 
 export const Descripcion = styled.p`
@@ -153,13 +207,9 @@ export const BotonDetalles = styled.button`
     margin: 1em 0 0 0;
 `
 
-export const Imagen = styled.img`
-    width: 40%;
-`
-
 export const Bloque = styled.div`
 
-    margin: 0 0 0 .5em;
+    margin: 0 0 0 1em;
     cursor: pointer;
 
     display: flex;
@@ -172,7 +222,7 @@ export const Bloque = styled.div`
         width: 0;
         height: 2px;
         display: block;
-        background: grey;
+        background: black;
         transition: all 1s ease;
     }
 
@@ -185,4 +235,8 @@ export const Bloque = styled.div`
 export const Numero = styled.span`
     font-size: 1em;
     margin: 1em 0 0 0;
+
+    &.activo {
+        font-weight: bold;
+    }
 `

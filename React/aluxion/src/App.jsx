@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./assets/global.styled";
 
 import Cabecera from "./Components/Cabecera/Cabecera";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useLayoutEffect } from "react";
 
 import { Cuerpo , Seccion , Informacion , Autor , Descripcion , BotonDetalles , Imagen , Footer , Wrapper , Bloque , Numero , Nombre } from './Components/Components.styled'
 
@@ -30,29 +30,25 @@ const App = () => {
     },
   ];
 
-  let ruedaActiva = false;
+  // let ruedaActiva = true;
 
   const [ muebleActivo , setMuebleActivo ] = useState(0);
 
-  useEffect( () => {
-    document.addEventListener( 'wheel' , ( e ) => {
-      ( e.deltaY < 0 ) ? this.activo-- : this.activo++;
-      if ( this.activo < 0 ) {
-        this.activo = this.listaMuebles.length - 1;
-      } else if ( this.activo >= this.listaMuebles.length ) {
-        this.activo = 0;
-      }
-    })
-  }, []);
+  // useEffect( () => {
+  //   document.addEventListener( 'wheel' , ( e ) => {
+  //     console.log( e.deltaY )
+  //     (e.deltaY < 0) ? setMuebleActivo( muebleActivo - 1) : setMuebleActivo(muebleActivo + 1);
+        
+  //   })
+  // }, []);
 
   const setAltura = () => {
     let desplazamiento = (100 / listaMuebles.length) * muebleActivo;
-    return `transform: translateY(-${desplazamiento}%)`;
+    return `translateY(-${desplazamiento}%)`;
   }
 
   const cambiaActivo = ( valor ) => {
     setMuebleActivo( valor );
-    console.log( setAltura() );
   }
 
   return (
@@ -62,14 +58,19 @@ const App = () => {
       <Cabecera  />
 
       <Cuerpo>
-        <Wrapper flow="column" justify="flex-start">
+        <Wrapper 
+          style={ {
+            'transform' : setAltura()
+          } }
+          flow="column" 
+          justify="flex-start">
           {
             listaMuebles.map( ( cadaMueble , i ) => {
               return (
                 <Seccion key={ i } className={ ( i === muebleActivo ) && 'activo' }>
                   <Informacion>
                     <Autor>{ cadaMueble.autor }</Autor>
-                    <Nombre>{ cadaMueble.nombre }</Nombre>
+                    <Nombre weight="bold">{ cadaMueble.nombre }</Nombre>
                     <Descripcion>{ cadaMueble.descripcion }</Descripcion>
                     <BotonDetalles>Product Details</BotonDetalles>
                   </Informacion>
@@ -90,8 +91,8 @@ const App = () => {
                   key={ i }
                   onClick={ () => cambiaActivo( i ) } 
                   className={ ( i === muebleActivo) && 'activo' }>
-                  <Numero>0{ i + 1 }</Numero>
-                  <Nombre size="1em">{ cadaMueble.nombre }</Nombre>
+                    <Numero className={ ( i === muebleActivo) && 'activo' }>0{ i + 1 }</Numero>
+                    <Nombre className={ ( i === muebleActivo) && 'activo' } size="1em">{ cadaMueble.nombre }</Nombre>
                 </Bloque>
               )
             })
