@@ -1,0 +1,5 @@
+GET http://localhost:5000
+Con esta peticion recibo todos los datos de MongoDB
+
+GET http://localhost:5000/627ce1b13f2150a6aba332bf
+Con esta peticion recibo los datos de una id concreta

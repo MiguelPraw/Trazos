@@ -329,5 +329,122 @@ this.base_api = environment.url;
 
 # MongoDB
 
+* `MongoDB`                 : Sistema de BBDD
+* `Mongo Compass`           : UI que nos permite gestionar las BBDD
+* `Mongosh / Mongo Shell`   : CLI de MongoDB
+* `Mongo Atlas`             : Servidor / Cluster donde se almacena online la BBDD
+* `Mongoose`                : Módulo para NodeJS que nos permite conectar Node con MongoDB
+
 ## Mongoose
 
+```bash
+npm i mongoose
+```
+
+```js
+const mongoose = require('mongoose');
+
+/* Es mejor hacerlo de manera asíncrona */
+const conectar = async () => {
+    await mongoose.connect('mongodb://localhost:27017' , {
+        useNewUrlParser : true,
+        useUnifiedTopology : true
+    } , () => {
+        console.log("Conexion increible a MongoDB");
+    });
+}
+
+conectar();
+
+/* Creamos un esquema (interface) para cada dato de la colección */
+const alumnoSchema = new mongoose.Schema(
+    { nombre : String , apellido : String , edad : Number }, 
+    { collection : "primer_turno" , versionKey : false } /* Con este parametro eliminamos el __v de mongo */
+);
+
+/* Asignamos ese modelo ( Schema ) */
+const Alumno = mongoose.model( 'Alumno' , alumnoSchema );
+
+app.get( '/' , async ( req , res ) => {
+
+    const data = await Alumno.find({ nombre : 'Timmy' });
+
+    res.status(200).json({
+        data,
+        msj : 'GET en Inicio'
+    });
+});
+```
+
+## Post con Mongoose
+
+```js
+app.post('/alumno' , async ( req , res ) => {
+
+    const { nombre , apellido , edad } = req.body;
+
+    const alumno = new Alumno({ nombre , apellido , edad }).catch( ( error ) => {
+        console.log( error );
+    });
+    await alumno.save();
+
+    res.status(200).json({
+        data : [],
+        msj : 'Alumno insertado'
+    });
+});
+```
+
+## Put con Mongoose
+
+```js
+app.put('/alumno' , async ( req , res ) => {
+
+    const { id , nombre , apellido , edad } = req.body;
+
+    let msj = 'To bien';
+    const data = await Alumno.findByIdAndUpdate( id , { nombre , apellido , edad }).catch( error => {
+        msj = 'El objeto no existe';
+    });
+
+    res.status(200).json({
+        data,
+        msj
+    })
+});
+
+/* USANDO EL REST */
+app.put('/alumno' , async ( req , res ) => {
+
+    const { id , ...usuario } = req.body;
+
+    let msj = 'To bien';
+    const data = await Alumno.findByIdAndUpdate( id , usuario ).catch( error => {
+        msj = 'El objeto no existe';
+    });
+
+    res.status(200).json({
+        data,
+        msj
+    });
+});
+```
+
+## Delete con Mongoose
+
+```js
+app.delete( '/alumno/:id' , async ( req , res ) => {
+
+    const { id } = req.params;
+
+    let msj = 'Borrado pelotudo';
+    const data = await Alumno.findByIdAndDelete( id ).catch( error => {
+        msj = 'No existe el pelotudo';
+    });
+
+    res.status(200).json({
+        data,
+        msj
+    });
+});
+```
