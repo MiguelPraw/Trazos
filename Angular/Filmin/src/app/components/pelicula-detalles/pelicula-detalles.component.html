@@ -33,12 +33,17 @@
     
         <article class="detalles__audio card">
             <h2 class="detalles__h2" >Audio y subtítulos</h2>
-            <app-pelicula-detalles-card></app-pelicula-detalles-card>
+            <app-pelicula-detalles-card
+                [detalles]="detalles"
+                [tipo]="'audio'"></app-pelicula-detalles-card>
         </article>
 
         <article class="detalles__masinfo card">
             <h2 class="detalles__h2" >Más información</h2>
-            <app-pelicula-detalles-card></app-pelicula-detalles-card>
+            <app-pelicula-detalles-card
+                [detalles]="detalles"
+                [tipo]="'informacion'"
+                [generos]="generos"></app-pelicula-detalles-card>
         </article>
     </div>
 

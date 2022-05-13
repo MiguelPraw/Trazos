@@ -1,0 +1,33 @@
+.filtro {
+    width: 100%;
+    padding: 1em 0;
+    background: #141426;
+
+    &__wrapper {
+        width: 92%;
+        margin: auto;
+    }
+
+    &__boton {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+
+        background: #242432;
+        padding: 1em 2em;
+
+        svg {
+            fill: white;
+            width: 1.2em;
+            height: 1.2em;
+            margin: 0 0 0 .3em;
+        }
+    }
+
+    &__span {
+        color: white;
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+}

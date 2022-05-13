@@ -24,13 +24,15 @@
             [ngClass]=" { 'activo' : numero === 0 } "
             class="tabs__detalles">
             <app-pelicula-detalles
-                [detalles]="pelicula.detalles"></app-pelicula-detalles>
+                [detalles]="pelicula.detalles"
+                [generos]="pelicula.genero"></app-pelicula-detalles>
         </article>
 
         <article
             [ngClass]=" { 'activo' : numero === 1 } " 
             class="tabs__similares">
-            <app-pelicula-similares></app-pelicula-similares>
+            <app-pelicula-similares
+                [director]="pelicula.director"></app-pelicula-similares>
         </article>
 
         <article 

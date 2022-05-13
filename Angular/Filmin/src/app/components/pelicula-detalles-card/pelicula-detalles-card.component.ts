@@ -7,8 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PeliculaDetallesCardComponent implements OnInit {
 
-  @Input() detalles : any = {}
+  @Input() detalles : any    = {};
   @Input() tipo     : string = "";
+  @Input() generos  : any[]  = [];
 
   constructor() { }
 

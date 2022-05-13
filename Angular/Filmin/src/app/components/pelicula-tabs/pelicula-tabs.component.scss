@@ -14,10 +14,13 @@
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
+
+        border-bottom: 1px solid #242432;
     }
 
     &__li {
         margin: 0 2rem 0 0;
+        padding: 0 0 1em 0;
         text-transform: uppercase;
         font-weight: 600;
         color: white;
@@ -38,12 +41,16 @@
 
     &__detalles, &__similares, &__valoraciones, &__extras {
         position: absolute;
+        top: 0;
+        z-index: 0;
         opacity: 0;
-        width: 92%;
-        margin: auto;
+        pointer-events: none;
 
         &.activo {
+            position: static;
+            pointer-events: all;
             opacity: 1;
+            z-index: 1;
         }
     }
 

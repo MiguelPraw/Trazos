@@ -18,6 +18,8 @@ import { PeliculaDetallesComponent } from './pelicula-detalles/pelicula-detalles
 import { BuscadorComponent } from './buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from '../pipes/pipes.module';
+import { PeliculasGridComponent } from './peliculas-grid/peliculas-grid.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { PipesModule } from '../pipes/pipes.module';
     PeliculaExtrasComponent,
     FooterComponent,
     BuscadorComponent,
+    PeliculasGridComponent,
+    FiltroComponent,
   ],
   exports : [
     CabeceraComponent,
@@ -53,6 +57,8 @@ import { PipesModule } from '../pipes/pipes.module';
     PeliculaValoracionesComponent,
     PeliculaExtrasComponent,
     FooterComponent,
+    PeliculasGridComponent,
+    FiltroComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,63 @@
+.peliculas {
+
+    margin: 1em 0;
+
+    &__wrapper {
+        width: 92%;
+        margin: auto;
+    }
+
+    &__banner {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__p {
+        font-size: 1.2em;
+        color: white;
+    }
+
+    &__boton {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        border: 2px solid #6f6f81;
+        border-radius: .3rem;
+        padding: .2em .7em;
+
+        &:hover {
+            background: #242432;
+        }
+
+        svg {
+            fill: white;
+            width: 1.75em;
+            height: 1.75em;
+        }
+    }
+
+    &__span {
+        color: white;
+        font-size: 1.1em;
+        margin: 0 0 0 .5em;
+    }
+
+    &__grid {
+        // display: flex;
+        // flex-flow: row wrap;
+        // justify-content: flex-start;
+        // align-items: center;
+        
+        margin: 2em 0;
+
+        display: grid;
+        grid-template-columns: repeat( 4 , 1fr );
+        gap: .5em;
+    }
+
+}

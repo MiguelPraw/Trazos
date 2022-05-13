@@ -1,0 +1,23 @@
+<section class="peliculas">
+    <div class="peliculas__wrapper">
+        <div class="peliculas__banner">
+            <p class="peliculas__p">{{ peliculas.length }} películas</p>
+            <div class="peliculas__botones">
+                <button class="peliculas__boton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <span class="peliculas__span">Filtros</span>
+                </button>
+            </div>
+        </div>
+        <ul class="peliculas__grid">
+            <li *ngFor=" let pelicula of peliculas " class="peliculas__item">
+                <a [routerLink]=" ['/pelicula' , pelicula.url ] ">
+                    <app-slider-peliculas-card
+                        [slide]="pelicula"></app-slider-peliculas-card>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

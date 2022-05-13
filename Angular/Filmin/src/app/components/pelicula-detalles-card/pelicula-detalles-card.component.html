@@ -1,7 +1,7 @@
 
 <p 
     *ngIf="tipo === 'sinopsis'"
-    class="card__p">{{ detalles.sinopsis | saltoDeLinea }}</p>
+    class="card__p">{{ detalles.sinopsis }}</p>
 
 <ul 
     *ngIf="tipo === 'premios'"
@@ -48,6 +48,55 @@
         <span class="card__span">Reparto:</span>
         <span 
             *ngFor=" let actor of detalles.reparto "
-            class="card__actor">{{ actor }}</span>
+            class="card__enlace">{{ actor }}</span>
+    </p>
+</div>
+
+<div
+    *ngIf="tipo === 'audio' "
+    class="card__audio">
+    <ul class="card__audios">
+        <li class="card__titulo">Audio:</li>
+        <li 
+            *ngFor=" let audio of detalles.audio"
+            class="card__subtitulo">
+            {{ audio }}
+        </li>
+    </ul>
+    <ul class="card__subtitulos">
+        <li class="card__titulo">Subtitulos:</li>
+        <li 
+            *ngFor=" let subtitulo of detalles.subtitulos"
+            class="card__subtitulo">
+            {{ subtitulo }}
+        </li>
+    </ul>
+</div>
+
+<div
+    *ngIf=" tipo === 'informacion' ">
+    <p class="card__info">
+        <span class="card__span">Título original: </span>
+        <span class="card__subtitulo">{{ detalles.masInfo.tituloOriginal }}</span>
+    </p>
+    <p class="card__info">
+        <span class="card__span">Género: </span>
+        <span class="card__enlace" *ngFor=" let genero of generos ">{{ genero }}</span>
+    </p>
+    <p class="card__info">
+        <span class="card__span">País: </span>
+        <span class="card__enlace">{{ detalles.masInfo.pais }}</span>
+    </p>
+    <p class="card__info">
+        <span class="card__span">Estreno en cines: </span>
+        <span class="card__subtitulo">{{ detalles.masInfo.estreno }}</span>
+    </p>
+    <p class="card__info">
+        <span class="card__span">Recaudación: </span>
+        <span class="card__subtitulo">{{ detalles.masInfo.recaudacion }}</span>
+    </p>
+    <p class="card__info">
+        <span class="card__span">Espectadores: </span>
+        <span class="card__subtitulo">{{ detalles.masInfo.espectadores }}</span>
     </p>
 </div>

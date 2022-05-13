@@ -1,8 +1,9 @@
 .card__p {
     color: white;
     hyphens: initial;
-    line-height: 1.4em;
+    line-height: 1.6em;
     font-size: 1.1em;
+    font-weight: 600;
 }
 
 .card__ul {
@@ -46,7 +47,7 @@
 .card__direccion {
 
 }
-.card__director, .card__actor {
+.card__director, .card__enlace {
     color: white;
     font-size: 1.2em;
     letter-spacing: -1px;
@@ -61,7 +62,29 @@
 .card__span {
     color: #93959c;
     font-weight: 600;
+    font-size: 1.1em;
 }
 .card__actores {
     margin: 1em 0 0 0;
+}
+
+.card__titulo {
+    color: #93959c;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.card__subtitulo {
+    color: white;
+    margin: .2em 0 0 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.card__subtitulos {
+    margin: 1em 0 0 0;
+}
+
+.card__info {
+    margin: .5em 0 0 0;
 }

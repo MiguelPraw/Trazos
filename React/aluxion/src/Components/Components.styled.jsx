@@ -145,6 +145,10 @@ export const ContainerImagenes = styled.div`
 
 export const Imagen = styled.img`
     width: 40%;
+
+    @media screen and (max-width: 760px) {
+        width: 60%;
+    }
 `
 
 export const ImagenMenu = styled.img`
@@ -174,10 +178,24 @@ export const Seccion = styled.div`
     &.activo {
         opacity: 1;
     }
+
+    @media screen and (max-width: 760px) {
+        flex-flow: column-reverse;
+        justify-content: center;
+    }
 `
 
 export const Informacion = styled.article`
     max-width: 40%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media screen and (max-width: 760px) {
+        max-width: 80%;
+        align-items: center;
+    }
 `
 
 export const Autor = styled.h3`
@@ -197,6 +215,10 @@ export const Nombre = styled.h2`
 
 export const Descripcion = styled.p`
     margin: 1em 0 0 0;
+
+    @media screen and (max-width: 760px) {
+        text-align: center;
+    }
 `
 
 export const BotonDetalles = styled.button`
@@ -205,6 +227,10 @@ export const BotonDetalles = styled.button`
     color: white;
     padding: 0.5em 1em;
     margin: 1em 0 0 0;
+
+    @media screen and (max-width: 760px) {
+        margin: 1em auto;
+    }
 `
 
 export const Bloque = styled.div`
