@@ -132,7 +132,7 @@ body::-webkit-scrollbar-track {
     top: 300%;
 }
 
-.portada__container h3, .proyectos__h2 h2, .about__h2 h2, .contacto__h2 h2 {
+.portada__container h3, .proyectos__h2 h2, .about__container h2, .contacto__h2 h2 {
     font-family: var(--fuente-secundaria);
     color: white;
     font-size: 1.5em;
@@ -394,7 +394,17 @@ body::-webkit-scrollbar-track {
     background: #262424;
 }
 
+.about__container {
+    background: #222020;
+    padding: 1em;
+    height: 75%;
+    width: 75%;
 
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 .footer {
     background: #262424;
