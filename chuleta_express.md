@@ -413,7 +413,7 @@ app.put('/alumno' , async ( req , res ) => {
     })
 });
 
-/* USANDO EL REST */
+/* USANDO EL OPERADOR REST */
 app.put('/alumno' , async ( req , res ) => {
 
     const { id , ...usuario } = req.body;
