@@ -9,7 +9,7 @@ export interface IPelicula {
     portada:      string;
     fondo:        string;
     titulo:       string;
-    director:     string;
+    director:     Director;
     genero:       string[];
     edad:         string;
     hd:           boolean;
@@ -45,4 +45,9 @@ export interface MasInfo {
 export interface Premio {
     premio:   string;
     cantidad: number;
+}
+
+export interface Director {
+    nombre: string;
+    url:    string;
 }

@@ -39,9 +39,8 @@ function getPeliculasByGenero( req , res ) {
 
 function getPeliculasByDirector( req , res ) {
     let { director } = req.params;
-    director = director.charAt(0).toUpperCase() + director.slice(1);
 
-    let peliculasDirector = peliculas.filter( pelicula => pelicula.director.includes( director ));
+    let peliculasDirector = peliculas.filter( pelicula => pelicula.director.url.includes( director ));
 
     let estado = peliculasDirector.length != 0 ? 200 : 404;
     let data   = peliculasDirector ? peliculasDirector : [];

@@ -20,7 +20,7 @@
                         <h2 class="pelicula__h2"> {{ pelicula.titulo }} </h2>
                         
                         <ul class="pelicula__ul--sup">
-                            <li class="pelicula__director"> {{ pelicula.director }} </li>
+                            <li class="pelicula__director"> {{ pelicula.director.nombre }} </li>
                             <li 
                                 *ngFor="let genero of pelicula.genero"
                                 class="pelicula__genero"> {{ genero }} </li>

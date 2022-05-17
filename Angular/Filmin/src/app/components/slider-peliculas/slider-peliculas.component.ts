@@ -14,6 +14,7 @@ export class SliderPeliculasComponent implements OnInit {
 
   numero            : number = 0;
 
+  
   // 16 / 2 = 8 -> columnas
   // 8 / 4 = 2
   
@@ -39,7 +40,8 @@ export class SliderPeliculasComponent implements OnInit {
   }
 
   gridColumns() : string {
-    return `repeat(${this.slider.items.length / this.numFilas},1fr)`;
+    let ancho = ( window.innerWidth < 800 ) ? `repeat(4,1fr)` : `repeat(${this.slider.items.length / this.numFilas},1fr)` ;
+    return ancho;
   }
 
   translateX() : string {

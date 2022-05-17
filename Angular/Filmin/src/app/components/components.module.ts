@@ -58,7 +58,7 @@ import { FiltroComponent } from './filtro/filtro.component';
     PeliculaExtrasComponent,
     FooterComponent,
     PeliculasGridComponent,
-    FiltroComponent
+    FiltroComponent,
   ],
   imports: [
     CommonModule,

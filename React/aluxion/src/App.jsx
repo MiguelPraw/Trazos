@@ -38,7 +38,6 @@ const App = () => {
   //   document.addEventListener( 'wheel' , ( e ) => {
   //     console.log( e.deltaY )
   //     (e.deltaY < 0) ? setMuebleActivo( muebleActivo - 1) : setMuebleActivo(muebleActivo + 1);
-        
   //   })
   // }, []);
 
@@ -54,9 +53,7 @@ const App = () => {
   return (
     <ThemeProvider theme={ theme }>
       <GlobalStyle />
-
-      <Cabecera  />
-
+      <Cabecera />
       <Cuerpo>
         <Wrapper 
           style={ {
@@ -81,7 +78,6 @@ const App = () => {
           }
         </Wrapper>
       </Cuerpo>
-
       <Footer>
         <Wrapper justify="flex-start">
           {

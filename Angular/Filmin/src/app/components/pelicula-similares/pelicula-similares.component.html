@@ -1,3 +1,10 @@
 <div class="similares">
-    
+    <ul class="similares__listado">
+        <li *ngFor=" let pelicula of peliculas">
+            <a [routerLink]=" ['/pelicula' , pelicula.url] ">
+                <app-slider-peliculas-card
+                    [slide]="pelicula"></app-slider-peliculas-card>
+            </a>
+        </li>
+    </ul>
 </div>

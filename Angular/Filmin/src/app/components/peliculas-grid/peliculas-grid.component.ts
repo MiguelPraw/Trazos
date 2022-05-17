@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IPelicula } from 'src/interfaces/filmin.interfaces';
 
 @Component({
@@ -10,8 +11,14 @@ export class PeliculasGridComponent implements OnInit {
 
   @Input() peliculas : IPelicula[] = [];
 
-  constructor() { }
+  rutaActiva : string = '';
 
-  ngOnInit(): void { }
+  constructor(
+    private router : Router
+  ) { }
+
+  ngOnInit(): void { 
+    this.rutaActiva = this.router.url.split('/')[1];
+  }
 
 }

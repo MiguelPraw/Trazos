@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filtro',
@@ -7,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltroComponent implements OnInit {
 
-  constructor() { }
+  filtro : boolean = false;
 
-  ngOnInit(): void { }
+  rutaActiva : string = '';
+
+  constructor(
+    private router : Router
+  ) { }
+
+  ngOnInit(): void {
+    this.rutaActiva = this.router.url.split('/')[1];
+  }
+
+  setFiltro() : void {
+    this.filtro = !this.filtro;
+  }
 
 }

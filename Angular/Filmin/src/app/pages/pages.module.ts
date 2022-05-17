@@ -4,17 +4,20 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ComponentsModule } from '../components/components.module';
 import { PeliculaComponent } from './pelicula/pelicula.component';
 import { PeliculasComponent } from './peliculas/peliculas.component';
+import { SeriesComponent } from './series/series.component';
 
 @NgModule({
   declarations: [
     InicioComponent,
     PeliculaComponent,
-    PeliculasComponent
+    PeliculasComponent,
+    SeriesComponent
   ],
   exports : [
     InicioComponent,
     PeliculaComponent,
-    PeliculasComponent
+    PeliculasComponent,
+    SeriesComponent
   ],
   imports: [
     ComponentsModule,

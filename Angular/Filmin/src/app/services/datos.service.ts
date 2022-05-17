@@ -83,7 +83,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39491/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39491/1/still_1_3_1360x765.png",
             titulo        : "El gran Lebowski",
-            director      : "Joel Coen",
+            director      : { nombre : "Joel Coen" , url : "joel-coen"},
             genero        : ["Comedia"],
             edad          : "12+",
             hd            : true,
@@ -120,7 +120,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39680/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39680/2/still_2_3_1360x765.png",
             titulo        : "La milla verde",
-            director      : "Frank Darabont",
+            director      : { nombre : "Frank Darabont" , url : "frank-darabont"},
             genero        : ["Drama"],
             edad          : "13+",
             hd            : true,
@@ -157,7 +157,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39947/8/poster_1_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39947/2/still_2_3_1360x765.png",
             titulo        : "El hombre que nunca estuvo allí",
-            director      : "Joel Coen",
+            director      : { nombre : "Joel Coen" , url : "joel-coen"},
             genero        : ["Drama" , "Thriller"],
             edad          : "13+",
             hd            : true,
@@ -194,7 +194,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39820/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39820/2/still_2_3_1360x765.png",
             titulo        : "Sneakers (Los fisgones)",
-            director      : "Phil Alden Robinson",
+            director      : { nombre : "Phil Alden Robinson" , url : "phil-alden-robinson"},
             genero        : ["Thriller"],
             edad          : "13+",
             hd            : true,
@@ -231,7 +231,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/36814/5/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/36814/12/still_0_3_1360x765.png",
             titulo        : "Pierrot el loco",
-            director      : "Jean-Luc Godard",
+            director      : { nombre : "Jean-Luc Godard" , url : "jean-luc-godard" },
             genero        : ["Clásicos" , "Romántica" , "Drama"],
             edad          : "12+",
             hd            : true,
@@ -268,7 +268,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/26781/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/26781/5/still_1_3_1360x765.png",
             titulo        : "El discreto encanto de la burguesía",
-            director      : "Luis Buñuel",
+            director      : { nombre : "Luis Buñuel" , url : "luis-buñuel" },
             genero        : ["Clásicos" , "Comedia"],
             edad          : "TP",
             hd            : true,
@@ -306,7 +306,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/9959/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/9959/2/still_1_3_1360x765.png",
             titulo        : "La Gran Belleza",
-            director      : "Paolo Sorrentino",
+            director      : { nombre : "Paolo Sorrentino" , url : "paolo-sorrentino" },
             genero        : ["Drama"],
             edad          : "12+",
             hd            : true,
@@ -343,7 +343,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/32763/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/32763/4/still_1_3_1360x765.png",
             titulo        : "Tiburón",
-            director      : "Steven Spielberg",
+            director      : { nombre : "Steven Spielberg" , url : "steven-spielberg" },
             genero        : ["Clásicos" , "Thriller" , "Terror"],
             edad          : "13+",
             hd            : true,
@@ -381,7 +381,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39953/1/poster_0_3_640x0.png",
             fondo         : "https://static.filmin.es/images/media/39953/2/still_2_3_1360x765.png",
             titulo        : "La lista de Schindler",
-            director      : "Steven Spielberg",
+            director      : { nombre : "Steven Spielberg" , url : "steven-spielberg" },
             genero        : ["Drama"],
             edad          : "13+",
             hd            : true,
@@ -419,7 +419,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39949/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39949/2/still_2_3_1360x765.png",
             titulo        : "Notting Hill",
-            director      : "Roger Michell",
+            director      : { nombre : "Roger Michell" , url : "roger-michell" },
             genero        : ["Comedia"],
             edad          : "TP",
             hd            : true,
@@ -457,7 +457,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39377/3/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39377/2/still_2_3_1360x765.png",
             titulo        : "El presidente y Miss Wade",
-            director      : "Rob Reiner",
+            director      : { nombre : "Rob Reiner" , url : "rob-reiner" },
             genero        : ["Romántica" , "Comedia"],
             edad          : "TP",
             hd            : true,
@@ -495,7 +495,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39404/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39404/2/still_2_3_1360x765.png",
             titulo        : "Regreso al futuro",
-            director      : "Robert Zemeckis",
+            director      : { nombre : "Robert Zemeckis" , url : "robert-zemeckis" },
             genero        : ["Clásicos" , "Aventuras" , "Ciencia ficción"],
             edad          : "TP",
             hd            : true,
@@ -533,7 +533,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/27465/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/27465/2/still_0_3_1360x765.png",
             titulo        : "Psicosis",
-            director      : "Alfred Hitchcock",
+            director      : { nombre : "Alfred Hitchcock" , url : "alfred-hitchcock" },
             genero        : [ "Clasicos" , "Thriller" , "Terror" ],
             edad          : "12+",
             hd            : true,
@@ -571,7 +571,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/17452/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/17452/1/still_0_3_1360x765.png",
             titulo        : "El Pianista",
-            director      : "Roman Polanski",
+            director      : { nombre : "Roman Polanski" , url : "roman-polanski" },
             genero        : [ "Drama" , "Biopic" ],
             edad          : "13+",
             hd            : true,
@@ -608,7 +608,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/39946/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/39946/1/still_1_3_1360x765.png",
             titulo        : "Waterworld",
-            director      : "Kevin Reynolds",
+            director      : { nombre : "Kevin Reynolds" , url : "kevin-reynolds" },
             genero        : [ "Ciencia ficcion" ],
             edad          : "13+",
             hd            : true,
@@ -646,7 +646,7 @@ export class DatosService {
             portada       : "https://static.filmin.es/images/media/33165/1/poster_0_3_338x507.png",
             fondo         : "https://static.filmin.es/images/media/33165/5/still_0_3_1360x765.png",
             titulo        : "Apocalypse Now",
-            director      : "Francis Ford Coppola",
+            director      : { nombre : "Francis Ford Coppola" , url : "francis-ford-coppola" },
             genero        : [ "Clasicos" , "Aventuras" , "Belico" ],
             edad          : "16+",
             hd            : true,
@@ -699,7 +699,7 @@ export class DatosService {
         },
     ]
 
-    base_url = 'http://localhost:5000'
+    base_url = 'http://localhost:5000';
 
     constructor(
         private http : HttpClient
@@ -719,5 +719,9 @@ export class DatosService {
 
     getPeliculasByDirector( director : string ) : Observable<IResponsePeliculas> {
         return this.http.get<IResponsePeliculas>(`${this.base_url}/peliculas/director/${ director }`)
+    }
+
+    getSeries() : Observable<IResponsePeliculas> {
+        return this.http.get<IResponsePeliculas>(`${this.base_url}/series`);
     }
 }
