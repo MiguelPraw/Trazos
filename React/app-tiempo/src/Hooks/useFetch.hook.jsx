@@ -9,7 +9,6 @@ export const useFetch = ( endpoint ) => {
     });
 
     useEffect( () => {
-
         fetch(`https://www.el-tiempo.net/api/json/v2/${ endpoint }`)
         .then( res => res.json() )
         .then( data => {
@@ -25,7 +24,6 @@ export const useFetch = ( endpoint ) => {
                 error   : "No encontado"
             })
         );
-
     }, []);
 
     return datos;
@@ -40,7 +38,6 @@ export const useFetchCiudad = (idProvincia , idMunicipio ) => {
     });
 
     useEffect( () => {
-
         fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${idProvincia}/municipios/${idMunicipio}`)
         .then( res => res.json())
         .then( data => {
@@ -56,8 +53,7 @@ export const useFetchCiudad = (idProvincia , idMunicipio ) => {
                 error   : "No encontado"
             })
         );
-
     }, []);
-
+    
     return datos;
 }

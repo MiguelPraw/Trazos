@@ -40,6 +40,7 @@ export const Main = styled.main`
 `
 
 export const Grid = styled.div`
+    margin: 2em 0 0 0;
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
     gap: .5em;
@@ -63,7 +64,6 @@ export const Card = styled.article`
 export const Nombre = styled.h2`
     color: white;
     font-size: 1.4em;
-    width: 100%;
 `
 
 export const Fila = styled.div`
@@ -94,8 +94,43 @@ export const Icono = styled.svg`
     fill: white;
 `
 
+export const ContainerSlider = styled.div`
+    position: relative;
+`
+
+export const Slider = styled.ul`
+    margin: 4em 0;
+    width: 1300%;
+    position: relative;
+
+    transition: all 1s ease;
+
+    display: grid;
+    grid-template-columns: repeat( 52 , 1fr);
+    gap: .5em;
+`
+
+export const BotonFlecha = styled.button`
+    position: absolute;
+    top: 0;
+    right: ${ ({ right }) => right };
+    height: 100%;
+    cursor: pointer;
+    padding: 0 .5em;
+
+    &.disabled {
+        display: none;
+    }
+
+    svg{
+        fill: white;
+    }
+`
+
 export const Wrapper = styled.div`
     width: 90%;
     max-width: 1200px;
     margin: auto;
+
+    overflow: hidden;
 `
