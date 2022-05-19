@@ -3,6 +3,8 @@ import GlobalStyle from './Styled/global.styled';
 import theme from './Styled/theme.styled';
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
 import Inicio from './Pages/Inicio';
+import Provincias from './Pages/Provincias';
+import Municipios from './Pages/Municipios';
 
 const App = () => {
 
@@ -13,7 +15,9 @@ const App = () => {
 
       <Router>
         <Routes>
-          <Route path='/' element={ <Inicio /> }/>
+          <Route path='/' element={ <Inicio/> }/>
+          <Route path='/provincias' element={ <Provincias/> }/>
+          <Route path='/municipios' element={ <Municipios/> }/>
         </Routes>
       </Router>
 

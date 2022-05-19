@@ -1,5 +1,5 @@
 import { useProvincia } from "../../Hooks/useProvincia.hook";
-import { Card , Fila , Nombre } from "../../Styled/Components.styled";
+import { Card , Fila , Nombre , NombreCiudad , ContainerCiudades , Grados } from "../../Styled/Components.styled";
 
 const SlideProvincia = ({ prov }) => {
 
@@ -14,15 +14,23 @@ const SlideProvincia = ({ prov }) => {
         <>
             <Card>
                 <Fila>
-                    <Nombre>{ prov.NOMBRE_PROVINCIA}</Nombre>
+                    <Nombre className="provincia">{ prov.NOMBRE_PROVINCIA}</Nombre>
                 </Fila>
-                <Fila>
+                <ContainerCiudades>
                     {
                         ( data !== null )
-                        ?  data.ciudades.map( ciudad => <></>)
-                        :  <></>
+                        ?   data.ciudades.map( ciudad => 
+                                <Fila>
+                                    <NombreCiudad>{ciudad.name}</NombreCiudad>
+                                    <Fila justify="flex-end">
+                                        <Grados className="max">{ ciudad.temperatures.max }º</Grados>
+                                        <Grados className="min">{ ciudad.temperatures.min }º</Grados>
+                                    </Fila>
+                                </Fila>
+                            )
+                        :   <></>
                     }
-                </Fila>
+                </ContainerCiudades>
             </Card>
         </>
     )

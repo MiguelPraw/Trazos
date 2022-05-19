@@ -7,7 +7,6 @@ export const Header = styled.header`
     justify-content: center;
     align-items: center;
     background: #000000Ff;
-
 `
 
 export const Navegador = styled.nav`
@@ -34,13 +33,11 @@ export const Elemento = styled.li`
 `
 
 export const Main = styled.main`
-    padding: 2em 0;
     background: #000000cf;
-    height: 90vh;
 `
 
 export const Grid = styled.div`
-    margin: 2em 0 0 0;
+    margin: 4em 0 0 0;
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
     gap: .5em;
@@ -54,25 +51,43 @@ export const Card = styled.article`
     background: black;
     padding: 1.5em;
     border-radius: 0.5rem;
+    min-width: calc( 1300% / 52);
 
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 `
 
 export const Nombre = styled.h2`
     color: white;
     font-size: 1.4em;
+
+    &.provincia::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        background: white;
+    }
+`
+
+export const NombreCiudad = styled.h3`
+    color: white;
 `
 
 export const Fila = styled.div`
     width: 100%;
     display: flex;
-    flex-flow: ${ ({ flow }) => flow || 'row nowrap' };
+    flex-direction: ${ ({ flow }) => flow || 'row' };
+    flex-wrap: ${ ({ wrap }) => wrap || 'nowrap' };
     justify-content: ${ ({ justify }) => justify || 'center' };
     align-items: ${ ({ align }) => align || 'center' };
     gap: 1em;
+
+    svg {
+        fill: white;
+    }
 `
 
 export const Grados = styled.span`
@@ -125,6 +140,15 @@ export const BotonFlecha = styled.button`
     svg{
         fill: white;
     }
+`
+
+export const ContainerCiudades = styled.div`
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    margin: 1em 0 0 0;
 `
 
 export const Wrapper = styled.div`
