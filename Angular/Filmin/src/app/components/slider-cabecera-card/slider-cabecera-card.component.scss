@@ -6,17 +6,17 @@
     border-radius: .5rem;
     height: 40vh;
     
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-        height: 64vh;
-    }
+    // @media screen and (min-width: 768px) and (max-width: 1024px) {
+    //     height: 64vh;
+    // }
 }
 .card__video {
     border-radius: .5rem;
     height: 40vh;
 
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-        height: 64vh;
-    }
+    // @media screen and (min-width: 768px) and (max-width: 1024px) {
+    //     height: 64vh;
+    // }
 }
 .card__info {
     position: absolute;
@@ -39,9 +39,9 @@
         padding: 0 0 5rem 0;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-        height: 64vh;
-    }
+    // @media screen and (min-width: 768px) and (max-width: 1024px) {
+    //     height: 64vh;
+    // }
 }
 .card__span {
     background: #00000088;
@@ -56,7 +56,13 @@
     font-size: 2.75rem;
     letter-spacing: -1px;
     font-weight: 900;
+    line-height: 1;
+    text-align: center;
     color: white;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 2rem;
+    }
 } 
 .card__descripcion {
     margin: 1.5rem 0 0 0;

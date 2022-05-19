@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider-categorias',
   templateUrl: './slider-categorias.component.html',
   styleUrls: ['./slider-categorias.component.scss']
 })
-export class SliderCategoriasComponent implements OnInit {
+export class SliderCategoriasComponent implements OnInit, OnChanges {
 
   @Input() slider : any[] = [];
 
@@ -17,7 +17,9 @@ export class SliderCategoriasComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void { }
+
+  ngOnChanges(): void {
     this.limite = this.slider.length / this.elementosVisibles;
   }
 

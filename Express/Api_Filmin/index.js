@@ -7,6 +7,19 @@ const cors    = require('cors');
 const helmet  = require( 'helmet' );
 const morgan  = require( 'morgan' );
 
+const mongoose = require('mongoose');
+
+const conectar = async () => {
+    await mongoose.connect('mongodb://localhost:27017/Filmin') , {
+        useNewUrlParser     : true,
+        useUnifiedTopology  : true
+    } , () => {
+        console.log(" Conexión con MongoDB ");
+    }
+}
+
+conectar();
+
 app.use( cors() );
 app.use( helmet() );
 app.use( morgan('tiny') );
@@ -16,4 +29,4 @@ app.use( router );
 
 app.listen(5000 , () => {
     console.log('Iniciando App');
-})
+});

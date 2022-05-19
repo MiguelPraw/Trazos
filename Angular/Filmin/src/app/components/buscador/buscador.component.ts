@@ -19,7 +19,8 @@ export class BuscadorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.peliculas = this.datosService.peliculas;
+    // this.peliculas = this.datosService.peliculas;
+    this.datosService.getPeliculas().subscribe( data => this.peliculas = data.data );
   }
 
   // navegar( base : string , url : string  ) : void{
