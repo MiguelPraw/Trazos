@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useProvincia } from "../../Hooks/useProvincia.hook";
 import { Card , Fila , Nombre , NombreCiudad , ContainerCiudades , Grados } from "../../Styled/Components.styled";
 
@@ -6,10 +7,10 @@ const SlideProvincia = ({ prov }) => {
     // https://www.npmjs.com/package/meteoscrapi
 
     const { data } = useProvincia( prov.CODPROV );
-    if ( data !== null ){
-        console.log( data )
-    }
-
+    // if ( data !== null ){
+    //     console.log( data )
+    // }
+    
     return (
         <>
             <Card>
@@ -19,12 +20,12 @@ const SlideProvincia = ({ prov }) => {
                 <ContainerCiudades>
                     {
                         ( data !== null )
-                        ?   data.ciudades.map( ciudad => 
-                                <Fila>
+                        ?   data.ciudades.map( (ciudad , i) => 
+                                <Fila key={ i }>
                                     <NombreCiudad>{ciudad.name}</NombreCiudad>
                                     <Fila justify="flex-end">
-                                        <Grados className="max">{ ciudad.temperatures.max }º</Grados>
-                                        <Grados className="min">{ ciudad.temperatures.min }º</Grados>
+                                        <Grados size="1.2em" className="max">{ ciudad.temperatures.max }º</Grados>
+                                        <Grados size="1.2em" className="min">{ ciudad.temperatures.min }º</Grados>
                                     </Fila>
                                 </Fila>
                             )

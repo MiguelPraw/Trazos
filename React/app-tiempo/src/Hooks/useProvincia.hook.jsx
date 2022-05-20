@@ -9,21 +9,17 @@ export const useProvincia = ( idProvincia ) => {
     });
 
     useEffect( () => {
+
         fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${ idProvincia }`)
         .then( res => res.json())
         .then( data => {
             setDatos({
-                data,
+                data ,
                 loading : false,
                 error   : null
             });
-        }).catch(
-            setDatos({
-                data    : null,
-                loading : false,
-                error   : true
-            })
-        );
+        }).catch( setDatos({ data    : null, loading : false, error   : true }))
+    
     }, []);
 
     return datos;

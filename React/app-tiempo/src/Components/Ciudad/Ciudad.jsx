@@ -26,7 +26,7 @@ const Ciudad = ({ ciudad }) => {
 
     return (
         <>
-            <Card>
+            <Card minHeight="0">
                 <Fila justify="space-between">
                     <Nombre>{ ciudad.name }</Nombre>
                     {

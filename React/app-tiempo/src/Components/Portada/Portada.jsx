@@ -21,6 +21,7 @@ const Portada = ({}) => {
                         )
                     }
                 </Grid>
+            </Wrapper>
                 {
                     ( data !== null 
                         ?   <SliderProvincias provincias={ data.provincias }>
@@ -29,8 +30,6 @@ const Portada = ({}) => {
                         :   <></>
                     )
                 }
-                
-            </Wrapper>
         </Main>
     )
 }
