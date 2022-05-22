@@ -272,20 +272,6 @@ body::-webkit-scrollbar-track {
     margin: 2em 0 0 0;
 }
 
-@keyframes icono {
-    0% {
-        transform: translateY(20px);
-    }
-
-    50% {
-        transform: translateY(0px);
-    }
-
-    100% {
-        transform: translateY(20px);
-    }
-}
-
 .proyectos__h2 {
     font-size: 2.5vw;
     font-weight: 600;
@@ -387,6 +373,7 @@ body::-webkit-scrollbar-track {
 .proyecto {
     position: relative;
     overflow: hidden;
+    animation: aparecer 1s;
 }
 
 .proyecto img {
