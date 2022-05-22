@@ -105,8 +105,22 @@ document.querySelectorAll('.proyectos__h2').forEach( nodoProyecto => {
             nodoGridReact.classList.remove('activo');
         }
     });
-
 })
+
+document.querySelector('.portada__boton.proyectos').addEventListener( 'click' , () => {
+    distancia = 100;
+    document.querySelector('main').style.transform = `translateY(-${ distancia }%)`;
+});
+
+document.querySelector('.portada__boton.about').addEventListener( 'click' , () => {
+    distancia = 200;
+    document.querySelector('main').style.transform = `translateY(-${ distancia }%)`;
+});
+
+document.querySelector('.portada__boton.contacto').addEventListener( 'click' , () => {
+    distancia = 300;
+    document.querySelector('main').style.transform = `translateY(-${ distancia }%)`;
+});
 // function añadeClaseHeader() {
 //     let nodoLi = document.querySelectorAll('ul li');
 //     nodoLi.forEach ( li => {
