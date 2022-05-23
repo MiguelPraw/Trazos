@@ -17,9 +17,6 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { 
-    // this.sliderCabecera   = this.datosService.sliderCabecera;
-    // this.sliderCategorias = this.datosService.sliderCategorias;
-    // this.slidersInicio    = this.datosService.slidersInicio;
 
     this.datosService.getInicio().subscribe( data => {
       const { sliderCategorias , sliderCabecera } = data.data;

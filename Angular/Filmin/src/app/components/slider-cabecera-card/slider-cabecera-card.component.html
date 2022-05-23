@@ -12,7 +12,9 @@
             class="card__span"> Serie completa </span>
         <h2 class="card__h2"> {{ slide.titulo }} </h2>
         <p class="card__descripcion"> {{ slide.subtitulo }} </p>
-        <button class="card__btn"> {{ slide.boton.texto }} </button>
+        <button class="card__btn">
+            <a [routerLink]="['/peliculas']">{{ slide.boton.texto }}</a>
+        </button>
     </div>
     <div
         *ngIf=" !slide.inicial "

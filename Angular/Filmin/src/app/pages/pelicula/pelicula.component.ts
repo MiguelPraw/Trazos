@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatosService } from 'src/app/services/datos.service';
 import { IPelicula } from 'src/interfaces/filmin.interfaces';
@@ -8,7 +8,7 @@ import { IPelicula } from 'src/interfaces/filmin.interfaces';
   templateUrl: './pelicula.component.html',
   styleUrls: ['./pelicula.component.scss']
 })
-export class PeliculaComponent implements OnInit {
+export class PeliculaComponent implements OnInit , OnChanges {
   
   pelicula  : IPelicula | any = {};
 
@@ -20,7 +20,17 @@ export class PeliculaComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( ( { url } ) => {
       this.datosService.getPeliculaByUrl( url ).subscribe( ( data : any ) => {
-        this.pelicula = data.data;
+        console.log( data )
+        this.pelicula = data.data[0];
+      });
+    })
+  }
+
+  ngOnChanges() : void {
+    this.activatedRoute.params.subscribe( ( { url } ) => {
+      this.datosService.getPeliculaByUrl( url ).subscribe( ( data : any ) => {
+        console.log( data )
+        this.pelicula = data.data[0];
       });
     })
   }

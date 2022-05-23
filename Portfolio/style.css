@@ -89,6 +89,7 @@ body::-webkit-scrollbar-track {
 
     background: url('https://wallpaperaccess.com/full/5651990.jpg');
     background-position: center;
+    background-size: cover;
     filter: brightness(0.3);
 }
 
@@ -200,7 +201,7 @@ body::-webkit-scrollbar-track {
 .portada__boton {
     background: #262424;
     color: white;
-    padding: 0.5em 1em;
+    padding: 1em 2em;
     font-family: var(--fuente-secundaria);
     font-weight: 600;
     cursor: pointer;
@@ -212,6 +213,7 @@ body::-webkit-scrollbar-track {
 
 .portada__boton:hover {
     background: transparent;
+    border-radius: 1.5rem;
 }
 
 .proyectos__container {

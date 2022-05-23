@@ -1,15 +1,21 @@
-const { peliculas } = require('./../bbdd');
+// const { peliculas } = require('./../bbdd');
 
-function getPeliculas( req , res ) {
+const { Pelicula } = require('./../mongoose');
+
+async function getPeliculas( req , res ) {
+
+    let peliculas = await Pelicula.find();
+
     res.status(200).json({
         data : peliculas,
         msj : 'Correcto'
     });
 }
 
-function getPeliculaByUrl( req , res ) {
+async function getPeliculaByUrl( req , res ) {
     let { url } = req.params;
-    let pelicula = peliculas.find( pelicula => pelicula.url.toLowerCase() === url.toLowerCase() );
+
+    let pelicula = await Pelicula.find( { url } );
 
     let estado = pelicula ? 200 : 404;
     let data   = pelicula ? pelicula : {};
@@ -37,9 +43,10 @@ function getPeliculasByGenero( req , res ) {
     });
 }
 
-function getPeliculasByDirector( req , res ) {
+async function getPeliculasByDirector( req , res ) {
     let { director } = req.params;
 
+    let peliculas = await Pelicula.find();
     let peliculasDirector = peliculas.filter( pelicula => pelicula.director.url.includes( director ));
 
     let estado = peliculasDirector.length != 0 ? 200 : 404;

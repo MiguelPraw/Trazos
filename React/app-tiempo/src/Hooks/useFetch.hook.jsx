@@ -29,7 +29,7 @@ export const useFetch = ( endpoint ) => {
     return datos;
 }
 
-export const useFetchCiudad = (idProvincia , idMunicipio ) => {
+export const useFetchCiudad = ( idProvincia , idMunicipio ) => {
 
     const [ datos , setDatos ] = useState({
         data    : null,

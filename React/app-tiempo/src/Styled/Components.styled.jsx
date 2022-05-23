@@ -34,11 +34,11 @@ export const Elemento = styled.li`
 
 export const Main = styled.main`
     background: #000000cf;
-    padding: 4em 0;
     min-height: 90vh;
 `
 
 export const Grid = styled.div`
+    margin: 4em 0 0 0;
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
     gap: .5em;
@@ -63,8 +63,8 @@ export const Card = styled.article`
 
 export const Nombre = styled.h2`
     color: white;
-    font-size: 1.4em;
-    text-align: center;
+    font-size: ${({ size }) => size || "1.4em"};
+    text-align: ${ ({ align }) => align || "center" };
 
     &.provincia {
         text-decoration: underline;
@@ -82,7 +82,9 @@ export const Fila = styled.div`
     flex-wrap: ${ ({ wrap }) => wrap || 'nowrap' };
     justify-content: ${ ({ justify }) => justify || 'center' };
     align-items: ${ ({ align }) => align || 'center' };
-    gap: 1em;
+    gap: ${ ({ gap }) => gap || "1em" };
+
+    background: ${ ({ bg }) => bg || "transparent" };
 
     svg {
         fill: white;
@@ -151,6 +153,19 @@ export const ContainerCiudades = styled.div`
     gap: 0.5em;
     margin: 1em 0 0 0;
     width: 90%;
+`
+
+export const ContainerCiudad = styled.section`
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 90vh;
+`
+
+export const TextoH3 = styled.h3`
+    color: white;
+    font-size: 2em;
 `
 
 export const Wrapper = styled.div`

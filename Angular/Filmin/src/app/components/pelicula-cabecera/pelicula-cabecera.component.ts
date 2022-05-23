@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IPelicula } from 'src/interfaces/filmin.interfaces';
 
 @Component({
   selector: 'app-pelicula-cabecera',
@@ -7,10 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PeliculaCabeceraComponent implements OnInit {
 
-  @Input() pelicula  : any = {};
+  @Input() pelicula  : IPelicula | any = {};
 
   constructor(){}
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    console.log( this.pelicula )
+  }
 
 }

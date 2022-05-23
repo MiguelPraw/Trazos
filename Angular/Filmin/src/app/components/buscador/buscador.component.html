@@ -28,7 +28,7 @@
                                                 {{ pelicula.titulo }}
                                             </li>
                                             <li class="buscador__director">
-                                                {{ pelicula.director }}, {{ pelicula.anio }}
+                                                {{ pelicula.director.nombre }}, {{ pelicula.anio }}
                                             </li>
                                         </ul>
                                         <span class="buscador__nota">
@@ -41,7 +41,7 @@
                                     <h2 class="buscador__titulo">{{ pelicula.titulo }}</h2>
                                     <ul class="buscador__ul">
                                         <li class="buscador__li">
-                                            {{ pelicula.director }}
+                                            {{ pelicula.director.nombre }}
                                         </li>
                                         <li class="buscador__li">
                                             {{ pelicula.anio }}
