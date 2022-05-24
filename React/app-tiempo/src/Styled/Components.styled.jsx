@@ -18,6 +18,7 @@ export const Navegador = styled.nav`
 
 export const Titulo = styled.h1`
     color: white;
+    font-size: 2em;
 `
 
 export const Menu = styled.ul`
@@ -35,6 +36,24 @@ export const Elemento = styled.li`
 export const Main = styled.main`
     background: #000000cf;
     min-height: 90vh;
+`
+
+export const MainCiudad = styled.main`
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(${ ({ url }) => url || "initial" });
+        background-size: cover;
+        filter: brightness(0.5);
+    }
 `
 
 export const Grid = styled.div`
@@ -59,12 +78,24 @@ export const Card = styled.article`
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
+
+    transition: all .3s ease;
+
+    &:hover {
+        background: #00000052;
+    }
 `
 
 export const Nombre = styled.h2`
     color: white;
     font-size: ${({ size }) => size || "1.4em"};
     text-align: ${ ({ align }) => align || "center" };
+    background: ${ ({ bg }) => bg || "transparent" };
+    padding: ${ ({ padding }) => padding || '0' };
+    width: ${ ({ width }) => width || "auto" };
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; */
 
     &.provincia {
         text-decoration: underline;
@@ -83,6 +114,7 @@ export const Fila = styled.div`
     justify-content: ${ ({ justify }) => justify || 'center' };
     align-items: ${ ({ align }) => align || 'center' };
     gap: ${ ({ gap }) => gap || "1em" };
+    padding: ${ ({ padding }) => padding || "0" };
 
     background: ${ ({ bg }) => bg || "transparent" };
 
@@ -155,17 +187,53 @@ export const ContainerCiudades = styled.div`
     width: 90%;
 `
 
+export const ContainerProvincias = styled.section`
+    margin: 4em 0 0 0;
+`
+
+export const ContainerProvincia = styled.section`
+    margin: 4em 0 0 0;
+`
+
 export const ContainerCiudad = styled.section`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
     align-items: flex-start;
     height: 90vh;
+    position: relative;
 `
 
 export const TextoH3 = styled.h3`
     color: white;
     font-size: 2em;
+`
+
+export const Provincias = styled.ul`
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 1em;
+    margin: 4em 0;
+`
+
+export const Provincia = styled.li`
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    background: black;
+    padding: 1em 2em;
+
+    transition: all .3s ease;
+
+    &:hover {
+        background: #00000052;
+    }
 `
 
 export const Wrapper = styled.div`

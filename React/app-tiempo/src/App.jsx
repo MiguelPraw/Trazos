@@ -6,6 +6,7 @@ import Inicio from './Pages/Inicio';
 import Provincias from './Pages/Provincias';
 import Municipios from './Pages/Municipios';
 import Municipio from './Pages/Municipio';
+import Provincia from './Pages/Provincia';
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={ <Inicio/> }/>
           <Route path='/provincias' element={ <Provincias/> }/>
+          <Route path='/provincia/:idProv' element={ <Provincia/> }/>
           <Route path='/municipios' element={ <Municipios/> }/>
           <Route path='/municipio/:idProv/:idMun' element={ <Municipio /> }/>
         </Routes>
