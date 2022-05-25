@@ -4,9 +4,17 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: flex-start;
+
+    @media screen and (max-width: 792px) {
+        flex-flow: column;
+    }
 }
 .detalles__izq {
     width: 60%;
+
+    @media screen and (max-width: 792px) {
+        width: 100%;
+    }
 }
 .card {
     padding: 2em 5em 2em 2em;
@@ -22,4 +30,8 @@
 }
 .detalles__dcha {
     width: 40%;
+
+    @media screen and (max-width: 792px) {
+        width: 100%;
+    }
 }

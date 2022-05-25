@@ -13,13 +13,19 @@ const SlideProvincia = ({ prov }) => {
     
     return (
         <>
+<<<<<<< Updated upstream
             <NavLink to={`/provincia/${ prov.CODPROV }`}>
                 <Card justify="flex-start">
+=======
+            <NavLink to={`/provincia/${prov.CODPROV}`}>
+                <Card>
+>>>>>>> Stashed changes
                     <Fila>
                         <Nombre className="provincia">{ prov.NOMBRE_PROVINCIA}</Nombre>
                     </Fila>
                     <ContainerCiudades>
                         {
+<<<<<<< Updated upstream
                             dataProvincia !== null && dataProvincia.ciudades.map( (ciudad , i) => 
                                 <Fila className="ciudad" key={ i }>
                                     <NavLink to={`/municipio/${ciudad.idProvince}/${ciudad.id}`}>
@@ -31,6 +37,21 @@ const SlideProvincia = ({ prov }) => {
                                     </Fila>
                                 </Fila>
                             )
+=======
+                            ( data !== null )
+                            ?   data.ciudades.map( (ciudad , i) => 
+                                    <Fila key={ i }>
+                                        <NavLink to={`/municipio/${ciudad.idProvince}/${ciudad.id}`}>
+                                            <NombreCiudad>{ciudad.name}</NombreCiudad>
+                                        </NavLink>
+                                        <Fila justify="flex-end">
+                                            <Grados size="1.2em" className="max">{ ciudad.temperatures.max }º</Grados>
+                                            <Grados size="1.2em" className="min">{ ciudad.temperatures.min }º</Grados>
+                                        </Fila>
+                                    </Fila>
+                                )
+                            :   <></>
+>>>>>>> Stashed changes
                         }
                     </ContainerCiudades>
                 </Card>

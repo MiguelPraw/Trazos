@@ -271,13 +271,13 @@ export const Municipios = styled.ul`
 `
 
 export const Provincia = styled.li`
-    color: white;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: flex-start;
 
     background: black;
+    color: white;
     padding: 1em 2em;
 
     transition: all .3s ease;

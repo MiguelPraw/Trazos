@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { useProvincia } from "./../../Hooks/useProvincia.hook";
 import { ContainerCarga , Main , Wrapper , Nombre , ContainerProvincia , Grid , Municipios , Container, Municipio , BotonMunicipios } from "../../Styled/Components.styled";
 import Ciudad from "../Ciudad/Ciudad";
@@ -30,7 +31,11 @@ const PortadaProvincia = ({ idProv }) => {
                             {
                                 dataProvincia !== null && dataProvincia.ciudades.map( cadaCiudad => {
                                     return (
+<<<<<<< Updated upstream
                                         <NavLink key={ cadaCiudad.id } to={ `/municipio/${idProv}/${cadaCiudad.id}` }>
+=======
+                                        <NavLink to={`/municipio/${cadaCiudad.idProvince}/${cadaCiudad.id}`}>
+>>>>>>> Stashed changes
                                             <Ciudad ciudad={ cadaCiudad } />
                                         </NavLink>
                                     )
