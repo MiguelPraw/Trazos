@@ -61,6 +61,10 @@ export const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
     gap: .5em;
+
+    @media screen and ( max-width: 1000px ) {
+        grid-template-columns: repeat( 1 , 1fr);
+    }
 `
 
 export const Enlace = styled.a`
@@ -72,11 +76,11 @@ export const Card = styled.article`
     padding: 1.5em;
     border-radius: 0.5rem;
     min-width: calc( 1300% / 52);
-    min-height: ${ ({ minHeight }) => minHeight || '362px' };
+    min-height: ${ ({ minHeight }) => minHeight || '370px' };
 
     display: flex;
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: ${ ({ justify }) => justify || "center" };
     align-items: center;
 
     transition: all .3s ease;
@@ -120,6 +124,8 @@ export const Fila = styled.div`
 
     svg {
         fill: white;
+        width: 2em;
+        height: 2em;
     }
 `
 
@@ -195,6 +201,14 @@ export const ContainerProvincia = styled.section`
     margin: 4em 0 0 0;
 `
 
+export const Container = styled.section`
+    margin: 4em 0 0 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+`
+
 export const ContainerCiudad = styled.section`
     display: flex;
     flex-flow: column;
@@ -219,6 +233,30 @@ export const Provincias = styled.ul`
     margin: 4em 0;
 `
 
+export const Municipios = styled.ul`
+
+    /* display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start; */
+    
+    display: grid;
+    grid-template-columns: repeat( 2 , 1fr);
+
+    gap: 1em;
+    margin: 2em 0;
+    
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+
+    &.activo {
+        opacity: 1;
+        height: 100%;
+    }
+`
+
 export const Provincia = styled.li`
     color: white;
     display: flex;
@@ -236,6 +274,54 @@ export const Provincia = styled.li`
     }
 `
 
+export const Municipio = styled.li`
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    background: black;
+    padding: 1em 2em;
+
+    transition: all .3s ease;
+
+    &:hover {
+        background: #00000052;
+    }
+`
+
+export const BotonMunicipios = styled.button`
+
+    margin: 1em 0 0 0;
+    background: #00000052;
+    padding: .5em 2em;
+    cursor: pointer;
+
+    svg {
+        fill: white;
+        width: 1.5em;
+        height: 1.5em;
+
+        transition: all .5s ease;
+
+        &.activo {
+            transform: rotate(180deg);
+        }
+    }
+`
+
+export const Input = styled.input`
+    background: #000000cf;
+    padding: .5em 2em;
+    border: 1px solid grey;
+    color: white;
+
+    &:focus {
+        outline: none;
+    }
+`
+
 export const Wrapper = styled.div`
     width: 90%;
     max-width: 1200px;
@@ -243,3 +329,18 @@ export const Wrapper = styled.div`
 
     overflow: ${ ({ overflow }) => overflow || 'hidden' };
 `
+
+export const ContainerCarga = styled.div`
+    display: none;
+
+    &.activo {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        background: black;
+    }
+` 

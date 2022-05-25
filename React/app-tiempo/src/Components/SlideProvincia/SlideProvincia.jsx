@@ -6,35 +6,37 @@ const SlideProvincia = ({ prov }) => {
 
     // https://www.npmjs.com/package/meteoscrapi
 
-    const { data } = useProvincia( prov.CODPROV );
-    // if ( data !== null ){
-    //     console.log( data )
+    const { dataProvincia } = useProvincia( prov.CODPROV );
+    // if ( dataProvincia !== null ){
+    //     console.log( dataProvincia )
     // }
     
     return (
         <>
-            <Card>
-                <Fila>
-                    <Nombre className="provincia">{ prov.NOMBRE_PROVINCIA}</Nombre>
-                </Fila>
-                <ContainerCiudades>
-                    {
-                        ( data !== null )
-                        ?   data.ciudades.map( (ciudad , i) => 
-                                <Fila key={ i }>
-                                    <NavLink to={`/municipio/${ciudad.idProvince}/${ciudad.id}`}>
-                                        <NombreCiudad>{ciudad.name}</NombreCiudad>
-                                    </NavLink>
-                                    <Fila justify="flex-end">
-                                        <Grados size="1.2em" className="max">{ ciudad.temperatures.max }º</Grados>
-                                        <Grados size="1.2em" className="min">{ ciudad.temperatures.min }º</Grados>
+            <NavLink to={`/provincia/${ prov.CODPROV }`}>
+                <Card justify="flex-start">
+                    <Fila>
+                        <Nombre className="provincia">{ prov.NOMBRE_PROVINCIA}</Nombre>
+                    </Fila>
+                    <ContainerCiudades>
+                        {
+                            ( dataProvincia !== null )
+                            ?   dataProvincia.ciudades.map( (ciudad , i) => 
+                                    <Fila key={ i }>
+                                        <NavLink to={`/municipio/${ciudad.idProvince}/${ciudad.id}`}>
+                                            <NombreCiudad>{ciudad.name}</NombreCiudad>
+                                        </NavLink>
+                                        <Fila justify="flex-end">
+                                            <Grados size="1.2em" className="max">{ ciudad.temperatures.max }º</Grados>
+                                            <Grados size="1.2em" className="min">{ ciudad.temperatures.min }º</Grados>
+                                        </Fila>
                                     </Fila>
-                                </Fila>
-                            )
-                        :   <></>
-                    }
-                </ContainerCiudades>
-            </Card>
+                                )
+                            :   <></>
+                        }
+                    </ContainerCiudades>
+                </Card>
+            </NavLink>
         </>
     )
 }

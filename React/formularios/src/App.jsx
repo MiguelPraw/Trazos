@@ -16,7 +16,7 @@ const App = () => {
 
   let { nombre , apellido , edad , email , consulta , ciudad , genero , acepto } = formulario;
 
-  const formChange = ( { target }) => {
+  const formChange = ({ target }) => {
     let { value , type , name , checked } = target;
     /* let valor = type === 'checkbox' ? checked : value */
     setFormulario({

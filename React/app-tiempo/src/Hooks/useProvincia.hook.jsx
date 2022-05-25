@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const useProvincia = ( idProvincia ) => {
 
     const [ datos , setDatos ] = useState({
-        data    : null,
+        dataProvincia    : null,
         loading : true,
         error   : null
     });
@@ -12,13 +12,13 @@ export const useProvincia = ( idProvincia ) => {
 
         fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${ idProvincia }`)
         .then( res => res.json())
-        .then( data => {
+        .then( dataProvincia => {
             setDatos({
-                data ,
+                dataProvincia ,
                 loading : false,
                 error   : null
             });
-        }).catch( setDatos({ data    : null, loading : false, error   : true }))
+        }).catch( setDatos({ dataProvincia    : null, loading : false, error   : true }))
     
     }, []);
 
