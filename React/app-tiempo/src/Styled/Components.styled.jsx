@@ -122,6 +122,10 @@ export const Fila = styled.div`
 
     background: ${ ({ bg }) => bg || "transparent" };
 
+    &.ciudad:hover {
+        background: red;
+    }
+
     svg {
         fill: white;
         width: 2em;
@@ -180,6 +184,8 @@ export const BotonFlecha = styled.button`
 
     svg{
         fill: white;
+        width: 2em;
+        height: 2em;
     }
 `
 
@@ -241,7 +247,14 @@ export const Municipios = styled.ul`
     align-items: flex-start; */
     
     display: grid;
-    grid-template-columns: repeat( 2 , 1fr);
+    grid-template-columns: repeat( 3 , 1fr);
+
+    @media screen and ( max-width: 720px) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
 
     gap: 1em;
     margin: 2em 0;

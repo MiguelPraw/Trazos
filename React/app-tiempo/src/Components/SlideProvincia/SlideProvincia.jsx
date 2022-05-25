@@ -20,19 +20,17 @@ const SlideProvincia = ({ prov }) => {
                     </Fila>
                     <ContainerCiudades>
                         {
-                            ( dataProvincia !== null )
-                            ?   dataProvincia.ciudades.map( (ciudad , i) => 
-                                    <Fila key={ i }>
-                                        <NavLink to={`/municipio/${ciudad.idProvince}/${ciudad.id}`}>
-                                            <NombreCiudad>{ciudad.name}</NombreCiudad>
-                                        </NavLink>
-                                        <Fila justify="flex-end">
-                                            <Grados size="1.2em" className="max">{ ciudad.temperatures.max }º</Grados>
-                                            <Grados size="1.2em" className="min">{ ciudad.temperatures.min }º</Grados>
-                                        </Fila>
+                            dataProvincia !== null && dataProvincia.ciudades.map( (ciudad , i) => 
+                                <Fila className="ciudad" key={ i }>
+                                    <NavLink to={`/municipio/${ciudad.idProvince}/${ciudad.id}`}>
+                                        <NombreCiudad>{ciudad.name}</NombreCiudad>
+                                    </NavLink>
+                                    <Fila justify="flex-end">
+                                        <Grados size="1.2em" className="max">{ ciudad.temperatures.max }º</Grados>
+                                        <Grados size="1.2em" className="min">{ ciudad.temperatures.min }º</Grados>
                                     </Fila>
-                                )
-                            :   <></>
+                                </Fila>
+                            )
                         }
                     </ContainerCiudades>
                 </Card>

@@ -42,15 +42,13 @@ const SliderProvincias = ({ provincias }) => {
         <>
             <ContainerSlider>
                 <Wrapper>
-                    <Slider style={
-                        { "transform" : translateX() }
-                    }>
+                    <Slider style={{ "transform" : translateX() }}>
                         {
                             prov.map( provincia => <SlideProvincia key={ provincia.CODPROV } prov={ provincia } />)
                         }
                     </Slider>
                 </Wrapper>
-                <BotonFlecha className={ posicion === 0 && 'disabled' } onClick={ disminuir } left="0">
+                <BotonFlecha className={ posicion === 0 && 'disabled' } onClick={ disminuir } left="0" right="null">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                     </svg>
