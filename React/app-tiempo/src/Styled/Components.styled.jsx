@@ -104,6 +104,15 @@ export const Nombre = styled.h2`
     &.provincia {
         text-decoration: underline;
     }
+
+    &.pronostico::after {
+        content: '';
+        width: 100%;
+        display: block;
+        height: 2px;
+        margin: 2px 0 0 0;
+        background: white;
+    }
 `
 
 export const NombreCiudad = styled.h3`
@@ -119,8 +128,11 @@ export const Fila = styled.div`
     align-items: ${ ({ align }) => align || 'center' };
     gap: ${ ({ gap }) => gap || "1em" };
     padding: ${ ({ padding }) => padding || "0" };
+    margin: ${ ({ margin }) => margin || "0" };
 
     background: ${ ({ bg }) => bg || "transparent" };
+    position: relative;
+    overflow-x: ${ ({ scroll }) => scroll || "auto" };
 
     &.ciudad:hover {
         background: red;
@@ -220,7 +232,7 @@ export const ContainerCiudad = styled.section`
     flex-flow: column;
     justify-content: space-around;
     align-items: flex-start;
-    height: 90vh;
+    min-height: 90vh;
     position: relative;
 `
 
@@ -341,6 +353,26 @@ export const Wrapper = styled.div`
     margin: auto;
 
     overflow: ${ ({ overflow }) => overflow || 'hidden' };
+`
+
+export const ContainerPronostico = styled.div`
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+
+`
+
+export const CardPronostico = styled.div`
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+
+    padding: 1em 2em;
 `
 
 export const ContainerCarga = styled.div`

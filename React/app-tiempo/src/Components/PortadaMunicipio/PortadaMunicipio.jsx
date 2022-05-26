@@ -1,35 +1,17 @@
+import { useContext } from "react";
+import { GlobalContext } from "../../Context/Context";
 import { MainCiudad , Wrapper , ContainerCiudad , Nombre, Fila , Grados , TextoH3 , ContainerCarga } from "../../Styled/Components.styled";
 import { useFetchCiudad } from "./../../Hooks/useFetch.hook";
+import SliderPronostico from "../SliderPronostico/SliderPronostico";
 
 const PortadaMunicipio = ({ idProvincia , idMunicipio }) => {
     
     const { data } = useFetchCiudad( idProvincia , idMunicipio );
-    if( data !== null) {
-        console.log( data );
-    }
+    // if( data !== null) {
+    //     console.log( data );
+    // }
 
-    const listaFondos = [
-        {
-            nombre  : "despejado",
-            url     : "https://images.freeimages.com/images/large-previews/e62/clear-sky-1363026.jpg"
-        },
-        {
-            nombre  : "lluvia",
-            url     : "https://www.efeverde.com/storage/2018/11/espa%C3%B1a-lluvia.jpg"
-        },
-        {
-            nombre  : "cubierto",
-            url     : "https://www.elciudadanoweb.com/wp-content/uploads/2018/12/cielo.jpg"
-        },
-        {
-            nombre  : "nuboso",
-            url     : "https://lavozdetomelloso.com/api/mediafiles/0031653a-9e4b-42f4-b5c6-c08697ddab06"
-        },
-        {
-            nombre  : "nuboso con lluvia escasa",
-            url     : "https://fondosmil.com/fondo/65807.jpg"
-        }
-    ]
+    const listaFondos = useContext( GlobalContext );
 
     const getFondo = ( numero ) => {
         if( numero >= 10 && numero <= 12 ) {
@@ -70,6 +52,12 @@ const PortadaMunicipio = ({ idProvincia , idMunicipio }) => {
                             </Fila>
                         </Fila>
                     </ContainerCiudad>
+                    <Fila bg="#00000052" flow="column"  padding="2em" margin="0 0 4em 0">
+                        <Nombre width="100%" align="left" className="pronostico" size="1.5em">Pronóstico</Nombre>
+                        <Fila justify="flex-start">
+                            { data !== null && <SliderPronostico pronostico={ data.pronostico } />}
+                        </Fila>
+                    </Fila>
                 </Wrapper>
             </MainCiudad>
         </>
