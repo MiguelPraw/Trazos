@@ -34,7 +34,7 @@ const PortadaProvincias = () => {
 
     return (
         <>
-            <Main>
+            <Main url="https://static.vecteezy.com/system/resources/previews/002/224/120/non_2x/bright-sunny-day-with-blue-sky-with-white-clouds-free-photo.jpg">
                 <Wrapper>
                     <ContainerProvincias>
                         <Nombre size="3em">Provincias de España</Nombre>

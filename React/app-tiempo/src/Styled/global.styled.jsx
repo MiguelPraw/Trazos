@@ -89,6 +89,17 @@ const GlobalStyle = createGlobalStyle`
     background: ${ ({ theme }) => theme.colores.blanco || 'white' };
     color:      ${ ({ theme }) => theme.colores.negro };
 
+    &::-webkit-scrollbar {
+      background: black;
+      height: .7em;
+      width: .5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: white;
+      border-radius: 0.5rem;
+    }
+
     @media screen and (prefers-color-scheme:dark) {
       background: ${ ({ theme }) => theme.colores.negro };
       color:      ${ ({ theme }) => theme.colores.blanco };

@@ -22,7 +22,7 @@ const PortadaProvincia = ({ idProv }) => {
     return (
         <>
             <ContainerCarga className={ ( dataProvincia === null && dataMunicipios === null ) ? 'activo' : '' }/>
-            <Main>
+            <Main url="https://static.vecteezy.com/system/resources/previews/002/224/120/non_2x/bright-sunny-day-with-blue-sky-with-white-clouds-free-photo.jpg">
                 <Wrapper>
                     <ContainerProvincia>
                         <Nombre size="2em">{ dataProvincia !== null && dataProvincia.provincia.NOMBRE_PROVINCIA }</Nombre>

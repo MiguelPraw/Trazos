@@ -7,6 +7,8 @@ export const Header = styled.header`
     justify-content: center;
     align-items: center;
     background: #000000Ff;
+    position: relative;
+    z-index: 5;
 `
 
 export const Navegador = styled.nav`
@@ -36,6 +38,19 @@ export const Elemento = styled.li`
 export const Main = styled.main`
     background: #000000cf;
     min-height: 90vh;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(${ ({ url }) => url || "initial" });
+        background-size: cover;
+        filter: brightness(0.5);
+    }
 `
 
 export const MainCiudad = styled.main`
@@ -72,6 +87,7 @@ export const Enlace = styled.a`
 `
 
 export const Card = styled.article`
+    position: relative;
     background: black;
     padding: 1.5em;
     border-radius: 0.5rem;
@@ -133,9 +149,16 @@ export const Fila = styled.div`
     background: ${ ({ bg }) => bg || "transparent" };
     position: relative;
     overflow-x: ${ ({ scroll }) => scroll || "auto" };
+    
+    &::-webkit-scrollbar {
+        background: black;
+        border-radius: 0.5rem;
+        height: .7em;
+    }
 
-    &.ciudad:hover {
-        background: red;
+    &::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 0.5rem;
     }
 
     svg {
@@ -143,6 +166,28 @@ export const Fila = styled.div`
         width: 2em;
         height: 2em;
     }
+`
+
+export const Span = styled.span`
+
+    svg {
+        fill: white;
+        width: 2em;
+        height: 2em;
+
+        &.sol {
+            fill: #ffd700;
+        }
+
+        &.noche {
+            fill: lightgrey;
+        }
+
+        &.lluvia {
+            fill: lightblue;
+        }
+    }
+
 `
 
 export const Grados = styled.span`
@@ -213,10 +258,12 @@ export const ContainerCiudades = styled.div`
 
 export const ContainerProvincias = styled.section`
     margin: 4em 0 0 0;
+    position: relative;
 `
 
 export const ContainerProvincia = styled.section`
     margin: 4em 0 0 0;
+    position: relative;
 `
 
 export const Container = styled.section`
@@ -225,6 +272,7 @@ export const Container = styled.section`
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 `
 
 export const ContainerCiudad = styled.section`
@@ -370,9 +418,10 @@ export const CardPronostico = styled.div`
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    gap: 0.3em;
+    gap: 0.5em;
+    min-width: 200px;
 
-    padding: 1em 2em;
+    padding: 2em;
 `
 
 export const ContainerCarga = styled.div`
