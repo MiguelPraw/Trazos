@@ -1,4 +1,4 @@
-import { Header , Wrapper , Navegador , Titulo , Menu , Elemento , Enlace } from "../../Styled/Components.styled";
+import { Header , Wrapper , Navegador , Titulo , Menu , Elemento  } from "../../Styled/Components.styled";
 import { NavLink } from "react-router-dom";
 
 const Cabecera = () => {
