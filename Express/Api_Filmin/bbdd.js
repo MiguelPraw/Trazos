@@ -35,7 +35,69 @@ const peliculas = [
                 recaudacion     : "2.541.775,00 €",
                 espectadores    : 690031
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39491/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39491/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39491/1/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/39491/1/still_4_3_560x315.png",
+            "https://static.filmin.es/images/media/39491/1/still_5_3_560x315.png"
+        ]
     },
     {
         url           : "la-milla-verde",
@@ -72,7 +134,69 @@ const peliculas = [
                 recaudacion     : "2.691.772,00 €",
                 espectadores    : 694511
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39680/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39680/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39680/1/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/39680/1/still_4_3_560x315.png",
+            "https://static.filmin.es/images/media/39680/1/still_5_3_560x315.png"
+        ]
     },
     {
         url           : "el-hombre-que-nunca-estuvo-alli",
@@ -109,7 +233,68 @@ const peliculas = [
                 recaudacion     : "1.797.161,00 €",
                 espectadores    : 384248
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39947/1/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/39947/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39947/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39947/1/still_3_3_560x315.png"
+        ]
     },
     {
         url           : "sneakers",
@@ -146,7 +331,68 @@ const peliculas = [
                 recaudacion     : "1.704.909,00 €",
                 espectadores    : 611460
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39820/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39820/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39820/1/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/39820/1/still_4_3_560x315.png"
+        ]
     },
     {
         url           : "pierrot-el-loco",
@@ -183,7 +429,68 @@ const peliculas = [
                 recaudacion     : "50.503,00 €",
                 espectadores    : 45283
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/36814/12/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/36814/12/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/36814/12/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/36814/12/still_3_3_560x315.png"
+        ]
     },
     {
         url           : "el-discreto-encanto-de-la-burguesia",
@@ -221,7 +528,68 @@ const peliculas = [
                 recaudacion     : "327.509,00 €",
                 espectadores    : 536246
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/26781/2/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/26781/2/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/26781/2/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/26781/2/still_3_3_560x315.png"
+        ]
     },
     {
         url           : "la-gran-belleza",
@@ -258,7 +626,69 @@ const peliculas = [
                 recaudacion     : "781.666,00 €",
                 espectadores    : 117442
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/9959/1/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/9959/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/9959/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/9959/1/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/9959/1/still_4_3_560x315.png"
+        ]
     },
     {
         url           : "tiburon",
@@ -296,7 +726,68 @@ const peliculas = [
                 recaudacion     : "2.765.261,00 €",
                 espectadores    : 5919196
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/32763/4/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/32763/4/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/32763/4/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/32763/4/still_4_3_560x315.png"
+        ]
     },
     {
         url           : "la-lista-de-schindler",
@@ -334,7 +825,68 @@ const peliculas = [
                 recaudacion     : "7.025.032,00 €",
                 espectadores    : 2332455
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39953/1/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/39953/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39953/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39953/1/still_3_3_560x315.png"
+        ]
     },
     {
         url           : "notting-hill",
@@ -372,7 +924,69 @@ const peliculas = [
                 recaudacion     : "12.462.305,00 €",
                 espectadores    : 3372989
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39949/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39949/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39949/1/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/39949/1/still_4_3_560x315.png",
+            "https://static.filmin.es/images/media/39949/1/still_5_3_560x315.png"
+        ]
     },
     {
         url           : "el-presidente-y-miss-wade",
@@ -410,7 +1024,68 @@ const peliculas = [
                 recaudacion     : "2.229.241,00 €",
                 espectadores    : 693585
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39377/4/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39377/2/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39377/2/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/39377/2/still_4_3_560x315.png"
+        ]
     },
     {
         url           : "regreso-al-futuro",
@@ -448,7 +1123,67 @@ const peliculas = [
                 recaudacion     : "5.914.644,00 €",
                 espectadores    : 3245885
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39404/9/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/39404/9/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39404/9/still_2_3_560x315.png",
+        ]
     },
     {
         url           : "psicosis",
@@ -486,7 +1221,68 @@ const peliculas = [
                 recaudacion     : "No hay datos",
                 espectadores    : 0
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/27465/2/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/27465/2/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/27465/2/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/27465/2/still_3_3_560x315.png"
+        ]
     },
     {
         url           : "el-pianista",
@@ -523,7 +1319,67 @@ const peliculas = [
                 recaudacion     : "7.828.295,00 €",
                 espectadores    : 1667019
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/17452/1/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/17452/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/17452/1/still_2_3_560x315.png",
+        ]
     },
     {
         url           : "waterworld",
@@ -561,7 +1417,68 @@ const peliculas = [
                 recaudacion     : "5.562.485,00 €",
                 espectadores    : 1756833
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/39946/1/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/39946/1/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/39946/1/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/39946/1/still_4_3_560x315.png"
+        ]
     },
     {
         url           : "apocalypse-now",
@@ -600,7 +1517,70 @@ const peliculas = [
                 recaudacion     : "2.325.641,00 €",
                 espectadores    : 2330684
             }
-        }
+        },
+        valoraciones : {
+            prensa : [
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“La versión definitiva de Apocalypse Now enriquece y lleva a los límites de lo insuperable a una de las obras medulares del cine moderno.”`,
+                    autor       : `Ángel Fernández Santos`,
+                    medio       : `El Pais`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Un espectáculo grandioso, desbordante y destructivo que muestra el horror de la epopeya bélica. ”`,
+                    autor       : `Francisco Marinero`,
+                    medio       : `El Mundo`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Una de las grandes películas de todos los tiempos (...) verla es como sentirse elevado a esas alturas donde el cine te puede llevar, aunque rara vez lo haga.”`,
+                    autor       : `Roger Ebert`,
+                    medio       : `Chicago Sun Times`
+                },
+                {
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : `“Es mística, atrevida, poética, emocionante, abominable y nunca menos que totalmente hipnótica.”`,
+                    autor       : `Marc Lee`,
+                    medio       : `The Telegraph`
+                },
+            ],
+            usuarios : [
+                {
+                    usuario     : "NestorCalvo",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "Magnifica",
+                    fecha       : "19 Mayo 2022"
+                },
+                {
+                    usuario     : "Jotaccem",
+                    nota        : 7,
+                    estrellas   : 3,
+                    texto       : "Una pelicula apabullante, vemos el horror del ser humano, es alucinogena, con unas buenisimas actuaciones y una historia brutal. Puede ser muy larga pero es un viaje al que tienes que ir",
+                    fecha       : "15 Mayo 2022"
+                },
+                {
+                    usuario     : "Moralista",
+                    nota        : 10,
+                    estrellas   : 5,
+                    texto       : "qué buena...",
+                    fecha       : "11 Marzo 2022"
+                },
+            ]
+        },
+        extras : [
+            "https://static.filmin.es/images/media/33165/5/still_0_3_560x315.png",
+            "https://static.filmin.es/images/media/33165/4/still_1_3_560x315.png",
+            "https://static.filmin.es/images/media/33165/4/still_2_3_560x315.png",
+            "https://static.filmin.es/images/media/33165/4/still_3_3_560x315.png",
+            "https://static.filmin.es/images/media/33165/4/still_4_3_560x315.png",
+            "https://static.filmin.es/images/media/33165/4/still_5_3_560x315.png",
+        ]
     }
 ];
 

@@ -38,13 +38,15 @@
         <article 
             [ngClass]=" { 'activo' : numero === 2 } "
             class="tabs__valoraciones">
-            <app-pelicula-valoraciones></app-pelicula-valoraciones>
+            <app-pelicula-valoraciones
+                [valoraciones]="pelicula.valoraciones"></app-pelicula-valoraciones>
         </article>
 
         <article
             [ngClass]=" { 'activo' : numero === 3 } " 
             class="tabs__extras">
-            <app-pelicula-extras></app-pelicula-extras>
+            <app-pelicula-extras
+                [extras]="pelicula.extras"></app-pelicula-extras>
         </article>
     </div>
 </section>

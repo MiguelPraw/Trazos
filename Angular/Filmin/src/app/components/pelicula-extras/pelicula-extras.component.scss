@@ -1,0 +1,13 @@
+
+.extras {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+
+    &__img {
+        max-width: 300px;
+        border-radius: .5rem;
+    }
+}

@@ -10,7 +10,8 @@ export class DatosService {
 
   // <video preload="none" playsinline="" src="https://trailer.filmin.com/es/extras/mp4/drive-my-car-trailer-vose-estreno-en-cines.mp4"></video>
     
-    base_url = 'http://localhost:5000';
+    base_url = 'https://api-filmin-npbjktwgu-miguelpraw.vercel.app/';
+    /* base_url = "http://localhost:5000"; */
 
     constructor(
         private http : HttpClient
@@ -21,18 +22,18 @@ export class DatosService {
     }
 
     getPeliculas() : Observable<IResponsePeliculas> {
-        return this.http.get<IResponsePeliculas>(`${this.base_url}/peliculas`);
+        return this.http.get<IResponsePeliculas>(`${this.base_url}peliculas`);
     }
 
     getPeliculaByUrl( url : string ) : Observable<IResponsePeliculas> {
-        return this.http.get<IResponsePeliculas>(`${this.base_url}/pelicula/${ url }`);
+        return this.http.get<IResponsePeliculas>(`${this.base_url}pelicula/${ url }`);
     }
 
     getPeliculasByDirector( director : string ) : Observable<IResponsePeliculas> {
-        return this.http.get<IResponsePeliculas>(`${this.base_url}/peliculas/director/${ director }`)
+        return this.http.get<IResponsePeliculas>(`${this.base_url}peliculas/director/${ director }`)
     }
 
     getSeries() : Observable<IResponsePeliculas> {
-        return this.http.get<IResponsePeliculas>(`${this.base_url}/series`);
+        return this.http.get<IResponsePeliculas>(`${this.base_url}series`);
     }
 }
